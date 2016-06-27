@@ -8,6 +8,14 @@
 
 #import "AppDelegate.h"
 
+#import "ViewController.h"
+#import "PDDHotViewController.h"
+#import "PDDRankViewController.h"
+#import "PDDSearchViewController.h"
+#import "PDDMeViewController.h"
+
+
+
 @interface AppDelegate ()
 
 @end
@@ -17,7 +25,67 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    
+#pragma mark 属性文字
+    [self setUpTabBarItemTextAttributes];
+    
+#pragma mark tabbarController
+    UITabBarController*rootBarController=[[UITabBarController alloc]init];
+    
+    ViewController*HomeVC=[[ViewController alloc]init];
+    HomeVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"首页" image:[UIImage imageNamed:@"home"] selectedImage:[[UIImage imageNamed:@"home-hl"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
+    
+    PDDHotViewController*HotVC=[[PDDHotViewController alloc]init];
+    HotVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"热榜" image:[UIImage imageNamed:@"rank"] selectedImage:[[UIImage imageNamed:@"rank-hl"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
+    
+    PDDRankViewController*RankVC=[[PDDRankViewController alloc]init];
+    RankVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"海陶" image:[UIImage imageNamed:@"oversea"] selectedImage:[[UIImage imageNamed:@"oversea-hl"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
+    
+    PDDSearchViewController*SearchVC=[[PDDSearchViewController alloc]init];
+    SearchVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"搜索" image:[UIImage imageNamed:@"search"] selectedImage:[[UIImage imageNamed:@"search-hl"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
+    
+    PDDMeViewController*MeVC=[[PDDMeViewController alloc]init];
+    MeVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"个人中心" image:[UIImage imageNamed:@"me"] selectedImage:[[UIImage imageNamed:@"me-hl"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
+    
+#pragma mark 轻轻的加个灰色，刚刚好可以淡淡的显示出来，很好的区别出来窗口的白色和标签控制器的颜色
+    rootBarController.tabBar.backgroundColor=[UIColor grayColor];
+    
+    
+    rootBarController.viewControllers=@[HomeVC,HotVC,RankVC,SearchVC,MeVC];
+   
+    self.window.rootViewController=rootBarController;
+    
+    
+    
     return YES;
+}
+//设置文字颜色
+-(void)setUpTabBarItemTextAttributes
+{
+    NSMutableDictionary *normalAttrs = [NSMutableDictionary dictionary];
+    normalAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
+    
+    NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
+    
+    
+#pragma mark 设置红色
+    selectedAttrs[NSForegroundColorAttributeName] = [UIColor redColor];
+    
+    //设置文字属性
+    UITabBarItem *tabBar =[UITabBarItem appearance];
+    [tabBar setTitleTextAttributes:normalAttrs forState:UIControlStateNormal];
+    [tabBar setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

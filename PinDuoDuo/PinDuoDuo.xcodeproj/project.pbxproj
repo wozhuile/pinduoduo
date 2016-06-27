@@ -17,6 +17,10 @@
 		04DED75D1D2163ED002BC698 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DED75C1D2163ED002BC698 /* Default-568h@2x.png */; };
 		04DED75F1D216691002BC698 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04DED75E1D216691002BC698 /* Images.xcassets */; };
 		04DED7611D2166CA002BC698 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04DED7601D2166CA002BC698 /* Images-2.xcassets */; };
+		04DED7661D216C28002BC698 /* PDDHotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DED7651D216C28002BC698 /* PDDHotViewController.m */; };
+		04DED76D1D216CD1002BC698 /* PDDRankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DED76C1D216CD1002BC698 /* PDDRankViewController.m */; };
+		04DED7711D216D1D002BC698 /* PDDSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DED7701D216D1D002BC698 /* PDDSearchViewController.m */; };
+		04DED7751D216D54002BC698 /* PDDMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DED7741D216D54002BC698 /* PDDMeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,14 @@
 		04DED75C1D2163ED002BC698 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		04DED75E1D216691002BC698 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		04DED7601D2166CA002BC698 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
+		04DED7641D216C28002BC698 /* PDDHotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDDHotViewController.h; sourceTree = "<group>"; };
+		04DED7651D216C28002BC698 /* PDDHotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDDHotViewController.m; sourceTree = "<group>"; };
+		04DED76B1D216CD1002BC698 /* PDDRankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDDRankViewController.h; sourceTree = "<group>"; };
+		04DED76C1D216CD1002BC698 /* PDDRankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDDRankViewController.m; sourceTree = "<group>"; };
+		04DED76F1D216D1D002BC698 /* PDDSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDDSearchViewController.h; sourceTree = "<group>"; };
+		04DED7701D216D1D002BC698 /* PDDSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDDSearchViewController.m; sourceTree = "<group>"; };
+		04DED7731D216D54002BC698 /* PDDMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDDMeViewController.h; sourceTree = "<group>"; };
+		04DED7741D216D54002BC698 /* PDDMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDDMeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,10 +79,12 @@
 		04DED7411D215C91002BC698 /* PinDuoDuo */ = {
 			isa = PBXGroup;
 			children = (
-				04DED7451D215C91002BC698 /* AppDelegate.h */,
-				04DED7461D215C91002BC698 /* AppDelegate.m */,
-				04DED7481D215C91002BC698 /* ViewController.h */,
-				04DED7491D215C91002BC698 /* ViewController.m */,
+				04DED7791D216D8F002BC698 /* 入口 */,
+				04DED7721D216D28002BC698 /* 个人 */,
+				04DED76E1D216CD9002BC698 /* 搜索 */,
+				04DED7671D216C38002BC698 /* 海陶 */,
+				04DED7631D216BC3002BC698 /* 热榜 */,
+				04DED7621D216BB5002BC698 /* 首页 */,
 				04DED74B1D215C91002BC698 /* Main.storyboard */,
 				04DED7511D215C91002BC698 /* Assets.xcassets */,
 				04DED7531D215C91002BC698 /* LaunchScreen.storyboard */,
@@ -89,6 +103,60 @@
 				04DED7431D215C91002BC698 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		04DED7621D216BB5002BC698 /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				04DED7481D215C91002BC698 /* ViewController.h */,
+				04DED7491D215C91002BC698 /* ViewController.m */,
+			);
+			name = "首页";
+			sourceTree = "<group>";
+		};
+		04DED7631D216BC3002BC698 /* 热榜 */ = {
+			isa = PBXGroup;
+			children = (
+				04DED7641D216C28002BC698 /* PDDHotViewController.h */,
+				04DED7651D216C28002BC698 /* PDDHotViewController.m */,
+			);
+			name = "热榜";
+			sourceTree = "<group>";
+		};
+		04DED7671D216C38002BC698 /* 海陶 */ = {
+			isa = PBXGroup;
+			children = (
+				04DED76B1D216CD1002BC698 /* PDDRankViewController.h */,
+				04DED76C1D216CD1002BC698 /* PDDRankViewController.m */,
+			);
+			name = "海陶";
+			sourceTree = "<group>";
+		};
+		04DED76E1D216CD9002BC698 /* 搜索 */ = {
+			isa = PBXGroup;
+			children = (
+				04DED76F1D216D1D002BC698 /* PDDSearchViewController.h */,
+				04DED7701D216D1D002BC698 /* PDDSearchViewController.m */,
+			);
+			name = "搜索";
+			sourceTree = "<group>";
+		};
+		04DED7721D216D28002BC698 /* 个人 */ = {
+			isa = PBXGroup;
+			children = (
+				04DED7731D216D54002BC698 /* PDDMeViewController.h */,
+				04DED7741D216D54002BC698 /* PDDMeViewController.m */,
+			);
+			name = "个人";
+			sourceTree = "<group>";
+		};
+		04DED7791D216D8F002BC698 /* 入口 */ = {
+			isa = PBXGroup;
+			children = (
+				04DED7451D215C91002BC698 /* AppDelegate.h */,
+				04DED7461D215C91002BC698 /* AppDelegate.m */,
+			);
+			name = "入口";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,10 +232,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DED7711D216D1D002BC698 /* PDDSearchViewController.m in Sources */,
+				04DED7751D216D54002BC698 /* PDDMeViewController.m in Sources */,
 				04DED74A1D215C91002BC698 /* ViewController.m in Sources */,
+				04DED7661D216C28002BC698 /* PDDHotViewController.m in Sources */,
 				04DED7501D215C91002BC698 /* PinDuoDuo.xcdatamodeld in Sources */,
 				04DED7471D215C91002BC698 /* AppDelegate.m in Sources */,
 				04DED7441D215C91002BC698 /* main.m in Sources */,
+				04DED76D1D216CD1002BC698 /* PDDRankViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +390,7 @@
 				04DED75B1D215C91002BC698 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
