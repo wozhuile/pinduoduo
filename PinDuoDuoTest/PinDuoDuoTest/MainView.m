@@ -30,6 +30,7 @@
      
 #pragma mark在这里调用和赋值就出来了
         [self CreateButtomScrollViewWithWidth:self.frame.size.width withHeight:self.frame.size.height];
+        [self CreateTopScrollView];
         
     }
     return self;
@@ -40,17 +41,39 @@
   
     _buttomScrollView=[[UIScrollView alloc]initWithFrame:self.frame];
     _buttomScrollView.backgroundColor=[UIColor redColor];
-    _buttomScrollView.contentSize=CGSizeMake(width, height*10);
+    _buttomScrollView.contentSize=CGSizeMake(width, height*15);
     
     
     _buttomScrollView.contentOffset=CGPointMake(0,0);
-    _buttomScrollView.bounces=YES;
+    _buttomScrollView.bounces=NO;
     _buttomScrollView.showsHorizontalScrollIndicator=NO;
     [self addSubview:_buttomScrollView];
     
     
     
     //return _buttomScrollView;
+}
+
+#pragma mark 创建顶部滚动视图，外加页面控制器
+-(void)CreateTopScrollView
+{
+    _topScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, 200)];
+    _topScrollView.backgroundColor=[UIColor greenColor];
+    _topScrollView.contentSize=CGSizeMake(self.frame.size.width*5, 200);
+    _topScrollView.bounces=NO;
+    _topScrollView.showsVerticalScrollIndicator=NO;
+    _topScrollView.pagingEnabled=YES;
+    [_buttomScrollView addSubview:_topScrollView];
+    
+    
+    
+    for (int i=0; i<4; i++) {
+        
+    }
+    
+    
+    
+    
 }
 
 
