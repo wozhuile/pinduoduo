@@ -31,11 +31,18 @@
 #pragma mark在这里调用和赋值就出来了
         [self CreateButtomScrollViewWithWidth:self.frame.size.width withHeight:self.frame.size.height];
         //[self CreateTopScrollView];
+        // [self topScrollViewImage];
+        
+        //[self  CreateMiddleScrollView];//放这里，，数组文字都没有初始化呢
+
         
         _speed=1;
         
         [self CreateMiddleArray];
         
+         [self  CreateMiddleScrollView];
+        
+        [self CreateMiddleTextField];
         
         
     }
@@ -60,7 +67,7 @@
 
     
     _buttomScrollView=[[UIScrollView alloc]initWithFrame:self.frame];
-    _buttomScrollView.backgroundColor=[UIColor blueColor];
+    //_buttomScrollView.backgroundColor=[UIColor blueColor];
     _buttomScrollView.contentSize=CGSizeMake(width, height*15);
     
     
@@ -78,7 +85,7 @@
 -(void)CreateTopScrollViewWithUrl:(NSMutableArray*)urlArray
 {
     _topScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, 200)];
-    _topScrollView.backgroundColor=[UIColor greenColor];
+    //_topScrollView.backgroundColor=[UIColor greenColor];
     _topScrollView.contentSize=CGSizeMake(self.frame.size.width*5, 200);
     _topScrollView.bounces=NO;
     _topScrollView.showsVerticalScrollIndicator=NO;
@@ -95,7 +102,7 @@
         imageView.backgroundColor=[UIColor orangeColor];
         
 #pragma mark 第一次图片没出来，是https哪里没有设置   还有占位图片是随便先放上来的
-        NSLog(@"url+===%@",urlArray);
+        //NSLog(@"url+===%@",urlArray);
         
 #pragma mark 把之前传单个URL改成传进来数组URL。在这里在进行遍历，然后就不会导致重复创建和遍历。
        NSURL*url= [urlArray objectAtIndex:i];
@@ -198,9 +205,12 @@
 
 -(void)CreateMiddleScrollView
 {
+    NSInteger tap=22;//22还可以，。，26和30都不太好
+    NSInteger btnWidth=(self.frame.size.width*2-11*9)/10+8;//加大一些，不会感觉空空的
+    
     _MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 200, self.frame.size.width, 100)];
-    _MiddleScrollView.backgroundColor=[UIColor greenColor];
-    _MiddleScrollView.contentSize=CGSizeMake(self.frame.size.width*2, 100);
+   // _MiddleScrollView.backgroundColor=[UIColor greenColor];
+    _MiddleScrollView.contentSize=CGSizeMake(self.frame.size.width*2+btnWidth*2+50, 100);
     _MiddleScrollView.bounces=NO;
     _MiddleScrollView.showsVerticalScrollIndicator=NO;
 
@@ -214,8 +224,8 @@
     
 #pragma mark  考虑！效果里边虽然可以底部创建了滚动，然后再滚动上创建按钮点击也是可以了，但是每个图片按钮点击，都不仅仅这样，有些上边有new或者hot上边，有些么有，我们如果就做个死效果可以判断着做！，但是如果下次不同了呢？服务器给不同上边了呢？那我们在回来改代码？最好不是这样，服务器应该给我们返回参数，那些是标记new或者hot的，那些没有，这样我们可以根据这些服务器给的参数来进行显示不显示，应该都创建了标记，就看显示不显示！  还有要注意封装的，比如上边的顶部滚动有5个图片，要是下次有6个呢？所以我们这个类药高度封装，那些赋值尽可能在最外边就可以了，，这里也是，，new的可能是🆕添加的，就可能下次还需要添加，那要按钮还是集合视图（不用表，表一般上下还好，。左右的就麻烦）
     
-    NSInteger tap=22;//22还可以，。，26和30都不太好
-    NSInteger btnWidth=(self.frame.size.width*2-11*9)/10+8;//加大一些，不会感觉空空的
+   // NSInteger tap=22;//22还可以，。，26和30都不太好
+   // NSInteger btnWidth=(self.frame.size.width*2-11*9)/10+8;//加大一些，不会感觉空空的
 #pragma mark 先做个效果先吧，后边有时间完善！
     for (int i=0 ; i<10; i++) {
         
@@ -236,7 +246,7 @@
         button.titleEdgeInsets=UIEdgeInsetsMake(80, 0, 10, 0);
         
 #pragma mark 设置下文字大小;
-        button.titleLabel.font=[UIFont systemFontOfSize:14];
+        button.titleLabel.font=[UIFont systemFontOfSize:12];//12左右就差不多
         //不设置字体颜色就是白色的
         [button setTitleColor:[UIColor blackColor] forState:0];
         
@@ -246,11 +256,87 @@
     
 }
 
+
+
+
+
+#pragma mark  按钮点击事件应该不应该传出去到控制器里边处理？？
 -(void)ShowBtn:(UIButton*)sender
 {
+    
     //NSLog(@"%@",sender);//输出按钮对象
     NSLog(@"sender===%ld",(long)sender.tag);//输出按钮对象对应的tag。
 }
+
+
+#pragma mark 中间专属码输入框！
+-(void)CreateMiddleTextField
+{
+    
+    _middleView=[[UIView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_MiddleScrollView.frame), self.frame.size.width, 60)];
+    //_middleView.backgroundColor=[UIColor redColor];
+    [_buttomScrollView addSubview:_middleView];
+    
+    
+    _fruitImage=[[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetMinX(_middleView.frame)+10, 5, 45, 45)];
+    _fruitImage.image=[UIImage imageNamed:@"Snip20160628_10"];
+    [_middleView addSubview:_fruitImage];
+    
+    _middleTF=[[UITextField alloc]initWithFrame:CGRectMake(CGRectGetMaxX(_fruitImage.frame), 25, CGRectGetMaxX(_middleView.frame)-140, 30)];
+    _middleTF.placeholder=@"请输入'参团专享码'";
+    //_middleTF.backgroundColor=[UIColor greenColor];
+    _middleTF.borderStyle=UITextBorderStyleLine;
+    
+#pragma mark 占位符颜色和大小:http://blog.csdn.net/ck89757/article/details/38730961
+    //[_middleTF  setValue:[UIColor blackColor] forKey:@"placeholderLabel.textColor"];
+    UIColor *color = [UIColor blackColor];
+    //UIFont*fondtt=[UIFont systemFontOfSize:12];
+      _middleTF.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"请输入'参团专享码'" attributes:@{NSForegroundColorAttributeName: color}]; //,@{NSFontAttributeName:fondtt}];
+    
+    _middleTF.layer.borderColor=[UIColor redColor].CGColor;
+    _middleTF.layer.borderWidth=1.0f;
+    [_middleView addSubview:_middleTF];
+    
+    _alertBtn=[[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(_fruitImage.frame), 5, CGRectGetMaxX(_middleView.frame)-100, 20)];
+    //_alertBtn.backgroundColor=[UIColor purpleColor];
+    [_alertBtn setImage:[UIImage imageNamed:@"question_mark"] forState:0];
+    [_alertBtn setTitle:@"0.1元一个猫山王榴莲APP专享团进行中" forState:0];
+    
+    _alertBtn.contentEdgeInsets=UIEdgeInsetsMake(0, 0, 0, 0);//慢慢调节下
+    _alertBtn.titleEdgeInsets=UIEdgeInsetsMake(0, -50, 0, 0);
+    _alertBtn.imageEdgeInsets=UIEdgeInsetsMake(0, -90, 0, 0);
+#pragma mark 设置下文字大小;
+    _alertBtn.titleLabel.font=[UIFont systemFontOfSize:12];//12左右就差不多
+    //不设置字体颜色就是白色的
+    [_alertBtn setTitleColor:[UIColor blackColor] forState:0];
+    
+    
+#pragma mark 点击弹出来对话框
+    [_alertBtn addTarget:self action:@selector(alertButton) forControlEvents:UIControlEventTouchUpInside];
+    [_middleView addSubview:_alertBtn];
+    
+    
+    
+#pragma mark 确认按钮
+    _comfirmBtn=[[UIButton alloc]initWithFrame:CGRectMake(CGRectGetMaxX(_middleTF.frame)+20, 25, 50, CGRectGetHeight(_middleTF.frame))];
+    [_comfirmBtn setTitle:@"确认" forState:0];
+    [_comfirmBtn setTitleColor:[UIColor whiteColor] forState:0];
+    [_comfirmBtn  addTarget:self action:@selector(comfirmButton) forControlEvents:UIControlEventTouchUpInside];
+    _comfirmBtn.backgroundColor=[UIColor redColor];
+    [_middleView addSubview:_comfirmBtn];
+}
+
+-(void)alertButton
+{
+    //暂时先这样，文字大小等需要自定义的
+    _alertView=[[UIAlertView alloc]initWithTitle:@"温馨提示" message:@"APP专享码需要好友分享才可以获得" delegate:self cancelButtonTitle:@"立即开团" otherButtonTitles: nil];
+    [_alertView show];
+}
+-(void)comfirmButton
+{
+    
+}
+
 
 
 

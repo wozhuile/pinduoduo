@@ -43,5 +43,13 @@
 #pragma mark 创建数组，初始化就加上中间按钮下边的文字
 @property(nonatomic,retain)NSMutableArray*middleTitleArray;
 
+#pragma mark 中间输入框！
+-(void)CreateMiddleTextField;
+@property(nonatomic,retain)UIView*middleView;
+@property(nonatomic,retain)UITextField*middleTF;
+@property(nonatomic,retain)UIButton*comfirmBtn;
+@property(nonatomic,retain)UIButton*alertBtn;
+@property(nonatomic,retain)UIAlertView*alertView;
+@property(nonatomic,retain)UIImageView*fruitImage;
 
 @end
