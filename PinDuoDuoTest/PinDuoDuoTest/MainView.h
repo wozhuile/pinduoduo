@@ -35,4 +35,9 @@
 -(void)CreatePageControl;
 
 
+#pragma mark 中间滚动加按钮图片
+@property(nonatomic,retain)UIScrollView*MiddleScrollView;
+
+-(void)CreateMiddleScrollView;
+
 @end

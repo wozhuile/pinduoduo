@@ -35,6 +35,7 @@
 #pragma mark 代理传值过来了。。。获取顶部图片URL。先声明代理
     netModel.delegate=self;
     
+    [_mainView  CreateMiddleScrollView];
     
     
     #pragma mark 暂时拿一张来试试
