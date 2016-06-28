@@ -23,6 +23,6 @@
 -(void)CreateButtomScrollViewWithWidth:(CGFloat)width withHeight:(CGFloat)height;
 
 
--(void)CreateTopScrollViewWithUrl:(NSURL*)url;
+-(void)CreateTopScrollViewWithUrl:(NSMutableArray*)urlArray;
 
 @end

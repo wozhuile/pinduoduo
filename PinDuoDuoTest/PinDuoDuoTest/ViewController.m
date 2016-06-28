@@ -48,13 +48,14 @@
 -(void)sucessToGetImageURL:(NetWorkRequestModel *)netWorkRequestModel url:(NSMutableArray *)urlArray
 {
     
-    for (int i=0; i<urlArray.count; i++) {
+    //for (int i=0; i<urlArray.count; i++) {
         
-        NSURL*url=[urlArray objectAtIndex:i];
-#pragma mark 这么取值喝传值本来没有错误的，，但是到里边滚动视图的时候，，又一次循环取值了。。导致这里传值一次赋值一次进去，里边就重新调用一次，也就创新创建移除滚动视图喝图片，导致每次赋值还是第一个图片的
-        [_mainView CreateTopScrollViewWithUrl:url];
+     //   NSURL*url=[urlArray objectAtIndex:i];
+#pragma mark 这么取值喝传值本来没有错误的，，但是到里边滚动视图的时候，，又一次循环取值了。。导致这里传值一次赋值一次进去，里边就重新调用一次，也就创新创建移除滚动视图喝图片，导致每次赋值还是第一个图片的   
+#pragma mark 要想办法救赋值一次，也就是里边方法久调用创建一次，，那就不应该在这里循环取值了。。应该到里边的for循环在取值赋值，这里就应该把数组先传进去，，要懂得灵活。。
+        [_mainView CreateTopScrollViewWithUrl:urlArray];
         
-    }
+    //}
     
 }
 

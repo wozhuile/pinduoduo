@@ -57,7 +57,7 @@
 }
 
 #pragma mark 创建顶部滚动视图，外加页面控制器
--(void)CreateTopScrollViewWithUrl:(NSURL*)url
+-(void)CreateTopScrollViewWithUrl:(NSMutableArray*)urlArray
 {
     _topScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, 200)];
     _topScrollView.backgroundColor=[UIColor greenColor];
@@ -77,7 +77,11 @@
         imageView.backgroundColor=[UIColor orangeColor];
         
 #pragma mark 第一次图片没出来，是https哪里没有设置   还有占位图片是随便先放上来的
-        NSLog(@"url+===%@",url);
+        NSLog(@"url+===%@",urlArray);
+        
+#pragma mark 把之前传单个URL改成传进来数组URL。在这里在进行遍历，然后就不会导致重复创建和遍历。
+       NSURL*url= [urlArray objectAtIndex:i];
+        
         [imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];//设置好info哪里的https安全需求后，成功获取图片
         [_topScrollView addSubview:imageView];
         
