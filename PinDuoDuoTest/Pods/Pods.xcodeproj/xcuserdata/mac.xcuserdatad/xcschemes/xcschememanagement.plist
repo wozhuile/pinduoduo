@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MJRefresh.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-PinDuoDuoTest.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,7 +27,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2EB713B14C8940E063F80099C031D1DD</key>
+		<key>865298B8C8D3FE712FA094372DA4F9BE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8F74D9EA91F4C43190670066BAC37D44</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -32,7 +42,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>96FF6685CFFB990F89C1004D453D5D4A</key>
+		<key>D3FD24A7E2EA711F4DEFACADEE29D385</key>
 		<dict>
 			<key>primary</key>
 			<true/>
