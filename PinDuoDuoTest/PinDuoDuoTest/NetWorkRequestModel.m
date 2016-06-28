@@ -26,8 +26,16 @@
         
         PDDTopSctollView*model=[PDDTopSctollView modelObjectWithDictionary:responseObject];
         
+      
         NSLog(@"---%@===",model.homeBanner);
+        
+           NSLog(@"---%f===",model.homeBannerHeight);
+        
         NSLog(@"11=%@",model);
+#pragma mark 用字典转模型取不出来。。。但是直接kvc就可以了。。醉了。。！！！！
+        //[responseObject valueForKey:@"home_banner"];
+        NSLog(@"%@", [responseObject valueForKey:@"home_banner"]);
+        //那就传值出去吧。。
         
         
         
