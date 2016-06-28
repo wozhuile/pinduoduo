@@ -22,7 +22,7 @@
 #pragma mark 不知道为什么在初始化里边赋值和调用就出来效果了。应该是加载先后导致的吧，
     MainView*mainVIew=[[MainView alloc]initWithFrame:self.view.frame];
     //[mainVIew CreateButtomScrollViewWithWidth:self.view.frame.size.width withHeight:self.view.frame.size.height];
-    
+    [mainVIew CreateTopScrollView];
     
     [self.view addSubview:mainVIew];
     

@@ -30,7 +30,7 @@
      
 #pragma mark在这里调用和赋值就出来了
         [self CreateButtomScrollViewWithWidth:self.frame.size.width withHeight:self.frame.size.height];
-        [self CreateTopScrollView];
+        //[self CreateTopScrollView];
         
     }
     return self;
@@ -77,8 +77,7 @@
         
     }
     
-    
-    
+
     
 }
 

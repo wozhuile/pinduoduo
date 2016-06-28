@@ -1,0 +1,8 @@
+platform :ios, '8.0'
+
+target :PinDuoDuoTest do
+pod 'SDWebImage', '~> 3.7.3’
+
+
+
+end
