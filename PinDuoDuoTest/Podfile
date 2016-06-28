@@ -3,7 +3,7 @@ platform :ios, '8.0'
 target :PinDuoDuoTest do
 pod 'SDWebImage', '~> 3.7.3’
  pod 'AFNetworking', '~> 3.0.0-beta.1'
-
+pod 'MJRefresh', '~> 2.4.12'
 
 
 end
