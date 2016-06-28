@@ -19,28 +19,38 @@
     AFHTTPSessionManager*manager=[AFHTTPSessionManager manager];
     [manager GET:@"http://apiv2.yangkeduo.com/subjects" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
-        NSLog(@"====%@",responseObject);
+        //NSLog(@"====%@",responseObject);
         
       
         
         
-        PDDTopSctollView*model=[PDDTopSctollView modelObjectWithDictionary:responseObject];
+       // PDDTopSctollView*model=[PDDTopSctollView modelObjectWithDictionary:responseObject];
         
-      
-        NSLog(@"---%@===",model.homeBanner);
+      //
+        //NSLog(@"---%@===",model.homeBanner);
         
-           NSLog(@"---%f===",model.homeBannerHeight);
+          // NSLog(@"---%f===",model.homeBannerHeight);
         
-        NSLog(@"11=%@",model);
+        //NSLog(@"11=%@",model);
 #pragma mark 用字典转模型取不出来。。。但是直接kvc就可以了。。醉了。。！！！！
         //[responseObject valueForKey:@"home_banner"];
-        NSLog(@"%@", [responseObject valueForKey:@"home_banner"]);
+        
+        NSMutableArray*array=[responseObject valueForKey:@"home_banner"];
+        
+        if ([_delegate respondsToSelector:@selector(sucessToGetImageURL:url:)]) {
+            [_delegate sucessToGetImageURL:self url:array];
+        }
+        
+        //NSLog(@"%@", array);
         //那就传值出去吧。。
         
         
         
         
     } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        if ([_delegate respondsToSelector:@selector(failToGetImageURL:error:)]) {
+            [_delegate failToGetImageURL:self error:error];
+        }
         
     }];
     

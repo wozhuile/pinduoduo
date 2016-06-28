@@ -8,9 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+
+
+#pragma mark   顶部图片传过来，要接受，需要全局变量，也要保证不被提前释放  ,声明成属性
+#import "MainView.h"
+
+
+
 @interface ViewController : UIViewController
 #pragma mark 底部滚动视图
 //@property(nonatomic,retain)UIScrollView*buttomScrollview;
+
+@property(nonatomic,retain)MainView*mainView;
 
 @end
 
