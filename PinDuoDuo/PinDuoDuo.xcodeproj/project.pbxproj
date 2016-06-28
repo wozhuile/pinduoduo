@@ -313,6 +313,7 @@
 		04DEDC071D2177BB002BC698 /* verify_code_button_highlighted@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DEDAE51D2177BB002BC698 /* verify_code_button_highlighted@3x.png */; };
 		04DEDC0B1D2179AF002BC698 /* CommonTitleTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DEDC0A1D2179AF002BC698 /* CommonTitleTool.m */; };
 		04E2217A1D221DE30042B3C7 /* MainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E221791D221DE30042B3C7 /* MainModel.m */; };
+		04E2217D1D22204C0042B3C7 /* MainModelVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E2217C1D22204C0042B3C7 /* MainModelVIew.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -632,6 +633,8 @@
 		04DEDC0A1D2179AF002BC698 /* CommonTitleTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTitleTool.m; sourceTree = "<group>"; };
 		04E221781D221DE30042B3C7 /* MainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainModel.h; sourceTree = "<group>"; };
 		04E221791D221DE30042B3C7 /* MainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainModel.m; sourceTree = "<group>"; };
+		04E2217B1D22204C0042B3C7 /* MainModelVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainModelVIew.h; sourceTree = "<group>"; };
+		04E2217C1D22204C0042B3C7 /* MainModelVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainModelVIew.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1083,6 +1086,8 @@
 			children = (
 				04E221781D221DE30042B3C7 /* MainModel.h */,
 				04E221791D221DE30042B3C7 /* MainModel.m */,
+				04E2217B1D22204C0042B3C7 /* MainModelVIew.h */,
+				04E2217C1D22204C0042B3C7 /* MainModelVIew.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -1472,6 +1477,7 @@
 				04DED74A1D215C91002BC698 /* ViewController.m in Sources */,
 				04DED7661D216C28002BC698 /* PDDHotViewController.m in Sources */,
 				04DED7501D215C91002BC698 /* PinDuoDuo.xcdatamodeld in Sources */,
+				04E2217D1D22204C0042B3C7 /* MainModelVIew.m in Sources */,
 				04DED7471D215C91002BC698 /* AppDelegate.m in Sources */,
 				04DED7441D215C91002BC698 /* main.m in Sources */,
 				04DEDC0B1D2179AF002BC698 /* CommonTitleTool.m in Sources */,
