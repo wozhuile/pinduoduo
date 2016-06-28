@@ -219,7 +219,7 @@
 #pragma mark 先做个效果先吧，后边有时间完善！
     for (int i=0 ; i<10; i++) {
         
-        UIButton*button=[[UIButton alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 10, btnWidth, btnWidth)];
+        UIButton*button=[[UIButton alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5, btnWidth, btnWidth)];
         [button setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"spike_%d",i+1]] forState:UIControlStateNormal];
         button.tag=i+10;
         [button addTarget:self action:@selector(ShowBtn:) forControlEvents:UIControlEventTouchUpInside];
@@ -232,12 +232,13 @@
        // button.imageView.backgroundColor=[UIColor redColor];
        // button.titleLabel.backgroundColor=[UIColor orangeColor];
         
-        button.contentEdgeInsets=UIEdgeInsetsMake(0, 0, 0, 0);
-        button.titleEdgeInsets=UIEdgeInsetsMake(80, 0, 0, 0);
+        button.contentEdgeInsets=UIEdgeInsetsMake(10, 0, -15, 0);//慢慢调节下
+        button.titleEdgeInsets=UIEdgeInsetsMake(80, 0, 10, 0);
         
 #pragma mark 设置下文字大小;
-        button.titleLabel.font=[UIFont systemFontOfSize:15];
-        
+        button.titleLabel.font=[UIFont systemFontOfSize:14];
+        //不设置字体颜色就是白色的
+        [button setTitleColor:[UIColor blackColor] forState:0];
         
         [_MiddleScrollView addSubview:button];
         
