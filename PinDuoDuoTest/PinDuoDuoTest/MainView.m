@@ -32,6 +32,8 @@
         [self CreateButtomScrollViewWithWidth:self.frame.size.width withHeight:self.frame.size.height];
         //[self CreateTopScrollView];
         
+        _speed=1;
+        
     }
     return self;
 }
@@ -87,10 +89,89 @@
         
     }
     
+#pragma mark 在这里直接调用吧，否则在外边调用，直接放到底部滚动上看不见，放到view上又不滚动。。  处理好了！！！
+    [self CreatePageControl];
+    
+    
 
     
 }
+#pragma mark 添加pagecontroller和定时器！注意定时器的runloop处理！！！  还有就是应该放到最大的view上，注意调整好位置，不要向左右滑动就跟着滑动了
+-(void)CreatePageControl
+{
+    
+    _pageControl = [[UIPageControl alloc]init];
+    _pageControl.center = CGPointMake(self.frame.size.width/2, 190);//
+    _pageControl.bounds = CGRectMake(0, 0, self.frame.size.width/2, 60);
+    _pageControl.numberOfPages = 5;
+    _pageControl.pageIndicatorTintColor = [UIColor whiteColor];
+    _pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
+    [_pageControl addTarget:self action:@selector(changeImage:) forControlEvents:UIControlEventValueChanged];
+    
+    
+#pragma mark 直接这样放到底部滚动上都看不见了，
+    [_buttomScrollView addSubview:_pageControl];
+    
+     //[self addSubview:_pageControl];
+    
+    
+    _timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(onTimer) userInfo:nil repeats:YES];
+    
+#pragma mark timer 的runloop
+    [[NSRunLoop currentRunLoop]addTimer:_timer forMode:NSRunLoopCommonModes];
+    
+    
+}
+//定时器方法
+- (void)onTimer
+{
+    if (_pageControl.currentPage == 0)
+    {
+        _speed = 1;
+    }
+    if (_pageControl.currentPage == 4)
+    {
+        _speed = -1;
+    }
+    _pageControl.currentPage = _pageControl.currentPage + _speed;
+    [_topScrollView setContentOffset:CGPointMake(_pageControl.currentPage * self.frame.size.width, 0) animated:YES];
+}
+//scrollView的协议方法
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    if (_timer != nil)
+    {
+        [_timer invalidate];
+        _timer = nil;
+    }
+}
 
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    _pageControl.currentPage = scrollView.contentOffset.x/self.frame.size.width;
+    if (_pageControl.currentPage == 0)
+    {
+        _speed = 1;
+    }
+    if (_pageControl.currentPage == 4)
+    {
+        _speed = -1;
+    }
+    
+    if (_timer == nil)
+    {
+        _timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(onTimer) userInfo:nil repeats:YES];
+        
+#pragma mark timer 的runloop
+        [[NSRunLoop currentRunLoop]addTimer:_timer forMode:NSRunLoopCommonModes];
+    }
+}
+
+//pageControl的点击事件
+- (void)changeImage:(UIPageControl *)pageC
+{
+    [_topScrollView setContentOffset:CGPointMake(pageC.currentPage * self.frame.size.width, 0) animated:YES];
+}
 
 
 @end

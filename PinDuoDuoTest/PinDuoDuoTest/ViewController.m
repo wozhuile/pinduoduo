@@ -29,6 +29,9 @@
     [netModel topScrollViewImage];
     
     
+#pragma mark page and timer
+   // [_mainView CreatePageControl];
+    
 #pragma mark 代理传值过来了。。。获取顶部图片URL。先声明代理
     netModel.delegate=self;
     

@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainView : UIView
-
+@interface MainView : UIView<UIScrollViewDelegate>
+{
+    NSInteger _speed;
+}
 
 #pragma mark 最大的底层的滚动视图属性
 @property(nonatomic,retain)UIScrollView*buttomScrollView;
@@ -24,5 +26,13 @@
 
 
 -(void)CreateTopScrollViewWithUrl:(NSMutableArray*)urlArray;
+
+
+#pragma mark pagecontrol  and timer
+@property(nonatomic,retain)UIPageControl*pageControl;
+@property(nonatomic,retain)NSTimer*timer;
+
+-(void)CreatePageControl;
+
 
 @end
