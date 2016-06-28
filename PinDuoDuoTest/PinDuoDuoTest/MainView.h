@@ -40,4 +40,8 @@
 
 -(void)CreateMiddleScrollView;
 
+#pragma mark 创建数组，初始化就加上中间按钮下边的文字
+@property(nonatomic,retain)NSMutableArray*middleTitleArray;
+
+
 @end

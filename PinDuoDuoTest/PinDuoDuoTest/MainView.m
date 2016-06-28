@@ -34,9 +34,25 @@
         
         _speed=1;
         
+        [self CreateMiddleArray];
+        
+        
+        
     }
     return self;
 }
+
+#pragma mark 懒加载
+-(NSMutableArray*)CreateMiddleArray
+{
+    if (_middleTitleArray==nil) {
+        _middleTitleArray=[[NSMutableArray alloc]initWithObjects:@"秒杀",@"超值大牌",@"9块9特卖",@"抽奖",@"食品",@"服饰箱包",@"家居生活",@"母婴",@"美妆护肤",@"海淘", nil];
+    }
+    return _middleTitleArray;
+}
+
+
+
 #pragma mark 滚动视图还不知道大小，应该很大，要不要预留参数？不需要先，目前就是先创建.暂时先创建10向下的大小
 -(void)CreateButtomScrollViewWithWidth:(CGFloat)width withHeight:(CGFloat)height
 {
@@ -204,10 +220,24 @@
     for (int i=0 ; i<10; i++) {
         
         UIButton*button=[[UIButton alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 10, btnWidth, btnWidth)];
-        [button setImage:[UIImage imageNamed:[NSString stringWithFormat:@"spike_%d",i+1]] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"spike_%d",i+1]] forState:UIControlStateNormal];
         button.tag=i+10;
         [button addTarget:self action:@selector(ShowBtn:) forControlEvents:UIControlEventTouchUpInside];
-        button.backgroundColor=[UIColor redColor];
+        //button.backgroundColor=[UIColor redColor];
+        
+        
+#pragma mark 处理按钮下边文字，用内间距：http://www.jianshu.com/p/0facdc527d8d
+        [button setTitle:[_middleTitleArray objectAtIndex:i] forState:UIControlStateNormal];
+        
+       // button.imageView.backgroundColor=[UIColor redColor];
+       // button.titleLabel.backgroundColor=[UIColor orangeColor];
+        
+        button.contentEdgeInsets=UIEdgeInsetsMake(0, 0, 0, 0);
+        button.titleEdgeInsets=UIEdgeInsetsMake(80, 0, 0, 0);
+        
+#pragma mark 设置下文字大小;
+        button.titleLabel.font=[UIFont systemFontOfSize:15];
+        
         
         [_MiddleScrollView addSubview:button];
         
@@ -217,7 +247,8 @@
 
 -(void)ShowBtn:(UIButton*)sender
 {
-    NSLog(@"sender===%@",sender);
+    //NSLog(@"%@",sender);//输出按钮对象
+    NSLog(@"sender===%ld",(long)sender.tag);//输出按钮对象对应的tag。
 }
 
 
