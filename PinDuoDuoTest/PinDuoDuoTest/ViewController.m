@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "MainView.h"
+
 
 @interface ViewController ()
 
@@ -16,7 +18,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+   // self.view.frame
+#pragma mark 不知道为什么在初始化里边赋值和调用就出来效果了。应该是加载先后导致的吧，
+    MainView*mainVIew=[[MainView alloc]initWithFrame:self.view.frame];
+    //[mainVIew CreateButtomScrollViewWithWidth:self.view.frame.size.width withHeight:self.view.frame.size.height];
+    
+    
+    [self.view addSubview:mainVIew];
+    
 }
 
 #pragma mark 底层最大的滚动视图，contentsize要根据内容数据来设置，这里就先设置一个值先试试，不知道为什么不用表来重用，应该是用集合试图来展示了。还有这个界面和海淘界面差不多，应该考虑外边封装！
@@ -27,6 +36,12 @@
 {
     [super viewWillAppear:animated];
     // self.navigationItem.title=@"#wewqe#";
+ 
+
+    
+   // MainView*mainVIew=[[MainView alloc]init];
+   // [mainVIew CreateButtomScrollView];
+    
     
 #pragma mark 背景颜色和条颜色区别！
     

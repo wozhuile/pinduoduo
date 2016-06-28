@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
-
+#pragma mark 底部滚动视图
+//@property(nonatomic,retain)UIScrollView*buttomScrollview;
 
 @end
 
