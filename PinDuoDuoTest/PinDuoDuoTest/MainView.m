@@ -104,9 +104,12 @@
     _pageControl.center = CGPointMake(self.frame.size.width/2, 190);//
     _pageControl.bounds = CGRectMake(0, 0, self.frame.size.width/2, 60);
     _pageControl.numberOfPages = 5;
-    _pageControl.pageIndicatorTintColor = [UIColor whiteColor];
-    _pageControl.currentPageIndicatorTintColor = [UIColor orangeColor];
+    _pageControl.pageIndicatorTintColor = [UIColor greenColor];
+    _pageControl.currentPageIndicatorTintColor = [UIColor redColor];
     [_pageControl addTarget:self action:@selector(changeImage:) forControlEvents:UIControlEventValueChanged];
+  
+    
+#pragma mark 因为点太小，所以可以重写方法：http://blog.csdn.net/chenyong05314/article/details/18627991
     
     
 #pragma mark 直接这样放到底部滚动上都看不见了，
