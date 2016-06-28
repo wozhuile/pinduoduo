@@ -62,12 +62,18 @@
     _topScrollView.contentSize=CGSizeMake(self.frame.size.width*5, 200);
     _topScrollView.bounces=NO;
     _topScrollView.showsVerticalScrollIndicator=NO;
+#pragma mark 暂时先留着看看有没有分页什么的
+    //_topScrollView.showsHorizontalScrollIndicator=NO;
+    
     _topScrollView.pagingEnabled=YES;
     [_buttomScrollView addSubview:_topScrollView];
     
     
-    
-    for (int i=0; i<4; i++) {
+#pragma mark 创建图片,滚动的图片
+    for (int i=0; i<5; i++) {
+        UIImageView*imageView=[[UIImageView alloc]initWithFrame:CGRectMake(self.frame.size.width*i, 0, self.frame.size.width, 200)];
+        imageView.backgroundColor=[UIColor orangeColor];
+        [_topScrollView addSubview:imageView];
         
     }
     
