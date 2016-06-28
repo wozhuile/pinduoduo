@@ -312,6 +312,7 @@
 		04DEDC061D2177BB002BC698 /* verify_code_button_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DEDAE41D2177BB002BC698 /* verify_code_button_highlighted@2x.png */; };
 		04DEDC071D2177BB002BC698 /* verify_code_button_highlighted@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DEDAE51D2177BB002BC698 /* verify_code_button_highlighted@3x.png */; };
 		04DEDC0B1D2179AF002BC698 /* CommonTitleTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DEDC0A1D2179AF002BC698 /* CommonTitleTool.m */; };
+		04E2217A1D221DE30042B3C7 /* MainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E221791D221DE30042B3C7 /* MainModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -629,6 +630,8 @@
 		04DEDAE51D2177BB002BC698 /* verify_code_button_highlighted@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "verify_code_button_highlighted@3x.png"; sourceTree = "<group>"; };
 		04DEDC091D2179AF002BC698 /* CommonTitleTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTitleTool.h; sourceTree = "<group>"; };
 		04DEDC0A1D2179AF002BC698 /* CommonTitleTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTitleTool.m; sourceTree = "<group>"; };
+		04E221781D221DE30042B3C7 /* MainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainModel.h; sourceTree = "<group>"; };
+		04E221791D221DE30042B3C7 /* MainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -693,8 +696,9 @@
 		04DED7621D216BB5002BC698 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
-				04DED7481D215C91002BC698 /* ViewController.h */,
-				04DED7491D215C91002BC698 /* ViewController.m */,
+				04E221771D221D1E0042B3C7 /* controller */,
+				04E221761D221D160042B3C7 /* view */,
+				04E221751D221D0E0042B3C7 /* model */,
 			);
 			name = "首页";
 			sourceTree = "<group>";
@@ -1074,6 +1078,31 @@
 			name = "公共的导航顶部视图";
 			sourceTree = "<group>";
 		};
+		04E221751D221D0E0042B3C7 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				04E221781D221DE30042B3C7 /* MainModel.h */,
+				04E221791D221DE30042B3C7 /* MainModel.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		04E221761D221D160042B3C7 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		04E221771D221D1E0042B3C7 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				04DED7481D215C91002BC698 /* ViewController.h */,
+				04DED7491D215C91002BC698 /* ViewController.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1439,6 +1468,7 @@
 			files = (
 				04DED7711D216D1D002BC698 /* PDDSearchViewController.m in Sources */,
 				04DED7751D216D54002BC698 /* PDDMeViewController.m in Sources */,
+				04E2217A1D221DE30042B3C7 /* MainModel.m in Sources */,
 				04DED74A1D215C91002BC698 /* ViewController.m in Sources */,
 				04DED7661D216C28002BC698 /* PDDHotViewController.m in Sources */,
 				04DED7501D215C91002BC698 /* PinDuoDuo.xcdatamodeld in Sources */,
