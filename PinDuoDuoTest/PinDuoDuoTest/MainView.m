@@ -39,6 +39,8 @@
 -(void)CreateButtomScrollViewWithWidth:(CGFloat)width withHeight:(CGFloat)height
 {
   
+
+    
     _buttomScrollView=[[UIScrollView alloc]initWithFrame:self.frame];
     _buttomScrollView.backgroundColor=[UIColor blueColor];
     _buttomScrollView.contentSize=CGSizeMake(width, height*15);

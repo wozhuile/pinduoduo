@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "MainView.h"
-
+#import "NetWorkRequestModel.h"
 
 @interface ViewController ()
 
@@ -23,6 +23,10 @@
     MainView*mainVIew=[[MainView alloc]initWithFrame:self.view.frame];
     //[mainVIew CreateButtomScrollViewWithWidth:self.view.frame.size.width withHeight:self.view.frame.size.height];
    
+    
+    NetWorkRequestModel*netModel=[[NetWorkRequestModel alloc]init];
+    
+    [netModel topScrollViewImage];
     
     #pragma mark 暂时拿一张来试试
     

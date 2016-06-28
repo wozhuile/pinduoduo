@@ -8,7 +8,7 @@
 
 #import "NetWorkRequestModel.h"
 #import "AFNetworking.h"
-
+#import "PDDTopSctollView.h"
 
 @implementation NetWorkRequestModel
 
@@ -18,6 +18,17 @@
 {
     AFHTTPSessionManager*manager=[AFHTTPSessionManager manager];
     [manager GET:@"http://apiv2.yangkeduo.com/subjects" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSLog(@"====%@",responseObject);
+        
+      
+        
+        
+        PDDTopSctollView*model=[PDDTopSctollView modelObjectWithDictionary:responseObject];
+        
+        NSLog(@"---%@===",model.homeBanner);
+        NSLog(@"11=%@",model);
+        
         
         
         

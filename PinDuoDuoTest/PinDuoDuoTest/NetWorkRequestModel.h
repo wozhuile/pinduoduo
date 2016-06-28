@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NetWorkRequestModel : NSObject
-
+-(void)topScrollViewImage;
 @end
