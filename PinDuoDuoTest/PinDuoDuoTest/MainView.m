@@ -11,7 +11,7 @@
 #define SCREEN_WIDTH self.frame.size.width
 #define SCREEN_HEIGHT  self.frame.size.height
 #define SCREEN_FRAME  self.frame
-
+#import <UIImageView+WebCache.h>
 
 @implementation MainView
 
@@ -40,7 +40,7 @@
 {
   
     _buttomScrollView=[[UIScrollView alloc]initWithFrame:self.frame];
-    _buttomScrollView.backgroundColor=[UIColor redColor];
+    _buttomScrollView.backgroundColor=[UIColor blueColor];
     _buttomScrollView.contentSize=CGSizeMake(width, height*15);
     
     
@@ -55,7 +55,7 @@
 }
 
 #pragma mark 创建顶部滚动视图，外加页面控制器
--(void)CreateTopScrollView
+-(void)CreateTopScrollViewWithUrl:(NSURL*)url
 {
     _topScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, 200)];
     _topScrollView.backgroundColor=[UIColor greenColor];
@@ -73,6 +73,10 @@
     for (int i=0; i<5; i++) {
         UIImageView*imageView=[[UIImageView alloc]initWithFrame:CGRectMake(self.frame.size.width*i, 0, self.frame.size.width, 200)];
         imageView.backgroundColor=[UIColor orangeColor];
+        
+#pragma mark 第一次图片没出来，是https哪里没有设置
+       // NSLog(@"url+===%@",url);
+        [imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"default_mall_logo@3x"]];//设置好info哪里的https安全需求后，成功获取图片
         [_topScrollView addSubview:imageView];
         
     }
