@@ -311,6 +311,7 @@
 		04DEDC051D2177BB002BC698 /* verify_code_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DEDAE31D2177BB002BC698 /* verify_code_button@3x.png */; };
 		04DEDC061D2177BB002BC698 /* verify_code_button_highlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DEDAE41D2177BB002BC698 /* verify_code_button_highlighted@2x.png */; };
 		04DEDC071D2177BB002BC698 /* verify_code_button_highlighted@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04DEDAE51D2177BB002BC698 /* verify_code_button_highlighted@3x.png */; };
+		04DEDC0B1D2179AF002BC698 /* CommonTitleTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DEDC0A1D2179AF002BC698 /* CommonTitleTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -626,6 +627,8 @@
 		04DEDAE31D2177BB002BC698 /* verify_code_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "verify_code_button@3x.png"; sourceTree = "<group>"; };
 		04DEDAE41D2177BB002BC698 /* verify_code_button_highlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "verify_code_button_highlighted@2x.png"; sourceTree = "<group>"; };
 		04DEDAE51D2177BB002BC698 /* verify_code_button_highlighted@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "verify_code_button_highlighted@3x.png"; sourceTree = "<group>"; };
+		04DEDC091D2179AF002BC698 /* CommonTitleTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonTitleTool.h; sourceTree = "<group>"; };
+		04DEDC0A1D2179AF002BC698 /* CommonTitleTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonTitleTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -659,6 +662,7 @@
 		04DED7411D215C91002BC698 /* PinDuoDuo */ = {
 			isa = PBXGroup;
 			children = (
+				04DEDC081D217944002BC698 /* 公共的导航顶部视图 */,
 				04DED9C01D2177A9002BC698 /* source */,
 				04DED7791D216D8F002BC698 /* 入口 */,
 				04DED7721D216D28002BC698 /* 个人 */,
@@ -1061,6 +1065,15 @@
 			path = "拼多多 2_3_0_ipa";
 			sourceTree = "<group>";
 		};
+		04DEDC081D217944002BC698 /* 公共的导航顶部视图 */ = {
+			isa = PBXGroup;
+			children = (
+				04DEDC091D2179AF002BC698 /* CommonTitleTool.h */,
+				04DEDC0A1D2179AF002BC698 /* CommonTitleTool.m */,
+			);
+			name = "公共的导航顶部视图";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1431,6 +1444,7 @@
 				04DED7501D215C91002BC698 /* PinDuoDuo.xcdatamodeld in Sources */,
 				04DED7471D215C91002BC698 /* AppDelegate.m in Sources */,
 				04DED7441D215C91002BC698 /* main.m in Sources */,
+				04DEDC0B1D2179AF002BC698 /* CommonTitleTool.m in Sources */,
 				04DED76D1D216CD1002BC698 /* PDDRankViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

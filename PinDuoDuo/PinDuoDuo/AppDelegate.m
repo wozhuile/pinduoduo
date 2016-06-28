@@ -37,34 +37,80 @@
     
 #pragma mark tabbarController
     UITabBarController*rootBarController=[[UITabBarController alloc]init];
+     //self.window.rootViewController=rootBarController;
     
     ViewController*HomeVC=[[ViewController alloc]init];
+    
+    
+    UINavigationController*HomeNVC=[[UINavigationController alloc]initWithRootViewController:HomeVC];
+    //HomeVC.navigationItem=[[UINavigationItem alloc]initWithTitle:@""];
+    //UINavigationItem*HomeItem=[[UINavigationItem alloc]initWithTitle:@""];
+#pragma mark 在这里这样直接赋值，显示不出来，，应该是控制器没有加载完全呢。所以背景颜色和标题可以去控制器里边写
+    //HomeNVC.navigationItem.title=@"拼多多商城";
+    HomeNVC.navigationBar.tintColor=[UIColor redColor];
+
     HomeVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"首页" image:[UIImage imageNamed:@"home"] selectedImage:[[UIImage imageNamed:@"home-hl"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     
     
+    HomeNVC.navigationBar.backgroundColor=[UIColor greenColor];
+   
+#pragma mark 添加导航
+    
     PDDHotViewController*HotVC=[[PDDHotViewController alloc]init];
     HotVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"热榜" image:[UIImage imageNamed:@"rank"] selectedImage:[[UIImage imageNamed:@"rank-hl"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    UINavigationController*HotNVC=[[UINavigationController alloc]initWithRootViewController:HotVC];
+
+    HotNVC.navigationItem.title=@"排行榜";
+    
+    
     
     
     PDDRankViewController*RankVC=[[PDDRankViewController alloc]init];
     RankVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"海陶" image:[UIImage imageNamed:@"oversea"] selectedImage:[[UIImage imageNamed:@"oversea-hl"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     
+    UINavigationController*RankNVC=[[UINavigationController alloc]initWithRootViewController:RankVC];
+    
+    RankNVC.navigationItem.title=@"海淘专区";
+
+    
+    
+    
     
     PDDSearchViewController*SearchVC=[[PDDSearchViewController alloc]init];
     SearchVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"搜索" image:[UIImage imageNamed:@"search"] selectedImage:[[UIImage imageNamed:@"search-hl"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    
+    UINavigationController*SearchNVC=[[UINavigationController alloc]initWithRootViewController:SearchVC];
+    
+    SearchNVC.navigationItem.title=@"搜索";
+    
     
     
     PDDMeViewController*MeVC=[[PDDMeViewController alloc]init];
     MeVC.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"个人中心" image:[UIImage imageNamed:@"me"] selectedImage:[[UIImage imageNamed:@"me-hl"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     
+    UINavigationController*MeNVC=[[UINavigationController alloc]initWithRootViewController:MeVC];
+    
+    MeNVC.navigationItem.title=@"个人中心";
+    
+    
     
 #pragma mark 轻轻的加个灰色，刚刚好可以淡淡的显示出来，很好的区别出来窗口的白色和标签控制器的颜色
-    rootBarController.tabBar.backgroundColor=[UIColor grayColor];
+   //rootBarController.tabBar.backgroundColor=[UIColor redColor];//注意区别，结合导航后，就不会刚刚合适了。
+    
+   // rootBarController.tabBar.translucent = YES;
+    //rootBarController.tabBar.tintColor=[UIColor redColor];
+   // rootBarController.tabBar.barTintColor=[UIColor whiteColor];
+    
+    rootBarController.tabBar.barTintColor=[UIColor colorWithRed:225/256.0 green:225/256.0 blue:225/256.0 alpha:1.0];;
+   // rootBarController.tabBar.alpha=0.5;
+    
+    //rootBarController.viewControllers=@[HomeVC,HotVC,RankVC,SearchVC,MeVC];
+#pragma mark 添加导航后
+    rootBarController.viewControllers=@[HomeNVC,HotNVC,RankNVC,SearchNVC,MeNVC];
     
     
-    rootBarController.viewControllers=@[HomeVC,HotVC,RankVC,SearchVC,MeVC];
-   
     self.window.rootViewController=rootBarController;
+    //self.window.rootViewController=rootBarController;
     
     
     
@@ -74,7 +120,7 @@
 -(void)setUpTabBarItemTextAttributes
 {
     NSMutableDictionary *normalAttrs = [NSMutableDictionary dictionary];
-    normalAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
+    normalAttrs[NSForegroundColorAttributeName] = [UIColor blackColor];
     
     NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
     
