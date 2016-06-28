@@ -74,9 +74,9 @@
         UIImageView*imageView=[[UIImageView alloc]initWithFrame:CGRectMake(self.frame.size.width*i, 0, self.frame.size.width, 200)];
         imageView.backgroundColor=[UIColor orangeColor];
         
-#pragma mark 第一次图片没出来，是https哪里没有设置
+#pragma mark 第一次图片没出来，是https哪里没有设置   还有占位图片是随便先放上来的
        // NSLog(@"url+===%@",url);
-        [imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"default_mall_logo@3x"]];//设置好info哪里的https安全需求后，成功获取图片
+        [imageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];//设置好info哪里的https安全需求后，成功获取图片
         [_topScrollView addSubview:imageView];
         
     }

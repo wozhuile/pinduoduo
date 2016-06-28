@@ -25,6 +25,7 @@
 		04E221CB1D222E990042B3C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04E221CA1D222E990042B3C7 /* Images.xcassets */; };
 		04E221CE1D2250600042B3C7 /* MainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E221CD1D2250600042B3C7 /* MainView.m */; };
 		04E221D01D2267C50042B3C7 /* default_mall_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E221CF1D2267C50042B3C7 /* default_mall_logo@3x.png */; };
+		04E221D31D2269A00042B3C7 /* NetWorkRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E221D21D2269A00042B3C7 /* NetWorkRequestModel.m */; };
 		5D573516C143A35D9C664436 /* libPods-PinDuoDuoTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF8DB631C402A14E1121A46 /* libPods-PinDuoDuoTest.a */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +57,8 @@
 		04E221CC1D2250600042B3C7 /* MainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainView.h; sourceTree = "<group>"; };
 		04E221CD1D2250600042B3C7 /* MainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainView.m; sourceTree = "<group>"; };
 		04E221CF1D2267C50042B3C7 /* default_mall_logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default_mall_logo@3x.png"; sourceTree = "<group>"; };
+		04E221D11D2269A00042B3C7 /* NetWorkRequestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkRequestModel.h; sourceTree = "<group>"; };
+		04E221D21D2269A00042B3C7 /* NetWorkRequestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkRequestModel.m; sourceTree = "<group>"; };
 		3D46221AC769B6C7362D2106 /* Pods-PinDuoDuoTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinDuoDuoTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PinDuoDuoTest/Pods-PinDuoDuoTest.debug.xcconfig"; sourceTree = "<group>"; };
 		62A8D909C68FE03580039E03 /* Pods-PinDuoDuoTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PinDuoDuoTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-PinDuoDuoTest/Pods-PinDuoDuoTest.release.xcconfig"; sourceTree = "<group>"; };
 		DBF8DB631C402A14E1121A46 /* libPods-PinDuoDuoTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PinDuoDuoTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,6 +194,8 @@
 		04E221C51D2222A10042B3C7 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				04E221D11D2269A00042B3C7 /* NetWorkRequestModel.h */,
+				04E221D21D2269A00042B3C7 /* NetWorkRequestModel.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -348,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E221D31D2269A00042B3C7 /* NetWorkRequestModel.m in Sources */,
 				04E221BB1D2221BD0042B3C7 /* PDDSearchViewController.m in Sources */,
 				04E221C11D2221D50042B3C7 /* PDDMeViewController.m in Sources */,
 				04E221981D22211F0042B3C7 /* ViewController.m in Sources */,
