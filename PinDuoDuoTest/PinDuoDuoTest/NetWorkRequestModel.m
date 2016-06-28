@@ -34,7 +34,7 @@
         //NSLog(@"11=%@",model);
 #pragma mark 用字典转模型取不出来。。。但是直接kvc就可以了。。醉了。。！！！！
         //[responseObject valueForKey:@"home_banner"];
-        
+#pragma mark 注意了，这里虽然麻烦点，但是如果真没办法了，，valueforkey也是可以得到字典的值的，就是需要写得很多的时候特别麻烦！！！
         NSMutableArray*array=[responseObject valueForKey:@"home_banner"];
         
         if ([_delegate respondsToSelector:@selector(sucessToGetImageURL:url:)]) {
