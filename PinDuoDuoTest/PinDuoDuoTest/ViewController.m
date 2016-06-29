@@ -108,12 +108,13 @@
 #pragma mark 底部数据处理, 代理遵循了。。就直接实现方法就好
 -(void)sucessToGetData:(NetWorkRequestModel *)netWorkRequestModel modelData:(PDDHomeData *)modelData
 {
-    NSLog(@"modelData===%@",modelData);
+    //成功了。完成任务，注释吧！准备tableview创建和数组布局了
+    //NSLog(@"modelData===%@",modelData);
 }
 
 -(void)failToGetData:(NetWorkRequestModel *)etWorkRequestModel error:(NSError *)error
 {
-    
+    NSLog(@"%@",error);
 }
 
 

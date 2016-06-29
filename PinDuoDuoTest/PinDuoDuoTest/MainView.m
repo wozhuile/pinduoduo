@@ -287,6 +287,11 @@
     //_middleTF.backgroundColor=[UIColor greenColor];
     _middleTF.borderStyle=UITextBorderStyleLine;
     
+    
+#pragma mark 点击键盘return，，就键盘下去
+    [ _middleTF addTarget:self action:@selector(middleTextField) forControlEvents:UIControlEventEditingDidEndOnExit];
+    
+    
 #pragma mark 占位符颜色和大小:http://blog.csdn.net/ck89757/article/details/38730961
     //[_middleTF  setValue:[UIColor blackColor] forKey:@"placeholderLabel.textColor"];
     UIColor *color = [UIColor blackColor];
@@ -326,6 +331,10 @@
     [_middleView addSubview:_comfirmBtn];
 }
 
+-(void)middleTextField
+{
+    //键盘下去
+}
 -(void)alertButton
 {
     //暂时先这样，文字大小等需要自定义的
@@ -338,6 +347,10 @@
 }
 
 
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self endEditing:YES];
+}
 
 
 

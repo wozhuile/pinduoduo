@@ -21,5 +21,9 @@
 
 @property(nonatomic,retain)MainView*mainView;
 
+
+#pragma mark
+
+
 @end
 
