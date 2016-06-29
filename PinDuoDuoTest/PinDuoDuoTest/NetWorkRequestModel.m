@@ -77,6 +77,7 @@
         //NSLog(@"查看更多等:=%@--count=%lu",modelData.homeRecommendSubjects,(unsigned long)modelData.homeRecommendSubjects.count);
         
         //NSLog(@"最多的数据:%@--count:%lu",modelData.goodsList,(unsigned long)modelData.goodsList.count);
+     
         
         
         if ([_delegate respondsToSelector:@selector(sucessToGetData:modelData:)]) {

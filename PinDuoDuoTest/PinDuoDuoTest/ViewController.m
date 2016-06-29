@@ -220,6 +220,18 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     _goods_listArray=(NSMutableArray*)modelData.goodsList;
     //[_dataArray addObjectsFromArray:@{_home_super_brandArray:_home_recommend_subjectsArray,_goods_listArray:}];
     
+#pragma mark  position 纪录
+    _home_super_brandPosition=modelData.homeSuperBrand.position;
+   // _home_recommend_subjectsPosition=modelData.homeRecommendSubjects;
+   // PDDHomeRecommendSubjects*recommentSub=modelData.homeRecommendSubjects;
+    
+    for (PDDHomeRecommendSubjects*recommentSub in modelData.homeRecommendSubjects) {
+#pragma mark 如果是数组，就先从数组里边取出来对象，在取属性
+        _home_recommend_subjectsPosition=recommentSub.position;
+        
+    }
+  
+    
     
 #pragma mark 用这种方法添加就不会错，下边的返回多少行也没有错！    说
 #pragma mark  下边的3个数组count加括号后，不崩溃了。，，，这里也就不需要的
@@ -260,6 +272,14 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    
+#pragma mark  还有两个大数组数据处理，一个是超值大牌，一个是推荐！，都是有一个关键字 ：position！！我们要根据它来进行插入！
+    
+   
+    
+    
+    
     
     //UITableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:@"cell"];
     
@@ -324,10 +344,6 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     }
 }
 
--(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
-{
-    
-}
 
 
 @end

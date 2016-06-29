@@ -38,6 +38,11 @@
 #pragma mark 创建table表
 @property(nonatomic,strong)UITableView*buttomDataTableView;
 
+#pragma mark position 处理数据插入，先记录，后边有时间在来优化纪录方式
+@property(nonatomic,assign)NSInteger home_recommend_subjectsPosition;
+
+@property(nonatomic,assign)NSInteger home_super_brandPosition;
+
 
 
 @end
