@@ -114,6 +114,10 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
      [_buttomDataTableView registerNib:[UINib nibWithNibName:@"home_super_brandTableViewCell" bundle:nil] forCellReuseIdentifier:home_super_brandCell];
     
+    
+#pragma mark  隐藏滚动条
+    _buttomDataTableView.showsVerticalScrollIndicator=NO;
+    
 }
 
 
