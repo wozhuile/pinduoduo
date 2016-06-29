@@ -86,7 +86,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 #pragma mark 表创建和代理  注意：CGRectGetMaxY(_mainView.buttomScrollView.frame)-CGRectGetMaxY(_mainView.middleView.frame)计算出来的高度
     _buttomDataTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_mainView.middleView.frame), CGRectGetWidth(self.view.frame), CGRectGetMaxY(_mainView.buttomScrollView.frame)*15-CGRectGetMaxY(_mainView.middleView.frame)) style:UITableViewStylePlain];
     
-    //_buttomDataTableView.backgroundColor=[UIColor greenColor];
+    _buttomDataTableView.backgroundColor=[UIColor greenColor];
      _buttomDataTableView.delegate=self;
     
     
@@ -194,12 +194,13 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     //[_dataArray addObjectsFromArray:@{_home_super_brandArray:_home_recommend_subjectsArray,_goods_listArray:}];
     
     
-#pragma mark 用这种方法添加就不会错，下边的返回多少行也没有错！    说  
+#pragma mark 用这种方法添加就不会错，下边的返回多少行也没有错！    说
     
     [_dataArray addObject:_home_recommend_subjectsArray];
      [_dataArray addObject:_home_super_brandArray];
     [_dataArray addObject:_goods_listArray];
-    
+#pragma mark 这样后，数据看起来是有了，，但是输出一看就3个，，是不崩溃了，，但是。。。
+    NSLog(@"_dataArray===%@===%lu",_dataArray,(unsigned long)_dataArray.count);
     
 #pragma mark 得到数据进行刷新 
     [_buttomDataTableView reloadData];
@@ -214,12 +215,21 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 #pragma mark table datasource and delegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _dataArray.count;
+    
+    //for (NSMutableArray*dataArrat in _dataArray ) {
+        //return _dataArray.count;
+    //}
+    
+    
+    
+   // return _dataArray.count;
     
     //return _goods_listArray.count;
     
    // NSLog(@"%lu",_home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count);
-    //return _home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count;
+    
+#pragma mark  其实只要加一个大括号就可以了。。。为什么搞得这么多
+    return (_home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count);
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
