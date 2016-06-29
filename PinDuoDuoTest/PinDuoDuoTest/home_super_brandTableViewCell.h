@@ -9,6 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface home_super_brandTableViewCell : UITableViewCell
+
+
+
+//@property (weak, nonatomic) IBOutlet UILabel *lookMore;
+
+
+
+
+
 //@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 ///@property (weak, nonatomic) IBOutlet UILabel *titleLabel;

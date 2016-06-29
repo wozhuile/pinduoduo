@@ -277,7 +277,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 #pragma mark  还有两个大数组数据处理，一个是超值大牌，一个是推荐！，都是有一个关键字 ：position！！我们要根据它来进行插入！
     
    
-#pragma mark 先处理超值大牌的
+#pragma mark 先处理超值大牌的  赋值左右要注意了
     
     if (indexPath.row==_home_super_brandPosition) {
         home_super_brandTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_super_brandCell];
@@ -321,12 +321,18 @@ static  NSString*home_super_brandCell=@"home_super_brand";
             
             
 #pragma mark tag值赋值不要就一个，，否则就只是找到一个。。之前我就赋值一个10，，每次都以为还是10，。。。错了
-            if (idx<3) {
+           // if (idx<3) {
+            
+            UIImageView*img=[cell.contentView viewWithTag:100+idx];
+            [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+            
+            
                 UILabel*labe=(UILabel*)[cell.contentView viewWithTag:10+idx];
-                labe.text=[NSString stringWithFormat:@"%.2f",obj.price/100];
+                labe.text=[NSString stringWithFormat:@"$%.2f",obj.price/100];
+                labe.textColor=[UIColor redColor];
                 
 
-            }
+            //}
              //UILabel*labe=(UILabel*)[cell.contentView viewWithTag:10];
             //labe.text=[NSString stringWithFormat:@"%.2f",obj.price/100];
 
