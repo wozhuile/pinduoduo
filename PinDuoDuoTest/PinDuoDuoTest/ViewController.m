@@ -99,9 +99,16 @@
 }
 
 
+#pragma mark 底部数据处理, 代理遵循了。。就直接实现方法就好
+-(void)sucessToGetData:(NetWorkRequestModel *)netWorkRequestModel modelData:(PDDHomeData *)modelData
+{
+    NSLog(@"modelData===%@",modelData);
+}
 
-
-
+-(void)failToGetData:(NetWorkRequestModel *)etWorkRequestModel error:(NSError *)error
+{
+    
+}
 
 
 
