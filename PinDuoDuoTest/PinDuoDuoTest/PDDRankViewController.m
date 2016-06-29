@@ -7,7 +7,7 @@
 //
 
 #import "PDDRankViewController.h"
-
+#import "ViewController.h"
 @interface PDDRankViewController ()
 
 @end
@@ -17,6 +17,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+//   ViewController*viewVC= [[ViewController alloc]init];
+//    [self.view addSubview:(UIView*)viewVC];
 }
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -27,6 +29,10 @@
     // self.navigationController.navigationBar.backgroundColor=[UIColor grayColor];
     self.navigationItem.title=@"海淘专区";
     self.navigationController.navigationBar.barTintColor=[UIColor colorWithRed:225/256.0 green:225/256.0 blue:225/256.0 alpha:1.0];
+    
+   // ViewController*viewVC= [[ViewController alloc]init];
+    //[self.view addSubview:(UIView*)viewVC];
+
 }
 
 

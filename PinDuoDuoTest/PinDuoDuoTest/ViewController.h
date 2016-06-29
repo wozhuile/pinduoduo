@@ -22,7 +22,22 @@
 @property(nonatomic,retain)MainView*mainView;
 
 
-#pragma mark
+#pragma mark  数据数组建立
+//home_super_brand 超值大牌的数组
+@property(nonatomic,retain)NSMutableArray*home_super_brandArray;
+//goods_list 的数组，也就是数据最多的那个数据数组
+
+@property(nonatomic,retain)NSMutableArray*goods_listArray;
+//home_recommend_subjects  查查看类数组
+@property(nonatomic,retain)NSMutableArray*home_recommend_subjectsArray;
+
+//总数据数组
+@property(nonatomic,retain)NSMutableArray*dataArray;
+
+
+#pragma mark 创建table表
+@property(nonatomic,strong)UITableView*buttomDataTableView;
+
 
 
 @end

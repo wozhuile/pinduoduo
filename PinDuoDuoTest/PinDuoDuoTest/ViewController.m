@@ -9,8 +9,8 @@
 #import "ViewController.h"
 #import "MainView.h"
 #import "NetWorkRequestModel.h"
-
-@interface ViewController ()<NetWorkRequestModelDelegate>
+#import "DataModels.h"
+@interface ViewController ()<NetWorkRequestModelDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @end
 
@@ -18,6 +18,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //_dataArray=[[NSMutableArray alloc]initWithArray:@{_home_super_brandArray}];
+    //_dataArray=[[NSMutableArray alloc]initWithObjects:_home_super_brandArray,_home_recommend_subjectsArray,_goods_listArray, nil];
+  
+    _dataArray=[[NSMutableArray alloc]init];
+    
+    
    // self.view.frame
 #pragma mark 不知道为什么在初始化里边赋值和调用就出来效果了。应该是加载先后导致的吧，
     _mainView=[[MainView alloc]initWithFrame:self.view.frame];
@@ -50,9 +57,25 @@
     NSURL*url=[NSURL URLWithString:str];
     [mainVIew CreateTopScrollViewWithUrl:url];*/
     
+    //[self.view addSubview:_mainView];
+    
+    
+    
+    
+#pragma mark 表创建和代理  注意：CGRectGetMaxY(_mainView.buttomScrollView.frame)-CGRectGetMaxY(_mainView.middleView.frame)计算出来的高度
+    _buttomDataTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_mainView.middleView.frame), CGRectGetWidth(self.view.frame), CGRectGetMaxY(_mainView.buttomScrollView.frame)*15-CGRectGetMaxY(_mainView.middleView.frame)) style:UITableViewStylePlain];
+    
+    _buttomDataTableView.backgroundColor=[UIColor greenColor];
+    [_mainView.buttomScrollView addSubview:_buttomDataTableView];
+    _buttomDataTableView.delegate=self;
+    
+    
+    
     [self.view addSubview:_mainView];
     
 }
+
+
 
 #pragma mark 顶部图片遵循代理后。实现方法，
 -(void)sucessToGetImageURL:(NetWorkRequestModel *)netWorkRequestModel url:(NSMutableArray *)urlArray
@@ -110,6 +133,25 @@
 {
     //成功了。完成任务，注释吧！准备tableview创建和数组布局了
     //NSLog(@"modelData===%@",modelData);
+    
+    /*  //数组都可以得到对应数据了，在这里处理数组得到数据麼？
+     PDDHomeData*modelData=[PDDHomeData modelObjectWithDictionary:responseObject];
+     
+     #pragma mark 先试试数组可以取出来完整的麼   也是够了。。打的时候不提示！！！！！！要慢慢复制过来！！
+     //NSLog(@"超值大牌的:=%@--count:=%lu",modelData.homeSuperBrand.goodsList,(unsigned long)modelData.homeSuperBrand.goodsList.count);
+     
+     //NSLog(@"查看更多等:=%@--count=%lu",modelData.homeRecommendSubjects,(unsigned long)modelData.homeRecommendSubjects.count);
+     
+     //NSLog(@"最多的数据:%@--count:%lu",modelData.goodsList,(unsigned long)modelData.goodsList.count);
+
+     */
+    
+    
+    _home_super_brandArray=(NSMutableArray*)modelData.homeSuperBrand.goodsList;
+    _home_recommend_subjectsArray=(NSMutableArray*)modelData.homeRecommendSubjects;
+    _goods_listArray=(NSMutableArray*)modelData.goodsList;
+    
+    
 }
 
 -(void)failToGetData:(NetWorkRequestModel *)etWorkRequestModel error:(NSError *)error
@@ -118,5 +160,19 @@
 }
 
 
+#pragma mark table datasource and delegate
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+    return _home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count;
+}
+-(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    UITableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+    
+    return cell;
+}
 
 @end
