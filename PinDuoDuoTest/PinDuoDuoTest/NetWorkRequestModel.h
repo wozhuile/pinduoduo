@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "PDDHomeData.h"
 @class NetWorkRequestModel;
 @protocol NetWorkRequestModelDelegate <NSObject>
 
@@ -16,14 +16,24 @@
 -(void)sucessToGetImageURL:(NetWorkRequestModel*)netWorkRequestModel url:(NSMutableArray*)urlArray;
 -(void)failToGetImageURL:(NetWorkRequestModel*)etWorkRequestModel error:(NSError*)error;
 
+
+#pragma mark 把首页底部数据传出去，直接传模型对象麼？
+-(void)sucessToGetData:(NetWorkRequestModel*)netWorkRequestModel modelData:(PDDHomeData*)modelData;
+-(void)failToGetData:(NetWorkRequestModel*)etWorkRequestModel error:(NSError*)error;
+
 @end
 
 
 @interface NetWorkRequestModel : NSObject
+#pragma mark 顶部滚动图片请求
 -(void)topScrollViewImage;
 
 
 @property(nonatomic,assign)id<NetWorkRequestModelDelegate>delegate;
+
+#pragma mark 底部数据请求
+-(void)buttomDataRequest;
+
 
 
 @end

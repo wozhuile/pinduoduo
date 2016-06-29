@@ -9,7 +9,7 @@
 #import "NetWorkRequestModel.h"
 #import "AFNetworking.h"
 #import "PDDTopSctollView.h"
-
+#import "DataModels.h"
 @implementation NetWorkRequestModel
 
 #pragma mark 第一个顶部滚动的图片进行网络请求  返回URL，，，好像也不需要了，工具生成模型就够了
@@ -53,6 +53,43 @@
         }
         
     }];
+    
+    
+}
+
+#pragma mark  首页下边数据请求
+-(void)buttomDataRequest
+{
+    AFHTTPSessionManager*manager=[AFHTTPSessionManager manager];
+    
+    
+    [manager GET:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50   " parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        
+        NSLog(@"底部==%@",responseObject);
+        
+        
+#pragma mark  模型，打算直接传出去，一会看看有没有数据，可以在控制器里边的viewwillappear里边处理试试，其实最好传数组过去，这里就把需要的都得到出来在存储到数组，传过去在取出来也可以
+        PDDHomeData*modelData=[PDDHomeData modelObjectWithDictionary:responseObject];
+        
+        if ([_delegate respondsToSelector:@selector(sucessToGetData:modelData:)]) {
+            [_delegate sucessToGetData:self modelData:modelData];
+        }
+        
+        
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nonnull task, NSError * _Nonnull error) {
+        
+        if ([_delegate respondsToSelector:@selector(failToGetData:error:)]) {
+            [_delegate failToGetData:self error:error];
+        }
+        
+        
+    }];
+    
+    
+    
+    
     
     
 }
