@@ -89,7 +89,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
 #pragma mark  海淘界面。。。没有中间那些确认和输入框，，在这里覆盖掉应该可以了。 y值覆盖
     
-    _buttomDataTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_mainView.middleView.frame), CGRectGetWidth(self.view.frame), CGRectGetMaxY(_mainView.buttomScrollView.frame)*15-CGRectGetMaxY(_mainView.middleView.frame)) style:UITableViewStylePlain];
+    _buttomDataTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_mainView.MiddleScrollView.frame), CGRectGetWidth(self.view.frame), CGRectGetMaxY(_mainView.buttomScrollView.frame)*15-CGRectGetMaxY(_mainView.MiddleScrollView.frame)) style:UITableViewStylePlain];
     
     _buttomDataTableView.backgroundColor=[UIColor greenColor];
     _buttomDataTableView.delegate=self;
