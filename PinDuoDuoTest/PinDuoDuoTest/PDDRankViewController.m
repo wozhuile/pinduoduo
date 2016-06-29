@@ -391,7 +391,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         
         [_home_super_brandArray enumerateObjectsUsingBlock:^(PDDGoodsList * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             
-            NSLog(@"idx===%lu",(unsigned long)idx);
+           // NSLog(@"idx===%lu",(unsigned long)idx);
             
             
 #pragma mark tag值赋值不要就一个，，否则就只是找到一个。。之前我就赋值一个10，，每次都以为还是10，。。。错了
