@@ -218,6 +218,24 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     _home_super_brandArray=(NSMutableArray*)modelData.homeSuperBrand.goodsList;
     _home_recommend_subjectsArray=(NSMutableArray*)modelData.homeRecommendSubjects;
     _goods_listArray=(NSMutableArray*)modelData.goodsList;
+    
+    
+//    
+//      [_goods_listArray addObject:_home_super_brandArray];
+//  
+//    
+//    
+//      //1.将添加的数据,放入数组中
+//      // [_dataArray addObject:newData];
+//  
+//      //2.插入单元格
+//      NSIndexPath *cellIndexPath = [NSIndexPath indexPathForRow:_home_super_brandPosition inSection:0];
+//      NSArray *array = [NSArray arrayWithObjects:cellIndexPath, nil];
+//      [_buttomDataTableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationFade];
+//    
+//    
+//    
+    
     //[_dataArray addObjectsFromArray:@{_home_super_brandArray:_home_recommend_subjectsArray,_goods_listArray:}];
     
 #pragma mark  position 纪录
@@ -231,6 +249,23 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         
     }
   
+    
+//    
+  // [_goods_listArray addObject:_home_super_brandArray];
+//    
+//    
+//    
+//    //1.将添加的数据,放入数组中
+//    // [_dataArray addObject:newData];
+//    
+//    //2.插入单元格
+//    NSIndexPath *cellIndexPath = [NSIndexPath indexPathForRow:_home_super_brandPosition inSection:0];
+//    NSArray *array = [NSArray arrayWithObjects:cellIndexPath, nil];
+//    [_buttomDataTableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationFade];
+//    
+    
+    
+    
     
     
 #pragma mark 用这种方法添加就不会错，下边的返回多少行也没有错！    说
@@ -255,6 +290,24 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
+    
+//    [_goods_listArray addObject:_home_super_brandArray];
+//    
+//    //1.将添加的数据,放入数组中
+//    // [_dataArray addObject:newData];
+//    
+//    //2.插入单元格
+//    NSIndexPath *cellIndexPath = [NSIndexPath indexPathForRow:3 inSection:0];
+//    NSArray *array = [NSArray arrayWithObjects:cellIndexPath, nil];
+//    [tableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationFade];
+
+    /*崩溃错误   Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'Invalid update: invalid number of rows in section 0.  The number of rows contained in an existing section after the update (3) must be equal to the number of rows contained in that section before the update (4), plus or minus the number of rows inserted or deleted from that section (1 inserted, 0 deleted) and plus or minus the number of rows moved into or out of that section (0 moved in, 0 moved out).'
+*/
+    
+    
+    
+    
+    
     //for (NSMutableArray*dataArrat in _dataArray ) {
         //return _dataArray.count;
     //}
@@ -263,12 +316,12 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
    // return _dataArray.count;
     
-    //return _goods_listArray.count;
+    return _goods_listArray.count;
     
    // NSLog(@"%lu",_home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count);
     
 #pragma mark  其实只要加一个大括号就可以了。。。为什么搞得这么多
-    return (_home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count);
+    //return (_home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count);
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -281,10 +334,27 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
     if (indexPath.row==_home_super_brandPosition) {
         home_super_brandTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_super_brandCell];
+        
         if (cell==nil ) {
             cell=[[home_super_brandTableViewCell alloc]init];
+            
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
+
         }
-        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+#pragma mark 数据源插入数据
+        
+//        [_goods_listArray addObject:_home_super_brandArray];
+//        
+//        //1.将添加的数据,放入数组中
+//       // [_dataArray addObject:newData];
+//        
+//        //2.插入单元格
+//        NSIndexPath *cellIndexPath = [NSIndexPath indexPathForRow:_home_super_brandPosition-1 inSection:0];
+//        NSArray *array = [NSArray arrayWithObjects:cellIndexPath, nil];
+//        [tableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationFade];
+        
+        
+        //cell.selectionStyle=UITableViewCellSelectionStyleNone;
         
         //UILabel*labe=(UILabel*)[cell.contentView viewWithTag:10];
 #pragma mark  i＝0.记得删除拖拽的
@@ -348,6 +418,13 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
     
     //UITableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+    
+    
+    
+#pragma mark 推荐处理!
+    
+    
     
     
     

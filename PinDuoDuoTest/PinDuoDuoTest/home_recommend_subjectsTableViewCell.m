@@ -10,6 +10,28 @@
 
 @implementation home_recommend_subjectsTableViewCell
 
+
+
+#pragma mark 先创建滚动然后布置成功再说吧
+-(instancetype)initWithFrame:(CGRect)frame
+{
+    
+    self=[super initWithFrame:frame];
+    if (self) {
+        
+        
+        
+        
+    }
+    
+    return self;
+    
+    
+}
+
+
+
+
 - (void)awakeFromNib {
     // Initialization code
 }

@@ -36,7 +36,7 @@
                 <outlet property="modeLook" destination="HaA-EY-id2" id="Fs4-LZ-Kj0"/>
                 <outlet property="subject" destination="q0H-tD-H1C" id="m7N-16-lYp"/>
             </connections>
-            <point key="canvasLocation" x="401" y="298"/>
+            <point key="canvasLocation" x="363" y="301"/>
         </tableViewCell>
     </objects>
     <resources>
