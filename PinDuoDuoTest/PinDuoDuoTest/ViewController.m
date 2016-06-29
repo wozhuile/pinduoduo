@@ -113,7 +113,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     [_buttomDataTableView registerNib:[UINib nibWithNibName:@"goods_listTableViewCell" bundle:nil]   forCellReuseIdentifier:goodsCell];
     [_buttomDataTableView registerNib:[UINib nibWithNibName:@"home_recommend_subjectsTableViewCell" bundle:nil] forCellReuseIdentifier:home_recommend_subjectsCell];
     
-     [_buttomDataTableView registerNib:[UINib nibWithNibName:@"home_super_brandTableViewCell" bundle:nil] forCellReuseIdentifier:home_super_brandCell];
+     //[_buttomDataTableView registerNib:[UINib nibWithNibName:@"home_super_brandTableViewCell" bundle:nil] forCellReuseIdentifier:home_super_brandCell];
     
     
 #pragma mark  隐藏滚动条
@@ -279,15 +279,60 @@ static  NSString*home_super_brandCell=@"home_super_brand";
    
 #pragma mark 先处理超值大牌的
     
-    if (_home_super_brandPosition==indexPath.row) {
+    if (indexPath.row==_home_super_brandPosition) {
         home_super_brandTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_super_brandCell];
+        if (cell==nil ) {
+            cell=[[home_super_brandTableViewCell alloc]init];
+        }
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        
+        //UILabel*labe=(UILabel*)[cell.contentView viewWithTag:10];
+#pragma mark  i＝0.记得删除拖拽的
+//        for (int i=0; i<3; i++) {
+//            UILabel*label=[[UILabel alloc]initWithFrame:CGRectMake(32+(32+100)*i, 202, 80, 16)];
+//            label.backgroundColor=[UIColor redColor];
+//            label.tag=10;
+//            [cell.contentView addSubview:label];
+//        }
+         //UILabel*label=[UILabel alloc]initWithFrame:CGRectMake(32+(32+140)*, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>);
         
 #pragma mark 进行for循环遍历取值，前三个就赋值  不过就算遍历wanq
-        for (PDDGoodsList*goods in _home_super_brandArray) {
+        //for (PDDGoodsList*goods in _home_super_brandArray) {
             
-            [cell.firstIcon sd_setImageWithURL:[NSURL URLWithString:goods.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
-            cell.firstPricelabel.text=[NSString stringWithFormat:@"%.2f",goods.price/100];
-        }
+            
+            
+            //[cell.firstIcon sd_setImageWithURL:[NSURL URLWithString:goods.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+            /**** Terminating app due to uncaught exception 'NSUnknownKeyException', reason: '[<home_super_brandTableViewCell 0x7fb4e182ec00> setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key searchMoreLabel.'
+*/
+#pragma mark 看这个报错，应该说的是找不到这么多属性对象来赋值，也就是label其实一起关联同一个属性，导致前一个关联被后一个关联覆盖了。。就相当于我本来创建3个label，，但是其实就找到来一个来赋值，根据kvc，就会报错，要不自己创建试试吧,就在这里边创建试试把，注意千万要记得到自定义cell里边去，而不是在这里的一般来说
+           
+            //UILabel*labe=(UILabel*)[cell.contentView viewWithTag:10];
+            
+            //labe.text=[NSString stringWithFormat:@"%.2f",goods.price/100];
+            
+           // NSLog(@"labe.text===%@",labe.text);
+            
+            
+        //}
+        
+        [_home_super_brandArray enumerateObjectsUsingBlock:^(PDDGoodsList * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            NSLog(@"idx===%lu",(unsigned long)idx);
+            
+            
+#pragma mark tag值赋值不要就一个，，否则就只是找到一个。。之前我就赋值一个10，，每次都以为还是10，。。。错了
+            if (idx<3) {
+                UILabel*labe=(UILabel*)[cell.contentView viewWithTag:10+idx];
+                labe.text=[NSString stringWithFormat:@"%.2f",obj.price/100];
+                
+
+            }
+             //UILabel*labe=(UILabel*)[cell.contentView viewWithTag:10];
+            //labe.text=[NSString stringWithFormat:@"%.2f",obj.price/100];
+
+        }];
+        
+        
         
         
         return cell;
@@ -297,6 +342,11 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
     
     //UITableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+    
+    
+
+    
     
     goods_listTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:goodsCell];
     //if (goodCell==nil) {
@@ -315,6 +365,18 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     //[NSURL URLWithString:<#(nonnull NSString *)#>];
     
     //NSLog(@"goodsLists===%@",goodsLists);
+    
+    
+    
+    
+    
+#pragma mark 图片记得还原
+    //cell.good_listImageView=nil;
+    
+    
+    
+    
+    
     
     [cell.good_listImageView sd_setImageWithURL:[NSURL URLWithString:goodsLists.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
     cell.goods_name.text=goodsLists.goodsName;

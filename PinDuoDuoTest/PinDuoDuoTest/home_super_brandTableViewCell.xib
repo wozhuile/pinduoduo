@@ -38,24 +38,6 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fJk-Wf-2vb">
                         <rect key="frame" x="296" y="77" width="105" height="105"/>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W5t-rV-eo3">
-                        <rect key="frame" x="32" y="202" width="80" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dsv-KS-PzQ">
-                        <rect key="frame" x="166" y="201" width="80" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ngx-Zs-IQc">
-                        <rect key="frame" x="308" y="200" width="80" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="查看更多" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMf-Fy-v1I">
                         <rect key="frame" x="141" y="240" width="105" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -67,14 +49,6 @@
                     </imageView>
                 </subviews>
             </tableViewCellContentView>
-            <connections>
-                <outlet property="firstIcon" destination="fJk-Wf-2vb" id="b3t-29-01h"/>
-                <outlet property="firstPricelabel" destination="Ngx-Zs-IQc" id="EkB-HC-RQH"/>
-                <outlet property="searchMoreLabel" destination="eMf-Fy-v1I" id="IZ0-iB-OsH"/>
-                <outlet property="timeAlertLabel" destination="yLB-WS-L4h" id="Apz-yf-OEO"/>
-                <outlet property="timeLabel" destination="cjx-QN-5F3" id="LKk-S5-Cou"/>
-                <outlet property="titleLabel" destination="SxG-Zy-Fad" id="zpg-Fh-OkC"/>
-            </connections>
             <point key="canvasLocation" x="445.5" y="300"/>
         </tableViewCell>
     </objects>

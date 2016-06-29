@@ -9,14 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @interface home_super_brandTableViewCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *timeAlertLabel;
+///@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *timeAlertLabel;
 
-@property (weak, nonatomic) IBOutlet UIImageView *firstIcon;
 
-@property (weak, nonatomic) IBOutlet UILabel *firstPricelabel;
+
+//@property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *firstIcon;
+
+//@property (weak, nonatomic) IBOutlet UILabel *firstPricelabel;
 
 
 //@property (weak, nonatomic) IBOutlet UIImageView *middleIcon;
