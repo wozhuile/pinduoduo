@@ -35,9 +35,6 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B2A-Na-2rh">
                         <rect key="frame" x="20" y="76" width="105" height="105"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="laY-tT-PHX">
-                        <rect key="frame" x="154" y="77" width="105" height="105"/>
-                    </imageView>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fJk-Wf-2vb">
                         <rect key="frame" x="296" y="77" width="105" height="105"/>
                     </imageView>
@@ -65,21 +62,20 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="laY-tT-PHX">
+                        <rect key="frame" x="154" y="76" width="105" height="105"/>
+                    </imageView>
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="firstIcon" destination="B2A-Na-2rh" id="VIn-bO-7dU"/>
-                <outlet property="firstPricelabel" destination="W5t-rV-eo3" id="B4G-Hh-Bo4"/>
-                <outlet property="lastIcon" destination="fJk-Wf-2vb" id="ejn-Qb-ehX"/>
-                <outlet property="lastPriceLabel" destination="Ngx-Zs-IQc" id="5Rm-ga-CU9"/>
-                <outlet property="middleIcon" destination="laY-tT-PHX" id="Xzi-kO-XYZ"/>
-                <outlet property="middlePriceLabel" destination="dsv-KS-PzQ" id="qOx-MY-snC"/>
+                <outlet property="firstIcon" destination="fJk-Wf-2vb" id="b3t-29-01h"/>
+                <outlet property="firstPricelabel" destination="Ngx-Zs-IQc" id="EkB-HC-RQH"/>
                 <outlet property="searchMoreLabel" destination="eMf-Fy-v1I" id="IZ0-iB-OsH"/>
                 <outlet property="timeAlertLabel" destination="yLB-WS-L4h" id="Apz-yf-OEO"/>
                 <outlet property="timeLabel" destination="cjx-QN-5F3" id="LKk-S5-Cou"/>
                 <outlet property="titleLabel" destination="SxG-Zy-Fad" id="zpg-Fh-OkC"/>
             </connections>
-            <point key="canvasLocation" x="473.5" y="327"/>
+            <point key="canvasLocation" x="445.5" y="300"/>
         </tableViewCell>
     </objects>
 </document>

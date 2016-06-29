@@ -19,15 +19,15 @@
 @property (weak, nonatomic) IBOutlet UILabel *firstPricelabel;
 
 
-@property (weak, nonatomic) IBOutlet UIImageView *middleIcon;
-@property (weak, nonatomic) IBOutlet UILabel *middlePriceLabel;
+//@property (weak, nonatomic) IBOutlet UIImageView *middleIcon;
+//@property (weak, nonatomic) IBOutlet UILabel *middlePriceLabel;
 
 
-@property (weak, nonatomic) IBOutlet UIImageView *lastIcon;
+//@property (weak, nonatomic) IBOutlet UIImageView *lastIcon;
 
-@property (weak, nonatomic) IBOutlet UILabel *lastPriceLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *lastPriceLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *searchMoreLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *searchMoreLabel;
 
 
 

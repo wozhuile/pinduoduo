@@ -277,13 +277,28 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 #pragma mark  还有两个大数组数据处理，一个是超值大牌，一个是推荐！，都是有一个关键字 ：position！！我们要根据它来进行插入！
     
    
+#pragma mark 先处理超值大牌的
     
-    
+    if (_home_super_brandPosition==indexPath.row) {
+        home_super_brandTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_super_brandCell];
+        
+#pragma mark 进行for循环遍历取值，前三个就赋值  不过就算遍历wanq
+        for (PDDGoodsList*goods in _home_super_brandArray) {
+            
+            [cell.firstIcon sd_setImageWithURL:[NSURL URLWithString:goods.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+            cell.firstPricelabel.text=[NSString stringWithFormat:@"%.2f",goods.price/100];
+        }
+        
+        
+        return cell;
+    }
+#pragma mark _home_super_brandPosition==indexPath.row  直接这样赋值的话，看起来没错，但是一运行就崩溃了，，其实最简单的就是，我们根据这个position等于indexpath，row来判断进行处理了，。。但是下边的goods数组还是更加indexpath，row来从数组里边取出来对象，那就是创建了两个不同样式的cell类对象类。。。这个就够崩溃了的，看看结果！！！：*** Terminating app due to uncaught exception 'NSUnknownKeyException', reason: '[<home_super_brandTableViewCell 0x7f90228afc00> setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key searchMoreLabel.'*** First throw call stack:
+
     
     
     //UITableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:@"cell"];
     
-    goods_listTableViewCell*goodCell=[tableView dequeueReusableCellWithIdentifier:goodsCell];
+    goods_listTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:goodsCell];
     //if (goodCell==nil) {
       //  goodCell=[[goods_listTableViewCell alloc]init];
         //NSArray*array=[[NSBundle mainBundle]loadNibNamed:@" goods_listTableViewCell" owner:nil options:nil];
@@ -293,7 +308,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
        //goodCell=[array objectAtIndex:0];
     //}
 #pragma mark 放在这里外边就可以实现点击状态没有！  证明了注册单元格后，不需要再次去创建！
-     goodCell.selectionStyle=UITableViewCellSelectionStyleNone;
+     cell.selectionStyle=UITableViewCellSelectionStyleNone;
     //goodCell.textLabel.text=@"erewrewr";
     
     PDDGoodsList*goodsLists=[_goods_listArray objectAtIndex:indexPath.row];
@@ -301,17 +316,17 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
     //NSLog(@"goodsLists===%@",goodsLists);
     
-    [goodCell.good_listImageView sd_setImageWithURL:[NSURL URLWithString:goodsLists.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
-    goodCell.goods_name.text=goodsLists.goodsName;
+    [cell.good_listImageView sd_setImageWithURL:[NSURL URLWithString:goodsLists.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+    cell.goods_name.text=goodsLists.goodsName;
     
   
-    goodCell.customer_num.text=[NSString stringWithFormat:@"%d人团",(int)goodsLists.group.customerNum ];
-    goodCell.price.text=[NSString stringWithFormat:@"$%.2f",goodsLists.group.price/100];
+    cell.customer_num.text=[NSString stringWithFormat:@"%d人团",(int)goodsLists.group.customerNum ];
+    cell.price.text=[NSString stringWithFormat:@"$%.2f",goodsLists.group.price/100];
     
     //goodCell.goods_name.text=[NSString stringWithFormat:@"%ld",(long)indexPath.row];
     
     
-    return goodCell;
+    return cell;
 }
 
 #pragma mark  滚动冲突@！！！ 不过在这里的话，会先向上滚动一下才不会滚动了。还有就是可以在viewwillappear等方法里边处理，效果还好！不能在viewdidload方法里边，没加载好不起作用    /*tableView和scrollView滚动起冲突，tableview不能滚动
