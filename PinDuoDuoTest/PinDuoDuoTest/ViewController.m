@@ -56,11 +56,12 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
     NetWorkRequestModel*netModel=[[NetWorkRequestModel alloc]init];
     
-    [netModel topScrollViewImage];
-    
+    [netModel topScrollViewImage:@"http://apiv2.yangkeduo.com/subjects"];
+    //http://apiv2.yangkeduo.com/subjects
     
 #pragma mark  第一次运行的时候崩溃了，底部数据URL书写错误
-    [netModel buttomDataRequest];
+    [netModel buttomDataRequest:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"];
+    //@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"
  
     
     

@@ -26,13 +26,13 @@
 
 @interface NetWorkRequestModel : NSObject
 #pragma mark 顶部滚动图片请求
--(void)topScrollViewImage;
+-(void)topScrollViewImage:(NSString*)urlStr;
 
 
 @property(nonatomic,assign)id<NetWorkRequestModelDelegate>delegate;
 
 #pragma mark 底部数据请求
--(void)buttomDataRequest;
+-(void)buttomDataRequest:(NSString*)urlStr;
 
 
 

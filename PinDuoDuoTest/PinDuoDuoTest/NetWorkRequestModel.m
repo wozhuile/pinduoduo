@@ -14,10 +14,12 @@
 
 #pragma mark 第一个顶部滚动的图片进行网络请求  返回URL，，，好像也不需要了，工具生成模型就够了
 
--(void)topScrollViewImage
+#pragma mark 写活URL 
+
+-(void)topScrollViewImage:(NSString*)urlStr
 {
     AFHTTPSessionManager*manager=[AFHTTPSessionManager manager];
-    [manager GET:@"http://apiv2.yangkeduo.com/subjects" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [manager GET:urlStr parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         //NSLog(@"====%@",responseObject);
         
@@ -58,12 +60,12 @@
 }
 
 #pragma mark  首页下边数据请求
--(void)buttomDataRequest
+-(void)buttomDataRequest:(NSString*)urlStr
 {
     AFHTTPSessionManager*manager=[AFHTTPSessionManager manager];
     
     
-    [manager GET:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [manager GET:urlStr parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
        // NSLog(@"底部==%@",responseObject);
         
