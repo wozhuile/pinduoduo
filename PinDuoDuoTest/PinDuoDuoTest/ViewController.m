@@ -25,7 +25,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 
 
 
-@interface ViewController ()<NetWorkRequestModelDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface ViewController ()<NetWorkRequestModelDelegate,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 
 @end
 
@@ -34,7 +34,8 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-  
+    //_buttomDataTableView.scrollEnabled=NO;
+
     
     _goods_listArray=[[NSMutableArray alloc]init];
     _home_recommend_subjectsArray=[[NSMutableArray alloc]init];
@@ -152,6 +153,28 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     [super viewWillAppear:animated];
     // self.navigationItem.title=@"#wewqe#";
  
+#pragma mark   bug，，在加载完成后设置不滚动的属性也可以解决刚刚的问题：/*tableView和scrollView滚动起冲突，tableview不能滚动
+    
+  /*  tableView也是继承的scrollView，所以在滚动的时候也会触发scrollView的代理方法，在scrollViewDidScroll中做一下类型判断就可以了。
+    
+    
+    
+    代码：
+    
+    
+    
+    - (void)scrollViewDidScroll:(UIScrollView *)scrollView
+    {
+        if ([scrollView isKindOfClass:[UITableView class]]) {
+            NSLog(@"------是列表---");
+        }
+        else {
+            NSLog(@"------是滚动试图----");
+        }
+    }*/
+    
+    
+    _buttomDataTableView.scrollEnabled=NO;
 
     
    // MainView*mainVIew=[[MainView alloc]init];
@@ -270,5 +293,41 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
     return goodCell;
 }
+
+#pragma mark  滚动冲突@！！！ 不过在这里的话，会先向上滚动一下才不会滚动了。还有就是可以在viewwillappear等方法里边处理，效果还好！不能在viewdidload方法里边，没加载好不起作用    /*tableView和scrollView滚动起冲突，tableview不能滚动
+
+/*tableView也是继承的scrollView，所以在滚动的时候也会触发scrollView的代理方法，在scrollViewDidScroll中做一下类型判断就可以了。
+
+
+
+代码：
+
+
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if ([scrollView isKindOfClass:[UITableView class]]) {
+        NSLog(@"------是列表---");
+    }
+    else {
+        NSLog(@"------是滚动试图----");
+    }
+}*/
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if ([scrollView isKindOfClass:[UITableView class]]) {
+        //NSLog(@"------是列表---");
+        //_buttomDataTableView.scrollEnabled=NO;
+    }
+    else {
+        NSLog(@"------是滚动试图----");
+    }
+}
+
+-(void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView
+{
+    
+}
+
 
 @end
