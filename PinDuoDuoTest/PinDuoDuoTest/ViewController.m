@@ -195,12 +195,12 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
     
 #pragma mark 用这种方法添加就不会错，下边的返回多少行也没有错！    说
-    
-    [_dataArray addObject:_home_recommend_subjectsArray];
-     [_dataArray addObject:_home_super_brandArray];
-    [_dataArray addObject:_goods_listArray];
+#pragma mark  下边的3个数组count加括号后，不崩溃了。，，，这里也就不需要的
+    //[_dataArray addObject:_home_recommend_subjectsArray];
+    // [_dataArray addObject:_home_super_brandArray];
+    //[_dataArray addObject:_goods_listArray];
 #pragma mark 这样后，数据看起来是有了，，但是输出一看就3个，，是不崩溃了，，但是。。。
-    NSLog(@"_dataArray===%@===%lu",_dataArray,(unsigned long)_dataArray.count);
+    //NSLog(@"_dataArray===%@===%lu",_dataArray,(unsigned long)_dataArray.count);
     
 #pragma mark 得到数据进行刷新 
     [_buttomDataTableView reloadData];
