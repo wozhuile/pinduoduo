@@ -27,6 +27,7 @@
 		04E221D01D2267C50042B3C7 /* default_mall_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E221CF1D2267C50042B3C7 /* default_mall_logo@3x.png */; };
 		04E221D31D2269A00042B3C7 /* NetWorkRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E221D21D2269A00042B3C7 /* NetWorkRequestModel.m */; };
 		04E221D81D226E800042B3C7 /* PDDTopSctollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E221D71D226E800042B3C7 /* PDDTopSctollView.m */; };
+		04EBDC6C1D24170A00E7EFA7 /* rankVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EBDC6B1D24170A00E7EFA7 /* rankVIew.m */; };
 		04ED69561D23549200098325 /* PDDGoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ED694B1D23549200098325 /* PDDGoodsList.m */; };
 		04ED69571D23549200098325 /* PDDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ED694D1D23549200098325 /* PDDGroup.m */; };
 		04ED69581D23549200098325 /* PDDHomeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ED694F1D23549200098325 /* PDDHomeData.m */; };
@@ -75,6 +76,8 @@
 		04E221D51D226E800042B3C7 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
 		04E221D61D226E800042B3C7 /* PDDTopSctollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDDTopSctollView.h; sourceTree = "<group>"; };
 		04E221D71D226E800042B3C7 /* PDDTopSctollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDDTopSctollView.m; sourceTree = "<group>"; };
+		04EBDC6A1D24170A00E7EFA7 /* rankVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rankVIew.h; sourceTree = "<group>"; };
+		04EBDC6B1D24170A00E7EFA7 /* rankVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rankVIew.m; sourceTree = "<group>"; };
 		04ED69491D23549200098325 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
 		04ED694A1D23549200098325 /* PDDGoodsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDDGoodsList.h; sourceTree = "<group>"; };
 		04ED694B1D23549200098325 /* PDDGoodsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDDGoodsList.m; sourceTree = "<group>"; };
@@ -174,9 +177,9 @@
 		04E221AB1D22215B0042B3C7 /* 热榜 */ = {
 			isa = PBXGroup;
 			children = (
-				04E221AC1D22218A0042B3C7 /* PDDHotViewController.h */,
-				04E221AD1D22218A0042B3C7 /* PDDHotViewController.m */,
-				04E221AE1D22218A0042B3C7 /* PDDHotViewController.xib */,
+				04EBDC691D24134500E7EFA7 /* view */,
+				04EBDC681D24133D00E7EFA7 /* model */,
+				04EBDC671D24132C00E7EFA7 /* controller */,
 			);
 			name = "热榜";
 			sourceTree = "<group>";
@@ -266,6 +269,32 @@
 				04E221D71D226E800042B3C7 /* PDDTopSctollView.m */,
 			);
 			path = "第一个滚动资源";
+			sourceTree = "<group>";
+		};
+		04EBDC671D24132C00E7EFA7 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				04E221AC1D22218A0042B3C7 /* PDDHotViewController.h */,
+				04E221AD1D22218A0042B3C7 /* PDDHotViewController.m */,
+				04E221AE1D22218A0042B3C7 /* PDDHotViewController.xib */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		04EBDC681D24133D00E7EFA7 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		04EBDC691D24134500E7EFA7 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				04EBDC6A1D24170A00E7EFA7 /* rankVIew.h */,
+				04EBDC6B1D24170A00E7EFA7 /* rankVIew.m */,
+			);
+			name = view;
 			sourceTree = "<group>";
 		};
 		04ED69481D23549200098325 /* 第一界面确认下边的资源 */ = {
@@ -444,6 +473,7 @@
 				04E221C11D2221D50042B3C7 /* PDDMeViewController.m in Sources */,
 				04ED695A1D23549200098325 /* PDDHomeSuperBrand.m in Sources */,
 				04E221D81D226E800042B3C7 /* PDDTopSctollView.m in Sources */,
+				04EBDC6C1D24170A00E7EFA7 /* rankVIew.m in Sources */,
 				04E221981D22211F0042B3C7 /* ViewController.m in Sources */,
 				04E221AF1D22218A0042B3C7 /* PDDHotViewController.m in Sources */,
 				04ED695B1D23549200098325 /* PDDMobileAppGroups.m in Sources */,

@@ -8,6 +8,8 @@
 
 #import "PDDHotViewController.h"
 
+#import "rankVIew.h"
+
 @interface PDDHotViewController ()
 
 @end
@@ -17,9 +19,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //初始化数组
+    _dataArray=[[NSMutableArray alloc]init];
     
+   // _rankTableView=[UITableView alloc]ini;
+    
+    
+    rankVIew*rank=[[rankVIew alloc]initWithFrame:self.view.frame];
+    
+    [self.view addSubview:rank];
     
 }
+
+
+
+
+
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
