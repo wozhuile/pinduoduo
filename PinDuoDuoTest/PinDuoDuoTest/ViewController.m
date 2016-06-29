@@ -29,6 +29,12 @@
     [netModel topScrollViewImage];
     
     
+#pragma mark  第一次运行的时候崩溃了，底部数据URL书写错误
+    [netModel buttomDataRequest];
+ 
+    
+    
+    
 #pragma mark page and timer
    // [_mainView CreatePageControl];
     

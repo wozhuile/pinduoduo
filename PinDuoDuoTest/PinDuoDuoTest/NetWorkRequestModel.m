@@ -63,7 +63,7 @@
     AFHTTPSessionManager*manager=[AFHTTPSessionManager manager];
     
     
-    [manager GET:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50   " parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+    [manager GET:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50" parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         NSLog(@"底部==%@",responseObject);
         
