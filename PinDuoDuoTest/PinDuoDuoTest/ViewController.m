@@ -10,6 +10,21 @@
 #import "MainView.h"
 #import "NetWorkRequestModel.h"
 #import "DataModels.h"
+
+#import "goods_listTableViewCell.h"
+#import "home_recommend_subjectsTableViewCell.h"
+#import "home_super_brandTableViewCell.h"
+
+static  NSString*goodsCell=@"goods_list";
+
+static  NSString*home_recommend_subjectsCell=@"home_recommend_subjects";
+static  NSString*home_super_brandCell=@"home_super_brand";
+
+
+#import <UIImageView+WebCache.h>
+
+
+
 @interface ViewController ()<NetWorkRequestModelDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -18,6 +33,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+  
+    
+    _goods_listArray=[[NSMutableArray alloc]init];
+    _home_recommend_subjectsArray=[[NSMutableArray alloc]init];
+    _home_super_brandArray=[[NSMutableArray alloc]init];
+    _dataArray=[[NSMutableArray alloc]init];
     
     //_dataArray=[[NSMutableArray alloc]initWithArray:@{_home_super_brandArray}];
     //_dataArray=[[NSMutableArray alloc]initWithObjects:_home_super_brandArray,_home_recommend_subjectsArray,_goods_listArray, nil];
@@ -39,7 +61,6 @@
 #pragma mark  第一次运行的时候崩溃了，底部数据URL书写错误
     [netModel buttomDataRequest];
  
-    
     
     
 #pragma mark page and timer
@@ -65,13 +86,33 @@
 #pragma mark 表创建和代理  注意：CGRectGetMaxY(_mainView.buttomScrollView.frame)-CGRectGetMaxY(_mainView.middleView.frame)计算出来的高度
     _buttomDataTableView=[[UITableView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_mainView.middleView.frame), CGRectGetWidth(self.view.frame), CGRectGetMaxY(_mainView.buttomScrollView.frame)*15-CGRectGetMaxY(_mainView.middleView.frame)) style:UITableViewStylePlain];
     
-    _buttomDataTableView.backgroundColor=[UIColor greenColor];
-    [_mainView.buttomScrollView addSubview:_buttomDataTableView];
-    _buttomDataTableView.delegate=self;
+    //_buttomDataTableView.backgroundColor=[UIColor greenColor];
+     _buttomDataTableView.delegate=self;
     
+    
+    
+#pragma mark 这里没有实现，怎么运行数据都没有出来；
+    _buttomDataTableView.dataSource=self;
+    
+    [_mainView.buttomScrollView addSubview:_buttomDataTableView];
+   
+    
+#pragma mark 先写一个死值！
+    _buttomDataTableView.rowHeight=268;
+    
+#pragma mark 暂时用个分割线
+    _buttomDataTableView.separatorColor=[UIColor grayColor];
     
     
     [self.view addSubview:_mainView];
+    
+    
+#pragma mark 注册单元格
+   // [_buttomDataTableView registerClass:[goods_listTableViewCell Class]forCellReuseIdentifier:goodsCell];
+    [_buttomDataTableView registerNib:[UINib nibWithNibName:@"goods_listTableViewCell" bundle:nil]   forCellReuseIdentifier:goodsCell];
+    [_buttomDataTableView registerNib:[UINib nibWithNibName:@"home_recommend_subjectsTableViewCell" bundle:nil] forCellReuseIdentifier:home_recommend_subjectsCell];
+    
+     [_buttomDataTableView registerNib:[UINib nibWithNibName:@"home_super_brandTableViewCell" bundle:nil] forCellReuseIdentifier:home_super_brandCell];
     
 }
 
@@ -150,8 +191,18 @@
     _home_super_brandArray=(NSMutableArray*)modelData.homeSuperBrand.goodsList;
     _home_recommend_subjectsArray=(NSMutableArray*)modelData.homeRecommendSubjects;
     _goods_listArray=(NSMutableArray*)modelData.goodsList;
+    //[_dataArray addObjectsFromArray:@{_home_super_brandArray:_home_recommend_subjectsArray,_goods_listArray:}];
     
     
+#pragma mark 用这种方法添加就不会错，下边的返回多少行也没有错！    说  
+    
+    [_dataArray addObject:_home_recommend_subjectsArray];
+     [_dataArray addObject:_home_super_brandArray];
+    [_dataArray addObject:_goods_listArray];
+    
+    
+#pragma mark 得到数据进行刷新 
+    [_buttomDataTableView reloadData];
 }
 
 -(void)failToGetData:(NetWorkRequestModel *)etWorkRequestModel error:(NSError *)error
@@ -163,16 +214,47 @@
 #pragma mark table datasource and delegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    return _dataArray.count;
     
-    return _home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count;
+    //return _goods_listArray.count;
+    
+   // NSLog(@"%lu",_home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count);
+    //return _home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    UITableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:@"cell"];
+    //UITableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+    goods_listTableViewCell*goodCell=[tableView dequeueReusableCellWithIdentifier:goodsCell];
+    //if (goodCell==nil) {
+      //  goodCell=[[goods_listTableViewCell alloc]init];
+        //NSArray*array=[[NSBundle mainBundle]loadNibNamed:@" goods_listTableViewCell" owner:nil options:nil];
+        
+#pragma mark 暂时设置选中状态没有
+        //goodCell.selectionStyle=UITableViewCellSelectionStyleNone;
+       //goodCell=[array objectAtIndex:0];
+    //}
+#pragma mark 放在这里外边就可以实现点击状态没有！  证明了注册单元格后，不需要再次去创建！
+     goodCell.selectionStyle=UITableViewCellSelectionStyleNone;
+    //goodCell.textLabel.text=@"erewrewr";
+    
+    PDDGoodsList*goodsLists=[_goods_listArray objectAtIndex:indexPath.row];
+    //[NSURL URLWithString:<#(nonnull NSString *)#>];
+    
+    //NSLog(@"goodsLists===%@",goodsLists);
+    
+    [goodCell.good_listImageView sd_setImageWithURL:[NSURL URLWithString:goodsLists.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+    goodCell.goods_name.text=goodsLists.goodsName;
+    
+  
+    goodCell.customer_num.text=[NSString stringWithFormat:@"%d人团",(int)goodsLists.group.customerNum ];
+    goodCell.price.text=[NSString stringWithFormat:@"$%.2f",goodsLists.group.price/100];
+    
+    //goodCell.goods_name.text=[NSString stringWithFormat:@"%ld",(long)indexPath.row];
     
     
-    return cell;
+    return goodCell;
 }
 
 @end
