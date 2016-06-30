@@ -35,6 +35,8 @@
 @property(nonatomic,retain)NSMutableArray*dataArray;
 
 
+@property(nonatomic,retain)NSMutableArray*recommentArray;
+
 #pragma mark 创建table表
 @property(nonatomic,strong)UITableView*buttomDataTableView;
 

@@ -224,6 +224,11 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     _home_super_brandArray=[[NSMutableArray alloc]initWithArray:modelData.homeSuperBrand.goodsList];
     _home_recommend_subjectsArray=[[NSMutableArray alloc]initWithArray:modelData.homeRecommendSubjects];
     
+   // _recommentArray=[[NSMutableArray alloc]initWithArray:modelData.homeRecommendSubjects];
+    //[_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+    //}];
+    
     _goods_listArray=[[NSMutableArray alloc]initWithArray:modelData.goodsList];
  
     
@@ -258,18 +263,20 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
    // NSLog(@"_goods_listArray222==%@",_goods_listArray);
     
-    
-//    [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//        
-//        [_goods_listArray insertObject:obj atIndex:obj.position];
-//        
-//    }];
-//
-//      [_goods_listArray addObject:_home_super_brandArray];
-//  
+  //NSLog(@"_goods_listArray1111==%@",_goods_listArray);
+    [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        [_goods_listArray insertObject:obj atIndex:obj.position];
+#pragma mark 数组获取，为了subject  为了URL
+        /*Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[PDDHomeRecommendSubjects imageUrl]: unrecognized se*/
+        _recommentArray=[[NSMutableArray alloc]initWithArray:obj.goodsList];
+        
+       // NSLog(@"_goods_listArray222==%@",_goods_listArray);
+    }];
 
-    
-    
+      //[_goods_listArray addObject:_home_super_brandArray];
+    //NSLog(@"_goods_listArray333==%@",_goods_listArray);
+
     
     
     
@@ -302,19 +309,19 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     }
   
     
-//    
-  // [_goods_listArray addObject:_home_super_brandArray];
-//    
-//    
-//    
-//    //1.将添加的数据,放入数组中
-//    // [_dataArray addObject:newData];
-//    
-//    //2.插入单元格
-//    NSIndexPath *cellIndexPath = [NSIndexPath indexPathForRow:_home_super_brandPosition inSection:0];
-//    NSArray *array = [NSArray arrayWithObjects:cellIndexPath, nil];
-//    [_buttomDataTableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationFade];
-//    
+    
+    //[_goods_listArray addObject:_home_super_brandArray];
+    
+    
+    
+    //1.将添加的数据,放入数组中
+    // [_dataArray addObject:newData];
+    
+    //2.插入单元格
+    //NSIndexPath *cellIndexPath = [NSIndexPath indexPathForRow:_home_super_brandPosition inSection:0];
+   // NSArray *array = [NSArray arrayWithObjects:cellIndexPath, nil];
+    //[_buttomDataTableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationFade];
+    
     
     
     
@@ -373,7 +380,9 @@ static  NSString*home_super_brandCell=@"home_super_brand";
    // NSLog(@" count===== %lu",_home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count);
     
 #pragma mark  其实只要加一个大括号就可以了。。。为什么搞得这么多
-    return (_home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count);//上边数据源已经插入了，，，
+   // return (_home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count);//上边数据源已经插入了，，，就不需要都返回count了。。只要goods，，的就可以了 ，可以输出试试的
+    
+    return _goods_listArray.count;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -406,7 +415,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         }
 #pragma mark 数据源插入数据
         
-        [_goods_listArray addObject:_home_super_brandArray];
+       // [_goods_listArray addObject:_home_super_brandArray];
         
         //1.将添加的数据,放入数组中
         //[_dataArray addObject:newData];
@@ -489,6 +498,48 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
     
     
+    if (indexPath.row==_home_recommend_subjectsPosition) {
+        home_recommend_subjectsTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_recommend_subjectsCell];
+        
+        if (cell==nil) {
+            cell=[[home_recommend_subjectsTableViewCell alloc]init];
+        }
+        
+//        [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//            //注意tag
+//            UIImageView*img=[cell.contentView viewWithTag:idx+60];
+//            [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+//            UILabel*lab=[cell.contentView viewWithTag:idx+60];
+//            lab.text=obj.goodsName;
+//            
+//            
+//            
+//        }];
+//
+        
+        [_recommentArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            //注意tag
+            UIImageView*img=[cell.contentView viewWithTag:idx+60];
+            [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+            UILabel*lab=[cell.contentView viewWithTag:idx+60];
+            lab.text=obj.goodsName;
+            
+            
+            
+        }];
+        
+
+        
+        [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            cell.subject.text=obj.subject;
+           }];
+
+        
+        
+        return cell;
+    }
+    
     
     
 
@@ -507,7 +558,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
      cell.selectionStyle=UITableViewCellSelectionStyleNone;
     //goodCell.textLabel.text=@"erewrewr";
     
-    PDDGoodsList*goodsLists=[_goods_listArray objectAtIndex:indexPath.row];
+    //PDDGoodsList*goodsLists=[_goods_listArray objectAtIndex:indexPath.row];
     //[NSURL URLWithString:<#(nonnull NSString *)#>];
     
     //NSLog(@"goodsLists===%@",goodsLists);
@@ -523,13 +574,52 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
     
     
+#pragma mark 这里也需要遍历了，否则会导致矛盾报错。
+   //PDDGoodsList*goodsLists=[_goods_listArray objectAtIndex:indexPath.row];
     
-    [cell.good_listImageView sd_setImageWithURL:[NSURL URLWithString:goodsLists.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
-    cell.goods_name.text=goodsLists.goodsName;
+    id obj=[_goods_listArray objectAtIndex:indexPath.row];
     
+    
+        // [obj isKindOfClass:[PDDGoodsList class]];
+#pragma mark  [obj isKindOfClass:[PDDGoodsList class] 用这个来取，是不崩溃了。但是数据不对了。。。。
+    if ([obj isKindOfClass:[PDDGoodsList class]]) {
+        PDDGoodsList*goodsLists=obj;
+        [cell.good_listImageView sd_setImageWithURL:[NSURL URLWithString:goodsLists.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+        
+        cell.goods_name.text=goodsLists.goodsName;
+        
+        cell.customer_num.text=[NSString stringWithFormat:@"%d人团",(int)goodsLists.group.customerNum ];
+        cell.price.text=[NSString stringWithFormat:@"$%.2f",goodsLists.group.price/100];
+
+        
+        
+    }
+    
+    //NSLog(@"goodsLists====%@",goodsLists);
+    
+    //这时候取出来的对象还对麼？？还都是这个类型麼？
+    ///[cell.good_listImageView sd_setImageWithURL:[NSURL URLWithString:goodsLists.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+    
+    /*'-[PDDHomeRecommendSubjects goodsName]: unrecognized selector sent to instance 0x7fa659f53580'//封了上边，到这里报错，，。，
+*/
+    //cell.goods_name.text=goodsLists.goodsName;
+    /*minating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[PDDHomeRecommendSubjects group]: unrecognized selector sent to instance 0x7fe6f9552c90'
+*/
   
-    cell.customer_num.text=[NSString stringWithFormat:@"%d人团",(int)goodsLists.group.customerNum ];
-    cell.price.text=[NSString stringWithFormat:@"$%.2f",goodsLists.group.price/100];
+    //cell.customer_num.text=[NSString stringWithFormat:@"%d人团",(int)goodsLists.group.customerNum ];
+    //cell.price.text=[NSString stringWithFormat:@"$%.2f",goodsLists.group.price/100];
+   
+   // [_goods_listArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+   
+        
+        
+   // }];
+    
+    
+    
+    
+    
     
     //goodCell.goods_name.text=[NSString stringWithFormat:@"%ld",(long)indexPath.row];
     
