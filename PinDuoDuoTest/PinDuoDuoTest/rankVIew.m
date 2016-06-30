@@ -25,7 +25,7 @@
 -(void)topViewAndButton
 {
     _topVIew=[[UIView alloc]initWithFrame:CGRectMake(0, 64, self.frame.size.width, 40)];
-    _topVIew.backgroundColor=[UIColor greenColor];
+    //_topVIew.backgroundColor=[UIColor greenColor];
     [self addSubview:_topVIew];
     
     NSArray*titlearray=[[NSArray alloc]initWithObjects:@"大家都在买",@"最新", nil];
@@ -38,6 +38,7 @@
         [button addTarget:self action:@selector(scrollBtn:) forControlEvents:UIControlEventTouchUpInside];
         button.tag=110+i;
         
+       
 
         [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 #pragma mark 注意修改xib的大小为6s plus 规格
