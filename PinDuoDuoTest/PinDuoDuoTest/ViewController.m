@@ -317,20 +317,25 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
    // return _dataArray.count;
     
-    return _goods_listArray.count;
+    //return _goods_listArray.count;
     
-   // NSLog(@"%lu",_home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count);
+    NSLog(@" count===== %lu",_home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count);
     
 #pragma mark  其实只要加一个大括号就可以了。。。为什么搞得这么多
-    //return (_home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count);
+    return (_home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count);
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     
+#pragma mark 输出这里目前是39个，上边是67个。为什么？之所以是39个，那是因为我每个都设定是280大小左右，然后是差不多15倍大小（其实还要剪掉250左右每个大小），也就是不够，现在就需要活的数据／／
+    NSLog(@"indexPath==%@=indexPath.row==%ld",indexPath,(long)indexPath.row);
+    
+#pragma mark 思考问题：真的这里index.path.row会影响到下边取值麼？会在这里是indexpath。row等于position的4后，下边还有在有4来取麼？不会，一个区的indexpath。row就一组，如果判断用了。那下边的就没有了，，所以这个索引对应的goods的数组里边的元素就取不出来，也布局不了了，那怎么办呢？不仅仅要要取出来对应位置的数据，还会在下一个cell单元格里边布局，后边的都会依次类推，， 可以用标记方法麼？就是一开始创建的cell标记都是一样的，代表都是空的海没有数据，这时候就根据position等于indexpath。row对应先布局这些特殊的数据，，，然后布局数据就标记状态已经布局了，，然后goods数组久取出来所有的数据，布局样式的时候，就找还是空标记的cell进行布局数据，，还是有个问题，goods里边数据怎么取？，，难道一开始就先把所有的数据先取出来，然后再创建cell，，再布局，也就是indexpath，row是索引，是cell的，。。干脆这样，，不通过索引来在数组对应取数据了，我们还是用遍历，用数组的enum。。。方法来遍历取出来不就可以了？？？根据索引取太他吗矛盾了。。 
     
     
-#pragma mark 思考问题：真的这里index.path.row会影响到下边取值麼？会在这里是indexpath。row等于position的4后，下边还有在有4来取麼？不会，一个区的indexpath。row就一组，如果判断用了。那下边的就没有了，，所以这个索引对应的goods的数组里边的元素就取不出来，也布局不了了，那怎么办呢？不仅仅要要取出来对应位置的数据，还会在下一个cell单元格里边布局，后边的都会依次类推，，
+    
+    
     
     
     
