@@ -328,6 +328,12 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 {
     
     
+    
+    
+#pragma mark 思考问题：真的这里index.path.row会影响到下边取值麼？会在这里是indexpath。row等于position的4后，下边还有在有4来取麼？不会，一个区的indexpath。row就一组，如果判断用了。那下边的就没有了，，所以这个索引对应的goods的数组里边的元素就取不出来，也布局不了了，那怎么办呢？不仅仅要要取出来对应位置的数据，还会在下一个cell单元格里边布局，后边的都会依次类推，，
+    
+    
+    
 #pragma mark  还有两个大数组数据处理，一个是超值大牌，一个是推荐！，都是有一个关键字 ：position！！我们要根据它来进行插入！
     
    
