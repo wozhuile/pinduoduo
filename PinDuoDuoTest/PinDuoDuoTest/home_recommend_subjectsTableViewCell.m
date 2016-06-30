@@ -37,7 +37,11 @@
         
 #pragma mark 不需要分页，否则一滑动就到边界了都
         //_MiddleScrollView.pagingEnabled=YES;
-        [self addSubview:_MiddleScrollView];
+        
+#pragma mark  放错了。／／／
+       // [self addSubview:_MiddleScrollView];
+        [self.contentView addSubview:_MiddleScrollView];
+        
         
 #pragma mark  考虑！效果里边虽然可以底部创建了滚动，然后再滚动上创建按钮点击也是可以了，但是每个图片按钮点击，都不仅仅这样，有些上边有new或者hot上边，有些么有，我们如果就做个死效果可以判断着做！，但是如果下次不同了呢？服务器给不同上边了呢？那我们在回来改代码？最好不是这样，服务器应该给我们返回参数，那些是标记new或者hot的，那些没有，这样我们可以根据这些服务器给的参数来进行显示不显示，应该都创建了标记，就看显示不显示！  还有要注意封装的，比如上边的顶部滚动有5个图片，要是下次有6个呢？所以我们这个类药高度封装，那些赋值尽可能在最外边就可以了，，这里也是，，new的可能是🆕添加的，就可能下次还需要添加，那要按钮还是集合视图（不用表，表一般上下还好，。左右的就麻烦）
         

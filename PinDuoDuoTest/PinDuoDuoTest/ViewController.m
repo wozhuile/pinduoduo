@@ -36,6 +36,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
     //_buttomDataTableView.scrollEnabled=NO;
 
+    _recommentPositionArray=[[NSMutableArray alloc]init];
     
     _goods_listArray=[[NSMutableArray alloc]init];
     _home_recommend_subjectsArray=[[NSMutableArray alloc]init];
@@ -304,8 +305,12 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
     for (PDDHomeRecommendSubjects*recommentSub in modelData.homeRecommendSubjects) {
 #pragma mark 如果是数组，就先从数组里边取出来对象，在取属性
-        _home_recommend_subjectsPosition=recommentSub.position;
+        //_home_recommend_subjectsPosition=recommentSub.position;
         
+        
+#pragma mark 这里这样记录，居然就保留来最后一个的值！！ 看来要输出看看的。。也要保留到数组里边去
+        NSNumber*nub=[[NSNumber alloc]initWithInt:recommentSub.position];
+        [_recommentPositionArray addObject:nub];
     }
   
     
@@ -404,6 +409,10 @@ static  NSString*home_super_brandCell=@"home_super_brand";
    
 #pragma mark 先处理超值大牌的  赋值左右要注意了
     
+  
+    
+    
+    
     if (indexPath.row==_home_super_brandPosition) {
         home_super_brandTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_super_brandCell];
         
@@ -496,12 +505,22 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
 #pragma mark 推荐处理!
     
+    //NSNumber*recommetPosition=nil;
+    
+    //[_recommentPositionArray enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+       // _HomePositionSum=[obj integerValue];
+        //如果在这里输出的话，就发现输出了不少于position个数的次数，，是position＊position个。。。两次遍历了至少。。。
+        //NSLog(@"_HomePositionSum===%ld",(long)_HomePositionSum);
+    //}];
+#pragma mark 还是释放了啊。。前后对比就知道了。。为什么要传position呢？对象不就可以了麼
+
     
     
-    if (_home_recommend_subjectsPosition==indexPath.row+1)
+    
+    if (_HomePositionSum==indexPath.row)
     {
         
-        NSLog(@"_home_recommend_subjectsPosition==%ld",(long)_home_recommend_subjectsPosition);
+        NSLog(@"_home_recommend_subjectsPosition==%ld",(long)_HomePositionSum);
         
         
         home_recommend_subjectsTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_recommend_subjectsCell];

@@ -37,6 +37,14 @@
 
 @property(nonatomic,retain)NSMutableArray*recommentArray;
 
+#pragma mark 推荐的position数组
+@property(nonatomic,retain)NSMutableArray*recommentPositionArray;
+
+@property(nonatomic,assign)NSInteger HomePositionSum;
+
+
+
+
 #pragma mark 创建table表
 @property(nonatomic,strong)UITableView*buttomDataTableView;
 
