@@ -13,6 +13,8 @@
 #pragma mark 上边有一个view，view上可以放两个按钮，点击按钮，下边就是大滚动视图，可以左右滑动
 @property(nonatomic,strong)UIView*topVIew;
 
+#pragma mark 小滑条
+@property(nonatomic,strong)UIView*slideView;
 
 
 @end
