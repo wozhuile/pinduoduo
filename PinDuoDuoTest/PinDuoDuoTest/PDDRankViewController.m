@@ -402,7 +402,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
             
             
             UILabel*labe=(UILabel*)[cell.contentView viewWithTag:10+idx];
-            labe.text=[NSString stringWithFormat:@"$%.2f",obj.price/100];
+            //labe.text=[NSString stringWithFormat:@"$%.2f",obj.price/100];
             labe.textColor=[UIColor redColor];
             
             

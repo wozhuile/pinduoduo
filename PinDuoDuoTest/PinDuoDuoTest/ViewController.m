@@ -9,7 +9,16 @@
 #import "ViewController.h"
 #import "MainView.h"
 #import "NetWorkRequestModel.h"
-#import "DataModels.h"
+//#import "DataModels.h"
+#import "PDDHotViewController.h"
+#import "PDDGoodsList.h"
+#import "PDDHomeData.h"
+#import "PDDGroup.h"
+#import "PDDHomeRecommendSubjects.h"
+#import "PDDHomeSuperBrand.h"
+#import "PDDRankViewController.h"
+#import "PDDHomeSuperBrand.h"
+
 
 #import "goods_listTableViewCell.h"
 #import "home_recommend_subjectsTableViewCell.h"
@@ -479,7 +488,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
             
             
                 UILabel*labe=(UILabel*)[cell.contentView viewWithTag:10+idx];
-                labe.text=[NSString stringWithFormat:@"$%.2f",obj.price/100];
+                //labe.text=[NSString stringWithFormat:@"$%.2f",obj.price/100];
                 labe.textColor=[UIColor redColor];
                 
 
