@@ -190,8 +190,8 @@ static NSString*cellID=@"cell";
     
    // NSLog(@"%s",__func__);
    // NSLog(@"%@",self);
-    NSLog(@"rankView==%@",rankView);
-    NSLog(@"_dataConllection====%@",_dataConllection);
+    //NSLog(@"rankView==%@",rankView);
+    //NSLog(@"_dataConllection====%@",_dataConllection);
     
     
 }

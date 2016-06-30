@@ -216,11 +216,48 @@ static  NSString*home_super_brandCell=@"home_super_brand";
      */
     
     
-    _home_super_brandArray=(NSMutableArray*)modelData.homeSuperBrand.goodsList;
-    _home_recommend_subjectsArray=(NSMutableArray*)modelData.homeRecommendSubjects;
-    _goods_listArray=(NSMutableArray*)modelData.goodsList;
+   // _home_super_brandArray=(NSMutableArray*)modelData.homeSuperBrand.goodsList;
+    //_home_recommend_subjectsArray=(NSMutableArray*)modelData.homeRecommendSubjects;
+    //_goods_listArray=(NSMutableArray*)modelData.goodsList;
+#pragma mark  妈蛋的。上边强转后还是cfNsarray类型，也就是NSArray类型，，还必须⚠初始化才不会崩溃！！！！！！
+     /*reason: '-[__NSArrayI insertObject:atIndex:]: unrecognized selector s*/
+    _home_super_brandArray=[[NSMutableArray alloc]initWithArray:modelData.homeSuperBrand.goodsList];
+    _home_recommend_subjectsArray=[[NSMutableArray alloc]initWithArray:modelData.homeRecommendSubjects];
     
+    _goods_listArray=[[NSMutableArray alloc]initWithArray:modelData.goodsList];
  
+    
+#pragma mark 给了position啦，，那就插入，应该来到数据源得到这里进行处理，还是用遍历插入。。  其实3个数据源，就是同样的，插入遍历就好，数据源归一   注意：把数据源都归一了，，在多少行哪里就应该久返回一个goods的count久可以了。
+    //[_home_super_brandArray enumerateObjectsUsingBlock:^(PDDHomeSuperBrand*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+       // NSLog(@"_goods_listArray===%@",_goods_listArray);
+        
+        //插入的位置就是position
+        //[_goods_listArray insertObject:obj atIndex:obj.position];
+        
+        // NSLog(@"_goods_listArray==%@",_goods_listArray);
+#pragma mark 这样总结遍历本来就错误了吧，要知道这个_home_super_brandArray里边不在只是一个对象了，而是里边对象里边的数组了，，，在这里就是9个。。而position代表的应该是和数组平级，也就对应取出来一个，，现在对数组遍历，，取出来的不在是平级关系了，，也不难怪报错崩溃：  这个就直接插入对象吧？或者酒总结插入数组的方法也可以,就不遍历了
+        /*-[PDDGoodsList position]: unrecognized selector sent to instance 0x7ffe5a8bee30
+         2016-06-30 19:53:32.602 PinDuoDuoTest[8914:278829] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[PDDGoodsList position]: unrecognized selector sent to instance 0x7ffe5a8bee30'
+*/
+    //}];
+    
+    
+    //[_goods_listArray insertObjects:_home_super_brandArray atIndexes:modelData.homeSuperBrand.position];
+    //试试看。。可以先输出看看前后变化没。。是放一个数组（里边也有数组），把这个大数组当作一个对象来做，还是就传类对象？
+    //NSLog(@"_goods_listArray111111==%@",_goods_listArray);
+   // [_goods_listArray insertObject:_home_super_brandArray atIndex:modelData.homeSuperBrand.position];
+    /*reason: '-[__NSArrayI insertObject:atIndex:]: unrecognized selector s*/
+   // NSLog(@"_goods_listArray22222==%@",_goods_listArray);
+    
+   // NSMutableArray*homeBrandArray=[[NSMutableArray alloc]initWithArray:_home_super_brandArray];
+    
+    //self.goods_listArray=homeBrandArray;
+   // NSLog(@"_goods_listArray111111==%@",_goods_listArray);
+    [self.goods_listArray insertObject:modelData.homeSuperBrand atIndex:modelData.homeSuperBrand.position];
+    
+   // NSLog(@"_goods_listArray222==%@",_goods_listArray);
+    
     
 //    [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
 //        
@@ -230,7 +267,15 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 //
 //      [_goods_listArray addObject:_home_super_brandArray];
 //  
-//    
+
+    
+    
+    
+    
+    
+    
+    
+    
 //    
 //      //1.将添加的数据,放入数组中
 //      // [_dataArray addObject:newData];
@@ -328,7 +373,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
    // NSLog(@" count===== %lu",_home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count);
     
 #pragma mark  其实只要加一个大括号就可以了。。。为什么搞得这么多
-    return (_home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count);
+    return (_home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count);//上边数据源已经插入了，，，
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
