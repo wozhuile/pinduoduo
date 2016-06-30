@@ -516,20 +516,32 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 
     
     
-    
-    if (_HomePositionSum==indexPath.row)
-    {
-        
-        NSLog(@"_home_recommend_subjectsPosition==%ld",(long)_HomePositionSum);
-        
-        
-        home_recommend_subjectsTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_recommend_subjectsCell];
-        
-        if (cell==nil) {
-            cell=[[home_recommend_subjectsTableViewCell alloc]init];
-        }
-        
-//        [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//    
+//    if (_HomePositionSum==indexPath.row)
+//    {
+//        
+//        NSLog(@"_home_recommend_subjectsPosition==%ld",(long)_HomePositionSum);
+//        
+//        
+//        home_recommend_subjectsTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_recommend_subjectsCell];
+//        
+//        if (cell==nil) {
+//            cell=[[home_recommend_subjectsTableViewCell alloc]init];
+//        }
+//        
+////        [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+////            //注意tag
+////            UIImageView*img=[cell.contentView viewWithTag:idx+60];
+////            [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+////            UILabel*lab=[cell.contentView viewWithTag:idx+60];
+////            lab.text=obj.goodsName;
+////            
+////            
+////            
+////        }];
+////
+//        
+//        [_recommentArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
 //            //注意tag
 //            UIImageView*img=[cell.contentView viewWithTag:idx+60];
 //            [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
@@ -539,31 +551,19 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 //            
 //            
 //        }];
+//        
 //
-        
-        [_recommentArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            //注意tag
-            UIImageView*img=[cell.contentView viewWithTag:idx+60];
-            [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
-            UILabel*lab=[cell.contentView viewWithTag:idx+60];
-            lab.text=obj.goodsName;
-            
-            
-            
-        }];
-        
-
-        
-        [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            
-            cell.subject.text=obj.subject;
-           }];
-
-        
-        
-        return cell;
-    }
-    
+//        
+//        [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//            
+//            cell.subject.text=obj.subject;
+//           }];
+//
+//        
+//        
+//        return cell;
+//    }
+//    
     
     
 
@@ -618,6 +618,43 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         
         
     }
+    
+    if ([obj isKindOfClass:[PDDHomeRecommendSubjects class]]) {
+        PDDHomeRecommendSubjects*pddRecomment=obj;
+        if (indexPath.row==pddRecomment.position) {
+            
+        
+        
+        home_recommend_subjectsTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_recommend_subjectsCell];
+        
+        if (cell==nil) {
+            cell=[[home_recommend_subjectsTableViewCell alloc]init];
+        }
+
+        [_recommentArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            //注意tag
+            UIImageView*img=[cell.contentView viewWithTag:idx+60];
+            [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+            UILabel*lab=[cell.contentView viewWithTag:idx+60];
+            lab.text=obj.goodsName;
+            
+            
+            
+        }];
+        
+        
+        
+        [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            cell.subject.text=obj.subject;
+        }];
+        }
+        
+        
+        return cell;
+
+    }
+    
     
     //NSLog(@"goodsLists====%@",goodsLists);
     
