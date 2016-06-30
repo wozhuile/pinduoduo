@@ -14,7 +14,7 @@ static NSString*cellID=@"cell";
 
 #import <UIImageView+WebCache.h>
 
-@interface PDDHotViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface PDDHotViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,rankVIewDelegate>
 
 @end
 
@@ -33,6 +33,12 @@ static NSString*cellID=@"cell";
     
      _rankVC=[[rankVIew alloc]initWithFrame:self.view.frame];
     
+    
+    
+#pragma mark 遵循代理，把按钮传出来
+    _rankVC.delegate=self;
+    
+    
     //[self.view addSubview:_rankVC];
     
     //[self CreateCollectionVIew];
@@ -50,17 +56,27 @@ static NSString*cellID=@"cell";
 #pragma mark scrollview
 -(void)CreateScrollView
 {
-    _choiceScroll=[[UIScrollView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_rankVC.slideView.frame)+64, self.view.frame.size.width,self.view.frame.size.height-CGRectGetMaxY(_rankVC.slideView.frame)-120)];//44是标签的 120勉强可以滑动下边看到。翻页效果。。目前就这样先吧
+   // _choiceScroll=[[UIScrollView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_rankVC.slideView.frame)+64, self.view.frame.size.width,self.view.frame.size.height-CGRectGetMaxY(_rankVC.slideView.frame)-120)];//44是标签的 120勉强可以滑动下边看到。翻页效果。。目前就这样先吧
+   
+#pragma mark 下边一点击就不见集合视图啦。现在不把滚动和集合放到rankview上试试，就放到view上，位置调整下,之前相对位置，可以先去输出看看的,然后就可以相对view来说了
+    //NSLog(@"%f",CGRectGetMaxY(_rankVC.slideView.frame)+64);//输出是103
+   // NSLog(@"%f",self.view.frame.size.height-CGRectGetMaxY(_rankVC.slideView.frame)-120);/／输出是577
     
+    
+    _choiceScroll=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 103, self.view.frame.size.width,577)];
     
     _choiceScroll.contentSize=CGSizeMake(self.view.frame.size.width*2, self.view.frame.size.height-CGRectGetMaxY(_rankVC.slideView.frame)-120);
     _choiceScroll.backgroundColor=[UIColor redColor];
+    
+    
     _choiceScroll.showsHorizontalScrollIndicator=YES;
     _choiceScroll.showsVerticalScrollIndicator=YES;
     
     _choiceScroll.pagingEnabled=YES;
     
     [_rankVC addSubview:_choiceScroll];
+    
+    //[self.view addSubview:_choiceScroll];
     
     _choiceScroll.bounces=NO;
     
@@ -85,7 +101,7 @@ static NSString*cellID=@"cell";
     
     
     _dataConllection=[[UICollectionView alloc]initWithFrame:CGRectMake(sender*self.view.frame.size.width, 0, CGRectGetWidth(_choiceScroll.frame), CGRectGetHeight(_choiceScroll.frame)) collectionViewLayout:flowlayout];
-    _dataConllection.backgroundColor=[UIColor whiteColor];
+    _dataConllection.backgroundColor=[UIColor greenColor];
     
     _dataConllection.delegate=self;
     _dataConllection.dataSource=self;
@@ -159,7 +175,35 @@ static NSString*cellID=@"cell";
 }
 
 
+#pragma mark 处理点击按钮滚动和滚动按钮也滑动。。。首先先去把按钮传出来  代理
 
+//遵循了代理。实现按钮传出来方法
+-(void)sendButton:(rankVIew *)rankView button:(UIButton *)button
+{
+#pragma mark 根据按钮tag。赋值滚动的偏移量;
+    
+//    _choiceScroll.contentOffset=CGPointMake((button.tag-110)*CGRectGetWidth(_choiceScroll.frame), 0);//是实现点击滑动了，，但是呢，，，集合视图不见了。
+    [_choiceScroll setContentOffset:CGPointMake((button.tag-110)*CGRectGetWidth(_choiceScroll.frame), 0) animated:YES];
+    
+   // NSLog(@"%s",__func__);
+   // NSLog(@"%@",self);
+    NSLog(@"rankView==%@",rankView);
+    NSLog(@"_dataConllection====%@",_dataConllection);
+    
+    
+}
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if ([scrollView isKindOfClass:[UICollectionView class]]) {
+        //NSLog(@"------是列表---");
+        //_buttomDataTableView.scrollEnabled=NO;
+        //_choiceScroll.scrollEnabled=NO;
+        //_dataConllection.scrollEnabled=NO;
+    }
+    else {
+        NSLog(@"------是滚动试图----");
+    }
+}
 
 
 

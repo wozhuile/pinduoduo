@@ -29,7 +29,7 @@
 -(void)topScrollViewImage:(NSString*)urlStr;
 
 
-@property(nonatomic,assign)id<NetWorkRequestModelDelegate>delegate;
+@property(nonatomic,weak)id<NetWorkRequestModelDelegate>delegate;
 
 #pragma mark 底部数据请求
 -(void)buttomDataRequest:(NSString*)urlStr;

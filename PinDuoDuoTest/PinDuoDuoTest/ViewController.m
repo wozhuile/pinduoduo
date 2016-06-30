@@ -221,7 +221,13 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     _goods_listArray=(NSMutableArray*)modelData.goodsList;
     
     
-//    
+    
+//    [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        
+//        [_goods_listArray insertObject:obj atIndex:obj.position];
+//        
+//    }];
+//
 //      [_goods_listArray addObject:_home_super_brandArray];
 //  
 //    
@@ -355,15 +361,15 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         }
 #pragma mark 数据源插入数据
         
-//        [_goods_listArray addObject:_home_super_brandArray];
-//        
-//        //1.将添加的数据,放入数组中
-//       // [_dataArray addObject:newData];
-//        
-//        //2.插入单元格
-//        NSIndexPath *cellIndexPath = [NSIndexPath indexPathForRow:_home_super_brandPosition-1 inSection:0];
-//        NSArray *array = [NSArray arrayWithObjects:cellIndexPath, nil];
-//        [tableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationFade];
+        [_goods_listArray addObject:_home_super_brandArray];
+        
+        //1.将添加的数据,放入数组中
+        //[_dataArray addObject:newData];
+        
+        //2.插入单元格
+        NSIndexPath *cellIndexPath = [NSIndexPath indexPathForRow:_home_super_brandPosition-1 inSection:0];
+        NSArray *array = [NSArray arrayWithObjects:cellIndexPath, nil];
+        [tableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationFade];
         
         
         //cell.selectionStyle=UITableViewCellSelectionStyleNone;

@@ -75,6 +75,13 @@
     }];
     
     
+    if ([_delegate respondsToSelector:@selector(sendButton:button:)]) {
+        [_delegate sendButton:self button:sender];
+    }
+    
+    
+    
+    
     
    
 }
