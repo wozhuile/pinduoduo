@@ -15,7 +15,7 @@
     self=[super initWithFrame:frame];
     if (self) {
         
-       
+       // self.backgroundColor=[UIColor whiteColor];
         [self topViewAndButton];
     }
     
@@ -81,27 +81,10 @@
          _slideView.center=CGPointMake(sender.center.x, CGRectGetMinY(_slideView.frame));
     }];
     
-    
-    
-    
-    
-    
+   
 }
 
 
-//#pragma mark 集合视图
-//-(void)CreateCollectionVIew
-//{
-//    UICollectionViewFlowLayout*flowlayout=[[UICollectionViewFlowLayout alloc]init];
-//    
-//    flowlayout.itemSize=CGSizeMake(self.frame.size.width-10, 180);
-//    
-//    
-//    
-//    
-//    
-//    
-//}
 
 
 

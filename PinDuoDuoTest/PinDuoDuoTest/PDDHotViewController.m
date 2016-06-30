@@ -10,8 +10,9 @@
 
 #import "rankVIew.h"
 #import "HotCollectionViewCell.h"
-//static NSString*cellID=@"cell";
+static NSString*cellID=@"cell";
 
+#import <UIImageView+WebCache.h>
 
 @interface PDDHotViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 
@@ -22,7 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.automaticallyAdjustsScrollViewInsets=YES;
+    //self.view.backgroundColor=[UIColor whiteColor];
+    //self.automaticallyAdjustsScrollViewInsets=YES;
     //初始化数组
     _dataArray=[[NSMutableArray alloc]init];
     
@@ -37,10 +39,16 @@
 //    [self.view addSubview:_rankVC];
     
       [self.view addSubview:_rankVC];
-      [self CreateCollectionVIew];
+    
+    
+    
+      //[self CreateCollectionVIew];
 
     
 }
+
+#pragma mark scrollview
+
 
 
 #pragma mark 集合视图
@@ -55,17 +63,20 @@
     
     
     _dataConllection=[[UICollectionView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_rankVC.slideView.frame)+64, self.view.frame.size.width, self.view.frame.size.height) collectionViewLayout:flowlayout];
-    _dataConllection.backgroundColor=[UIColor greenColor];
+    _dataConllection.backgroundColor=[UIColor whiteColor];
     
     _dataConllection.delegate=self;
     _dataConllection.dataSource=self;
     
-    [_rankVC addSubview:_dataConllection];
+    [self.view addSubview:_dataConllection];
 
     // [self.view addSubview:_rankVC];
     
     
     //[_dataConllection registerClass:[HotCollectionViewCell class] forCellWithReuseIdentifier:cellID];
+    //[_dataConllection registerClass:[HotCollectionViewCell class] forCellWithReuseIdentifier:cellID];
+#pragma mark 还是需要用这个xib。。
+    [_dataConllection registerNib:[UINib nibWithNibName:@"HotCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:cellID];
 
 }
 #pragma mark collection  datasource and delegate
@@ -76,10 +87,11 @@
 
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString*cellID=@"cell";
-    UICollectionViewCell*cell=[collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];//看起来都没错。运行就崩溃。。就是这里，，好像海没有办法。。还必须注册了，，在看看吧。。
+
+    HotCollectionViewCell*cell=[collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];//看起来都没错。运行就崩溃。。就是这里，，好像海没有办法。。还必须注册了，，在看看吧。。
+#pragma mark 注册了还需要写这个
     if (cell==nil) {
-        cell=[[UICollectionViewCell alloc]init];
+        cell=[[HotCollectionViewCell alloc]init];
     }
     
     //HotCollectionViewCell*cell=[collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
@@ -91,9 +103,14 @@
 //        
 //    }
     
-    //cell.indexSum.text=[NSString stringWithFormat:@"%ld", (long)indexPath.row];   ;
     
-    cell.backgroundColor=[UIColor colorWithRed:arc4random()%255/256.0 green:arc4random()%255/256.0  blue:arc4random()%255/256.0  alpha:1.0];
+    //[cell.showDataImage sd_setImageWithURL: placeholderImage:];
+    
+    
+    
+    cell.indexSum.text=[NSString stringWithFormat:@"%ld", (long)indexPath.row+1];
+    
+    //cell.backgroundColor=[UIColor colorWithRed:arc4random()%255/256.0 green:arc4random()%255/256.0  blue:arc4random()%255/256.0  alpha:1.0];
     
     return cell;
 }
@@ -111,5 +128,11 @@
     self.navigationItem.title=@"排行榜";
     self.navigationController.navigationBar.barTintColor=[UIColor colorWithRed:225/256.0 green:225/256.0 blue:225/256.0 alpha:1.0];
 }
+
+
+
+
+
+
 
 @end
