@@ -498,7 +498,12 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
     
     
-    if (indexPath.row==_home_recommend_subjectsPosition) {
+    if (_home_recommend_subjectsPosition==indexPath.row+1)
+    {
+        
+        NSLog(@"_home_recommend_subjectsPosition==%ld",(long)_home_recommend_subjectsPosition);
+        
+        
         home_recommend_subjectsTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_recommend_subjectsCell];
         
         if (cell==nil) {
