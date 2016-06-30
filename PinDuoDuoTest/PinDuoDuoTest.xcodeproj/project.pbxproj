@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04E1B5F31D24FE7A0013515A /* HotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E1B5F11D24FE7A0013515A /* HotCollectionViewCell.m */; };
+		04E1B5F41D24FE7A0013515A /* HotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E1B5F21D24FE7A0013515A /* HotCollectionViewCell.xib */; };
 		04E221921D22211F0042B3C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E221911D22211F0042B3C7 /* main.m */; };
 		04E221951D22211F0042B3C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E221941D22211F0042B3C7 /* AppDelegate.m */; };
 		04E221981D22211F0042B3C7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E221971D22211F0042B3C7 /* ViewController.m */; };
@@ -44,6 +46,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04E1B5F01D24FE790013515A /* HotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCollectionViewCell.h; sourceTree = "<group>"; };
+		04E1B5F11D24FE7A0013515A /* HotCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCollectionViewCell.m; sourceTree = "<group>"; };
+		04E1B5F21D24FE7A0013515A /* HotCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotCollectionViewCell.xib; sourceTree = "<group>"; };
 		04E2218D1D22211F0042B3C7 /* PinDuoDuoTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinDuoDuoTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E221911D22211F0042B3C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04E221931D22211F0042B3C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -309,6 +314,9 @@
 			children = (
 				04EBDC6A1D24170A00E7EFA7 /* rankVIew.h */,
 				04EBDC6B1D24170A00E7EFA7 /* rankVIew.m */,
+				04E1B5F01D24FE790013515A /* HotCollectionViewCell.h */,
+				04E1B5F11D24FE7A0013515A /* HotCollectionViewCell.m */,
+				04E1B5F21D24FE7A0013515A /* HotCollectionViewCell.xib */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -420,6 +428,7 @@
 				04ED69601D2389E400098325 /* goods_listTableViewCell.xib in Resources */,
 				04ED69651D2389FB00098325 /* home_super_brandTableViewCell.xib in Resources */,
 				04E221B61D2221A60042B3C7 /* PDDRankViewController.xib in Resources */,
+				04E1B5F41D24FE7A0013515A /* HotCollectionViewCell.xib in Resources */,
 				04E221C21D2221D50042B3C7 /* PDDMeViewController.xib in Resources */,
 				04E221B01D22218A0042B3C7 /* PDDHotViewController.xib in Resources */,
 			);
@@ -480,6 +489,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E1B5F31D24FE7A0013515A /* HotCollectionViewCell.m in Sources */,
 				04ED69691D238A1200098325 /* home_recommend_subjectsTableViewCell.m in Sources */,
 				04E221D31D2269A00042B3C7 /* NetWorkRequestModel.m in Sources */,
 				04E221BB1D2221BD0042B3C7 /* PDDSearchViewController.m in Sources */,

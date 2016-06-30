@@ -84,6 +84,27 @@
     
     
     
+    
+    
 }
+
+
+//#pragma mark 集合视图
+//-(void)CreateCollectionVIew
+//{
+//    UICollectionViewFlowLayout*flowlayout=[[UICollectionViewFlowLayout alloc]init];
+//    
+//    flowlayout.itemSize=CGSizeMake(self.frame.size.width-10, 180);
+//    
+//    
+//    
+//    
+//    
+//    
+//}
+
+
+
+
 
 @end
