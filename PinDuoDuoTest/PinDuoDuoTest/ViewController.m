@@ -220,7 +220,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     _home_recommend_subjectsArray=(NSMutableArray*)modelData.homeRecommendSubjects;
     _goods_listArray=(NSMutableArray*)modelData.goodsList;
     
-    
+ 
     
 //    [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
 //        
@@ -367,9 +367,9 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         //[_dataArray addObject:newData];
         
         //2.插入单元格
-        NSIndexPath *cellIndexPath = [NSIndexPath indexPathForRow:_home_super_brandPosition-1 inSection:0];
-        NSArray *array = [NSArray arrayWithObjects:cellIndexPath, nil];
-        [tableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationFade];
+//        NSIndexPath *cellIndexPath = [NSIndexPath indexPathForRow:_home_super_brandPosition-1 inSection:0];
+//        NSArray *array = [NSArray arrayWithObjects:cellIndexPath, nil];
+//        [tableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationFade];
         
         
         //cell.selectionStyle=UITableViewCellSelectionStyleNone;

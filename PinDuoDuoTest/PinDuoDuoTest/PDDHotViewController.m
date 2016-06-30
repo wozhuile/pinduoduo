@@ -182,7 +182,10 @@ static NSString*cellID=@"cell";
 {
 #pragma mark 根据按钮tag。赋值滚动的偏移量;
     
-//    _choiceScroll.contentOffset=CGPointMake((button.tag-110)*CGRectGetWidth(_choiceScroll.frame), 0);//是实现点击滑动了，，但是呢，，，集合视图不见了。
+
+#pragma mark 在热榜那里，我是把按钮传出来了，集合视图的什么都做好了。滑动集合视图都见，但是点击按钮就出来全红的滚动，集合就不见来，，我因为重新创建了对象了！！但是不是，。。。是tag！！！！我前边为了怕找到这个tag，就加来110，，不剪掉就直接在偏移量哪里用tag想乘，能找到集合才怪！！！！
+    
+    _choiceScroll.contentOffset=CGPointMake((button.tag-110)*CGRectGetWidth(_choiceScroll.frame), 0);//是实现点击滑动了，，但是呢，，，集合视图不见了。
     [_choiceScroll setContentOffset:CGPointMake((button.tag-110)*CGRectGetWidth(_choiceScroll.frame), 0) animated:YES];
     
    // NSLog(@"%s",__func__);
