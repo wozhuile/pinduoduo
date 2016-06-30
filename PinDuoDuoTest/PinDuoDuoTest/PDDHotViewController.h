@@ -26,6 +26,9 @@
 #pragma mark collectionView
 @property(nonatomic,strong)UICollectionView*dataConllection;
 
+#pragma mark 左右的滚动视图，点击最新或者大家都在买，可以切换全屏，。。还需要把按钮点击事件传出来
+@property(nonatomic,strong)UIScrollView*choiceScroll;
+
 
 
 @end

@@ -37,15 +37,8 @@
         [button setTitle:[titlearray objectAtIndex:i] forState:0];
         [button addTarget:self action:@selector(scrollBtn:) forControlEvents:UIControlEventTouchUpInside];
         button.tag=110+i;
-       // button.backgroundColor=[UIColor greenColor];
-      // if (button.tag==110)
-       // {
-//            [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-          //  button.selected=NO;
-       // }
-        [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-        
-       // [button addTarget:self action:@selector(redBtn:) forControlEvents:UIControlEventTouchDown];
+          [button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+ 
         
 #pragma mark 注意修改xib的大小为6s plus 规格
         [_topVIew addSubview:button];
@@ -80,6 +73,8 @@
     [UIView animateWithDuration:0.5 animations:^{
          _slideView.center=CGPointMake(sender.center.x, CGRectGetMinY(_slideView.frame));
     }];
+    
+    
     
    
 }

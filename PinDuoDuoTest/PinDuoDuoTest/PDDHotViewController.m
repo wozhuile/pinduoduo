@@ -40,7 +40,7 @@ static NSString*cellID=@"cell";
     
       [self.view addSubview:_rankVC];
     
-    
+       [self CreateScrollView];
     
       //[self CreateCollectionVIew];
 
@@ -48,11 +48,33 @@ static NSString*cellID=@"cell";
 }
 
 #pragma mark scrollview
-
+-(void)CreateScrollView
+{
+    _choiceScroll=[[UIScrollView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_rankVC.slideView.frame)+64, self.view.frame.size.width,self.view.frame.size.height-CGRectGetMaxY(_rankVC.slideView.frame)-120)];//44是标签的 120勉强可以滑动下边看到。翻页效果。。目前就这样先吧
+    
+    
+    _choiceScroll.contentSize=CGSizeMake(self.view.frame.size.width*2, self.view.frame.size.height-CGRectGetMaxY(_rankVC.slideView.frame)-120);
+    _choiceScroll.backgroundColor=[UIColor redColor];
+    _choiceScroll.showsHorizontalScrollIndicator=YES;
+    _choiceScroll.showsVerticalScrollIndicator=YES;
+    
+    _choiceScroll.pagingEnabled=YES;
+    
+    [_rankVC addSubview:_choiceScroll];
+    
+    _choiceScroll.bounces=NO;
+    
+#pragma mark 把集合视图放到上边，，布局是一样的就不需要多个控制器了，，如果布局不一样，就需要不同控制器了，？？   后边的那些数据资源，就在点击按钮的时候在请求，在获得数据，在发送各自的URL吧，，然后刷新。
+    for (int i=0; i<2; i++) {
+        [self CreateCollectionVIew:i];
+    }
+    
+    
+}
 
 
 #pragma mark 集合视图
--(void)CreateCollectionVIew
+-(void)CreateCollectionVIew:(NSInteger)sender
 {
     UICollectionViewFlowLayout*flowlayout=[[UICollectionViewFlowLayout alloc]init];
 
@@ -62,15 +84,22 @@ static NSString*cellID=@"cell";
     flowlayout.minimumLineSpacing=5;
     
     
-    _dataConllection=[[UICollectionView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(_rankVC.slideView.frame)+64, self.view.frame.size.width, self.view.frame.size.height) collectionViewLayout:flowlayout];
+    _dataConllection=[[UICollectionView alloc]initWithFrame:CGRectMake(sender*self.view.frame.size.width, 0, CGRectGetWidth(_choiceScroll.frame), CGRectGetHeight(_choiceScroll.frame)) collectionViewLayout:flowlayout];
     _dataConllection.backgroundColor=[UIColor whiteColor];
     
     _dataConllection.delegate=self;
     _dataConllection.dataSource=self;
     
-    [self.view addSubview:_dataConllection];
+    //[self.view addSubview:_dataConllection];
 
     // [self.view addSubview:_rankVC];
+    
+#pragma mark 放到滚动视图上?
+    [_choiceScroll addSubview:_dataConllection];
+    
+    
+    
+    
     
     
     //[_dataConllection registerClass:[HotCollectionViewCell class] forCellWithReuseIdentifier:cellID];

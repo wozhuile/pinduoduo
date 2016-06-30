@@ -16,9 +16,4 @@
 #pragma mark 小滑条
 @property(nonatomic,strong)UIView*slideView;
 
-//
-//#pragma mark collectionView
-//@property(nonatomic,strong)UICollectionView*dataConllection;
-
-
 @end
