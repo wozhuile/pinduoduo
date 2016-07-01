@@ -276,7 +276,11 @@ static  NSString*home_super_brandCell=@"home_super_brand";
   //NSLog(@"_goods_listArray1111==%@",_goods_listArray);
     [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
-        [_goods_listArray insertObject:obj atIndex:obj.position];
+#pragma mark 虽然给的position是8什么的，但是之前我没有进行加1，所以位置还是不对，至少，现在加1位置就对了，，哪些布局没有出来，可能是布局的控件不对，或者覆盖了，可以直接在cell哪里创建试试看效果出来没，，然后理解了在进行封装
+        
+        
+         //[_goods_listArray insertObject:obj atIndex:obj.position];
+        [_goods_listArray insertObject:obj atIndex:obj.position+1];//加1试试
 #pragma mark 数组获取，为了subject  为了URL
         /*Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[PDDHomeRecommendSubjects imageUrl]: unrecognized se*/
         _recommentArray=[[NSMutableArray alloc]initWithArray:obj.goodsList];
