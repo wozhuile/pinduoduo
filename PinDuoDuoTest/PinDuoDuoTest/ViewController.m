@@ -33,6 +33,8 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 #import <UIImageView+WebCache.h>
 
 
+#import <MJRefresh.h>
+
 
 @interface ViewController ()<NetWorkRequestModelDelegate,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
 
@@ -51,13 +53,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     _home_recommend_subjectsArray=[[NSMutableArray alloc]init];
     _home_super_brandArray=[[NSMutableArray alloc]init];
     _dataArray=[[NSMutableArray alloc]init];
-    
-    //_dataArray=[[NSMutableArray alloc]initWithArray:@{_home_super_brandArray}];
-    //_dataArray=[[NSMutableArray alloc]initWithObjects:_home_super_brandArray,_home_recommend_subjectsArray,_goods_listArray, nil];
   
-    _dataArray=[[NSMutableArray alloc]init];
-    
-    
    // self.view.frame
 #pragma mark 不知道为什么在初始化里边赋值和调用就出来效果了。应该是加载先后导致的吧，
     _mainView=[[MainView alloc]initWithFrame:self.view.frame];
@@ -66,10 +62,29 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
     NetWorkRequestModel*netModel=[[NetWorkRequestModel alloc]init];
     
+    
+    
     [netModel topScrollViewImage:@"http://apiv2.yangkeduo.com/subjects"];
     //http://apiv2.yangkeduo.com/subjects
     
 #pragma mark  第一次运行的时候崩溃了，底部数据URL书写错误
+    
+ 
+#pragma mark  妈蛋。。刷新版本不对。不是最新的mj_header
+    //开始刷新  表刷新不了，，滚动也刷新不了啊。。  都是 _mainView.buttomScrollView的话，进来的时候刷新了，。。。但是之后就不行来，不知道是不是viewwillappear哪里设置了不滚动？？
+    _mainView.buttomScrollView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+       
+    [netModel buttomDataRequest:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"];
+    }];
+    
+    [_mainView.buttomScrollView.header beginRefreshing];
+    
+    
+    
+    
+    
+    
+    
     [netModel buttomDataRequest:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"];
     //@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"
  
@@ -353,6 +368,11 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     //[_dataArray addObject:_goods_listArray];
 #pragma mark 这样后，数据看起来是有了，，但是输出一看就3个，，是不崩溃了，，但是。。。
     //NSLog(@"_dataArray===%@===%lu",_dataArray,(unsigned long)_dataArray.count);
+    
+    
+    //结束刷新
+    [_mainView.buttomScrollView.header endRefreshing];
+    
     
 #pragma mark 得到数据进行刷新 
     [_buttomDataTableView reloadData];

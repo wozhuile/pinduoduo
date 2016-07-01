@@ -18,6 +18,8 @@
 
 -(void)topScrollViewImage:(NSString*)urlStr
 {
+    
+    
     AFHTTPSessionManager*manager=[AFHTTPSessionManager manager];
     [manager GET:urlStr parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
