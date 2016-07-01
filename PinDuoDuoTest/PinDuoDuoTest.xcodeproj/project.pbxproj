@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		04E1B5F31D24FE7A0013515A /* HotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E1B5F11D24FE7A0013515A /* HotCollectionViewCell.m */; };
 		04E1B5F41D24FE7A0013515A /* HotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E1B5F21D24FE7A0013515A /* HotCollectionViewCell.xib */; };
-		04E1B5FD1D256D880013515A /* PDDEveryBodyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E1B5F81D256D880013515A /* PDDEveryBodyModel.m */; };
-		04E1B5FE1D256D880013515A /* PDDGoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E1B5FA1D256D880013515A /* PDDGoodsList.m */; };
-		04E1B5FF1D256D880013515A /* PDDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E1B5FC1D256D880013515A /* PDDGroup.m */; };
 		04E221921D22211F0042B3C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E221911D22211F0042B3C7 /* main.m */; };
 		04E221951D22211F0042B3C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E221941D22211F0042B3C7 /* AppDelegate.m */; };
 		04E221981D22211F0042B3C7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E221971D22211F0042B3C7 /* ViewController.m */; };
@@ -52,13 +49,6 @@
 		04E1B5F01D24FE790013515A /* HotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCollectionViewCell.h; sourceTree = "<group>"; };
 		04E1B5F11D24FE7A0013515A /* HotCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCollectionViewCell.m; sourceTree = "<group>"; };
 		04E1B5F21D24FE7A0013515A /* HotCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotCollectionViewCell.xib; sourceTree = "<group>"; };
-		04E1B5F61D256D880013515A /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
-		04E1B5F71D256D880013515A /* PDDEveryBodyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDDEveryBodyModel.h; sourceTree = "<group>"; };
-		04E1B5F81D256D880013515A /* PDDEveryBodyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDDEveryBodyModel.m; sourceTree = "<group>"; };
-		04E1B5F91D256D880013515A /* PDDGoodsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDDGoodsList.h; sourceTree = "<group>"; };
-		04E1B5FA1D256D880013515A /* PDDGoodsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDDGoodsList.m; sourceTree = "<group>"; };
-		04E1B5FB1D256D880013515A /* PDDGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDDGroup.h; sourceTree = "<group>"; };
-		04E1B5FC1D256D880013515A /* PDDGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDDGroup.m; sourceTree = "<group>"; };
 		04E2218D1D22211F0042B3C7 /* PinDuoDuoTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PinDuoDuoTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E221911D22211F0042B3C7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		04E221931D22211F0042B3C7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -145,23 +135,8 @@
 		04E1B5DE1D24A3080013515A /* model */ = {
 			isa = PBXGroup;
 			children = (
-				04E1B5F51D256D880013515A /* 大家都在买 */,
 			);
 			name = model;
-			sourceTree = "<group>";
-		};
-		04E1B5F51D256D880013515A /* 大家都在买 */ = {
-			isa = PBXGroup;
-			children = (
-				04E1B5F61D256D880013515A /* DataModels.h */,
-				04E1B5F71D256D880013515A /* PDDEveryBodyModel.h */,
-				04E1B5F81D256D880013515A /* PDDEveryBodyModel.m */,
-				04E1B5F91D256D880013515A /* PDDGoodsList.h */,
-				04E1B5FA1D256D880013515A /* PDDGoodsList.m */,
-				04E1B5FB1D256D880013515A /* PDDGroup.h */,
-				04E1B5FC1D256D880013515A /* PDDGroup.m */,
-			);
-			path = "大家都在买";
 			sourceTree = "<group>";
 		};
 		04E221841D22211F0042B3C7 = {
@@ -523,10 +498,8 @@
 				04ED69591D23549200098325 /* PDDHomeRecommendSubjects.m in Sources */,
 				04E221C11D2221D50042B3C7 /* PDDMeViewController.m in Sources */,
 				04ED695A1D23549200098325 /* PDDHomeSuperBrand.m in Sources */,
-				04E1B5FE1D256D880013515A /* PDDGoodsList.m in Sources */,
 				04E221D81D226E800042B3C7 /* PDDTopSctollView.m in Sources */,
 				04EBDC6C1D24170A00E7EFA7 /* rankVIew.m in Sources */,
-				04E1B5FD1D256D880013515A /* PDDEveryBodyModel.m in Sources */,
 				04E221981D22211F0042B3C7 /* ViewController.m in Sources */,
 				04E221AF1D22218A0042B3C7 /* PDDHotViewController.m in Sources */,
 				04ED695B1D23549200098325 /* PDDMobileAppGroups.m in Sources */,
@@ -535,7 +508,6 @@
 				04E221CE1D2250600042B3C7 /* MainView.m in Sources */,
 				04E221951D22211F0042B3C7 /* AppDelegate.m in Sources */,
 				04ED69561D23549200098325 /* PDDGoodsList.m in Sources */,
-				04E1B5FF1D256D880013515A /* PDDGroup.m in Sources */,
 				04E221921D22211F0042B3C7 /* main.m in Sources */,
 				04E221B51D2221A60042B3C7 /* PDDRankViewController.m in Sources */,
 				04ED69641D2389FB00098325 /* home_super_brandTableViewCell.m in Sources */,

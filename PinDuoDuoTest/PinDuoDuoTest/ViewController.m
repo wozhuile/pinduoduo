@@ -17,7 +17,7 @@
 #import "PDDHomeRecommendSubjects.h"
 #import "PDDHomeSuperBrand.h"
 #import "PDDRankViewController.h"
-#import "PDDHomeSuperBrand.h"
+//#import "PDDHomeSuperBrand.h"//重复导入上边
 
 
 #import "goods_listTableViewCell.h"
