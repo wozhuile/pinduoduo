@@ -530,8 +530,10 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 
     id obj=[_goods_listArray objectAtIndex:indexPath.row];
     if ([obj isKindOfClass:[PDDHomeRecommendSubjects class]]) {
+        
+        
         PDDHomeRecommendSubjects*pddRecomment=obj;
-        NSLog(@"%f",pddRecomment.position);
+        //NSLog(@"%f",pddRecomment.position);
         
 #pragma mark 一直没出来就是多了这个方法判断，多了一个代码： if (indexPath.row==pddRecomment.position) {  其实本来也是可以的，，但是没有理解好，因为position其实就是8啊，。12什么的，，但是在数组里边取出来的时候，indexpath。row都是10了。。。／在基础上加2了。。。。。。
         
@@ -548,25 +550,29 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         
         
         NSInteger tap=22;//22还可以，。，26和30都不太好
-        NSInteger btnWidth=(cell.frame.size.width*2-11*9)/10+8;//加大一些，不会感觉空空的
+        NSInteger btnWidth=(cell.frame.size.width*2-11*9)/10+15;//加大一些，不会感觉空空的
         
-        UIScrollView*_MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(5, 45, cell.frame.size.width-15, 150)];
-        _MiddleScrollView.backgroundColor=[UIColor greenColor];
-        _MiddleScrollView.contentSize=CGSizeMake(cell.frame.size.width*2+btnWidth*2+50, 100);
+        UIScrollView*_MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 45, cell.frame.size.width, 200)];
+        //_MiddleScrollView.backgroundColor=[UIColor greenColor];
+        _MiddleScrollView.contentSize=CGSizeMake(cell.frame.size.width*2.5+btnWidth, 100);
         _MiddleScrollView.bounces=NO;
-        //_MiddleScrollView.showsVerticalScrollIndicator=NO;
+        _MiddleScrollView.showsVerticalScrollIndicator=NO;
         
-        //_MiddleScrollView.showsHorizontalScrollIndicator=NO;
+        _MiddleScrollView.showsHorizontalScrollIndicator=NO;
         
         
         [cell.contentView addSubview:_MiddleScrollView];
         
+        
+        UIImageView*imagShow=nil;
         for (int i=0 ; i<10; i++) {
             
-            UIImageView*imag=[[UIImageView alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5, btnWidth, btnWidth)];
-            imag.tag=i+80;
-            imag.backgroundColor=[UIColor redColor];
-            [_MiddleScrollView addSubview:imag];
+            
+            
+            imagShow=[[UIImageView alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5, btnWidth+8, btnWidth)];
+            imagShow.tag=i+30;
+            imagShow.backgroundColor=[UIColor redColor];
+            [_MiddleScrollView addSubview:imagShow];
             
 #pragma mark  为什么单独设置就说崩溃？什么image view settext？？那是因为tag我都设置i+60;而且找的时候完全没有强转，，虽然也没必要（都继承UI view） tag换下就好。。。。
             /*-[UIImageView setText:]: unrecognized selector sent to instance 0x7f9f2b164d20
@@ -578,30 +584,57 @@ static  NSString*home_super_brandCell=@"home_super_brand";
              */
             
             
-            UILabel*labe=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5+btnWidth, btnWidth, btnWidth)];
-            labe.backgroundColor=[UIColor greenColor];
+            UILabel*labe=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, btnWidth, btnWidth+8, btnWidth)];
+            //labe.backgroundColor=[UIColor greenColor];
             labe.tag=i+60;
             labe.numberOfLines=0;
-            labe.font=[UIFont systemFontOfSize:13];
+            labe.font=[UIFont systemFontOfSize:12];
             labe.textColor=[UIColor blackColor];
             [_MiddleScrollView addSubview:labe];
+            
+            
+            UILabel*pricelabel=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, CGRectGetMaxY(labe.frame), btnWidth, 20)];
+            //labe.backgroundColor=[UIColor greenColor];
+            pricelabel.tag=i+75;
+            pricelabel.font=[UIFont systemFontOfSize:14];
+            pricelabel.textColor=[UIColor redColor];
+            [_MiddleScrollView addSubview:pricelabel];
+            
         }
         
+#pragma mark 之前用这个_recommentArray数组，在这里后果就是每次得到的值都一样的，为什么？因为这个数组是已经在外边取好的，但是在这里我们又再次取一次，也就是在一次遍历，每次取的都是两次遍历，都是得到第一个。。用这个pddRecomment.goodsList就不错。。要千万小心的啊
+        //[_recommentArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop)
         
-        [_recommentArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [pddRecomment.goodsList enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             
+            NSLog(@"obj====%@",obj);
             
             //注意tag
-            UIImageView*img=[cell.contentView viewWithTag:idx+80];
-            [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+            UIImageView*img=[cell.contentView viewWithTag:idx+30];
+            
+            
+            
+            
+            [img sd_setImageWithURL:[NSURL URLWithString:obj.hdThumbUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
             UILabel*lab=[cell.contentView viewWithTag:idx+60];
             lab.text=obj.goodsName;
             
             
+            
+            UILabel*pricelabel=[cell.contentView viewWithTag:idx+75];
+            
+            
+            
+            pricelabel.text=[NSString stringWithFormat:@"$%.2f",obj.price/100];
+           
+            
         }];
-        cell.backgroundColor=[UIColor purpleColor];
+        
+        cell.subject.text=pddRecomment.subject;
+        
+        
+        //cell.backgroundColor=[UIColor purpleColor];
         return cell;
-        //        }
     }
 
 
