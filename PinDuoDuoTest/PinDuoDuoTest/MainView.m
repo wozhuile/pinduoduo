@@ -33,9 +33,9 @@
         
 #pragma mark 暂时先用数据源给的数组个数乘于我设置的固定高度268吧，就不用15个了
         //_buttomScrollView.contentSize=CGSizeMake(width, height*15);
-       // _buttomScrollView.contentSize=CGSizeMake(width, height);
+        //_buttomScrollView.contentSize=CGSizeMake(width, height);
 
-        [self CreateButtomScrollViewWithWidth:self.frame.size.width withHeight:67*268];
+        [self CreateButtomScrollViewWithWidth:self.frame.size.width withHeight:self.frame.size.height];
         //[self CreateTopScrollView];
         // [self topScrollViewImage];
         
@@ -78,7 +78,7 @@
     
 #pragma mark 暂时先用数据源给的数组个数乘于我设置的固定高度268吧，就不用15个了
     //_buttomScrollView.contentSize=CGSizeMake(width, height*15);
-    _buttomScrollView.contentSize=CGSizeMake(width, height);
+    _buttomScrollView.contentSize=CGSizeMake(width, height*15);
 
     
     _buttomScrollView.contentOffset=CGPointMake(0,0);
