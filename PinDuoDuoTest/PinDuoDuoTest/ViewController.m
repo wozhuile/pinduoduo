@@ -553,6 +553,11 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 #pragma mark 还是释放了啊。。前后对比就知道了。。为什么要传position呢？对象不就可以了麼
 
     id obj=[_goods_listArray objectAtIndex:indexPath.row];
+    
+    
+    
+    
+    
     if ([obj isKindOfClass:[PDDHomeRecommendSubjects class]]) {
         
         
@@ -565,39 +570,43 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         home_recommend_subjectsTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_recommend_subjectsCell];
         if (cell==nil) {
             
+            cell=[[home_recommend_subjectsTableViewCell alloc]init];
+            
+            
+#pragma mark 现在刷新没有bug了，下边是重用或者说xib方法创建了单元格的，然后拖拽的控件都可以找到，然后再下边创建的控件也都可以找到，，那是没刷新才可以找到而且赋值成功了，但是如果刷新了，那就不可以了。也就是只会出现这里的红色，，现在要明白，自定义最好就是手写代码而不是要xib的也有然后手写也有，这就容易导致刷新啊什么的bug，第一次数据可能没错，但是刷新就有错误了。
             
             //cell=[[home_recommend_subjectsTableViewCell alloc]init];
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"home_recommend_subjectsTableViewCell" owner:nil options:nil] lastObject];
-            cell.selectionStyle=UITableViewCellSelectionStyleNone;
+            //cell = [[[NSBundle mainBundle] loadNibNamed:@"home_recommend_subjectsTableViewCell" owner:nil options:nil] lastObject];
+            //cell.selectionStyle=UITableViewCellSelectionStyleNone;
         }
         
         
+//        
+//        NSInteger tap=22;//22还可以，。，26和30都不太好
+//        NSInteger btnWidth=(cell.frame.size.width*2-11*9)/10+15;//加大一些，不会感觉空空的
+//        
+//        UIScrollView*_MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 45, cell.frame.size.width, 200)];
+//        _MiddleScrollView.backgroundColor=[UIColor greenColor];
+//        _MiddleScrollView.contentSize=CGSizeMake(cell.frame.size.width*2.5+btnWidth, 100);
+//        _MiddleScrollView.bounces=NO;
+//        _MiddleScrollView.showsVerticalScrollIndicator=NO;
+//        
+//        _MiddleScrollView.showsHorizontalScrollIndicator=NO;
+//        
+//        
+//        [cell.contentView addSubview:_MiddleScrollView];
+//        
+//        
+//       // UIImageView*imagShow=nil;
+//        for (int i=0 ; i<10; i++) {
+//            
+//            
+//            
+//          UIImageView*imagShow=[[UIImageView alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5, btnWidth+8, btnWidth)];
+//            imagShow.tag=i+30;
+//            imagShow.backgroundColor=[UIColor redColor];
+//            [_MiddleScrollView addSubview:imagShow];
         
-        NSInteger tap=22;//22还可以，。，26和30都不太好
-        NSInteger btnWidth=(cell.frame.size.width*2-11*9)/10+15;//加大一些，不会感觉空空的
-        
-        UIScrollView*_MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 45, cell.frame.size.width, 200)];
-        //_MiddleScrollView.backgroundColor=[UIColor greenColor];
-        _MiddleScrollView.contentSize=CGSizeMake(cell.frame.size.width*2.5+btnWidth, 100);
-        _MiddleScrollView.bounces=NO;
-        _MiddleScrollView.showsVerticalScrollIndicator=NO;
-        
-        _MiddleScrollView.showsHorizontalScrollIndicator=NO;
-        
-        
-        [cell.contentView addSubview:_MiddleScrollView];
-        
-        
-        UIImageView*imagShow=nil;
-        for (int i=0 ; i<10; i++) {
-            
-            
-            
-            imagShow=[[UIImageView alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5, btnWidth+8, btnWidth)];
-            imagShow.tag=i+30;
-            imagShow.backgroundColor=[UIColor redColor];
-            [_MiddleScrollView addSubview:imagShow];
-            
 #pragma mark  为什么单独设置就说崩溃？什么image view settext？？那是因为tag我都设置i+60;而且找的时候完全没有强转，，虽然也没必要（都继承UI view） tag换下就好。。。。
             /*-[UIImageView setText:]: unrecognized selector sent to instance 0x7f9f2b164d20
              2016-07-01 16:33:20.980 PinDuoDuoTest[5776:193331] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[UIImageView setText:]: unrecognized selector sent to instance 0x7f9f2b164d20'
@@ -607,24 +616,24 @@ static  NSString*home_super_brandCell=@"home_super_brand";
              2016-07-01 16:32:19.766 PinDuoDuoTest[5744:192510] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[UILabel sd_setImageWithURL:placeholderImage:]: unrecognized selector sent to instance 0x7fa865954220'
              */
             
-            
-            UILabel*labe=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, btnWidth, btnWidth+8, btnWidth)];
-            //labe.backgroundColor=[UIColor greenColor];
-            labe.tag=i+60;
-            labe.numberOfLines=0;
-            labe.font=[UIFont systemFontOfSize:12];
-            labe.textColor=[UIColor blackColor];
-            [_MiddleScrollView addSubview:labe];
-            
-            
-            UILabel*pricelabel=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, CGRectGetMaxY(labe.frame), btnWidth, 20)];
-            //labe.backgroundColor=[UIColor greenColor];
-            pricelabel.tag=i+75;
-            pricelabel.font=[UIFont systemFontOfSize:14];
-            pricelabel.textColor=[UIColor redColor];
-            [_MiddleScrollView addSubview:pricelabel];
-            
-        }
+//            
+//            UILabel*labe=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, btnWidth, btnWidth+8, btnWidth)];
+//            labe.backgroundColor=[UIColor orangeColor];
+//            labe.tag=i+60;
+//            labe.numberOfLines=0;
+//            labe.font=[UIFont systemFontOfSize:12];
+//            labe.textColor=[UIColor blackColor];
+//            [_MiddleScrollView addSubview:labe];
+//            
+//            
+//            UILabel*pricelabel=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, CGRectGetMaxY(labe.frame), btnWidth, 20)];
+//            labe.backgroundColor=[UIColor purpleColor];
+//            pricelabel.tag=i+75;
+//            pricelabel.font=[UIFont systemFontOfSize:14];
+//            pricelabel.textColor=[UIColor redColor];
+//            [_MiddleScrollView addSubview:pricelabel];
+//            
+//        }
         
 #pragma mark 之前用这个_recommentArray数组，在这里后果就是每次得到的值都一样的，为什么？因为这个数组是已经在外边取好的，但是在这里我们又再次取一次，也就是在一次遍历，每次取的都是两次遍历，都是得到第一个。。用这个pddRecomment.goodsList就不错。。要千万小心的啊
         //[_recommentArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop)
@@ -715,93 +724,93 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 //    {
 //        //cell=nil;
 //    }
-    if ([obj isKindOfClass:[PDDHomeRecommendSubjects class]]) {
-        PDDHomeRecommendSubjects*pddRecomment=obj;
-        if (indexPath.row==pddRecomment.position) {
-            
-        
-        
-        home_recommend_subjectsTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_recommend_subjectsCell];
-        
-        if (cell==nil) {
-            cell=[[home_recommend_subjectsTableViewCell alloc]init];
-        }
-
-        [_recommentArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//    if ([obj isKindOfClass:[PDDHomeRecommendSubjects class]]) {
+//        PDDHomeRecommendSubjects*pddRecomment=obj;
+//        if (indexPath.row==pddRecomment.position) {
+//            
+//        
+//        
+//        home_recommend_subjectsTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_recommend_subjectsCell];
+//        
+//        if (cell==nil) {
+//            cell=[[home_recommend_subjectsTableViewCell alloc]init];
+//        }
+//
+//        [_recommentArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+////            //注意tag
+////            UIImageView*img=[cell.contentView viewWithTag:idx+60];
+////            [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+////            UILabel*lab=[cell.contentView viewWithTag:idx+60];
+////            lab.text=obj.goodsName;
+//            
+//            
+//            UILabel*label=[[UILabel alloc]initWithFrame:CGRectMake(20, 50, 200, 200)];
+//            label.text=obj.goodsName;
+//            label.backgroundColor=[UIColor redColor];
+//            [cell.contentView addSubview:label];
+//            
+//            NSInteger tap=22;//22还可以，。，26和30都不太好
+//            NSInteger btnWidth=(cell.frame.size.width*2-11*9)/10+8;//加大一些，不会感觉空空的
+//            
+//            UIScrollView*_MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(5, 25, cell.frame.size.width, 150)];
+//            // _MiddleScrollView.backgroundColor=[UIColor greenColor];
+//            _MiddleScrollView.contentSize=CGSizeMake(cell.frame.size.width*2+btnWidth*2+50, 100);
+//            _MiddleScrollView.bounces=NO;
+//            _MiddleScrollView.showsVerticalScrollIndicator=NO;
+//            
+//#pragma mark 暂时先留着
+//            _MiddleScrollView.showsHorizontalScrollIndicator=NO;
+//
+//            [cell.contentView addSubview:_MiddleScrollView];
+//            
+//
+//            
+//               for (int i=0 ; i<10; i++) {
+//                
+//                UIImageView*imag=[[UIImageView alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5, btnWidth, btnWidth)];
+//                        imag.tag=i+60;
+//                
+//                
+//             
+//                imag.backgroundColor=[UIColor redColor];
+//                
+//                
+//                [_MiddleScrollView addSubview:imag];
+//                
+//                
+//                UILabel*labe=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5+btnWidth, btnWidth, btnWidth)];
+//                
+//                labe.backgroundColor=[UIColor greenColor];
+//                labe.tag=i+60;
+//                labe.numberOfLines=0;
+//                labe.font=[UIFont systemFontOfSize:13];
+//                labe.textColor=[UIColor blackColor];
+//                [_MiddleScrollView addSubview:labe];
+//            }
+//
 //            //注意tag
 //            UIImageView*img=[cell.contentView viewWithTag:idx+60];
 //            [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
 //            UILabel*lab=[cell.contentView viewWithTag:idx+60];
 //            lab.text=obj.goodsName;
-            
-            
-            UILabel*label=[[UILabel alloc]initWithFrame:CGRectMake(20, 50, 200, 200)];
-            label.text=obj.goodsName;
-            label.backgroundColor=[UIColor redColor];
-            [cell.contentView addSubview:label];
-            
-            NSInteger tap=22;//22还可以，。，26和30都不太好
-            NSInteger btnWidth=(cell.frame.size.width*2-11*9)/10+8;//加大一些，不会感觉空空的
-            
-            UIScrollView*_MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(5, 25, cell.frame.size.width, 150)];
-            // _MiddleScrollView.backgroundColor=[UIColor greenColor];
-            _MiddleScrollView.contentSize=CGSizeMake(cell.frame.size.width*2+btnWidth*2+50, 100);
-            _MiddleScrollView.bounces=NO;
-            _MiddleScrollView.showsVerticalScrollIndicator=NO;
-            
-#pragma mark 暂时先留着
-            _MiddleScrollView.showsHorizontalScrollIndicator=NO;
-
-            [cell.contentView addSubview:_MiddleScrollView];
-            
-
-            
-               for (int i=0 ; i<10; i++) {
-                
-                UIImageView*imag=[[UIImageView alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5, btnWidth, btnWidth)];
-                        imag.tag=i+60;
-                
-                
-             
-                imag.backgroundColor=[UIColor redColor];
-                
-                
-                [_MiddleScrollView addSubview:imag];
-                
-                
-                UILabel*labe=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5+btnWidth, btnWidth, btnWidth)];
-                
-                labe.backgroundColor=[UIColor greenColor];
-                labe.tag=i+60;
-                labe.numberOfLines=0;
-                labe.font=[UIFont systemFontOfSize:13];
-                labe.textColor=[UIColor blackColor];
-                [_MiddleScrollView addSubview:labe];
-            }
-
-            //注意tag
-            UIImageView*img=[cell.contentView viewWithTag:idx+60];
-            [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
-            UILabel*lab=[cell.contentView viewWithTag:idx+60];
-            lab.text=obj.goodsName;
-
-            
-            
-        }];
-        
-        
-        
-        [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            
-            cell.subject.text=obj.subject;
-        }];
-        }
-        
-        
-        return cell;
-
-    }
-    
+//
+//            
+//            
+//        }];
+//        
+//        
+//        
+//        [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//            
+//            cell.subject.text=obj.subject;
+//        }];
+//        }
+//        
+//        
+//        return cell;
+//
+//    }
+//    
     
     //NSLog(@"goodsLists====%@",goodsLists);
     
