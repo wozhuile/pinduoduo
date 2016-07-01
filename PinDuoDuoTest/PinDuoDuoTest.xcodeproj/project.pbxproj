@@ -29,6 +29,7 @@
 		04E221D01D2267C50042B3C7 /* default_mall_logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 04E221CF1D2267C50042B3C7 /* default_mall_logo@3x.png */; };
 		04E221D31D2269A00042B3C7 /* NetWorkRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E221D21D2269A00042B3C7 /* NetWorkRequestModel.m */; };
 		04E221D81D226E800042B3C7 /* PDDTopSctollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E221D71D226E800042B3C7 /* PDDTopSctollView.m */; };
+		04E32B291D26A75C00A96D34 /* 520.gif in Resources */ = {isa = PBXBuildFile; fileRef = 04E32B281D26A75C00A96D34 /* 520.gif */; };
 		04EBDC6C1D24170A00E7EFA7 /* rankVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EBDC6B1D24170A00E7EFA7 /* rankVIew.m */; };
 		04ED69561D23549200098325 /* PDDGoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ED694B1D23549200098325 /* PDDGoodsList.m */; };
 		04ED69571D23549200098325 /* PDDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ED694D1D23549200098325 /* PDDGroup.m */; };
@@ -81,6 +82,7 @@
 		04E221D51D226E800042B3C7 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
 		04E221D61D226E800042B3C7 /* PDDTopSctollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDDTopSctollView.h; sourceTree = "<group>"; };
 		04E221D71D226E800042B3C7 /* PDDTopSctollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDDTopSctollView.m; sourceTree = "<group>"; };
+		04E32B281D26A75C00A96D34 /* 520.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 520.gif; sourceTree = "<group>"; };
 		04EBDC6A1D24170A00E7EFA7 /* rankVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rankVIew.h; sourceTree = "<group>"; };
 		04EBDC6B1D24170A00E7EFA7 /* rankVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rankVIew.m; sourceTree = "<group>"; };
 		04ED69491D23549200098325 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		04E221841D22211F0042B3C7 = {
 			isa = PBXGroup;
 			children = (
+				04E32B281D26A75C00A96D34 /* 520.gif */,
 				04E221CF1D2267C50042B3C7 /* default_mall_logo@3x.png */,
 				04E2218F1D22211F0042B3C7 /* PinDuoDuoTest */,
 				04E2218E1D22211F0042B3C7 /* Products */,
@@ -430,6 +433,7 @@
 				04E221B61D2221A60042B3C7 /* PDDRankViewController.xib in Resources */,
 				04E1B5F41D24FE7A0013515A /* HotCollectionViewCell.xib in Resources */,
 				04E221C21D2221D50042B3C7 /* PDDMeViewController.xib in Resources */,
+				04E32B291D26A75C00A96D34 /* 520.gif in Resources */,
 				04E221B01D22218A0042B3C7 /* PDDHotViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

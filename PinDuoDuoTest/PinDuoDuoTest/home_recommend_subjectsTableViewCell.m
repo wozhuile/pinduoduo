@@ -180,7 +180,7 @@
         NSInteger tap=22;//22还可以，。，26和30都不太好
         NSInteger btnWidth=(430*2-11*9)/10+15;//加大一些，不会感觉空空的
         
-        NSLog(@"CGRectGetWidth(self.frame)===%f===%f",CGRectGetWidth(self.frame),self.frame.size.width);//不知道为什么就是320
+       // NSLog(@"CGRectGetWidth(self.frame)===%f===%f",CGRectGetWidth(self.frame),self.frame.size.width);//不知道为什么就是320
               
               
 #pragma mark 不知道为什么。宽度如果用CGRectGetWidth(self.frame)或者self.frame.size.width都会得不到多少距离。。宽度不到边上。。。上边输出发现，，这两个值是320，，她妈的不会是拖拽还是版本问题吧？？

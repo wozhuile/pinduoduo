@@ -12,15 +12,15 @@
 
 #pragma mark   顶部图片传过来，要接受，需要全局变量，也要保证不被提前释放  ,声明成属性
 #import "MainView.h"
-
+#import "NetWorkRequestModel.h"
 
 
 @interface ViewController : UIViewController
 #pragma mark 底部滚动视图
 //@property(nonatomic,retain)UIScrollView*buttomScrollview;
 
-@property(nonatomic,retain)MainView*mainView;
-
+@property(nonatomic,strong)MainView*mainView;
+@property(nonatomic,strong)NetWorkRequestModel*netModel;
 
 #pragma mark  数据数组建立
 //home_super_brand 超值大牌的数组

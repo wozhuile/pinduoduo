@@ -60,34 +60,49 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     //[mainVIew CreateButtomScrollViewWithWidth:self.view.frame.size.width withHeight:self.view.frame.size.height];
    
     
-    NetWorkRequestModel*netModel=[[NetWorkRequestModel alloc]init];
+    _netModel =[[NetWorkRequestModel alloc]init];
     
     
     
-   // [netModel topScrollViewImage:@"http://apiv2.yangkeduo.com/subjects"];
+    //[_netModel topScrollViewImage:@"http://apiv2.yangkeduo.com/subjects"];
     //http://apiv2.yangkeduo.com/subjects
     
 #pragma mark  第一次运行的时候崩溃了，底部数据URL书写错误
     
- 
-#pragma mark  妈蛋。。刷新版本不对。不是最新的mj_header
-    //开始刷新  表刷新不了，，滚动也刷新不了啊。。  都是 _mainView.buttomScrollView的话，进来的时候刷新了，。。。但是之后就不行来，不知道是不是viewwillappear哪里设置了不滚动？？
-#pragma mark 可以刷新了，，但是是回去设置的那个buttomScrollView的滚动属性，之前是no，现在是yes了。。
-    _mainView.buttomScrollView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    
+    
+    
+    
+    // Set the callback（一Once you enter the refresh status，then call the action of target，that is call [self loadNewData]）
+   // MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingBlock:^{
         
-#pragma mark 放进来后，，外边不需要写了。。。
-    [netModel topScrollViewImage:@"http://apiv2.yangkeduo.com/subjects"];
+        
+        //[_netModel topScrollViewImage:@"http://apiv2.yangkeduo.com/subjects"];
+        
+        //[_netModel buttomDataRequest:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"];
+    //}];
+    // Set the ordinary state of animated images
+    //NSArray*imgArrayOne=[[NSArray alloc]initWithObjects:@"520.gif",@"520.gif",@"520.gif",@"520.gif", nil];
 
-    [netModel buttomDataRequest:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"];
-    }];
+    // NSArray*imgArrayTwo=[[NSArray alloc]initWithObjects:@"520.gif",@"520.gif",@"520.gif",@"520.gif", nil];
+     //[header setImages:imgArrayOne forState:MJRefreshStateIdle];
+    // Set the pulling state of animated images（Enter the status of refreshing as soon as loosen）
+     //[header setImages:imgArrayOne forState:MJRefreshStatePulling];
+    // Set the refreshing state of animated images
+    //[header setImages:imgArrayTwo forState:MJRefreshStateRefreshing];
+    // Set header
+    //_mainView.buttomScrollView.header = header;
     
-    [_mainView.buttomScrollView.header beginRefreshing];
+    //[_mainView.buttomScrollView.header beginRefreshing];
     
-    
-    
-    
-    
-    
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(MJDuration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//        // 刷新表格
+//       // [self.tableView reloadData];
+//        
+//        // 拿到当前的下拉刷新控件，结束刷新状态
+//        [  _mainView.buttomScrollView.header endRefreshing];
+//    });
+
     
     //[netModel buttomDataRequest:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"];
     //@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"
@@ -98,7 +113,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
    // [_mainView CreatePageControl];
     
 #pragma mark 代理传值过来了。。。获取顶部图片URL。先声明代理
-    netModel.delegate=self;
+    _netModel.delegate=self;
     
     //[_mainView  CreateMiddleScrollView];
     
@@ -138,6 +153,32 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     [self.view addSubview:_mainView];
     
     
+    
+#pragma mark  妈蛋。。刷新版本不对。不是最新的mj_header
+    //开始刷新  表刷新不了，，滚动也刷新不了啊。。  都是 _mainView.buttomScrollView的话，进来的时候刷新了，。。。但是之后就不行来，不知道是不是viewwillappear哪里设置了不滚动？？
+#pragma mark 可以刷新了，，但是是回去设置的那个buttomScrollView的滚动属性，之前是no，现在是yes了。。
+    _mainView.buttomScrollView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+#pragma mark 放进来后，，外边不需要写了。。。
+        [_netModel topScrollViewImage:@"http://apiv2.yangkeduo.com/subjects"];
+        
+        [_netModel buttomDataRequest:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"];
+    }];
+    
+    [_mainView.buttomScrollView.header beginRefreshing];
+    
+    
+#pragma mark 下拉刷新喝上啦加载都不好，，还有个bug就是表数据源数组明明都至少有57个，为什么出来显示的时候就是没有这么多cell。。是不是就是那边的底部滚动视图影响了？？我设置大小了还是一样不可以的，，为什么？其实都不用这么麻烦吧？直接就用表。然后分3个区，前边的两个区就0行就好啊。。现在最下边是滚动，然后放表，，真的够bug多的。。刷新没用滚动的，，表刷新也不行了／／／，，在海陶那个试试吧／／／
+    
+    _mainView.buttomScrollView.footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [_netModel topScrollViewImage:@"http://apiv2.yangkeduo.com/subjects"];
+        
+        [_netModel buttomDataRequest:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"];
+    }];
+
+    
+    
+    
 #pragma mark 注册单元格
    // [_buttomDataTableView registerClass:[goods_listTableViewCell Class]forCellReuseIdentifier:goodsCell];
     [_buttomDataTableView registerNib:[UINib nibWithNibName:@"goods_listTableViewCell" bundle:nil]   forCellReuseIdentifier:goodsCell];
@@ -152,7 +193,12 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
 }
 
-
+//-(void)loadNewData
+//{
+    //[_netModel topScrollViewImage:@"http://apiv2.yangkeduo.com/subjects"];
+    
+    //[_netModel buttomDataRequest:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"];
+//}
 
 #pragma mark 顶部图片遵循代理后。实现方法，
 -(void)sucessToGetImageURL:(NetWorkRequestModel *)netWorkRequestModel url:(NSMutableArray *)urlArray
@@ -378,6 +424,8 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     //结束刷新
     [_mainView.buttomScrollView.header endRefreshing];
     
+#pragma mark 记得设置结束
+    [_mainView.buttomScrollView.footer endRefreshing];
     
 #pragma mark 得到数据进行刷新 
     [_buttomDataTableView reloadData];
