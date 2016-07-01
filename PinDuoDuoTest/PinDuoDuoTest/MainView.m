@@ -29,7 +29,13 @@
     if (self) {
      
 #pragma mark在这里调用和赋值就出来了
-        [self CreateButtomScrollViewWithWidth:self.frame.size.width withHeight:self.frame.size.height];
+        
+        
+#pragma mark 暂时先用数据源给的数组个数乘于我设置的固定高度268吧，就不用15个了
+        //_buttomScrollView.contentSize=CGSizeMake(width, height*15);
+       // _buttomScrollView.contentSize=CGSizeMake(width, height);
+
+        [self CreateButtomScrollViewWithWidth:self.frame.size.width withHeight:67*268];
         //[self CreateTopScrollView];
         // [self topScrollViewImage];
         
@@ -68,8 +74,12 @@
     
     _buttomScrollView=[[UIScrollView alloc]initWithFrame:self.frame];
     //_buttomScrollView.backgroundColor=[UIColor blueColor];
-    _buttomScrollView.contentSize=CGSizeMake(width, height*15);
     
+    
+#pragma mark 暂时先用数据源给的数组个数乘于我设置的固定高度268吧，就不用15个了
+    //_buttomScrollView.contentSize=CGSizeMake(width, height*15);
+    _buttomScrollView.contentSize=CGSizeMake(width, height);
+
     
     _buttomScrollView.contentOffset=CGPointMake(0,0);
     _buttomScrollView.bounces=NO;

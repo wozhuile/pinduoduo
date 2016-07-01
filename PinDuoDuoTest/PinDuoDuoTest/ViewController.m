@@ -607,7 +607,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         
         [pddRecomment.goodsList enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             
-            NSLog(@"obj====%@",obj);
+           // NSLog(@"obj====%@",obj);
             
             //注意tag
             UIImageView*img=[cell.contentView viewWithTag:idx+30];
