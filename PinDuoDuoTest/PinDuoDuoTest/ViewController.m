@@ -170,6 +170,12 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
 #pragma mark 下拉刷新喝上啦加载都不好，，还有个bug就是表数据源数组明明都至少有57个，为什么出来显示的时候就是没有这么多cell。。是不是就是那边的底部滚动视图影响了？？我设置大小了还是一样不可以的，，为什么？其实都不用这么麻烦吧？直接就用表。然后分3个区，前边的两个区就0行就好啊。。现在最下边是滚动，然后放表，，真的够bug多的。。刷新没用滚动的，，表刷新也不行了／／／，，在海陶那个试试吧／／／
     
+    
+    //[_netModel buttomDataRequest:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"];
+    
+    
+    
+    
     _mainView.buttomScrollView.footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
         [_netModel topScrollViewImage:@"http://apiv2.yangkeduo.com/subjects"];
         
