@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04CB8BA61D25F52D00BC49A2 /* PDDEveryBodyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CB8BA11D25F52D00BC49A2 /* PDDEveryBodyModel.m */; };
+		04CB8BA71D25F52D00BC49A2 /* PDDGoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CB8BA31D25F52D00BC49A2 /* PDDGoodsList.m */; };
+		04CB8BA81D25F52D00BC49A2 /* PDDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CB8BA51D25F52D00BC49A2 /* PDDGroup.m */; };
 		04E1B5F31D24FE7A0013515A /* HotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E1B5F11D24FE7A0013515A /* HotCollectionViewCell.m */; };
 		04E1B5F41D24FE7A0013515A /* HotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E1B5F21D24FE7A0013515A /* HotCollectionViewCell.xib */; };
 		04E221921D22211F0042B3C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E221911D22211F0042B3C7 /* main.m */; };
@@ -46,6 +49,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04CB8B9F1D25F52D00BC49A2 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
+		04CB8BA01D25F52D00BC49A2 /* PDDEveryBodyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDDEveryBodyModel.h; sourceTree = "<group>"; };
+		04CB8BA11D25F52D00BC49A2 /* PDDEveryBodyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDDEveryBodyModel.m; sourceTree = "<group>"; };
+		04CB8BA21D25F52D00BC49A2 /* PDDGoodsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDDGoodsList.h; sourceTree = "<group>"; };
+		04CB8BA31D25F52D00BC49A2 /* PDDGoodsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDDGoodsList.m; sourceTree = "<group>"; };
+		04CB8BA41D25F52D00BC49A2 /* PDDGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDDGroup.h; sourceTree = "<group>"; };
+		04CB8BA51D25F52D00BC49A2 /* PDDGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDDGroup.m; sourceTree = "<group>"; };
 		04E1B5F01D24FE790013515A /* HotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCollectionViewCell.h; sourceTree = "<group>"; };
 		04E1B5F11D24FE7A0013515A /* HotCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCollectionViewCell.m; sourceTree = "<group>"; };
 		04E1B5F21D24FE7A0013515A /* HotCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -122,6 +132,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04CB8B9E1D25F52D00BC49A2 /* 大家都在买 */ = {
+			isa = PBXGroup;
+			children = (
+				04CB8B9F1D25F52D00BC49A2 /* DataModels.h */,
+				04CB8BA01D25F52D00BC49A2 /* PDDEveryBodyModel.h */,
+				04CB8BA11D25F52D00BC49A2 /* PDDEveryBodyModel.m */,
+				04CB8BA21D25F52D00BC49A2 /* PDDGoodsList.h */,
+				04CB8BA31D25F52D00BC49A2 /* PDDGoodsList.m */,
+				04CB8BA41D25F52D00BC49A2 /* PDDGroup.h */,
+				04CB8BA51D25F52D00BC49A2 /* PDDGroup.m */,
+			);
+			path = "大家都在买";
+			sourceTree = "<group>";
+		};
 		04E1B5DD1D24A2F90013515A /* controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +329,7 @@
 		04EBDC681D24133D00E7EFA7 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				04CB8B9E1D25F52D00BC49A2 /* 大家都在买 */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -498,8 +523,10 @@
 				04ED69591D23549200098325 /* PDDHomeRecommendSubjects.m in Sources */,
 				04E221C11D2221D50042B3C7 /* PDDMeViewController.m in Sources */,
 				04ED695A1D23549200098325 /* PDDHomeSuperBrand.m in Sources */,
+				04CB8BA71D25F52D00BC49A2 /* PDDGoodsList.m in Sources */,
 				04E221D81D226E800042B3C7 /* PDDTopSctollView.m in Sources */,
 				04EBDC6C1D24170A00E7EFA7 /* rankVIew.m in Sources */,
+				04CB8BA61D25F52D00BC49A2 /* PDDEveryBodyModel.m in Sources */,
 				04E221981D22211F0042B3C7 /* ViewController.m in Sources */,
 				04E221AF1D22218A0042B3C7 /* PDDHotViewController.m in Sources */,
 				04ED695B1D23549200098325 /* PDDMobileAppGroups.m in Sources */,
@@ -508,6 +535,7 @@
 				04E221CE1D2250600042B3C7 /* MainView.m in Sources */,
 				04E221951D22211F0042B3C7 /* AppDelegate.m in Sources */,
 				04ED69561D23549200098325 /* PDDGoodsList.m in Sources */,
+				04CB8BA81D25F52D00BC49A2 /* PDDGroup.m in Sources */,
 				04E221921D22211F0042B3C7 /* main.m in Sources */,
 				04E221B51D2221A60042B3C7 /* PDDRankViewController.m in Sources */,
 				04ED69641D2389FB00098325 /* home_super_brandTableViewCell.m in Sources */,
