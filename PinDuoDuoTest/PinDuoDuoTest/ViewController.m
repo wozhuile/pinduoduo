@@ -528,58 +528,82 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     //}];
 #pragma mark 还是释放了啊。。前后对比就知道了。。为什么要传position呢？对象不就可以了麼
 
-    
-    
-   
-    if (_home_recommend_subjectsPosition==indexPath.row)
-    {
-      
-      NSLog(@"_home_recommend_subjectsPosition==%ld",(long)_HomePositionSum);
-      
-      
-      home_recommend_subjectsTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_recommend_subjectsCell];
-      
-      if (cell==nil) {
-          cell=[[home_recommend_subjectsTableViewCell alloc]init];
-      }
-      
-        [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    id obj=[_goods_listArray objectAtIndex:indexPath.row];
+    if ([obj isKindOfClass:[PDDHomeRecommendSubjects class]]) {
+        PDDHomeRecommendSubjects*pddRecomment=obj;
+        NSLog(@"%f",pddRecomment.position);
+        
+#pragma mark 一直没出来就是多了这个方法判断，多了一个代码： if (indexPath.row==pddRecomment.position) {  其实本来也是可以的，，但是没有理解好，因为position其实就是8啊，。12什么的，，但是在数组里边取出来的时候，indexpath。row都是10了。。。／在基础上加2了。。。。。。
+        
+        //        if (indexPath.row==pddRecomment.position) {
+        home_recommend_subjectsTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_recommend_subjectsCell];
+        if (cell==nil) {
+            
+            
+            //cell=[[home_recommend_subjectsTableViewCell alloc]init];
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"home_recommend_subjectsTableViewCell" owner:nil options:nil] lastObject];
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
+        }
+        
+        
+        
+        NSInteger tap=22;//22还可以，。，26和30都不太好
+        NSInteger btnWidth=(cell.frame.size.width*2-11*9)/10+8;//加大一些，不会感觉空空的
+        
+        UIScrollView*_MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(5, 45, cell.frame.size.width-15, 150)];
+        _MiddleScrollView.backgroundColor=[UIColor greenColor];
+        _MiddleScrollView.contentSize=CGSizeMake(cell.frame.size.width*2+btnWidth*2+50, 100);
+        _MiddleScrollView.bounces=NO;
+        //_MiddleScrollView.showsVerticalScrollIndicator=NO;
+        
+        //_MiddleScrollView.showsHorizontalScrollIndicator=NO;
+        
+        
+        [cell.contentView addSubview:_MiddleScrollView];
+        
+        for (int i=0 ; i<10; i++) {
+            
+            UIImageView*imag=[[UIImageView alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5, btnWidth, btnWidth)];
+            imag.tag=i+80;
+            imag.backgroundColor=[UIColor redColor];
+            [_MiddleScrollView addSubview:imag];
+            
+#pragma mark  为什么单独设置就说崩溃？什么image view settext？？那是因为tag我都设置i+60;而且找的时候完全没有强转，，虽然也没必要（都继承UI view） tag换下就好。。。。
+            /*-[UIImageView setText:]: unrecognized selector sent to instance 0x7f9f2b164d20
+             2016-07-01 16:33:20.980 PinDuoDuoTest[5776:193331] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[UIImageView setText:]: unrecognized selector sent to instance 0x7f9f2b164d20'
+             */
+            
+            /*-[UILabel sd_setImageWithURL:placeholderImage:]: unrecognized selector sent to instance 0x7fa865954220
+             2016-07-01 16:32:19.766 PinDuoDuoTest[5744:192510] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[UILabel sd_setImageWithURL:placeholderImage:]: unrecognized selector sent to instance 0x7fa865954220'
+             */
+            
+            
+            UILabel*labe=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5+btnWidth, btnWidth, btnWidth)];
+            labe.backgroundColor=[UIColor greenColor];
+            labe.tag=i+60;
+            labe.numberOfLines=0;
+            labe.font=[UIFont systemFontOfSize:13];
+            labe.textColor=[UIColor blackColor];
+            [_MiddleScrollView addSubview:labe];
+        }
+        
+        
+        [_recommentArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            
             //注意tag
-            UIImageView*img=[cell.contentView viewWithTag:idx+60];
+            UIImageView*img=[cell.contentView viewWithTag:idx+80];
             [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
             UILabel*lab=[cell.contentView viewWithTag:idx+60];
             lab.text=obj.goodsName;
             
             
-            
         }];
+        cell.backgroundColor=[UIColor purpleColor];
+        return cell;
+        //        }
+    }
 
-       
-       [_recommentArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-           //注意tag
-           UIImageView*img=[cell.contentView viewWithTag:idx+60];
-           [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
-           UILabel*lab=[cell.contentView viewWithTag:idx+60];
-           lab.text=obj.goodsName;
-           
-           
-           
-       }];
-       
-
-       
-       [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-           
-           cell.subject.text=obj.subject;
-          }];
-
-       
-       
-       return cell;
-   }
-   
- 
- 
 
     
     
@@ -615,10 +639,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 #pragma mark 这里也需要遍历了，否则会导致矛盾报错。
    //PDDGoodsList*goodsLists=[_goods_listArray objectAtIndex:indexPath.row];
     
-    id obj=[_goods_listArray objectAtIndex:indexPath.row];
-    
-    
-        // [obj isKindOfClass:[PDDGoodsList class]];
+           // [obj isKindOfClass:[PDDGoodsList class]];
 #pragma mark  [obj isKindOfClass:[PDDGoodsList class] 用这个来取，是不崩溃了。但是数据不对了。。。。
     if ([obj isKindOfClass:[PDDGoodsList class]]) {
         PDDGoodsList*goodsLists=obj;
