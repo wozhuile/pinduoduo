@@ -508,7 +508,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         [pddRecomment.goodsList enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             
             
-            NSLog(@"2222222===%lu",(unsigned long)idx);
+          //   NSLog(@"2222222===%lu",(unsigned long)idx);
             
             UIImageView*img=[cell.contentView viewWithTag:idx+30];
             [img sd_setImageWithURL:[NSURL URLWithString:obj.hdThumbUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];

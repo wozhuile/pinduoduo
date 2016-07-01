@@ -151,12 +151,18 @@
     self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     if (self) {
-        NSInteger tap=22;//22还可以，。，26和30都不太好
-        NSInteger btnWidth=(self.contentView.frame.size.width*2-11*9)/10+15;//加大一些，不会感觉空空的
         
-        UIScrollView*_MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 45, self.contentView.frame.size.width, 200)];
+#pragma mark 用这个会有问题：self.contentView.frame
+        NSInteger tap=22;//22还可以，。，26和30都不太好
+        NSInteger btnWidth=(430*2-11*9)/10+15;//加大一些，不会感觉空空的
+        
+        NSLog(@"CGRectGetWidth(self.frame)===%f===%f",CGRectGetWidth(self.frame),self.frame.size.width);//不知道为什么就是320
+              
+              
+#pragma mark 不知道为什么。宽度如果用CGRectGetWidth(self.frame)或者self.frame.size.width都会得不到多少距离。。宽度不到边上。。。上边输出发现，，这两个值是320，，她妈的不会是拖拽还是版本问题吧？？
+        UIScrollView*_MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 45,430, 200)];//先手动加个430左右吧
         _MiddleScrollView.backgroundColor=[UIColor greenColor];
-        _MiddleScrollView.contentSize=CGSizeMake(self.contentView.frame.size.width*2.5+btnWidth, 100);
+        _MiddleScrollView.contentSize=CGSizeMake(430*2.5+btnWidth, 200);
         _MiddleScrollView.bounces=NO;
         _MiddleScrollView.showsVerticalScrollIndicator=NO;
         
@@ -169,7 +175,7 @@
         // UIImageView*imagShow=nil;
         for (int i=0 ; i<10; i++) {
             
-            NSLog(@"1111111===%lu",(unsigned long)i);
+          //  NSLog(@"1111111===%lu",(unsigned long)i);
             
             
             UIImageView*imagShow=[[UIImageView alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5, btnWidth+8, btnWidth)];
