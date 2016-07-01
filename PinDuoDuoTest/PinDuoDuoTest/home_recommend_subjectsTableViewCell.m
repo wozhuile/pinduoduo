@@ -152,6 +152,30 @@
     
     if (self) {
         
+        
+        UILabel*subLabel=[[UILabel alloc]initWithFrame:CGRectMake(25, 10, 200, 35)];
+        //subLabel.textColor=[UIColor blackColor];
+        subLabel.tag=22;
+        subLabel.font=[UIFont systemFontOfSize:16];
+        //subLabel.backgroundColor=[UIColor redColor];
+        [self.contentView addSubview:subLabel];
+        
+        
+        UILabel*MoreLabel=[[UILabel alloc]initWithFrame:CGRectMake(300, 10, 80, 35)];
+        MoreLabel.textColor=[UIColor blackColor];
+        //MoreLabel.tag=23;
+        MoreLabel.text=@"查看更多";
+        MoreLabel.textAlignment=NSTextAlignmentRight;
+        MoreLabel.font=[UIFont systemFontOfSize:14];
+        //MoreLabel.backgroundColor=[UIColor orangeColor];
+        [self.contentView addSubview:MoreLabel];
+        
+        UIImageView*img=[[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(MoreLabel.frame), 20, 15, 15)];
+        //img.tag=24;
+        img.image=[UIImage imageNamed:@"common_icon_arrow"];
+        //img.backgroundColor=[UIColor purpleColor];
+        [self.contentView addSubview:img];
+        
 #pragma mark 用这个会有问题：self.contentView.frame
         NSInteger tap=22;//22还可以，。，26和30都不太好
         NSInteger btnWidth=(430*2-11*9)/10+15;//加大一些，不会感觉空空的
@@ -160,8 +184,8 @@
               
               
 #pragma mark 不知道为什么。宽度如果用CGRectGetWidth(self.frame)或者self.frame.size.width都会得不到多少距离。。宽度不到边上。。。上边输出发现，，这两个值是320，，她妈的不会是拖拽还是版本问题吧？？
-        UIScrollView*_MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 45,430, 200)];//先手动加个430左右吧
-        _MiddleScrollView.backgroundColor=[UIColor greenColor];
+        UIScrollView*_MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 45,430, 220)];//先手动加个430左右吧
+       // _MiddleScrollView.backgroundColor=[UIColor greenColor];
         _MiddleScrollView.contentSize=CGSizeMake(430*2.5+btnWidth, 200);
         _MiddleScrollView.bounces=NO;
         _MiddleScrollView.showsVerticalScrollIndicator=NO;
@@ -178,12 +202,12 @@
           //  NSLog(@"1111111===%lu",(unsigned long)i);
             
             
-            UIImageView*imagShow=[[UIImageView alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5, btnWidth+8, btnWidth)];
+            UIImageView*imagShow=[[UIImageView alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 0, btnWidth+10, btnWidth+15)];
             imagShow.tag=i+30;
-            imagShow.backgroundColor=[UIColor redColor];
+            //imagShow.backgroundColor=[UIColor redColor];
             [_MiddleScrollView addSubview:imagShow];
-            UILabel*labe=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, btnWidth, btnWidth+8, btnWidth)];
-            labe.backgroundColor=[UIColor orangeColor];
+            UILabel*labe=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, btnWidth+10, btnWidth+8, btnWidth)];
+            //labe.backgroundColor=[UIColor orangeColor];
             labe.tag=i+60;
             labe.numberOfLines=0;
             labe.font=[UIFont systemFontOfSize:12];
@@ -191,8 +215,8 @@
             [_MiddleScrollView addSubview:labe];
             
             
-            UILabel*pricelabel=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, CGRectGetMaxY(labe.frame), btnWidth, 20)];
-            labe.backgroundColor=[UIColor purpleColor];
+            UILabel*pricelabel=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, CGRectGetMaxY(labe.frame)-5, btnWidth, 20)];
+            //labe.backgroundColor=[UIColor purpleColor];
             pricelabel.tag=i+75;
             pricelabel.font=[UIFont systemFontOfSize:14];
             pricelabel.textColor=[UIColor redColor];

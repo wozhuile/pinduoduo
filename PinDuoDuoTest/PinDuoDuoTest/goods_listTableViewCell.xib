@@ -24,29 +24,32 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmv-20-2sd">
-                        <rect key="frame" x="74" y="227" width="98" height="29"/>
+                        <rect key="frame" x="54" y="227" width="83" height="29"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CMF-mQ-qwV">
-                        <rect key="frame" x="166" y="227" width="104" height="29"/>
+                        <rect key="frame" x="135" y="227" width="94" height="29"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DsO-Qf-jeg">
-                        <rect key="frame" x="269" y="227" width="110" height="28"/>
+                        <rect key="frame" x="226" y="227" width="93" height="29"/>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <state key="normal" title="Button">
+                        <state key="normal" title="去开团">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </state>
                     </button>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="group" translatesAutoresizingMaskIntoConstraints="NO" id="tXv-Fn-T4I">
-                        <rect key="frame" x="36" y="227" width="39" height="29"/>
+                        <rect key="frame" x="20" y="227" width="39" height="29"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="common_icon_arrow" translatesAutoresizingMaskIntoConstraints="NO" id="SfT-1n-zQe">
+                        <rect key="frame" x="295" y="231" width="24" height="21"/>
                     </imageView>
                 </subviews>
             </tableViewCellContentView>
@@ -62,6 +65,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="common_icon_arrow" width="12" height="12"/>
         <image name="group" width="17" height="17"/>
     </resources>
 </document>

@@ -457,7 +457,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 #pragma mark 现在刷新没有bug了，下边是重用或者说xib方法创建了单元格的，然后拖拽的控件都可以找到，然后再下边创建的控件也都可以找到，，那是没刷新才可以找到而且赋值成功了，但是如果刷新了，那就不可以了。也就是只会出现这里的红色，，现在要明白，自定义最好就是手写代码而不是要xib的也有然后手写也有，这就容易导致刷新啊什么的bug，第一次数据可能没错，但是刷新就有错误了。
             
             //cell = [[[NSBundle mainBundle] loadNibNamed:@"home_recommend_subjectsTableViewCell" owner:nil options:nil] lastObject];
-            //cell.selectionStyle=UITableViewCellSelectionStyleNone;
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
         }
         
         
@@ -526,7 +526,10 @@ static  NSString*home_super_brandCell=@"home_super_brand";
             
         }];
         
-        cell.subject.text=pddRecomment.subject;
+        UILabel*sub=[cell.contentView viewWithTag:22];
+        sub.text=pddRecomment.subject;
+        
+        //cell.subject.text=pddRecomment.subject;
         return cell;
     }
     
