@@ -279,6 +279,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 #pragma mark 虽然给的position是8什么的，但是之前我没有进行加1，所以位置还是不对，至少，现在加1位置就对了，，哪些布局没有出来，可能是布局的控件不对，或者覆盖了，可以直接在cell哪里创建试试看效果出来没，，然后理解了在进行封装
         
         
+        
          //[_goods_listArray insertObject:obj atIndex:obj.position];
         [_goods_listArray insertObject:obj atIndex:obj.position+1];//加1试试
 #pragma mark 数组获取，为了subject  为了URL
@@ -529,56 +530,56 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 
     
     
-//    
-//    if (_HomePositionSum==indexPath.row)
-//    {
-//        
-//        NSLog(@"_home_recommend_subjectsPosition==%ld",(long)_HomePositionSum);
-//        
-//        
-//        home_recommend_subjectsTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_recommend_subjectsCell];
-//        
-//        if (cell==nil) {
-//            cell=[[home_recommend_subjectsTableViewCell alloc]init];
-//        }
-//        
-////        [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-////            //注意tag
-////            UIImageView*img=[cell.contentView viewWithTag:idx+60];
-////            [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
-////            UILabel*lab=[cell.contentView viewWithTag:idx+60];
-////            lab.text=obj.goodsName;
-////            
-////            
-////            
-////        }];
-////
-//        
-//        [_recommentArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//            //注意tag
-//            UIImageView*img=[cell.contentView viewWithTag:idx+60];
-//            [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
-//            UILabel*lab=[cell.contentView viewWithTag:idx+60];
-//            lab.text=obj.goodsName;
-//            
-//            
-//            
-//        }];
-//        
-//
-//        
-//        [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//            
-//            cell.subject.text=obj.subject;
-//           }];
-//
-//        
-//        
-//        return cell;
-//    }
-//    
-    
-    
+   
+    if (_home_recommend_subjectsPosition==indexPath.row)
+    {
+      
+      NSLog(@"_home_recommend_subjectsPosition==%ld",(long)_HomePositionSum);
+      
+      
+      home_recommend_subjectsTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_recommend_subjectsCell];
+      
+      if (cell==nil) {
+          cell=[[home_recommend_subjectsTableViewCell alloc]init];
+      }
+      
+        [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            //注意tag
+            UIImageView*img=[cell.contentView viewWithTag:idx+60];
+            [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+            UILabel*lab=[cell.contentView viewWithTag:idx+60];
+            lab.text=obj.goodsName;
+            
+            
+            
+        }];
+
+       
+       [_recommentArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+           //注意tag
+           UIImageView*img=[cell.contentView viewWithTag:idx+60];
+           [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+           UILabel*lab=[cell.contentView viewWithTag:idx+60];
+           lab.text=obj.goodsName;
+           
+           
+           
+       }];
+       
+
+       
+       [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+           
+           cell.subject.text=obj.subject;
+          }];
+
+       
+       
+       return cell;
+   }
+   
+ 
+ 
 
     
     
@@ -632,6 +633,10 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         
     }
     
+//    else
+//    {
+//        //cell=nil;
+//    }
     if ([obj isKindOfClass:[PDDHomeRecommendSubjects class]]) {
         PDDHomeRecommendSubjects*pddRecomment=obj;
         if (indexPath.row==pddRecomment.position) {
@@ -645,12 +650,63 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         }
 
         [_recommentArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//            //注意tag
+//            UIImageView*img=[cell.contentView viewWithTag:idx+60];
+//            [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+//            UILabel*lab=[cell.contentView viewWithTag:idx+60];
+//            lab.text=obj.goodsName;
+            
+            
+            UILabel*label=[[UILabel alloc]initWithFrame:CGRectMake(20, 50, 200, 200)];
+            label.text=obj.goodsName;
+            label.backgroundColor=[UIColor redColor];
+            [cell.contentView addSubview:label];
+            
+            NSInteger tap=22;//22还可以，。，26和30都不太好
+            NSInteger btnWidth=(cell.frame.size.width*2-11*9)/10+8;//加大一些，不会感觉空空的
+            
+            UIScrollView*_MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(5, 25, cell.frame.size.width, 150)];
+            // _MiddleScrollView.backgroundColor=[UIColor greenColor];
+            _MiddleScrollView.contentSize=CGSizeMake(cell.frame.size.width*2+btnWidth*2+50, 100);
+            _MiddleScrollView.bounces=NO;
+            _MiddleScrollView.showsVerticalScrollIndicator=NO;
+            
+#pragma mark 暂时先留着
+            _MiddleScrollView.showsHorizontalScrollIndicator=NO;
+
+            [cell.contentView addSubview:_MiddleScrollView];
+            
+
+            
+               for (int i=0 ; i<10; i++) {
+                
+                UIImageView*imag=[[UIImageView alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5, btnWidth, btnWidth)];
+                        imag.tag=i+60;
+                
+                
+             
+                imag.backgroundColor=[UIColor redColor];
+                
+                
+                [_MiddleScrollView addSubview:imag];
+                
+                
+                UILabel*labe=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5+btnWidth, btnWidth, btnWidth)];
+                
+                labe.backgroundColor=[UIColor greenColor];
+                labe.tag=i+60;
+                labe.numberOfLines=0;
+                labe.font=[UIFont systemFontOfSize:13];
+                labe.textColor=[UIColor blackColor];
+                [_MiddleScrollView addSubview:labe];
+            }
+
             //注意tag
             UIImageView*img=[cell.contentView viewWithTag:idx+60];
             [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
             UILabel*lab=[cell.contentView viewWithTag:idx+60];
             lab.text=obj.goodsName;
-            
+
             
             
         }];
