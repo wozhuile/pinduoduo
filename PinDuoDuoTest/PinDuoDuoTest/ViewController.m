@@ -64,7 +64,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
     
     
-    [netModel topScrollViewImage:@"http://apiv2.yangkeduo.com/subjects"];
+   // [netModel topScrollViewImage:@"http://apiv2.yangkeduo.com/subjects"];
     //http://apiv2.yangkeduo.com/subjects
     
 #pragma mark  第一次运行的时候崩溃了，底部数据URL书写错误
@@ -72,8 +72,12 @@ static  NSString*home_super_brandCell=@"home_super_brand";
  
 #pragma mark  妈蛋。。刷新版本不对。不是最新的mj_header
     //开始刷新  表刷新不了，，滚动也刷新不了啊。。  都是 _mainView.buttomScrollView的话，进来的时候刷新了，。。。但是之后就不行来，不知道是不是viewwillappear哪里设置了不滚动？？
+#pragma mark 可以刷新了，，但是是回去设置的那个buttomScrollView的滚动属性，之前是no，现在是yes了。。
     _mainView.buttomScrollView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-       
+        
+#pragma mark 放进来后，，外边不需要写了。。。
+    [netModel topScrollViewImage:@"http://apiv2.yangkeduo.com/subjects"];
+
     [netModel buttomDataRequest:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"];
     }];
     
@@ -85,7 +89,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
     
     
-    [netModel buttomDataRequest:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"];
+    //[netModel buttomDataRequest:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"];
     //@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"
  
     

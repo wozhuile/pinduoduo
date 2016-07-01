@@ -82,7 +82,7 @@
 
     
     _buttomScrollView.contentOffset=CGPointMake(0,0);
-    _buttomScrollView.bounces=NO;
+    _buttomScrollView.bounces=YES;
     _buttomScrollView.showsHorizontalScrollIndicator=NO;
     [self addSubview:_buttomScrollView];
     
