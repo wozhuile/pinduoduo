@@ -91,6 +91,66 @@
 */
         
         
+//        NSInteger tap=22;//22还可以，。，26和30都不太好
+//        NSInteger btnWidth=(self.contentView.frame.size.width*2-11*9)/10+15;//加大一些，不会感觉空空的
+//        
+//        UIScrollView*_MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 45, self.contentView.frame.size.width, 200)];
+//        _MiddleScrollView.backgroundColor=[UIColor greenColor];
+//        _MiddleScrollView.contentSize=CGSizeMake(self.contentView.frame.size.width*2.5+btnWidth, 100);
+//        _MiddleScrollView.bounces=NO;
+//        _MiddleScrollView.showsVerticalScrollIndicator=NO;
+//        
+//        _MiddleScrollView.showsHorizontalScrollIndicator=NO;
+//        
+//        
+//        [self.contentView addSubview:_MiddleScrollView];
+//        
+//        
+//        // UIImageView*imagShow=nil;
+//        for (int i=0 ; i<10; i++) {
+//            
+//            NSLog(@"1111111===%lu",(unsigned long)i);
+//            
+//            
+//            UIImageView*imagShow=[[UIImageView alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5, btnWidth+8, btnWidth)];
+//            imagShow.tag=i+30;
+//            imagShow.backgroundColor=[UIColor redColor];
+//            [_MiddleScrollView addSubview:imagShow];
+//            UILabel*labe=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, btnWidth, btnWidth+8, btnWidth)];
+//            labe.backgroundColor=[UIColor orangeColor];
+//            labe.tag=i+60;
+//            labe.numberOfLines=0;
+//            labe.font=[UIFont systemFontOfSize:12];
+//            labe.textColor=[UIColor blackColor];
+//            [_MiddleScrollView addSubview:labe];
+//            
+//            
+//            UILabel*pricelabel=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, CGRectGetMaxY(labe.frame), btnWidth, 20)];
+//            labe.backgroundColor=[UIColor purpleColor];
+//            pricelabel.tag=i+75;
+//            pricelabel.font=[UIFont systemFontOfSize:14];
+//            pricelabel.textColor=[UIColor redColor];
+//            [_MiddleScrollView addSubview:pricelabel];
+//            
+//        }
+//        
+//        
+   
+        
+        
+    }
+    
+    return self;
+    
+    
+}
+
+#pragma mark 还有个知识点，那就是手写自定义单元格，需要写在用重用标记符的方法而不是上边initwithframe。。
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    
+    if (self) {
         NSInteger tap=22;//22还可以，。，26和30都不太好
         NSInteger btnWidth=(self.contentView.frame.size.width*2-11*9)/10+15;//加大一些，不会感觉空空的
         
@@ -135,18 +195,9 @@
         }
         
         
-   
-        
-        
     }
-    
     return self;
-    
-    
 }
-
-
-
 
 - (void)awakeFromNib {
     // Initialization code
