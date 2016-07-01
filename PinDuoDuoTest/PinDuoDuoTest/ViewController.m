@@ -141,7 +141,8 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 #pragma mark 注册单元格
    // [_buttomDataTableView registerClass:[goods_listTableViewCell Class]forCellReuseIdentifier:goodsCell];
     [_buttomDataTableView registerNib:[UINib nibWithNibName:@"goods_listTableViewCell" bundle:nil]   forCellReuseIdentifier:goodsCell];
-    [_buttomDataTableView registerNib:[UINib nibWithNibName:@"home_recommend_subjectsTableViewCell" bundle:nil] forCellReuseIdentifier:home_recommend_subjectsCell];
+#pragma mark  不用xib了，，这里注册也不要再写了。。因为我xib上都标记一样的了。。就算下边还是重新创建来单元格，，但是注册的还是也会参加进来，，所以刚刚什么都搞好，但是这里没有注释，结果也是什么都没有出来，，出来的还是xib 的
+    //[_buttomDataTableView registerNib:[UINib nibWithNibName:@"home_recommend_subjectsTableViewCell" bundle:nil] forCellReuseIdentifier:home_recommend_subjectsCell];
     
      //[_buttomDataTableView registerNib:[UINib nibWithNibName:@"home_super_brandTableViewCell" bundle:nil] forCellReuseIdentifier:home_super_brandCell];
     
@@ -431,127 +432,8 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 {
     
     
-#pragma mark 输出这里目前是39个，上边是67个。为什么？之所以是39个，那是因为我每个都设定是280大小左右，然后是差不多15倍大小（其实还要剪掉250左右每个大小），也就是不够，现在就需要活的数据／／
-    //NSLog(@"indexPath==%@=indexPath.row==%ld",indexPath,(long)indexPath.row);
-    
-#pragma mark 思考问题：真的这里index.path.row会影响到下边取值麼？会在这里是indexpath。row等于position的4后，下边还有在有4来取麼？不会，一个区的indexpath。row就一组，如果判断用了。那下边的就没有了，，所以这个索引对应的goods的数组里边的元素就取不出来，也布局不了了，那怎么办呢？不仅仅要要取出来对应位置的数据，还会在下一个cell单元格里边布局，后边的都会依次类推，， 可以用标记方法麼？就是一开始创建的cell标记都是一样的，代表都是空的海没有数据，这时候就根据position等于indexpath。row对应先布局这些特殊的数据，，，然后布局数据就标记状态已经布局了，，然后goods数组久取出来所有的数据，布局样式的时候，就找还是空标记的cell进行布局数据，，还是有个问题，goods里边数据怎么取？，，难道一开始就先把所有的数据先取出来，然后再创建cell，，再布局，也就是indexpath，row是索引，是cell的，。。干脆这样，，不通过索引来在数组对应取数据了，我们还是用遍历，用数组的enum。。。方法来遍历取出来不就可以了？？？根据索引取太他吗矛盾了。。 
-    
-    
-    
-    
-    
-    
-    
-#pragma mark  还有两个大数组数据处理，一个是超值大牌，一个是推荐！，都是有一个关键字 ：position！！我们要根据它来进行插入！
-    
-   
-#pragma mark 先处理超值大牌的  赋值左右要注意了
-    
-  
-    
-    
-    
-    if (indexPath.row==_home_super_brandPosition) {
-        home_super_brandTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_super_brandCell];
-        
-        if (cell==nil ) {
-            cell=[[home_super_brandTableViewCell alloc]init];
-            
-            cell.selectionStyle=UITableViewCellSelectionStyleNone;
-
-        }
-#pragma mark 数据源插入数据
-        
-       // [_goods_listArray addObject:_home_super_brandArray];
-        
-        //1.将添加的数据,放入数组中
-        //[_dataArray addObject:newData];
-        
-        //2.插入单元格
-//        NSIndexPath *cellIndexPath = [NSIndexPath indexPathForRow:_home_super_brandPosition-1 inSection:0];
-//        NSArray *array = [NSArray arrayWithObjects:cellIndexPath, nil];
-//        [tableView insertRowsAtIndexPaths:array withRowAnimation:UITableViewRowAnimationFade];
-        
-        
-        //cell.selectionStyle=UITableViewCellSelectionStyleNone;
-        
-        //UILabel*labe=(UILabel*)[cell.contentView viewWithTag:10];
-#pragma mark  i＝0.记得删除拖拽的
-//        for (int i=0; i<3; i++) {
-//            UILabel*label=[[UILabel alloc]initWithFrame:CGRectMake(32+(32+100)*i, 202, 80, 16)];
-//            label.backgroundColor=[UIColor redColor];
-//            label.tag=10;
-//            [cell.contentView addSubview:label];
-//        }
-         //UILabel*label=[UILabel alloc]initWithFrame:CGRectMake(32+(32+140)*, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>);
-        
-#pragma mark 进行for循环遍历取值，前三个就赋值  不过就算遍历wanq
-        //for (PDDGoodsList*goods in _home_super_brandArray) {
-            
-            
-            
-            //[cell.firstIcon sd_setImageWithURL:[NSURL URLWithString:goods.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
-            /**** Terminating app due to uncaught exception 'NSUnknownKeyException', reason: '[<home_super_brandTableViewCell 0x7fb4e182ec00> setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key searchMoreLabel.'
-*/
-#pragma mark 看这个报错，应该说的是找不到这么多属性对象来赋值，也就是label其实一起关联同一个属性，导致前一个关联被后一个关联覆盖了。。就相当于我本来创建3个label，，但是其实就找到来一个来赋值，根据kvc，就会报错，要不自己创建试试吧,就在这里边创建试试把，注意千万要记得到自定义cell里边去，而不是在这里的一般来说
-           
-            //UILabel*labe=(UILabel*)[cell.contentView viewWithTag:10];
-            
-            //labe.text=[NSString stringWithFormat:@"%.2f",goods.price/100];
-            
-           // NSLog(@"labe.text===%@",labe.text);
-            
-            
-        //}
-        
-        [_home_super_brandArray enumerateObjectsUsingBlock:^(PDDGoodsList * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            
-           // NSLog(@"idx===%lu",(unsigned long)idx);
-            
-            
-#pragma mark tag值赋值不要就一个，，否则就只是找到一个。。之前我就赋值一个10，，每次都以为还是10，。。。错了
-           // if (idx<3) {
-            
-            UIImageView*img=[cell.contentView viewWithTag:100+idx];
-            [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
-            
-            
-                UILabel*labe=(UILabel*)[cell.contentView viewWithTag:10+idx];
-                //labe.text=[NSString stringWithFormat:@"$%.2f",obj.price/100];
-                labe.textColor=[UIColor redColor];
-                
-
-            //}
-             //UILabel*labe=(UILabel*)[cell.contentView viewWithTag:10];
-            //labe.text=[NSString stringWithFormat:@"%.2f",obj.price/100];
-
-        }];
-        
-        
-        
-        
-        return cell;
-    }
-#pragma mark _home_super_brandPosition==indexPath.row  直接这样赋值的话，看起来没错，但是一运行就崩溃了，，其实最简单的就是，我们根据这个position等于indexpath，row来判断进行处理了，。。但是下边的goods数组还是更加indexpath，row来从数组里边取出来对象，那就是创建了两个不同样式的cell类对象类。。。这个就够崩溃了的，看看结果！！！：*** Terminating app due to uncaught exception 'NSUnknownKeyException', reason: '[<home_super_brandTableViewCell 0x7f90228afc00> setValue:forUndefinedKey:]: this class is not key value coding-compliant for the key searchMoreLabel.'*** First throw call stack:
 
     
-    
-    //UITableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:@"cell"];
-    
-    
-    
-    
-#pragma mark 推荐处理!
-    
-    //NSNumber*recommetPosition=nil;
-    
-    //[_recommentPositionArray enumerateObjectsUsingBlock:^(NSNumber * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-       // _HomePositionSum=[obj integerValue];
-        //如果在这里输出的话，就发现输出了不少于position个数的次数，，是position＊position个。。。两次遍历了至少。。。
-        //NSLog(@"_HomePositionSum===%ld",(long)_HomePositionSum);
-    //}];
-#pragma mark 还是释放了啊。。前后对比就知道了。。为什么要传position呢？对象不就可以了麼
-
     id obj=[_goods_listArray objectAtIndex:indexPath.row];
     
     
@@ -564,90 +446,71 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         PDDHomeRecommendSubjects*pddRecomment=obj;
         //NSLog(@"%f",pddRecomment.position);
         
-#pragma mark 一直没出来就是多了这个方法判断，多了一个代码： if (indexPath.row==pddRecomment.position) {  其实本来也是可以的，，但是没有理解好，因为position其实就是8啊，。12什么的，，但是在数组里边取出来的时候，indexpath。row都是10了。。。／在基础上加2了。。。。。。
         
-        //        if (indexPath.row==pddRecomment.position) {
         home_recommend_subjectsTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_recommend_subjectsCell];
         if (cell==nil) {
+            
             
             cell=[[home_recommend_subjectsTableViewCell alloc]init];
             
             
 #pragma mark 现在刷新没有bug了，下边是重用或者说xib方法创建了单元格的，然后拖拽的控件都可以找到，然后再下边创建的控件也都可以找到，，那是没刷新才可以找到而且赋值成功了，但是如果刷新了，那就不可以了。也就是只会出现这里的红色，，现在要明白，自定义最好就是手写代码而不是要xib的也有然后手写也有，这就容易导致刷新啊什么的bug，第一次数据可能没错，但是刷新就有错误了。
             
-            //cell=[[home_recommend_subjectsTableViewCell alloc]init];
             //cell = [[[NSBundle mainBundle] loadNibNamed:@"home_recommend_subjectsTableViewCell" owner:nil options:nil] lastObject];
             //cell.selectionStyle=UITableViewCellSelectionStyleNone;
         }
         
         
-//        
-//        NSInteger tap=22;//22还可以，。，26和30都不太好
-//        NSInteger btnWidth=(cell.frame.size.width*2-11*9)/10+15;//加大一些，不会感觉空空的
-//        
-//        UIScrollView*_MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 45, cell.frame.size.width, 200)];
-//        _MiddleScrollView.backgroundColor=[UIColor greenColor];
-//        _MiddleScrollView.contentSize=CGSizeMake(cell.frame.size.width*2.5+btnWidth, 100);
-//        _MiddleScrollView.bounces=NO;
-//        _MiddleScrollView.showsVerticalScrollIndicator=NO;
-//        
-//        _MiddleScrollView.showsHorizontalScrollIndicator=NO;
-//        
-//        
-//        [cell.contentView addSubview:_MiddleScrollView];
-//        
-//        
-//       // UIImageView*imagShow=nil;
-//        for (int i=0 ; i<10; i++) {
-//            
-//            
-//            
-//          UIImageView*imagShow=[[UIImageView alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5, btnWidth+8, btnWidth)];
-//            imagShow.tag=i+30;
-//            imagShow.backgroundColor=[UIColor redColor];
-//            [_MiddleScrollView addSubview:imagShow];
-        
-#pragma mark  为什么单独设置就说崩溃？什么image view settext？？那是因为tag我都设置i+60;而且找的时候完全没有强转，，虽然也没必要（都继承UI view） tag换下就好。。。。
-            /*-[UIImageView setText:]: unrecognized selector sent to instance 0x7f9f2b164d20
-             2016-07-01 16:33:20.980 PinDuoDuoTest[5776:193331] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[UIImageView setText:]: unrecognized selector sent to instance 0x7f9f2b164d20'
-             */
-            
-            /*-[UILabel sd_setImageWithURL:placeholderImage:]: unrecognized selector sent to instance 0x7fa865954220
-             2016-07-01 16:32:19.766 PinDuoDuoTest[5744:192510] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[UILabel sd_setImageWithURL:placeholderImage:]: unrecognized selector sent to instance 0x7fa865954220'
-             */
-            
-//            
-//            UILabel*labe=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, btnWidth, btnWidth+8, btnWidth)];
-//            labe.backgroundColor=[UIColor orangeColor];
-//            labe.tag=i+60;
-//            labe.numberOfLines=0;
-//            labe.font=[UIFont systemFontOfSize:12];
-//            labe.textColor=[UIColor blackColor];
-//            [_MiddleScrollView addSubview:labe];
-//            
-//            
-//            UILabel*pricelabel=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, CGRectGetMaxY(labe.frame), btnWidth, 20)];
-//            labe.backgroundColor=[UIColor purpleColor];
-//            pricelabel.tag=i+75;
-//            pricelabel.font=[UIFont systemFontOfSize:14];
-//            pricelabel.textColor=[UIColor redColor];
-//            [_MiddleScrollView addSubview:pricelabel];
-//            
-//        }
-        
-#pragma mark 之前用这个_recommentArray数组，在这里后果就是每次得到的值都一样的，为什么？因为这个数组是已经在外边取好的，但是在这里我们又再次取一次，也就是在一次遍历，每次取的都是两次遍历，都是得到第一个。。用这个pddRecomment.goodsList就不错。。要千万小心的啊
-        //[_recommentArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop)
+        //
+        //        NSInteger tap=22;//22还可以，。，26和30都不太好
+        //        NSInteger btnWidth=(cell.frame.size.width*2-11*9)/10+15;//加大一些，不会感觉空空的
+        //
+        //        UIScrollView*_MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 45, cell.frame.size.width, 200)];
+        //        _MiddleScrollView.backgroundColor=[UIColor greenColor];
+        //        _MiddleScrollView.contentSize=CGSizeMake(cell.frame.size.width*2.5+btnWidth, 100);
+        //        _MiddleScrollView.bounces=NO;
+        //        _MiddleScrollView.showsVerticalScrollIndicator=NO;
+        //
+        //        _MiddleScrollView.showsHorizontalScrollIndicator=NO;
+        //
+        //
+        //        [cell.contentView addSubview:_MiddleScrollView];
+        //
+        //
+        //       // UIImageView*imagShow=nil;
+        //        for (int i=0 ; i<10; i++) {
+        //
+        //            NSLog(@"1111111===%lu",(unsigned long)i);
+        //
+        //
+        //          UIImageView*imagShow=[[UIImageView alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5, btnWidth+8, btnWidth)];
+        //            imagShow.tag=i+30;
+        //            imagShow.backgroundColor=[UIColor redColor];
+        //            [_MiddleScrollView addSubview:imagShow];
+        //             UILabel*labe=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, btnWidth, btnWidth+8, btnWidth)];
+        //            labe.backgroundColor=[UIColor orangeColor];
+        //            labe.tag=i+60;
+        //            labe.numberOfLines=0;
+        //            labe.font=[UIFont systemFontOfSize:12];
+        //            labe.textColor=[UIColor blackColor];
+        //            [_MiddleScrollView addSubview:labe];
+        //
+        //
+        //            UILabel*pricelabel=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, CGRectGetMaxY(labe.frame), btnWidth, 20)];
+        //            labe.backgroundColor=[UIColor purpleColor];
+        //            pricelabel.tag=i+75;
+        //            pricelabel.font=[UIFont systemFontOfSize:14];
+        //            pricelabel.textColor=[UIColor redColor];
+        //            [_MiddleScrollView addSubview:pricelabel];
+        //
+        //        }
         
         [pddRecomment.goodsList enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             
-           // NSLog(@"obj====%@",obj);
             
-            //注意tag
+            NSLog(@"2222222===%lu",(unsigned long)idx);
+            
             UIImageView*img=[cell.contentView viewWithTag:idx+30];
-            
-            
-            
-            
             [img sd_setImageWithURL:[NSURL URLWithString:obj.hdThumbUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
             UILabel*lab=[cell.contentView viewWithTag:idx+60];
             lab.text=obj.goodsName;
@@ -659,189 +522,66 @@ static  NSString*home_super_brandCell=@"home_super_brand";
             
             
             pricelabel.text=[NSString stringWithFormat:@"$%.2f",obj.price/100];
-           
+            
             
         }];
         
         cell.subject.text=pddRecomment.subject;
-        
-        
-        //cell.backgroundColor=[UIColor purpleColor];
         return cell;
     }
-
-
     
     
-    goods_listTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:goodsCell];
-    //if (goodCell==nil) {
-      //  goodCell=[[goods_listTableViewCell alloc]init];
-        //NSArray*array=[[NSBundle mainBundle]loadNibNamed:@" goods_listTableViewCell" owner:nil options:nil];
-        
-#pragma mark 暂时设置选中状态没有
-        //goodCell.selectionStyle=UITableViewCellSelectionStyleNone;
-       //goodCell=[array objectAtIndex:0];
-    //}
-#pragma mark 放在这里外边就可以实现点击状态没有！  证明了注册单元格后，不需要再次去创建！
-     cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    //goodCell.textLabel.text=@"erewrewr";
-    
-    //PDDGoodsList*goodsLists=[_goods_listArray objectAtIndex:indexPath.row];
-    //[NSURL URLWithString:<#(nonnull NSString *)#>];
-    
-    //NSLog(@"goodsLists===%@",goodsLists);
-    
-    
-    
-    
-    
-#pragma mark 图片记得还原
-    //cell.good_listImageView=nil;
-    
-    
-    
-    
-    
-#pragma mark 这里也需要遍历了，否则会导致矛盾报错。
-   //PDDGoodsList*goodsLists=[_goods_listArray objectAtIndex:indexPath.row];
-    
-           // [obj isKindOfClass:[PDDGoodsList class]];
-#pragma mark  [obj isKindOfClass:[PDDGoodsList class] 用这个来取，是不崩溃了。但是数据不对了。。。。
+    //        goods_listTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:goodsCell];
+    //         cell.selectionStyle=UITableViewCellSelectionStyleNone;
     if ([obj isKindOfClass:[PDDGoodsList class]]) {
         PDDGoodsList*goodsLists=obj;
+        goods_listTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:goodsCell];
+        cell.selectionStyle=UITableViewCellSelectionStyleNone;
         [cell.good_listImageView sd_setImageWithURL:[NSURL URLWithString:goodsLists.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
         
         cell.goods_name.text=goodsLists.goodsName;
         
         cell.customer_num.text=[NSString stringWithFormat:@"%d人团",(int)goodsLists.group.customerNum ];
         cell.price.text=[NSString stringWithFormat:@"$%.2f",goodsLists.group.price/100];
-
+        
+        return cell;
+        
+    }
+    
+    
+    else{
+        home_super_brandTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_super_brandCell];
+        
+        if (cell==nil ) {
+            cell=[[home_super_brandTableViewCell alloc]init];
+            
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
+            
+        }
+        
+        [_home_super_brandArray enumerateObjectsUsingBlock:^(PDDGoodsList * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            UIImageView*img=[cell.contentView viewWithTag:100+idx];
+            [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+            
+            
+            UILabel*labe=(UILabel*)[cell.contentView viewWithTag:10+idx];
+            //labe.text=[NSString stringWithFormat:@"$%.2f",obj.price/100];
+            labe.textColor=[UIColor redColor];
+            
+            
+        }];
+        
+        
+        
+        
+        return cell;
         
         
     }
     
-//    else
-//    {
-//        //cell=nil;
-//    }
-//    if ([obj isKindOfClass:[PDDHomeRecommendSubjects class]]) {
-//        PDDHomeRecommendSubjects*pddRecomment=obj;
-//        if (indexPath.row==pddRecomment.position) {
-//            
-//        
-//        
-//        home_recommend_subjectsTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:home_recommend_subjectsCell];
-//        
-//        if (cell==nil) {
-//            cell=[[home_recommend_subjectsTableViewCell alloc]init];
-//        }
-//
-//        [_recommentArray enumerateObjectsUsingBlock:^(PDDGoodsList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-////            //注意tag
-////            UIImageView*img=[cell.contentView viewWithTag:idx+60];
-////            [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
-////            UILabel*lab=[cell.contentView viewWithTag:idx+60];
-////            lab.text=obj.goodsName;
-//            
-//            
-//            UILabel*label=[[UILabel alloc]initWithFrame:CGRectMake(20, 50, 200, 200)];
-//            label.text=obj.goodsName;
-//            label.backgroundColor=[UIColor redColor];
-//            [cell.contentView addSubview:label];
-//            
-//            NSInteger tap=22;//22还可以，。，26和30都不太好
-//            NSInteger btnWidth=(cell.frame.size.width*2-11*9)/10+8;//加大一些，不会感觉空空的
-//            
-//            UIScrollView*_MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(5, 25, cell.frame.size.width, 150)];
-//            // _MiddleScrollView.backgroundColor=[UIColor greenColor];
-//            _MiddleScrollView.contentSize=CGSizeMake(cell.frame.size.width*2+btnWidth*2+50, 100);
-//            _MiddleScrollView.bounces=NO;
-//            _MiddleScrollView.showsVerticalScrollIndicator=NO;
-//            
-//#pragma mark 暂时先留着
-//            _MiddleScrollView.showsHorizontalScrollIndicator=NO;
-//
-//            [cell.contentView addSubview:_MiddleScrollView];
-//            
-//
-//            
-//               for (int i=0 ; i<10; i++) {
-//                
-//                UIImageView*imag=[[UIImageView alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5, btnWidth, btnWidth)];
-//                        imag.tag=i+60;
-//                
-//                
-//             
-//                imag.backgroundColor=[UIColor redColor];
-//                
-//                
-//                [_MiddleScrollView addSubview:imag];
-//                
-//                
-//                UILabel*labe=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5+btnWidth, btnWidth, btnWidth)];
-//                
-//                labe.backgroundColor=[UIColor greenColor];
-//                labe.tag=i+60;
-//                labe.numberOfLines=0;
-//                labe.font=[UIFont systemFontOfSize:13];
-//                labe.textColor=[UIColor blackColor];
-//                [_MiddleScrollView addSubview:labe];
-//            }
-//
-//            //注意tag
-//            UIImageView*img=[cell.contentView viewWithTag:idx+60];
-//            [img sd_setImageWithURL:[NSURL URLWithString:obj.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
-//            UILabel*lab=[cell.contentView viewWithTag:idx+60];
-//            lab.text=obj.goodsName;
-//
-//            
-//            
-//        }];
-//        
-//        
-//        
-//        [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//            
-//            cell.subject.text=obj.subject;
-//        }];
-//        }
-//        
-//        
-//        return cell;
-//
-//    }
-//    
-    
-    //NSLog(@"goodsLists====%@",goodsLists);
-    
-    //这时候取出来的对象还对麼？？还都是这个类型麼？
-    ///[cell.good_listImageView sd_setImageWithURL:[NSURL URLWithString:goodsLists.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
-    
-    /*'-[PDDHomeRecommendSubjects goodsName]: unrecognized selector sent to instance 0x7fa659f53580'//封了上边，到这里报错，，。，
-*/
-    //cell.goods_name.text=goodsLists.goodsName;
-    /*minating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[PDDHomeRecommendSubjects group]: unrecognized selector sent to instance 0x7fe6f9552c90'
-*/
-  
-    //cell.customer_num.text=[NSString stringWithFormat:@"%d人团",(int)goodsLists.group.customerNum ];
-    //cell.price.text=[NSString stringWithFormat:@"$%.2f",goodsLists.group.price/100];
-   
-   // [_goods_listArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        
-   
-        
-        
-   // }];
     
     
-    
-    
-    
-    
-    //goodCell.goods_name.text=[NSString stringWithFormat:@"%ld",(long)indexPath.row];
-    
-    
-    return cell;
 }
 
 #pragma mark  滚动冲突@！！！ 不过在这里的话，会先向上滚动一下才不会滚动了。还有就是可以在viewwillappear等方法里边处理，效果还好！不能在viewdidload方法里边，没加载好不起作用    /*tableView和scrollView滚动起冲突，tableview不能滚动
