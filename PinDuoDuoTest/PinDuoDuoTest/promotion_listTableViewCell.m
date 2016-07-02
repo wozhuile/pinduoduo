@@ -28,9 +28,9 @@
         
         _speed=1;
         
-        _topScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 414, 268)];
+        _topScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 414,220)];
         //_topScrollView.backgroundColor=[UIColor redColor];
-        _topScrollView.contentSize=CGSizeMake(414*5, 268);
+        _topScrollView.contentSize=CGSizeMake(414*5, 220);
         _topScrollView.bounces=NO;
         _topScrollView.showsVerticalScrollIndicator=NO;
 #pragma mark 暂时先留着看看有没有分页什么的
@@ -50,8 +50,8 @@
         
 #pragma mark 创建图片,滚动的图片
         for (int i=0; i<5; i++) {
-            UIImageView*imageView=[[UIImageView alloc]initWithFrame:CGRectMake(414*i, 0, 414, 268)];
-            imageView.backgroundColor=[UIColor orangeColor];
+            UIImageView*imageView=[[UIImageView alloc]initWithFrame:CGRectMake(414*i, 0, 414, 220)];
+            //imageView.backgroundColor=[UIColor orangeColor];
             
 #pragma mark 第一次图片没出来，是https哪里没有设置   还有占位图片是随便先放上来的
             //NSLog(@"url+===%@",urlArray);
@@ -86,7 +86,7 @@
 {
     
     _pageControl = [[UIPageControl alloc]init];
-    _pageControl.center = CGPointMake(340/2, 250);//
+    _pageControl.center = CGPointMake(340/2, 200);//
     _pageControl.bounds = CGRectMake(0, 0, 414/2, 60);
     _pageControl.numberOfPages = 5;
     _pageControl.pageIndicatorTintColor = [UIColor greenColor];

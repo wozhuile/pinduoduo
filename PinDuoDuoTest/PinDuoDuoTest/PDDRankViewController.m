@@ -194,6 +194,18 @@
 }
 
 
+#pragma mark 大概先定死一个高度，然后再计算
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section==0) {
+        return 220;
+    }
+    if (indexPath.section==1) {
+        return 180;
+    }
+    
+    return 268;
+}
 
 
 //-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
