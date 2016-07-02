@@ -359,25 +359,57 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
     //self.goods_listArray=homeBrandArray;
    // NSLog(@"_goods_listArray111111==%@",_goods_listArray);
-    [self.goods_listArray insertObject:modelData.homeSuperBrand atIndex:modelData.homeSuperBrand.position];
+    
+    if (modelData.homeSuperBrand.goodsList.count>0)
+    {
+        [self.goods_listArray insertObject:modelData.homeSuperBrand atIndex:modelData.homeSuperBrand.position];
+    }
+    
+    //[self.goods_listArray insertObject:modelData.homeSuperBrand atIndex:modelData.homeSuperBrand.position];
     
    // NSLog(@"_goods_listArray222==%@",_goods_listArray);
     
+    
+    
+    
   //NSLog(@"_goods_listArray1111==%@",_goods_listArray);
-    [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    
+    
+    if (_home_recommend_subjectsArray.count>0) {
         
+        [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
 #pragma mark 虽然给的position是8什么的，但是之前我没有进行加1，所以位置还是不对，至少，现在加1位置就对了，，哪些布局没有出来，可能是布局的控件不对，或者覆盖了，可以直接在cell哪里创建试试看效果出来没，，然后理解了在进行封装
-        
-        
-        
-         //[_goods_listArray insertObject:obj atIndex:obj.position];
-        [_goods_listArray insertObject:obj atIndex:obj.position+1];//加1试试
+            
+            
+            
+            //[_goods_listArray insertObject:obj atIndex:obj.position];
+            [_goods_listArray insertObject:obj atIndex:obj.position+1];//加1试试
 #pragma mark 数组获取，为了subject  为了URL
-        /*Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[PDDHomeRecommendSubjects imageUrl]: unrecognized se*/
-        //_recommentArray=[[NSMutableArray alloc]initWithArray:obj.goodsList];
+            /*Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[PDDHomeRecommendSubjects imageUrl]: unrecognized se*/
+            //_recommentArray=[[NSMutableArray alloc]initWithArray:obj.goodsList];
+            
+            // NSLog(@"_goods_listArray222==%@",_goods_listArray);
+        }];
         
-       // NSLog(@"_goods_listArray222==%@",_goods_listArray);
-    }];
+
+    }
+    
+    
+//    [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        
+//#pragma mark 虽然给的position是8什么的，但是之前我没有进行加1，所以位置还是不对，至少，现在加1位置就对了，，哪些布局没有出来，可能是布局的控件不对，或者覆盖了，可以直接在cell哪里创建试试看效果出来没，，然后理解了在进行封装
+//        
+//      
+//        
+//         //[_goods_listArray insertObject:obj atIndex:obj.position];
+//        [_goods_listArray insertObject:obj atIndex:obj.position+1];//加1试试
+//#pragma mark 数组获取，为了subject  为了URL
+//        /*Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[PDDHomeRecommendSubjects imageUrl]: unrecognized se*/
+//        //_recommentArray=[[NSMutableArray alloc]initWithArray:obj.goodsList];
+//        
+//       // NSLog(@"_goods_listArray222==%@",_goods_listArray);
+//    }];
 
       //[_goods_listArray addObject:_home_super_brandArray];
     //NSLog(@"_goods_listArray333==%@",_goods_listArray);
@@ -453,14 +485,26 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
 #pragma mark 针对效果，我去看了。。就是推荐喝大牌就是第一个有，，后边的就不会再有的了。。所以countSum的时候，应该就加之前的，，但是countSum大于1后，就应该不再追加推荐和大牌了。。但是怎么排除？好像也不需要去这么样做啊，，毕竟后边取值的时候，是按照类型来做的，，那怎么做呢？／
     if (countSum ==1) {
-        [_totalarray setArray:_goods_listArray];
+        if (_goods_listArray.count>0) {
+            [_totalarray setArray:_goods_listArray];
+            
+
+        }
+        //[_totalarray setArray:_goods_listArray];
         
         //[_rankTableView.header endRefreshing];
     }
     
     else
     {
-        [_totalarray   addObjectsFromArray:_goods_listArray];
+        //报错说是Terminating app due to uncaught exception 'NSRangeException', reason: '*** -[__NSArrayM insertObject:atIndex:]: index 4 beyond bounds for empty array'  是不是就是说请求的时候，遇到大牌的插入，但是那时候没有大牌数据了。。现在还刷新插入了。然后就崩溃了。。至于为什么前3次或者4次没崩溃，，可能是之前请求的没有展示完全，，，那可以判断下数组有没有在插入的啊，，有元素，个数都会大于0.。试试看，。。。
+  
+        if (_goods_listArray.count>0) {
+            [_totalarray   addObjectsFromArray:_goods_listArray];
+
+        }
+        
+        //[_totalarray   addObjectsFromArray:_goods_listArray];
         
         //[_rankTableView.footer endRefreshing];
     }
