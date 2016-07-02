@@ -39,6 +39,10 @@ static NSString*goodCell=@"goods_list";
 #import "RankPromotionList.h"
 
 
+#pragma mark 刷新
+#import <MJRefresh.h>
+
+
 
 @interface PDDRankViewController ()<UITableViewDataSource,UITableViewDelegate,rankToolDelegate>
 
@@ -87,22 +91,118 @@ static NSString*goodCell=@"goods_list";
     _country_listArray=[[NSMutableArray alloc]init];
     _promotion_listArray=[[NSMutableArray alloc]init];
     _goods_listArray=[[NSMutableArray alloc]init];
+    _totalarray=[[NSMutableArray alloc]init];
+    
     
     [self rankTableView];
    // NSLog(@"%f",self.view.frame.size.width);
     
     rankTool*ranlTL=[[rankTool alloc]init];
     
-    [ranlTL sendRequestForGetData:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v2/haitaov2?page=1&size=50"]];
+    
+
+  
+    //[ranlTL sendRequestForGetData:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v2/haitaov2?page=1&size=50"]];
+    
+    
+    //下啦
+    
+    
+    
+  /* MJRefreshGifHeader*header=[MJRefreshGifHeader headerWithRefreshingBlock:^{
+        [ranlTL sendRequestForGetData:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v2/haitaov2?page=1&size=50"]];
+         //[_rankTableView reloadData];
+    }];
+    
+    NSArray*arra=[[NSArray alloc]initWithObjects:[UIImage imageNamed:@"520.gif"], [UIImage imageNamed:@"520.gif"],[UIImage imageNamed:@"520.gif"],[UIImage imageNamed:@"520.gif"],[UIImage imageNamed:@"520.gif"],[UIImage imageNamed:@"520.gif"],[UIImage imageNamed:@"520.gif"],[UIImage imageNamed:@"520.gif"],[UIImage imageNamed:@"520.gif"],nil];
+    
+      NSArray*arra1=[[NSArray alloc]initWithObjects:[UIImage imageNamed:@"520.gif"], [UIImage imageNamed:@"520.gif"],[UIImage imageNamed:@"520.gif"],[UIImage imageNamed:@"520.gif"],[UIImage imageNamed:@"520.gif"],[UIImage imageNamed:@"520.gif"],[UIImage imageNamed:@"520.gif"],[UIImage imageNamed:@"520.gif"],[UIImage imageNamed:@"520.gif"],nil];
+    
+    [header setImages:arra forState:MJRefreshStatePulling];
+    
+    [header setImages:arra1  forState:MJRefreshStateRefreshing];
+    */
+    
+    
     
     
 #pragma mark 代理传值，先遵循代理
     ranlTL.delegate=self;
     
-
-
+    
+    
+    
+#pragma mark 点击状态栏回到顶部
+    
+    _rankTableView.scrollsToTop=YES;
+    
 #pragma mark 注册goods
     
+
+    
+    
+    
+    MJRefreshNormalHeader*header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        
+        //_count=1;
+        
+        //[ranlTL sendRequestForGetData:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v2/haitaov2?page=%ld&size=50",(long)_count]];
+        [ranlTL sendRequestForGetData:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v2/haitaov2?page=1&size=50"]];
+        
+
+        
+       // return ;
+        //[_rankTableView reloadData];
+    }];
+    
+    
+    _rankTableView.header=header;
+    
+    //开始
+    [_rankTableView.header beginRefreshing];
+    
+    
+    
+    //上啦
+    _rankTableView.footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+      
+#pragma mark 看5月12的项目，上啦更多勉强实现了，，但是有个问题就是这里第一次输出就是——count＝2了。。是不是上边赋值影响了。。。应该就是，那我这里是不是先剪掉1？？试试看，，再URL后边减掉1应该可以的 本来 [ranlTL sendRequestForGetData:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v2/haitaov2?page=%ld&size=50",(long)_count]];
+        
+   
+        
+#pragma mark  算是可以了。。。加个判断，大于1的时候再给进来，不过上边下拉我就写死了／／
+         _count++;
+        
+        if (_count>1) {
+             [ranlTL sendRequestForGetData:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v2/haitaov2?page=%ld&size=50",(long)_count]];
+        }
+        
+       // [ranlTL sendRequestForGetData:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v2/haitaov2?page=%ld&size=50",(long)_count-1]];
+        
+#pragma mark 不能减掉1，，虽然输出是2，，，但是如果减掉1，，第一次上啦的数据就是喝第一次请求的一样了。。。。
+        
+       // NSLog(@"_count======%ld",(long)_count);
+        //[_totalarray   addObjectsFromArray:_goods_listArray];
+        
+        
+         //[_rankTableView reloadData];
+    }];
+    //开始
+    [_rankTableView.footer beginRefreshing];
+    
+//    
+//#pragma mark 代理传值，先遵循代理
+//    ranlTL.delegate=self;
+//    
+//    
+//    
+//    
+//#pragma mark 点击状态栏回到顶部
+//
+//    _rankTableView.scrollsToTop=YES;
+//
+//#pragma mark 注册goods
+//    
     
     // [_rankTableView registerNib:[UINib nibWithNibName:@"goods_listTableViewCell" bundle:nil]   forCellReuseIdentifier:goodCell];
     //[self rankTableView];
@@ -118,7 +218,30 @@ static NSString*goodCell=@"goods_list";
     //self.goods_listArray=goods_listArray;
     
     self.goods_listArray=[[NSMutableArray alloc]initWithArray:goods_listArray];
-    NSLog(@" goods_listArray==%@", self.goods_listArray);
+   // NSLog(@" goods_listArray==%@", self.goods_listArray);
+    
+    
+    if (_count==1) {
+        [_totalarray setArray:goods_listArray];
+
+         //[_rankTableView.header endRefreshing];
+    }
+    
+    else
+    {
+        [_totalarray   addObjectsFromArray:_goods_listArray];
+        
+        //[_rankTableView.footer endRefreshing];
+    }
+    
+#pragma mark 结束刷新
+    [_rankTableView.header endRefreshing];
+    
+    
+    
+    //
+    [_rankTableView.footer endRefreshing];
+    
     
     
 #pragma mark  不是没用。。表忘记刷新了。能有数据出来才怪，，第一次数组本来就是美数据的，，虽然这里有了。。但是不刷新也没用
@@ -143,7 +266,7 @@ static NSString*goodCell=@"goods_list";
     }
     
     
-    return _goods_listArray.count;
+    return _totalarray.count;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -267,7 +390,7 @@ static NSString*goodCell=@"goods_list";
         #pragma mark 真不知道为什么遍历就不行？？再试试  ..算了。。。
         
         
-    RankGoodsList*rank=[_goods_listArray objectAtIndex:indexPath.row];
+    RankGoodsList*rank=[_totalarray objectAtIndex:indexPath.row];
     
         //[_goods_listArray enumerateObjectsUsingBlock:^(RankGoodsList*  _Nonnull rank, NSUInteger idx, BOOL * _Nonnull stop) {
             
@@ -297,25 +420,6 @@ static NSString*goodCell=@"goods_list";
     }
     
     
-    
-//    id obj=[_goods_listArray objectAtIndex:indexPath.row];
-//    
-//    if ([obj isKindOfClass:[RankGoodsList class]]) {
-//        RankGoodsList*goodsLists=obj;
-//        goods_listTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:goodCell];
-//        cell.selectionStyle=UITableViewCellSelectionStyleNone;
-//        [cell.good_listImageView sd_setImageWithURL:[NSURL URLWithString:goodsLists.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
-//        
-//        cell.goods_name.text=goodsLists.goodsName;
-//        
-//        cell.customer_num.text=[NSString stringWithFormat:@"%d人团",(int)goodsLists.group.customerNum ];
-//        cell.price.text=[NSString stringWithFormat:@"$%.2f",goodsLists.group.price/100];
-//        
-//        return cell;
-//        
-//    }
-//
-   
     
 }
 

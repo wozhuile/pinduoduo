@@ -19,4 +19,8 @@
 @property(nonatomic,strong)NSMutableArray*country_listArray;
 @property(nonatomic,strong)NSMutableArray*goods_listArray;
 
+@property(nonatomic,strong)NSMutableArray*totalarray;
+
+
+@property(nonatomic,assign)NSInteger count;
 @end
