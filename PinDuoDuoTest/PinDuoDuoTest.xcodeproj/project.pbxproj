@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0440422F1D275F200015D3E6 /* promotion_listTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440422E1D275F200015D3E6 /* promotion_listTableViewCell.m */; };
+		044042321D275F360015D3E6 /* country_listTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044042311D275F360015D3E6 /* country_listTableViewCell.m */; };
+		044042351D275F590015D3E6 /* goods_listRankTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044042341D275F590015D3E6 /* goods_listRankTableViewCell.m */; };
 		04DE6ED91D274BC100FF3AC1 /* rankTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE6ED81D274BC100FF3AC1 /* rankTool.m */; };
 		04DE6EE61D274C8E00FF3AC1 /* RankBaseModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE6EDD1D274C8E00FF3AC1 /* RankBaseModle.m */; };
 		04DE6EE71D274C8E00FF3AC1 /* RankCountryList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE6EDF1D274C8E00FF3AC1 /* RankCountryList.m */; };
@@ -53,6 +56,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0440422D1D275F200015D3E6 /* promotion_listTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = promotion_listTableViewCell.h; sourceTree = "<group>"; };
+		0440422E1D275F200015D3E6 /* promotion_listTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = promotion_listTableViewCell.m; sourceTree = "<group>"; };
+		044042301D275F360015D3E6 /* country_listTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = country_listTableViewCell.h; sourceTree = "<group>"; };
+		044042311D275F360015D3E6 /* country_listTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = country_listTableViewCell.m; sourceTree = "<group>"; };
+		044042331D275F590015D3E6 /* goods_listRankTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = goods_listRankTableViewCell.h; sourceTree = "<group>"; };
+		044042341D275F590015D3E6 /* goods_listRankTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = goods_listRankTableViewCell.m; sourceTree = "<group>"; };
 		04DE6ED71D274BC100FF3AC1 /* rankTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rankTool.h; sourceTree = "<group>"; };
 		04DE6ED81D274BC100FF3AC1 /* rankTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rankTool.m; sourceTree = "<group>"; };
 		04DE6EDB1D274C8E00FF3AC1 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
@@ -143,6 +152,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0440422C1D275EB70015D3E6 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				0440422D1D275F200015D3E6 /* promotion_listTableViewCell.h */,
+				0440422E1D275F200015D3E6 /* promotion_listTableViewCell.m */,
+				044042301D275F360015D3E6 /* country_listTableViewCell.h */,
+				044042311D275F360015D3E6 /* country_listTableViewCell.m */,
+				044042331D275F590015D3E6 /* goods_listRankTableViewCell.h */,
+				044042341D275F590015D3E6 /* goods_listRankTableViewCell.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
 		04DE6EDA1D274C8E00FF3AC1 /* 海淘专区 */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +274,7 @@
 		04E221B11D22218F0042B3C7 /* 海淘 */ = {
 			isa = PBXGroup;
 			children = (
+				0440422C1D275EB70015D3E6 /* view */,
 				04E1B5DE1D24A3080013515A /* model */,
 				04E1B5DD1D24A2F90013515A /* controller */,
 			);
@@ -548,14 +571,17 @@
 				04E221C11D2221D50042B3C7 /* PDDMeViewController.m in Sources */,
 				04ED695A1D23549200098325 /* PDDHomeSuperBrand.m in Sources */,
 				04DE6EE61D274C8E00FF3AC1 /* RankBaseModle.m in Sources */,
+				044042351D275F590015D3E6 /* goods_listRankTableViewCell.m in Sources */,
 				04E221D81D226E800042B3C7 /* PDDTopSctollView.m in Sources */,
 				04EBDC6C1D24170A00E7EFA7 /* rankVIew.m in Sources */,
 				04E221981D22211F0042B3C7 /* ViewController.m in Sources */,
+				0440422F1D275F200015D3E6 /* promotion_listTableViewCell.m in Sources */,
 				04E221AF1D22218A0042B3C7 /* PDDHotViewController.m in Sources */,
 				04ED695B1D23549200098325 /* PDDMobileAppGroups.m in Sources */,
 				04ED69581D23549200098325 /* PDDHomeData.m in Sources */,
 				04E2219E1D22211F0042B3C7 /* PinDuoDuoTest.xcdatamodeld in Sources */,
 				04E221CE1D2250600042B3C7 /* MainView.m in Sources */,
+				044042321D275F360015D3E6 /* country_listTableViewCell.m in Sources */,
 				04E221951D22211F0042B3C7 /* AppDelegate.m in Sources */,
 				04ED69561D23549200098325 /* PDDGoodsList.m in Sources */,
 				04E221921D22211F0042B3C7 /* main.m in Sources */,

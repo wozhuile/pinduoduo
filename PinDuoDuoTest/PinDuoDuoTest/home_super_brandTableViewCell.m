@@ -62,8 +62,8 @@
             imageView.tag=100+i;
             [self.contentView addSubview:imageView];
             
-            UILabel*label=[[UILabel alloc]initWithFrame:CGRectMake(32+(32+115)*i, 210, 80, 16)];
-            //label.backgroundColor=[UIColor redColor];
+            UILabel*label=[[UILabel alloc]initWithFrame:CGRectMake(32+(32+115)*i, 210, 80, 20)];
+            ///label.backgroundColor=[UIColor redColor];
             label.tag=i+10;
             //label.textAlignment=NSTextAlignmentCenter;
             [self.contentView addSubview:label];
@@ -73,6 +73,11 @@
             lookMore.text=@"查看更多";
             lookMore.font=[UIFont systemFontOfSize:14];
             [self.contentView addSubview:lookMore];
+            
+            
+            
+            
+            
         }
 
         
