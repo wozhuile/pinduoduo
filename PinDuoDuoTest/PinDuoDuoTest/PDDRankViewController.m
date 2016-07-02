@@ -104,7 +104,7 @@ static NSString*goodCell=@"goods_list";
 #pragma mark 注册goods
     
     
-     [_rankTableView registerNib:[UINib nibWithNibName:@"goods_listTableViewCell" bundle:nil]   forCellReuseIdentifier:goodCell];
+    // [_rankTableView registerNib:[UINib nibWithNibName:@"goods_listTableViewCell" bundle:nil]   forCellReuseIdentifier:goodCell];
     //[self rankTableView];
                                 
 }
@@ -115,9 +115,10 @@ static NSString*goodCell=@"goods_list";
     //接受数据
     self.country_listArray=country_listArray;
     self.promotion_listArray=promotion_listArray;
-    self.goods_listArray=goods_listArray;
+    //self.goods_listArray=goods_listArray;
     
-    NSLog(@" self.promotion_listArray==%@", self.promotion_listArray);
+    self.goods_listArray=[[NSMutableArray alloc]initWithArray:goods_listArray];
+    NSLog(@" goods_listArray==%@", self.goods_listArray);
     
     
 #pragma mark  不是没用。。表忘记刷新了。能有数据出来才怪，，第一次数组本来就是美数据的，，虽然这里有了。。但是不刷新也没用
@@ -142,7 +143,7 @@ static NSString*goodCell=@"goods_list";
     }
     
     
-    return 50;
+    return _goods_listArray.count;
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -247,25 +248,75 @@ static NSString*goodCell=@"goods_list";
     //cell.selectionStyle=UITableViewCellSelectionStyleBlue;
 
     
+    else
+    {
+        
+    // goods_listTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:goodCell forIndexPath:indexPath];
+        /* Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'unable to dequeue a cell with identifier goods_list - must register a nib or a class for the identifier or connect a prototype cell in a storyboard'
+*/
+        
+    goods_listTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:goodCell ];
+        if (cell==nil) {
+            cell=[[[NSBundle mainBundle]loadNibNamed:@"goods_listTableViewCell" owner:nil options:nil]lastObject];
+            cell.selectionStyle=UITableViewCellSelectionStyleNone;
+
+        }
+        
     
-    goods_listTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:goodCell];
-    cell.selectionStyle=UITableViewCellSelectionStyleNone;
-    
+        
+        #pragma mark 真不知道为什么遍历就不行？？再试试  ..算了。。。
+        
+        
     RankGoodsList*rank=[_goods_listArray objectAtIndex:indexPath.row];
     
-    [cell.good_listImageView sd_setImageWithURL:[NSURL URLWithString:rank.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
-    
-    cell.goods_name.text=rank.goodsName;
-    
-    cell.customer_num.text=[NSString stringWithFormat:@"%d人团",(int)rank.group.customerNum ];
-    cell.price.text=[NSString stringWithFormat:@"$%.2f",rank.group.price/100];
-    
+        //[_goods_listArray enumerateObjectsUsingBlock:^(RankGoodsList*  _Nonnull rank, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+            
+           // NSLog(@"idx===%lu==rank.goodsName%@",(unsigned long)idx,rank.goodsName);
+   
 
+            [cell.good_listImageView sd_setImageWithURL:[NSURL URLWithString:rank.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+            
+            cell.goods_name.text=rank.goodsName;
+            
+            cell.customer_num.text=[NSString stringWithFormat:@"%d人团",(int)rank.group.customerNum ];
+            cell.price.text=[NSString stringWithFormat:@"$%.2f",rank.group.price/100];
+            
+
+            
+            
+        //}];
+        
+        
+    
     
     
     
     
     return cell;
+    }
+    
+    
+    
+//    id obj=[_goods_listArray objectAtIndex:indexPath.row];
+//    
+//    if ([obj isKindOfClass:[RankGoodsList class]]) {
+//        RankGoodsList*goodsLists=obj;
+//        goods_listTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:goodCell];
+//        cell.selectionStyle=UITableViewCellSelectionStyleNone;
+//        [cell.good_listImageView sd_setImageWithURL:[NSURL URLWithString:goodsLists.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+//        
+//        cell.goods_name.text=goodsLists.goodsName;
+//        
+//        cell.customer_num.text=[NSString stringWithFormat:@"%d人团",(int)goodsLists.group.customerNum ];
+//        cell.price.text=[NSString stringWithFormat:@"$%.2f",goodsLists.group.price/100];
+//        
+//        return cell;
+//        
+//    }
+//
+   
+    
 }
 
 
