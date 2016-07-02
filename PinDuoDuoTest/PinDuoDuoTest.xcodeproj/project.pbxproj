@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04DE6ED91D274BC100FF3AC1 /* rankTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE6ED81D274BC100FF3AC1 /* rankTool.m */; };
+		04DE6EE61D274C8E00FF3AC1 /* RankBaseModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE6EDD1D274C8E00FF3AC1 /* RankBaseModle.m */; };
+		04DE6EE71D274C8E00FF3AC1 /* RankCountryList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE6EDF1D274C8E00FF3AC1 /* RankCountryList.m */; };
+		04DE6EE81D274C8E00FF3AC1 /* RankGoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE6EE11D274C8E00FF3AC1 /* RankGoodsList.m */; };
+		04DE6EE91D274C8E00FF3AC1 /* RankGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE6EE31D274C8E00FF3AC1 /* RankGroup.m */; };
+		04DE6EEA1D274C8E00FF3AC1 /* RankPromotionList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE6EE51D274C8E00FF3AC1 /* RankPromotionList.m */; };
 		04E1B5F31D24FE7A0013515A /* HotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E1B5F11D24FE7A0013515A /* HotCollectionViewCell.m */; };
 		04E1B5F41D24FE7A0013515A /* HotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E1B5F21D24FE7A0013515A /* HotCollectionViewCell.xib */; };
 		04E221921D22211F0042B3C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E221911D22211F0042B3C7 /* main.m */; };
@@ -47,6 +53,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04DE6ED71D274BC100FF3AC1 /* rankTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rankTool.h; sourceTree = "<group>"; };
+		04DE6ED81D274BC100FF3AC1 /* rankTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rankTool.m; sourceTree = "<group>"; };
+		04DE6EDB1D274C8E00FF3AC1 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
+		04DE6EDC1D274C8E00FF3AC1 /* RankBaseModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankBaseModle.h; sourceTree = "<group>"; };
+		04DE6EDD1D274C8E00FF3AC1 /* RankBaseModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankBaseModle.m; sourceTree = "<group>"; };
+		04DE6EDE1D274C8E00FF3AC1 /* RankCountryList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankCountryList.h; sourceTree = "<group>"; };
+		04DE6EDF1D274C8E00FF3AC1 /* RankCountryList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankCountryList.m; sourceTree = "<group>"; };
+		04DE6EE01D274C8E00FF3AC1 /* RankGoodsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankGoodsList.h; sourceTree = "<group>"; };
+		04DE6EE11D274C8E00FF3AC1 /* RankGoodsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankGoodsList.m; sourceTree = "<group>"; };
+		04DE6EE21D274C8E00FF3AC1 /* RankGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankGroup.h; sourceTree = "<group>"; };
+		04DE6EE31D274C8E00FF3AC1 /* RankGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankGroup.m; sourceTree = "<group>"; };
+		04DE6EE41D274C8E00FF3AC1 /* RankPromotionList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankPromotionList.h; sourceTree = "<group>"; };
+		04DE6EE51D274C8E00FF3AC1 /* RankPromotionList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankPromotionList.m; sourceTree = "<group>"; };
 		04E1B5F01D24FE790013515A /* HotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCollectionViewCell.h; sourceTree = "<group>"; };
 		04E1B5F11D24FE7A0013515A /* HotCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCollectionViewCell.m; sourceTree = "<group>"; };
 		04E1B5F21D24FE7A0013515A /* HotCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -124,6 +143,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04DE6EDA1D274C8E00FF3AC1 /* 海淘专区 */ = {
+			isa = PBXGroup;
+			children = (
+				04DE6EDB1D274C8E00FF3AC1 /* DataModels.h */,
+				04DE6EDC1D274C8E00FF3AC1 /* RankBaseModle.h */,
+				04DE6EDD1D274C8E00FF3AC1 /* RankBaseModle.m */,
+				04DE6EDE1D274C8E00FF3AC1 /* RankCountryList.h */,
+				04DE6EDF1D274C8E00FF3AC1 /* RankCountryList.m */,
+				04DE6EE01D274C8E00FF3AC1 /* RankGoodsList.h */,
+				04DE6EE11D274C8E00FF3AC1 /* RankGoodsList.m */,
+				04DE6EE21D274C8E00FF3AC1 /* RankGroup.h */,
+				04DE6EE31D274C8E00FF3AC1 /* RankGroup.m */,
+				04DE6EE41D274C8E00FF3AC1 /* RankPromotionList.h */,
+				04DE6EE51D274C8E00FF3AC1 /* RankPromotionList.m */,
+			);
+			path = "海淘专区";
+			sourceTree = "<group>";
+		};
 		04E1B5DD1D24A2F90013515A /* controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +174,9 @@
 		04E1B5DE1D24A3080013515A /* model */ = {
 			isa = PBXGroup;
 			children = (
+				04DE6EDA1D274C8E00FF3AC1 /* 海淘专区 */,
+				04DE6ED71D274BC100FF3AC1 /* rankTool.h */,
+				04DE6ED81D274BC100FF3AC1 /* rankTool.m */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -493,15 +533,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04DE6EE91D274C8E00FF3AC1 /* RankGroup.m in Sources */,
 				04E1B5F31D24FE7A0013515A /* HotCollectionViewCell.m in Sources */,
+				04DE6ED91D274BC100FF3AC1 /* rankTool.m in Sources */,
 				04ED69691D238A1200098325 /* home_recommend_subjectsTableViewCell.m in Sources */,
+				04DE6EE71D274C8E00FF3AC1 /* RankCountryList.m in Sources */,
+				04DE6EE81D274C8E00FF3AC1 /* RankGoodsList.m in Sources */,
 				04E221D31D2269A00042B3C7 /* NetWorkRequestModel.m in Sources */,
 				04E221BB1D2221BD0042B3C7 /* PDDSearchViewController.m in Sources */,
 				04ED695F1D2389E400098325 /* goods_listTableViewCell.m in Sources */,
+				04DE6EEA1D274C8E00FF3AC1 /* RankPromotionList.m in Sources */,
 				04ED69571D23549200098325 /* PDDGroup.m in Sources */,
 				04ED69591D23549200098325 /* PDDHomeRecommendSubjects.m in Sources */,
 				04E221C11D2221D50042B3C7 /* PDDMeViewController.m in Sources */,
 				04ED695A1D23549200098325 /* PDDHomeSuperBrand.m in Sources */,
+				04DE6EE61D274C8E00FF3AC1 /* RankBaseModle.m in Sources */,
 				04E221D81D226E800042B3C7 /* PDDTopSctollView.m in Sources */,
 				04EBDC6C1D24170A00E7EFA7 /* rankVIew.m in Sources */,
 				04E221981D22211F0042B3C7 /* ViewController.m in Sources */,

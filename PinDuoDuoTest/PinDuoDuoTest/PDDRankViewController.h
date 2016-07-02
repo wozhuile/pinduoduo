@@ -10,5 +10,7 @@
 
 @interface PDDRankViewController : UIViewController
 
+#pragma mark 表
+@property(nonatomic,strong)UITableView*rankTableView;
 
 @end
