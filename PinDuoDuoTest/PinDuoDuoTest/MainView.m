@@ -150,6 +150,10 @@
     
      //[self addSubview:_pageControl];
     
+  
+    
+#pragma mark 定时器bug。。刷新加了后，，这里的定时器刷新就bug来，，不安时间来了。。
+    
     
     _timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(onTimer) userInfo:nil repeats:YES];
     

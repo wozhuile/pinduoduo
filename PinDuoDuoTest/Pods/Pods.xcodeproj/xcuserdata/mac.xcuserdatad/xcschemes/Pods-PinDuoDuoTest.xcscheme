@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '865298B8C8D3FE712FA094372DA4F9BE'
+               BlueprintIdentifier = 'FE50DA9AF3534A06C049A1BD5684104E'
                BlueprintName = 'Pods-PinDuoDuoTest'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-PinDuoDuoTest.a'>
