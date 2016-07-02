@@ -25,5 +25,8 @@
 
 @interface rankTool : NSObject
 
+#pragma mark delegate
+@property(nonatomic,assign)id<rankToolDelegate>delegate;
+
 -(void)sendRequestForGetData:(NSString*)uilString;
 @end
