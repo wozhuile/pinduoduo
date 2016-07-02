@@ -27,7 +27,8 @@
         _rankTableView.delegate=self;
         _rankTableView.dataSource=self;
         _rankTableView.backgroundColor=[UIColor greenColor];
-        
+      _rankTableView.rowHeight=268;
+      
       
   }
 
@@ -114,13 +115,14 @@
 #pragma mark *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'UITableView (<UITableView: 0x7fe2fb180600; frame = (0 0; 414 736); clipsToBounds = YES; gestureRecognizers = <NSArray: 0x7fe2fcbd52a0>; layer = <CALayer: 0x7fe2fcb66660>; contentOffset: {0, -64}; contentSize: {414, 2288}>) failed to obtain a cell from its dataSource (<PDDRankViewController: 0x7fe2fa491440>)'如果不写下边的那些，哪怕是实验，都有可能崩溃了。。一直崩溃。。。http://www.cnblogs.com/ygm900/archive/2013/06/13/3134425.html
     
 
-    
-//    if (cell==nil) {
-//        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-//    }
-    
-    
-    
+  
+    if (cell==nil) {
+        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+  
+#pragma mark 先暂时用这个来看看有没有分区
+    cell.textLabel.text=[NSString stringWithFormat:@"%ld",(long)indexPath.row];
+    cell.backgroundColor=[UIColor greenColor];
     
     return cell;
 }
