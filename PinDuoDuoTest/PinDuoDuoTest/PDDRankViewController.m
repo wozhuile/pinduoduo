@@ -10,10 +10,26 @@
 #import "rankTool.h"
 
 #import <UIImageView+WebCache.h>
+#pragma mark 按钮背景图片
+#import <UIButton+WebCache.h>
+
 
 #import "promotion_listTableViewCell.h"
 #import "country_listTableViewCell.h"
 #import "goods_listRankTableViewCell.h"
+
+#pragma mark 因为goods这个喝首页的goods样式一样，所以直接导入用吧
+
+#import "goods_listTableViewCell.h"
+//static NSString*goodCell=@"goodsCell";
+/*PinDuoDuoTest[7509:179638] *** Terminating app due to uncaught exception 'NSInternalInconsistencyException', reason: 'cell reuse indentifier in nib (goods_list) does not match the identifier used to register the nib (goodsCell)'
+ *** First throw call stack:
+*/
+
+static NSString*goodCell=@"goods_list";
+
+
+
 
 
 #import "RankBaseModle.h"
@@ -85,7 +101,10 @@
     
 
 
+#pragma mark 注册goods
     
+    
+     [_rankTableView registerNib:[UINib nibWithNibName:@"goods_listTableViewCell" bundle:nil]   forCellReuseIdentifier:goodCell];
     //[self rankTableView];
                                 
 }
@@ -131,8 +150,8 @@
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString*cellID=@"cell";
-    UITableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:cellID];
+    //static NSString*cellID=@"cell";
+   // UITableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:cellID];
     
     if (indexPath.section==0) {
         static NSString*cellID=@"promotion_list";
@@ -144,7 +163,7 @@
         
         [_promotion_listArray enumerateObjectsUsingBlock:^(RankPromotionList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
 #pragma mark 为什么到这里了还说数组是空的？？上去数据源输出试试看，，是不是强转这个问题再次来了／／
-            NSLog(@"obj===%@",obj);
+            //NSLog(@"obj===%@",obj);
             
             
             
@@ -171,6 +190,44 @@
     
     
     
+    if (indexPath.section==1) {
+        static NSString*cellID=@"country_list";
+        
+        country_listTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:cellID];
+        
+        
+        if (cell==nil) {
+            cell=[[country_listTableViewCell alloc]init];
+        }
+        [_country_listArray enumerateObjectsUsingBlock:^(   RankCountryList*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            
+         
+            UIButton*button=[cell.contentView viewWithTag:100+idx];
+            [button sd_setBackgroundImageWithURL:[NSURL URLWithString:obj.homeBanner] forState:UIControlStateNormal placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+            
+            [button setTitle:[NSString stringWithFormat:@"%@",obj.subject] forState:0  ];
+            
+            button.contentEdgeInsets=UIEdgeInsetsMake(10, 0, -15, 0);//慢慢调节下
+            button.titleEdgeInsets=UIEdgeInsetsMake(80, 0, 10, 0);
+            
+#pragma mark 设置下文字大小;
+             button.titleLabel.font=[UIFont systemFontOfSize:15];//12左右就差不多
+            //不设置字体颜色就是白色的
+            [button setTitleColor:[UIColor whiteColor] forState:0];
+            
+            
+            
+            
+            
+        }];
+        
+        
+        
+        return cell;
+        
+        
+    }
+    
     
     
     
@@ -178,17 +235,35 @@
     
 
   
-    if (cell==nil) {
-        cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-    }
+   // if (cell==nil) {
+      //  cell=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    //}
   
 #pragma mark 先暂时用这个来看看有没有分区
-    cell.textLabel.text=[NSString stringWithFormat:@"%ld",(long)indexPath.row];
-    cell.backgroundColor=[UIColor greenColor];
+    //cell.textLabel.text=[NSString stringWithFormat:@"%ld",(long)indexPath.row];
+    //cell.backgroundColor=[UIColor greenColor];
     
     
     //cell.selectionStyle=UITableViewCellSelectionStyleBlue;
 
+    
+    
+    goods_listTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:goodCell];
+    cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    
+    RankGoodsList*rank=[_goods_listArray objectAtIndex:indexPath.row];
+    
+    [cell.good_listImageView sd_setImageWithURL:[NSURL URLWithString:rank.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+    
+    cell.goods_name.text=rank.goodsName;
+    
+    cell.customer_num.text=[NSString stringWithFormat:@"%d人团",(int)rank.group.customerNum ];
+    cell.price.text=[NSString stringWithFormat:@"$%.2f",rank.group.price/100];
+    
+
+    
+    
+    
     
     return cell;
 }
@@ -201,7 +276,8 @@
         return 220;
     }
     if (indexPath.section==1) {
-        return 180;
+        
+        return 140;
     }
     
     return 268;

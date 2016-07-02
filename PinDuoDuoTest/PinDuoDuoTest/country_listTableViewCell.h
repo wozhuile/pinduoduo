@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface country_listTableViewCell : UITableViewCell
+#pragma mark scrollView
+@property(nonatomic,strong)UIScrollView*scrollView;
 
 @end
