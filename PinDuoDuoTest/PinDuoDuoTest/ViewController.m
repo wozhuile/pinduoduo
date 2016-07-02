@@ -53,7 +53,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     _home_recommend_subjectsArray=[[NSMutableArray alloc]init];
     _home_super_brandArray=[[NSMutableArray alloc]init];
     _dataArray=[[NSMutableArray alloc]init];
-  
+    _totalarray=[[NSMutableArray alloc]init];
    // self.view.frame
 #pragma mark 不知道为什么在初始化里边赋值和调用就出来效果了。应该是加载先后导致的吧，
     _mainView=[[MainView alloc]initWithFrame:self.view.frame];
@@ -177,12 +177,30 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
     
     _mainView.buttomScrollView.footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-        [_netModel topScrollViewImage:@"http://apiv2.yangkeduo.com/subjects"];
         
-        [_netModel buttomDataRequest:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"];
+        countSum++;
+        
+        
+          [_netModel topScrollViewImage:@"http://apiv2.yangkeduo.com/subjects"];
+        
+        if (countSum>1) {
+           // [_netModel topScrollViewImage:@"http://apiv2.yangkeduo.com/subjects"];
+            
+            [_netModel buttomDataRequest:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v2/goods?page=%ld&size=50",(long)countSum]];
+            
+            
+            
+            
+            
+        }
+        
+        //[_netModel topScrollViewImage:@"http://apiv2.yangkeduo.com/subjects"];
+        
+        //[_netModel buttomDataRequest:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"];
     }];
 
-    
+    [_mainView.buttomScrollView.footer beginRefreshing];
+
     
     
 #pragma mark 注册单元格
@@ -356,7 +374,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         [_goods_listArray insertObject:obj atIndex:obj.position+1];//加1试试
 #pragma mark 数组获取，为了subject  为了URL
         /*Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[PDDHomeRecommendSubjects imageUrl]: unrecognized se*/
-        _recommentArray=[[NSMutableArray alloc]initWithArray:obj.goodsList];
+        //_recommentArray=[[NSMutableArray alloc]initWithArray:obj.goodsList];
         
        // NSLog(@"_goods_listArray222==%@",_goods_listArray);
     }];
@@ -385,19 +403,19 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     //[_dataArray addObjectsFromArray:@{_home_super_brandArray:_home_recommend_subjectsArray,_goods_listArray:}];
     
 #pragma mark  position 纪录
-    _home_super_brandPosition=modelData.homeSuperBrand.position;
+    //_home_super_brandPosition=modelData.homeSuperBrand.position;
    // _home_recommend_subjectsPosition=modelData.homeRecommendSubjects;
    // PDDHomeRecommendSubjects*recommentSub=modelData.homeRecommendSubjects;
     
-    for (PDDHomeRecommendSubjects*recommentSub in modelData.homeRecommendSubjects) {
+    //for (PDDHomeRecommendSubjects*recommentSub in modelData.homeRecommendSubjects) {
 #pragma mark 如果是数组，就先从数组里边取出来对象，在取属性
         //_home_recommend_subjectsPosition=recommentSub.position;
         
         
 #pragma mark 这里这样记录，居然就保留来最后一个的值！！ 看来要输出看看的。。也要保留到数组里边去
-        NSNumber*nub=[[NSNumber alloc]initWithInt:recommentSub.position];
-        [_recommentPositionArray addObject:nub];
-    }
+        //NSNumber*nub=[[NSNumber alloc]initWithInt:recommentSub.position];
+        //[_recommentPositionArray addObject:nub];
+    //}
   
     
     
@@ -425,6 +443,29 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     //[_dataArray addObject:_goods_listArray];
 #pragma mark 这样后，数据看起来是有了，，但是输出一看就3个，，是不崩溃了，，但是。。。
     //NSLog(@"_dataArray===%@===%lu",_dataArray,(unsigned long)_dataArray.count);
+    
+    
+    
+#pragma mark  下拉加载，上拉更多，。。3个数据源，，会崩溃呢现在    之前是返回多少行的哪里数组还是这个goods而不是总的数组，，遍历也是，，但是还是崩溃的，，
+    /* 4次左右崩溃  上拉的时候 *** Terminating app due to uncaught exception 'NSRangeException', reason: '*** -[__NSArrayM insertObject:atIndex:]: index 4 beyond bounds for empty array'
+     *** First throw call stack:
+*/
+    
+#pragma mark 针对效果，我去看了。。就是推荐喝大牌就是第一个有，，后边的就不会再有的了。。所以countSum的时候，应该就加之前的，，但是countSum大于1后，就应该不再追加推荐和大牌了。。但是怎么排除？好像也不需要去这么样做啊，，毕竟后边取值的时候，是按照类型来做的，，那怎么做呢？／
+    if (countSum ==1) {
+        [_totalarray setArray:_goods_listArray];
+        
+        //[_rankTableView.header endRefreshing];
+    }
+    
+    else
+    {
+        [_totalarray   addObjectsFromArray:_goods_listArray];
+        
+        //[_rankTableView.footer endRefreshing];
+    }
+
+    
     
     
     //结束刷新
@@ -480,7 +521,8 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 #pragma mark  其实只要加一个大括号就可以了。。。为什么搞得这么多
    // return (_home_super_brandArray.count+_home_recommend_subjectsArray.count+_goods_listArray.count);//上边数据源已经插入了，，，就不需要都返回count了。。只要goods，，的就可以了 ，可以输出试试的
     
-    return _goods_listArray.count;
+    //return _goods_listArray.count;
+    return _totalarray.count;
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -488,9 +530,10 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
 
     
-    id obj=[_goods_listArray objectAtIndex:indexPath.row];
+    //id obj=[_goods_listArray objectAtIndex:indexPath.row];
     
-    
+    id obj=[_totalarray objectAtIndex:indexPath.row];
+
     
     
     

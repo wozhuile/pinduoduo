@@ -16,6 +16,12 @@
 
 
 @interface ViewController : UIViewController
+
+{
+    NSInteger countSum;
+}
+
+
 #pragma mark 底部滚动视图
 //@property(nonatomic,retain)UIScrollView*buttomScrollview;
 
@@ -52,6 +58,13 @@
 @property(nonatomic,assign)NSInteger home_recommend_subjectsPosition;
 
 @property(nonatomic,assign)NSInteger home_super_brandPosition;
+
+
+
+#pragma mark page
+@property(nonatomic,assign)NSInteger CountNumber;
+
+@property(nonatomic,strong)NSMutableArray*totalarray;
 
 
 
