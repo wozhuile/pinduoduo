@@ -37,8 +37,11 @@
         //_topScrollView.showsHorizontalScrollIndicator=NO;
         _topScrollView.tag=8888;
         _topScrollView.pagingEnabled=YES;
-        [self.contentView addSubview:_topScrollView];
         
+        
+#pragma mark  原来图片不出来是这里
+        //[self addSubview:_topScrollView];
+        [self.contentView addSubview:_topScrollView];
         
 #pragma mark 输出cell坐标和滚动坐标
         //NSLog(@"cell==%f====_topScrollView=%f",self.frame.size.width,CGRectGetWidth(_topScrollView.frame));//控制器的是414，，这里self.contentView 和self都是320
