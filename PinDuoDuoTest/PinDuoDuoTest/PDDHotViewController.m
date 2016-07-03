@@ -14,6 +14,9 @@ static NSString*cellID=@"cell";
 
 #import <UIImageView+WebCache.h>
 
+#import "HotTool.h"
+
+
 @interface PDDHotViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,rankVIewDelegate,UIScrollViewDelegate>
 
 @end
