@@ -29,6 +29,7 @@
 #pragma mark 左右的滚动视图，点击最新或者大家都在买，可以切换全屏，。。还需要把按钮点击事件传出来
 @property(nonatomic,strong)UIScrollView*choiceScroll;
 
-
+#pragma mark 声明变量，代表滚动滑动页数
+@property(nonatomic,assign)NSInteger pageCount;
 
 @end

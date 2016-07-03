@@ -684,6 +684,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         [cell.good_listImageView sd_setImageWithURL:[NSURL URLWithString:goodsLists.imageUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
         
         cell.goods_name.text=goodsLists.goodsName;
+        cell.goods_name.font=[UIFont systemFontOfSize:13];
         
         cell.customer_num.text=[NSString stringWithFormat:@"%d人团",(int)goodsLists.group.customerNum ];
         cell.price.text=[NSString stringWithFormat:@"$%.2f",goodsLists.group.price/100];

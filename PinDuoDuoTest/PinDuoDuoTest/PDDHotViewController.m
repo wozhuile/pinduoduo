@@ -14,7 +14,7 @@ static NSString*cellID=@"cell";
 
 #import <UIImageView+WebCache.h>
 
-@interface PDDHotViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,rankVIewDelegate>
+@interface PDDHotViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,rankVIewDelegate,UIScrollViewDelegate>
 
 @end
 
@@ -67,6 +67,13 @@ static NSString*cellID=@"cell";
     
     _choiceScroll.contentSize=CGSizeMake(self.view.frame.size.width*2, self.view.frame.size.height-CGRectGetMaxY(_rankVC.slideView.frame)-120);
     _choiceScroll.backgroundColor=[UIColor redColor];
+    
+    
+    
+#pragma mark 代理没设置，方法都没用调用！！！
+    _choiceScroll.delegate=self;
+    
+    
     
     
     _choiceScroll.showsHorizontalScrollIndicator=YES;
@@ -195,6 +202,25 @@ static NSString*cellID=@"cell";
     
     
 }
+
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    _pageCount=scrollView.contentOffset.x/_rankVC.frame.size.width;
+    NSLog(@"%ld",(long)_pageCount);
+    
+    UIButton*button=[_rankVC viewWithTag:_pageCount+110];
+    //button.frame=CGRectMake(<#CGFloat x#>, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
+    
+    NSLog(@"%ld",(long)button.tag);
+    //button.center=CGPointMake(_pageCount*_rankVC.frame.size.width, 80);
+    
+#pragma mark bug问题.   x我直接成不对了。。。。多来一般。。看视图层都找不到。。
+    //button.frame=CGRectMake(_pageCount*_rankVC.frame.size.width, 64, _rankVC.frame.size.width/2, 39 );
+    button.frame=CGRectMake(_pageCount*_rankVC.frame.size.width/2, 0, _rankVC.frame.size.width/2, 39 );
+}
+
+
+
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if ([scrollView isKindOfClass:[UICollectionView class]]) {
@@ -204,7 +230,7 @@ static NSString*cellID=@"cell";
         //_dataConllection.scrollEnabled=NO;
     }
     else {
-        NSLog(@"------是滚动试图----");
+       // NSLog(@"------是滚动试图----");
     }
 }
 
