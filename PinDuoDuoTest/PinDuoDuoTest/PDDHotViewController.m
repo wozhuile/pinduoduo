@@ -186,7 +186,10 @@ static NSString*cellID=@"cell";
     
     
     _dataConllection=[[UICollectionView alloc]initWithFrame:CGRectMake(sender*self.view.frame.size.width, 0, CGRectGetWidth(_choiceScroll.frame), CGRectGetHeight(_choiceScroll.frame)) collectionViewLayout:flowlayout];
-    _dataConllection.backgroundColor=[UIColor greenColor];
+    
+    
+#pragma mark 去掉这个颜色居然是黑色的了。。。
+    _dataConllection.backgroundColor=[UIColor whiteColor];
     
     _dataConllection.delegate=self;
     _dataConllection.dataSource=self;
@@ -248,7 +251,8 @@ static NSString*cellID=@"cell";
         [cell.showDataImage sd_setImageWithURL:[NSURL URLWithString:model.hdThumbUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
         cell.goods_Name.text=model.goodsName;
         cell.orderCnt.text=[NSString stringWithFormat:@"%f",model.cnt];
-        cell.pricelabel.text=[NSString stringWithFormat:@"%.2f",model.group.price/100];
+        cell.pricelabel.text=[NSString stringWithFormat:@"$%.2f",model.group.price/100];
+        cell.pricelabel.textColor=[UIColor redColor];
         
         
     }
@@ -260,7 +264,10 @@ static NSString*cellID=@"cell";
     
 #pragma mark 最新是有时间的，，cell就这里不一样，但是现在没见给数据，，所以就用同一个的了。会不会导致数据重用问题？？？？？？？？  有时间，，，醉了。。先试试看先吧。
     //cell.orderCnt.text=[NSString stringWithFormat:@"%f",Model.cnt];
-    cell.pricelabel.text=[NSString stringWithFormat:@"%.2f",Model.group.price/100];
+    cell.pricelabel.text=[NSString stringWithFormat:@"$%.2f",Model.group.price/100];
+        cell.pricelabel.textColor=[UIColor redColor];
+        
+
     
     }
     
@@ -313,7 +320,8 @@ static NSString*cellID=@"cell";
     
     if (_buttonTagCount==0&&_pageCount==0) {
         
-        [_hot CreateEveryOneBuyRequest:@"http://apiv2.yangkeduo.com/v2/ranklist?page=1&size=50"];
+        //[_hot CreateEveryOneBuyRequest:@"http://apiv2.yangkeduo.com/v2/ranklist?page=1&size=50"];
+        return;
     }
 
     
@@ -345,11 +353,12 @@ static NSString*cellID=@"cell";
     
     
     
-    
+#pragma mark 要保证请求一次就可以了。。滚动的时候不请求，，下拉上啦在请求，，！！
     
     if (_buttonTagCount==0||_pageCount==0) {
         
-        [_hot CreateEveryOneBuyRequest:@"http://apiv2.yangkeduo.com/v2/ranklist?page=1&size=50"];
+        //[_hot CreateEveryOneBuyRequest:@"http://apiv2.yangkeduo.com/v2/ranklist?page=1&size=50"];
+        return;
     }
     
     
