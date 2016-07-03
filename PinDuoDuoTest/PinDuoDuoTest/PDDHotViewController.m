@@ -225,8 +225,15 @@ static NSString*cellID=@"cell";
     //slideView.center=CGPointMake(<#CGFloat x#>, <#CGFloat y#>)
     
     
-   slideView.frame=CGRectMake(_pageCount*_rankVC.frame.size.width*2/5+50, 37, _rankVC.frame.size.width*2/5, 2);
+   //slideView.frame=CGRectMake(_pageCount*_rankVC.frame.size.width*2/5+50, 37, _rankVC.frame.size.width*2/5, 2);
     
+#pragma mark 都用center比较少bug点  再加个动画吧   注意UI view动画
+    [UIView animateWithDuration:0.5 animations:^{
+        slideView.center=CGPointMake(_pageCount*_rankVC.frame.size.width*2/5+125, 38);
+    }];
+    //slideView.center=CGPointMake(_pageCount*_rankVC.frame.size.width*2/5+125, 38);
+    
+
     
     
     
