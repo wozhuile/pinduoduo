@@ -32,4 +32,12 @@
 #pragma mark 声明变量，代表滚动滑动页数
 @property(nonatomic,assign)NSInteger pageCount;
 
+#pragma mark 数组数据
+@property(nonatomic,strong)NSMutableArray*EveryOneBuyArray;
+
+@property(nonatomic,strong)NSMutableArray*NewBuyArray;
+
+
+
+
 @end

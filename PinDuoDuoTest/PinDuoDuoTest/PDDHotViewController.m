@@ -31,6 +31,9 @@ static NSString*cellID=@"cell";
     //初始化数组
     _dataArray=[[NSMutableArray alloc]init];
     
+    
+    
+    
    // _rankTableView=[UITableView alloc]ini;
     
     
@@ -59,6 +62,7 @@ static NSString*cellID=@"cell";
     HotTool*hot=[[HotTool alloc]init];
     [hot CreateEveryOneBuyRequest:@"http://apiv2.yangkeduo.com/v2/ranklist?page=1&size=50"];//注意要字符串拼接的时候，刷新要注意的
     
+#pragma mark 问题来了。。现在创建两个数组来接受数据？怎么操作？是一开始就一起请求了？还是一开始就先进来的是大家都在买，，然后再点击决定加载那个？？再决定请求那个？？看效果本来就是第一次进来就是大家都在买。。如果点击最新了，再点击其他回来还是展示最新，也就是说应该是点击了在请求，那么问题也来了。。点击就请求？那不是每次都请求一次？刷新的时候要注意了。。。不要随便让一会page加1，。。先请求一个吧。。，数据源不要处理啊同一个控制器，，。。根据按钮点击tag值或者滚动的page来吧。。应该在这里写也可以的，，那就接受下tag和滚动page？？好吧，，接受了来这里判断。。
     [hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
     
     hot.delegate=self;
@@ -276,7 +280,7 @@ static NSString*cellID=@"cell";
     }];
     //slideView.center=CGPointMake(_pageCount*_rankVC.frame.size.width*2/5+125, 38);
     
-#pragma mark 这个就给加定时器啊，，  时间缩短到0.25试试
+#pragma mark 这个就给加定时器啊，，  时间缩短到0.25试试。。还是不行，，不知道怎么办好了？？？？是不是这个动画本身问题？
    //[ [NSRunLoop currentRunLoop]addPort: forMode:];
     //[[NSRunLoop currentRunLoop]addTimer:slideView forMode:NSRunLoopCommonModes];
     
