@@ -23,14 +23,22 @@
 #pragma mark 大家都在买请求
 -(void)CreateEveryOneBuyRequest:(NSString*)urlString
 {
+    _requestCount=88;
+    
+    
     AFHTTPSessionManager*manager=[AFHTTPSessionManager manager];
     [manager GET:urlString parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
         
         EveryOneBuyModle*everyModle=[EveryOneBuyModle modelObjectWithDictionary:responseObject];
         
-        if ([_delegate respondsToSelector:@selector(SendEveryOneBuy:dataArray:)]) {
-            [_delegate SendEveryOneBuy:self dataArray:(NSMutableArray*)everyModle.goodsList];
+        if ([_delegate respondsToSelector:@selector(SendEveryOneBuy:dataArray:withCount:)]) {
+            
+           
+            NSLog(@"everyModle.goodsList.count111111=%lu",(unsigned long)everyModle.goodsList.count);
+            //[_delegate SendEveryOneBuy:self dataArray:(NSMutableArray*)everyModle.goodsList] ;
+            
+            [_delegate SendEveryOneBuy:self dataArray:(NSMutableArray*)everyModle.goodsList withCount:_requestCount];
         }
         
         
@@ -59,6 +67,9 @@
         
         
         if ([_delegate respondsToSelector:@selector(sendNewBuy:dataArray:)]) {
+            
+              NSLog(@"newModle.goodsList.count22222=%lu",(unsigned long)newModle.goodsList.count);
+            
             [_delegate sendNewBuy:self dataArray:(NSMutableArray*)newModle.goodsList];
         }
         

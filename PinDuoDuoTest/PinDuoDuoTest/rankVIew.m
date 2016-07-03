@@ -63,7 +63,7 @@
     
     
 
-    NSLog(@"sender.tag==%ld",(long)sender.tag);
+    //NSLog(@"sender.tag==%ld",(long)sender.tag);
     #pragma mark 设置选中字体颜色为红色
     //[sender setTitleColor:[UIColor blackColor] forState:0];
 

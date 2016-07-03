@@ -10,6 +10,8 @@
 
 
 #import "rankVIew.h"
+
+#import "HotTool.h"
 @interface PDDHotViewController : UIViewController
 
 @property(nonatomic,strong)rankVIew*rankVC;
@@ -37,6 +39,12 @@
 
 @property(nonatomic,strong)NSMutableArray*NewBuyArray;
 
+#pragma mark 纪录按钮tag
+@property(nonatomic,assign)NSInteger buttonTagCount;
+
+@property(nonatomic,strong) HotTool*hot;
+
+@property(nonatomic,assign)NSInteger requestCount;
 
 
 

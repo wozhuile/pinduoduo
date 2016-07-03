@@ -13,7 +13,7 @@
 @protocol HotToolDelegate <NSObject>
 
 #pragma mark 大家都在买的delegate
--(void)SendEveryOneBuy:(HotTool*)hotTool dataArray:(NSMutableArray*)dataArray;
+-(void)SendEveryOneBuy:(HotTool*)hotTool dataArray:(NSMutableArray*)dataArray withCount:(NSInteger)count;
 -(void)failTogetEveryOnebuy:(HotTool*)hotTool error:(NSError*)error;
 
 #pragma mark 最新delegate
@@ -35,6 +35,10 @@
 
 @property(nonatomic,assign)id<HotToolDelegate>delegate;
 
+
+//传个数字过去，，给返回行哪里做条件
+
+@property(nonatomic,assign)NSInteger requestCount;
 
 
 
