@@ -44,8 +44,10 @@
         [_topVIew addSubview:button];
     }
     
-    
-    _slideView=[[UIView alloc]initWithFrame:CGRectMake(15, CGRectGetMaxY(_topVIew.frame)-1-1-64, self.frame.size.width*2/5, 1)];//需要减掉导航条的高度，，
+    if (_slideView==nil) {
+         _slideView=[[UIView alloc]initWithFrame:CGRectMake(15, CGRectGetMaxY(_topVIew.frame)-3-64, self.frame.size.width*2/5, 2)];
+    }
+    //_slideView=[[UIView alloc]initWithFrame:CGRectMake(15, CGRectGetMaxY(_topVIew.frame)-1-1-64, self.frame.size.width*2/5, 1)];//需要减掉导航条的高度，，
     _slideView.backgroundColor=[UIColor redColor];
     [_topVIew addSubview:_slideView];
     
@@ -74,7 +76,15 @@
     
 #pragma mark  大概可以了
     [UIView animateWithDuration:0.5 animations:^{
-         _slideView.center=CGPointMake(sender.center.x, CGRectGetMinY(_slideView.frame));
+        
+        
+#pragma mark  bug 点击按钮，小滑条越来月大越来越上去了。。。
+        // _slideView.center=CGPointMake(sender.center.x, CGRectGetMinY(_slideView.frame));
+        //_slideView.frame=CGRectMake(sender.tag*_topVIew.frame.size.width/2, 37, _topVIew.frame.size.width*2/5, 2);
+        //慢慢调整吧，，还是有问题，也许两边用的不是同一的center什么的
+        _slideView.center=CGPointMake(sender.center.x, sender.center.y+19);
+        
+        
     }];
     
     
