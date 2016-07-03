@@ -39,6 +39,12 @@
 		04E221D31D2269A00042B3C7 /* NetWorkRequestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E221D21D2269A00042B3C7 /* NetWorkRequestModel.m */; };
 		04E221D81D226E800042B3C7 /* PDDTopSctollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E221D71D226E800042B3C7 /* PDDTopSctollView.m */; };
 		04E32B291D26A75C00A96D34 /* 520.gif in Resources */ = {isa = PBXBuildFile; fileRef = 04E32B281D26A75C00A96D34 /* 520.gif */; };
+		04E3774E1D28BA5800467A06 /* EveryOneBuyModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E377491D28BA5800467A06 /* EveryOneBuyModle.m */; };
+		04E3774F1D28BA5800467A06 /* EveryOneGoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E3774B1D28BA5800467A06 /* EveryOneGoodsList.m */; };
+		04E377501D28BA5800467A06 /* EveryOneGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E3774D1D28BA5800467A06 /* EveryOneGroup.m */; };
+		04E377591D28BA5E00467A06 /* NewBuyMessageModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E377541D28BA5E00467A06 /* NewBuyMessageModle.m */; };
+		04E3775A1D28BA5E00467A06 /* NewGoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E377561D28BA5E00467A06 /* NewGoodsList.m */; };
+		04E3775B1D28BA5E00467A06 /* NewGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E377581D28BA5E00467A06 /* NewGroup.m */; };
 		04EBDC6C1D24170A00E7EFA7 /* rankVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EBDC6B1D24170A00E7EFA7 /* rankVIew.m */; };
 		04ED69561D23549200098325 /* PDDGoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ED694B1D23549200098325 /* PDDGoodsList.m */; };
 		04ED69571D23549200098325 /* PDDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ED694D1D23549200098325 /* PDDGroup.m */; };
@@ -111,6 +117,20 @@
 		04E221D61D226E800042B3C7 /* PDDTopSctollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDDTopSctollView.h; sourceTree = "<group>"; };
 		04E221D71D226E800042B3C7 /* PDDTopSctollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDDTopSctollView.m; sourceTree = "<group>"; };
 		04E32B281D26A75C00A96D34 /* 520.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 520.gif; sourceTree = "<group>"; };
+		04E377471D28BA5800467A06 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
+		04E377481D28BA5800467A06 /* EveryOneBuyModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EveryOneBuyModle.h; sourceTree = "<group>"; };
+		04E377491D28BA5800467A06 /* EveryOneBuyModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EveryOneBuyModle.m; sourceTree = "<group>"; };
+		04E3774A1D28BA5800467A06 /* EveryOneGoodsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EveryOneGoodsList.h; sourceTree = "<group>"; };
+		04E3774B1D28BA5800467A06 /* EveryOneGoodsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EveryOneGoodsList.m; sourceTree = "<group>"; };
+		04E3774C1D28BA5800467A06 /* EveryOneGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EveryOneGroup.h; sourceTree = "<group>"; };
+		04E3774D1D28BA5800467A06 /* EveryOneGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EveryOneGroup.m; sourceTree = "<group>"; };
+		04E377521D28BA5E00467A06 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
+		04E377531D28BA5E00467A06 /* NewBuyMessageModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewBuyMessageModle.h; sourceTree = "<group>"; };
+		04E377541D28BA5E00467A06 /* NewBuyMessageModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewBuyMessageModle.m; sourceTree = "<group>"; };
+		04E377551D28BA5E00467A06 /* NewGoodsList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGoodsList.h; sourceTree = "<group>"; };
+		04E377561D28BA5E00467A06 /* NewGoodsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGoodsList.m; sourceTree = "<group>"; };
+		04E377571D28BA5E00467A06 /* NewGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGroup.h; sourceTree = "<group>"; };
+		04E377581D28BA5E00467A06 /* NewGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGroup.m; sourceTree = "<group>"; };
 		04EBDC6A1D24170A00E7EFA7 /* rankVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rankVIew.h; sourceTree = "<group>"; };
 		04EBDC6B1D24170A00E7EFA7 /* rankVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rankVIew.m; sourceTree = "<group>"; };
 		04ED69491D23549200098325 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
@@ -358,6 +378,35 @@
 			path = "第一个滚动资源";
 			sourceTree = "<group>";
 		};
+		04E377461D28BA5800467A06 /* 大家都在买 */ = {
+			isa = PBXGroup;
+			children = (
+				04E377511D28BA5E00467A06 /* 最新 */,
+				04E377471D28BA5800467A06 /* DataModels.h */,
+				04E377481D28BA5800467A06 /* EveryOneBuyModle.h */,
+				04E377491D28BA5800467A06 /* EveryOneBuyModle.m */,
+				04E3774A1D28BA5800467A06 /* EveryOneGoodsList.h */,
+				04E3774B1D28BA5800467A06 /* EveryOneGoodsList.m */,
+				04E3774C1D28BA5800467A06 /* EveryOneGroup.h */,
+				04E3774D1D28BA5800467A06 /* EveryOneGroup.m */,
+			);
+			path = "大家都在买";
+			sourceTree = "<group>";
+		};
+		04E377511D28BA5E00467A06 /* 最新 */ = {
+			isa = PBXGroup;
+			children = (
+				04E377521D28BA5E00467A06 /* DataModels.h */,
+				04E377531D28BA5E00467A06 /* NewBuyMessageModle.h */,
+				04E377541D28BA5E00467A06 /* NewBuyMessageModle.m */,
+				04E377551D28BA5E00467A06 /* NewGoodsList.h */,
+				04E377561D28BA5E00467A06 /* NewGoodsList.m */,
+				04E377571D28BA5E00467A06 /* NewGroup.h */,
+				04E377581D28BA5E00467A06 /* NewGroup.m */,
+			);
+			path = "最新";
+			sourceTree = "<group>";
+		};
 		04EBDC671D24132C00E7EFA7 /* controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -371,6 +420,7 @@
 		04EBDC681D24133D00E7EFA7 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				04E377461D28BA5800467A06 /* 大家都在买 */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -567,12 +617,15 @@
 				04ED695F1D2389E400098325 /* goods_listTableViewCell.m in Sources */,
 				04DE6EEA1D274C8E00FF3AC1 /* RankPromotionList.m in Sources */,
 				04ED69571D23549200098325 /* PDDGroup.m in Sources */,
+				04E3775A1D28BA5E00467A06 /* NewGoodsList.m in Sources */,
 				04ED69591D23549200098325 /* PDDHomeRecommendSubjects.m in Sources */,
 				04E221C11D2221D50042B3C7 /* PDDMeViewController.m in Sources */,
 				04ED695A1D23549200098325 /* PDDHomeSuperBrand.m in Sources */,
 				04DE6EE61D274C8E00FF3AC1 /* RankBaseModle.m in Sources */,
 				044042351D275F590015D3E6 /* goods_listRankTableViewCell.m in Sources */,
+				04E377501D28BA5800467A06 /* EveryOneGroup.m in Sources */,
 				04E221D81D226E800042B3C7 /* PDDTopSctollView.m in Sources */,
+				04E377591D28BA5E00467A06 /* NewBuyMessageModle.m in Sources */,
 				04EBDC6C1D24170A00E7EFA7 /* rankVIew.m in Sources */,
 				04E221981D22211F0042B3C7 /* ViewController.m in Sources */,
 				0440422F1D275F200015D3E6 /* promotion_listTableViewCell.m in Sources */,
@@ -583,9 +636,12 @@
 				04E221CE1D2250600042B3C7 /* MainView.m in Sources */,
 				044042321D275F360015D3E6 /* country_listTableViewCell.m in Sources */,
 				04E221951D22211F0042B3C7 /* AppDelegate.m in Sources */,
+				04E3774E1D28BA5800467A06 /* EveryOneBuyModle.m in Sources */,
 				04ED69561D23549200098325 /* PDDGoodsList.m in Sources */,
+				04E3775B1D28BA5E00467A06 /* NewGroup.m in Sources */,
 				04E221921D22211F0042B3C7 /* main.m in Sources */,
 				04E221B51D2221A60042B3C7 /* PDDRankViewController.m in Sources */,
+				04E3774F1D28BA5800467A06 /* EveryOneGoodsList.m in Sources */,
 				04ED69641D2389FB00098325 /* home_super_brandTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
