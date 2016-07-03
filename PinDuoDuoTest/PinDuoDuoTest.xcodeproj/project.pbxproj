@@ -45,6 +45,7 @@
 		04E377591D28BA5E00467A06 /* NewBuyMessageModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E377541D28BA5E00467A06 /* NewBuyMessageModle.m */; };
 		04E3775A1D28BA5E00467A06 /* NewGoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E377561D28BA5E00467A06 /* NewGoodsList.m */; };
 		04E3775B1D28BA5E00467A06 /* NewGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E377581D28BA5E00467A06 /* NewGroup.m */; };
+		04E3775F1D28BACD00467A06 /* HotTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E3775E1D28BACD00467A06 /* HotTool.m */; };
 		04EBDC6C1D24170A00E7EFA7 /* rankVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EBDC6B1D24170A00E7EFA7 /* rankVIew.m */; };
 		04ED69561D23549200098325 /* PDDGoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ED694B1D23549200098325 /* PDDGoodsList.m */; };
 		04ED69571D23549200098325 /* PDDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ED694D1D23549200098325 /* PDDGroup.m */; };
@@ -131,6 +132,8 @@
 		04E377561D28BA5E00467A06 /* NewGoodsList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGoodsList.m; sourceTree = "<group>"; };
 		04E377571D28BA5E00467A06 /* NewGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewGroup.h; sourceTree = "<group>"; };
 		04E377581D28BA5E00467A06 /* NewGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGroup.m; sourceTree = "<group>"; };
+		04E3775D1D28BACD00467A06 /* HotTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotTool.h; sourceTree = "<group>"; };
+		04E3775E1D28BACD00467A06 /* HotTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotTool.m; sourceTree = "<group>"; };
 		04EBDC6A1D24170A00E7EFA7 /* rankVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rankVIew.h; sourceTree = "<group>"; };
 		04EBDC6B1D24170A00E7EFA7 /* rankVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rankVIew.m; sourceTree = "<group>"; };
 		04ED69491D23549200098325 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
@@ -284,6 +287,7 @@
 		04E221AB1D22215B0042B3C7 /* 热榜 */ = {
 			isa = PBXGroup;
 			children = (
+				04E3775C1D28BAA500467A06 /* 工具 */,
 				04EBDC691D24134500E7EFA7 /* view */,
 				04EBDC681D24133D00E7EFA7 /* model */,
 				04EBDC671D24132C00E7EFA7 /* controller */,
@@ -381,7 +385,6 @@
 		04E377461D28BA5800467A06 /* 大家都在买 */ = {
 			isa = PBXGroup;
 			children = (
-				04E377511D28BA5E00467A06 /* 最新 */,
 				04E377471D28BA5800467A06 /* DataModels.h */,
 				04E377481D28BA5800467A06 /* EveryOneBuyModle.h */,
 				04E377491D28BA5800467A06 /* EveryOneBuyModle.m */,
@@ -404,7 +407,17 @@
 				04E377571D28BA5E00467A06 /* NewGroup.h */,
 				04E377581D28BA5E00467A06 /* NewGroup.m */,
 			);
-			path = "最新";
+			name = "最新";
+			path = "大家都在买/最新";
+			sourceTree = "<group>";
+		};
+		04E3775C1D28BAA500467A06 /* 工具 */ = {
+			isa = PBXGroup;
+			children = (
+				04E3775D1D28BACD00467A06 /* HotTool.h */,
+				04E3775E1D28BACD00467A06 /* HotTool.m */,
+			);
+			name = "工具";
 			sourceTree = "<group>";
 		};
 		04EBDC671D24132C00E7EFA7 /* controller */ = {
@@ -420,6 +433,7 @@
 		04EBDC681D24133D00E7EFA7 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				04E377511D28BA5E00467A06 /* 最新 */,
 				04E377461D28BA5800467A06 /* 大家都在买 */,
 			);
 			name = model;
@@ -611,6 +625,7 @@
 				04DE6ED91D274BC100FF3AC1 /* rankTool.m in Sources */,
 				04ED69691D238A1200098325 /* home_recommend_subjectsTableViewCell.m in Sources */,
 				04DE6EE71D274C8E00FF3AC1 /* RankCountryList.m in Sources */,
+				04E3775F1D28BACD00467A06 /* HotTool.m in Sources */,
 				04DE6EE81D274C8E00FF3AC1 /* RankGoodsList.m in Sources */,
 				04E221D31D2269A00042B3C7 /* NetWorkRequestModel.m in Sources */,
 				04E221BB1D2221BD0042B3C7 /* PDDSearchViewController.m in Sources */,

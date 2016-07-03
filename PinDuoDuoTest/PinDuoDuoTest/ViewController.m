@@ -186,6 +186,8 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         if (countSum>1) {
            // [_netModel topScrollViewImage:@"http://apiv2.yangkeduo.com/subjects"];
             
+#pragma mark 之前字符串拼接没写好就一直错，没反应过来。。
+            //[_netModel buttomDataRequest:@"http://apiv2.yangkeduo.com/v2/goods?page=%ld&size=50",(long)countSum]];
             [_netModel buttomDataRequest:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v2/goods?page=%ld&size=50",(long)countSum]];
             
             
