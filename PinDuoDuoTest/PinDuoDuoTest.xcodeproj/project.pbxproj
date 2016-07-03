@@ -249,18 +249,14 @@
 		04E2218F1D22211F0042B3C7 /* PinDuoDuoTest */ = {
 			isa = PBXGroup;
 			children = (
+				04E377601D28C2D300467A06 /* other */,
 				04E221C31D2221E40042B3C7 /* 入口 */,
 				04E221BD1D2221C30042B3C7 /* 个人 */,
 				04E221B71D2221AA0042B3C7 /* 搜索 */,
 				04E221B11D22218F0042B3C7 /* 海淘 */,
 				04E221AB1D22215B0042B3C7 /* 热榜 */,
 				04E221AA1D2221460042B3C7 /* 首页 */,
-				04E221991D22211F0042B3C7 /* Main.storyboard */,
 				04E2219F1D22211F0042B3C7 /* Assets.xcassets */,
-				04E221A11D22211F0042B3C7 /* LaunchScreen.storyboard */,
-				04E221A41D22211F0042B3C7 /* Info.plist */,
-				04E2219C1D22211F0042B3C7 /* PinDuoDuoTest.xcdatamodeld */,
-				04E221CA1D222E990042B3C7 /* Images.xcassets */,
 				04E221901D22211F0042B3C7 /* Supporting Files */,
 			);
 			path = PinDuoDuoTest;
@@ -418,6 +414,18 @@
 				04E3775E1D28BACD00467A06 /* HotTool.m */,
 			);
 			name = "工具";
+			sourceTree = "<group>";
+		};
+		04E377601D28C2D300467A06 /* other */ = {
+			isa = PBXGroup;
+			children = (
+				04E221991D22211F0042B3C7 /* Main.storyboard */,
+				04E221A11D22211F0042B3C7 /* LaunchScreen.storyboard */,
+				04E221A41D22211F0042B3C7 /* Info.plist */,
+				04E2219C1D22211F0042B3C7 /* PinDuoDuoTest.xcdatamodeld */,
+				04E221CA1D222E990042B3C7 /* Images.xcassets */,
+			);
+			name = other;
 			sourceTree = "<group>";
 		};
 		04EBDC671D24132C00E7EFA7 /* controller */ = {

@@ -17,7 +17,7 @@ static NSString*cellID=@"cell";
 #import "HotTool.h"
 
 
-@interface PDDHotViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,rankVIewDelegate,UIScrollViewDelegate>
+@interface PDDHotViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,rankVIewDelegate,UIScrollViewDelegate,HotToolDelegate>
 
 @end
 
@@ -54,6 +54,39 @@ static NSString*cellID=@"cell";
       //[self CreateCollectionVIew];
 
     
+    
+#pragma mark 导入工具类了，。创建对象，调用方法进行网络请求，并且代理设置，接受数据
+    HotTool*hot=[[HotTool alloc]init];
+    [hot CreateEveryOneBuyRequest:@"http://apiv2.yangkeduo.com/v2/ranklist?page=1&size=50"];//注意要字符串拼接的时候，刷新要注意的
+    
+    [hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
+    
+    hot.delegate=self;
+    
+    
+    
+    
+}
+
+
+#pragma mark 实现代理方法  大家都在买  创建数组接受数据
+-(void)SendEveryOneBuy:(HotTool *)hotTool dataArray:(NSMutableArray *)dataArray
+{
+    
+}
+-(void)failTogetEveryOnebuy:(HotTool *)hotTool error:(NSError *)error
+{
+    NSLog(@"大家都在买error=%@",error);
+    
+}
+#pragma mark  最新
+-(void)sendNewBuy:(HotTool *)hotTool dataArray:(NSMutableArray *)dataArray
+{
+    
+}
+-(void)failTogetNewbuy:(HotTool *)hotTool error:(NSError *)error
+{
+    NSLog(@"最新error=%@",error);
 }
 
 #pragma mark scrollview
@@ -231,12 +264,21 @@ static NSString*cellID=@"cell";
    //slideView.frame=CGRectMake(_pageCount*_rankVC.frame.size.width*2/5+50, 37, _rankVC.frame.size.width*2/5, 2);
     
 #pragma mark 都用center比较少bug点  再加个动画吧   注意UI view动画
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.25 animations:^{
+        
+        
+#pragma mark 有个bug，，那就是一直滚动的话，，小滑条有时候不会跟着滚动了。。是不是runloop？试试看。
+        
+        
+        
+        
         slideView.center=CGPointMake(_pageCount*_rankVC.frame.size.width*2/5+125, 38);
     }];
     //slideView.center=CGPointMake(_pageCount*_rankVC.frame.size.width*2/5+125, 38);
     
-
+#pragma mark 这个就给加定时器啊，，  时间缩短到0.25试试
+   //[ [NSRunLoop currentRunLoop]addPort: forMode:];
+    //[[NSRunLoop currentRunLoop]addTimer:slideView forMode:NSRunLoopCommonModes];
     
     
     

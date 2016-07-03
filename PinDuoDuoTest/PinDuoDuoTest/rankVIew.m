@@ -75,7 +75,7 @@
     //_slideView.center=CGPointMake(sender.center.x, CGRectGetMinY(_slideView.frame));
     
 #pragma mark  大概可以了
-    [UIView animateWithDuration:0.5 animations:^{
+    [UIView animateWithDuration:0.25 animations:^{
         
         
 #pragma mark  bug 点击按钮，小滑条越来月大越来越上去了。。。
