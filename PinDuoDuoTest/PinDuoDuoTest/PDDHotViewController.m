@@ -217,6 +217,15 @@ static NSString*cellID=@"cell";
 #pragma mark bug问题.   x我直接成不对了。。。。多来一般。。看视图层都找不到。。
     //button.frame=CGRectMake(_pageCount*_rankVC.frame.size.width, 64, _rankVC.frame.size.width/2, 39 );
     button.frame=CGRectMake(_pageCount*_rankVC.frame.size.width/2, 0, _rankVC.frame.size.width/2, 39 );
+    
+#pragma mark 实现小滑条滚动了，在创建的时候通过tag标记，，然后再外边只要有那个类对象，就可以找到了。。。tag／／
+    
+    UIView*slideView=[_rankVC viewWithTag:99];
+    
+    //slideView.center=CGPointMake(<#CGFloat x#>, <#CGFloat y#>)
+    
+    
+   slideView.frame=CGRectMake(_pageCount*_rankVC.frame.size.width/2, 38, _rankVC.frame.size.width/2, 2);
 }
 
 

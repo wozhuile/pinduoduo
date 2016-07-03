@@ -49,6 +49,9 @@
     _slideView.backgroundColor=[UIColor redColor];
     [_topVIew addSubview:_slideView];
     
+#pragma mark 为了在外边找到并在滚动视图滚动让跟着滑动效果，，要给个tag
+    _slideView.tag=99;
+    
     
 }
 
