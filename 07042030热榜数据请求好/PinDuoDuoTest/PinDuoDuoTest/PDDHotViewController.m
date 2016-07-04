@@ -159,7 +159,7 @@ static NSString*cellID=@"cell";
     
     _dataConllection=[[UICollectionView alloc]initWithFrame:CGRectMake(sender*self.view.frame.size.width, 0, CGRectGetWidth(_choiceScroll.frame), CGRectGetHeight(_choiceScroll.frame)) collectionViewLayout:flowlayout];
     
-    
+    _dataConllection.backgroundColor=[UIColor whiteColor];
 #pragma mark 去掉这个颜色居然是黑色的了。。。 上边不添加这个集合的时候还是红色的，添加后是黑色的了。
     //判断试试看
 //    if (sender==0) {
@@ -225,7 +225,7 @@ static NSString*cellID=@"cell";
         
          cell.indexSum.text=[NSString stringWithFormat:@"%ld", (long)indexPath.row+1];
         
-        cell.backgroundColor=[UIColor purpleColor];
+        //cell.backgroundColor=[UIColor purpleColor];
         return cell;
         
     }
@@ -243,7 +243,7 @@ static NSString*cellID=@"cell";
     cell.indexSum.text=[NSString stringWithFormat:@"%ld", (long)indexPath.row+1];
         
         
-    cell.backgroundColor=[UIColor redColor];
+   // cell.backgroundColor=[UIColor redColor];
     return cell;
 
     
