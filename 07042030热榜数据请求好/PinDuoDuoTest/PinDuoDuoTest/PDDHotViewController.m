@@ -525,7 +525,9 @@ static NSString*cellID=@"cell";
     _pageCount=scrollView.contentOffset.x/_rankVC.frame.size.width;
  #pragma mark 要保证请求一次就可以了。。滚动的时候不请求，，下拉上啦在请求，，！！
     
-#pragma mark 滑动就请求一次就好...怎么保证啊？？
+#pragma mark 滑动就请求一次就好...怎么保证啊？？  请求的时候返回一个数据来做判断？？
+    
+    
     if (_pageCount==1) {
 //        _ScrollCount=1;
         if (_ScrollCount<=1) {
