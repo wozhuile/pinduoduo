@@ -10,4 +10,8 @@
 
 @interface PDDMeViewController : UIViewController
 
+@property(nonatomic,strong)UITableView*personCentertableView;
+
+
+
 @end

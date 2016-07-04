@@ -328,9 +328,9 @@
 		04E221BD1D2221C30042B3C7 /* 个人 */ = {
 			isa = PBXGroup;
 			children = (
-				04E221BE1D2221D50042B3C7 /* PDDMeViewController.h */,
-				04E221BF1D2221D50042B3C7 /* PDDMeViewController.m */,
-				04E221C01D2221D50042B3C7 /* PDDMeViewController.xib */,
+				04F6D6591D2AAEEF00E04387 /* model */,
+				04F6D6581D2AAEE900E04387 /* view */,
+				04F6D6571D2AAED100E04387 /* controller */,
 			);
 			name = "个人";
 			sourceTree = "<group>";
@@ -532,6 +532,30 @@
 				04ED69551D23549200098325 /* PDDMobileAppGroups.m */,
 			);
 			path = "第一界面确认下边的资源";
+			sourceTree = "<group>";
+		};
+		04F6D6571D2AAED100E04387 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				04E221BE1D2221D50042B3C7 /* PDDMeViewController.h */,
+				04E221BF1D2221D50042B3C7 /* PDDMeViewController.m */,
+				04E221C01D2221D50042B3C7 /* PDDMeViewController.xib */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		04F6D6581D2AAEE900E04387 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		04F6D6591D2AAEEF00E04387 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = model;
 			sourceTree = "<group>";
 		};
 		70DA17A325F1BC9851930E6C /* Pods */ = {
