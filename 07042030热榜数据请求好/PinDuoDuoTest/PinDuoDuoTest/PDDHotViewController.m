@@ -236,9 +236,16 @@ static NSString*cellID=@"cell";
     cell.goods_Name.text=Model.goodsName;
     
 #pragma mark 最新是有时间的，，cell就这里不一样，但是现在没见给数据，，所以就用同一个的了。会不会导致数据重用问题？？？？？？？？  有时间，，，醉了。。先试试看先吧。
+        
+        
+        
+#pragma mark 最新这里还有个发布时间没有处理
     //cell.orderCnt.text=[NSString stringWithFormat:@"%f",Model.cnt];
     cell.pricelabel.text=[NSString stringWithFormat:@"$%.2f",Model.group.price/100];
     cell.pricelabel.textColor=[UIColor redColor];
+        
+        
+        
         
     cell.indexSum.text=[NSString stringWithFormat:@"%ld", (long)indexPath.row+1];
         
