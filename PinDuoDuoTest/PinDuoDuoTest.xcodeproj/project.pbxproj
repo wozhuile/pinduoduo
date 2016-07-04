@@ -46,6 +46,8 @@
 		04E3775A1D28BA5E00467A06 /* NewGoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E377561D28BA5E00467A06 /* NewGoodsList.m */; };
 		04E3775B1D28BA5E00467A06 /* NewGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E377581D28BA5E00467A06 /* NewGroup.m */; };
 		04E3775F1D28BACD00467A06 /* HotTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E3775E1D28BACD00467A06 /* HotTool.m */; };
+		04E377641D29515E00467A06 /* ShowHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E377621D29515E00467A06 /* ShowHomeViewController.m */; };
+		04E377651D29515E00467A06 /* ShowHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E377631D29515E00467A06 /* ShowHomeViewController.xib */; };
 		04EBDC6C1D24170A00E7EFA7 /* rankVIew.m in Sources */ = {isa = PBXBuildFile; fileRef = 04EBDC6B1D24170A00E7EFA7 /* rankVIew.m */; };
 		04ED69561D23549200098325 /* PDDGoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ED694B1D23549200098325 /* PDDGoodsList.m */; };
 		04ED69571D23549200098325 /* PDDGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 04ED694D1D23549200098325 /* PDDGroup.m */; };
@@ -134,6 +136,9 @@
 		04E377581D28BA5E00467A06 /* NewGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewGroup.m; sourceTree = "<group>"; };
 		04E3775D1D28BACD00467A06 /* HotTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotTool.h; sourceTree = "<group>"; };
 		04E3775E1D28BACD00467A06 /* HotTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotTool.m; sourceTree = "<group>"; };
+		04E377611D29515E00467A06 /* ShowHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowHomeViewController.h; sourceTree = "<group>"; };
+		04E377621D29515E00467A06 /* ShowHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowHomeViewController.m; sourceTree = "<group>"; };
+		04E377631D29515E00467A06 /* ShowHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShowHomeViewController.xib; sourceTree = "<group>"; };
 		04EBDC6A1D24170A00E7EFA7 /* rankVIew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rankVIew.h; sourceTree = "<group>"; };
 		04EBDC6B1D24170A00E7EFA7 /* rankVIew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rankVIew.m; sourceTree = "<group>"; };
 		04ED69491D23549200098325 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
@@ -364,6 +369,9 @@
 			children = (
 				04E221961D22211F0042B3C7 /* ViewController.h */,
 				04E221971D22211F0042B3C7 /* ViewController.m */,
+				04E377611D29515E00467A06 /* ShowHomeViewController.h */,
+				04E377621D29515E00467A06 /* ShowHomeViewController.m */,
+				04E377631D29515E00467A06 /* ShowHomeViewController.xib */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -564,6 +572,7 @@
 				04E2219B1D22211F0042B3C7 /* Main.storyboard in Resources */,
 				04E221BC1D2221BD0042B3C7 /* PDDSearchViewController.xib in Resources */,
 				04ED69601D2389E400098325 /* goods_listTableViewCell.xib in Resources */,
+				04E377651D29515E00467A06 /* ShowHomeViewController.xib in Resources */,
 				04ED69651D2389FB00098325 /* home_super_brandTableViewCell.xib in Resources */,
 				04E221B61D2221A60042B3C7 /* PDDRankViewController.xib in Resources */,
 				04E1B5F41D24FE7A0013515A /* HotCollectionViewCell.xib in Resources */,
@@ -635,6 +644,7 @@
 				04DE6EE71D274C8E00FF3AC1 /* RankCountryList.m in Sources */,
 				04E3775F1D28BACD00467A06 /* HotTool.m in Sources */,
 				04DE6EE81D274C8E00FF3AC1 /* RankGoodsList.m in Sources */,
+				04E377641D29515E00467A06 /* ShowHomeViewController.m in Sources */,
 				04E221D31D2269A00042B3C7 /* NetWorkRequestModel.m in Sources */,
 				04E221BB1D2221BD0042B3C7 /* PDDSearchViewController.m in Sources */,
 				04ED695F1D2389E400098325 /* goods_listTableViewCell.m in Sources */,
