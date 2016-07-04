@@ -43,8 +43,13 @@ static NSString*cellID=@"cell";
     _buttonTagCount=0;
     _pageCount=0;
 
-    _everyCount=0;
+    _everyCount=1;
+    
+#pragma mark 设置一开始是1也不行啊，，，每次点击就回头了。。
     _oneCount=0;
+    _ScrollCount=0;
+    
+    
     
     //初始化数组
     _dataArray=[[NSMutableArray alloc]init];
@@ -370,10 +375,19 @@ static NSString*cellID=@"cell";
         EveryOneGoodsList*model=[_Every_NewArray objectAtIndex:indexPath.row];
         [cell.showDataImage sd_setImageWithURL:[NSURL URLWithString:model.hdThumbUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
         cell.goods_Name.text=model.goodsName;
-        cell.orderCnt.text=[NSString stringWithFormat:@"%f",model.cnt];
+        cell.goods_Name.font=[UIFont systemFontOfSize:12];
+        
+#pragma mark  苹果的要求 如果超过一万件，书写就要改变  反正先搞整形吧
+        cell.orderCnt.text=[NSString stringWithFormat:@"%d",(int)model.cnt];
         
         cell.orderCnt.font=[UIFont systemFontOfSize:14];
+        
+     
         cell.pricelabel.text=[NSString stringWithFormat:@"$%.2f",model.group.price/100];
+        
+        
+
+        
         cell.pricelabel.textColor=[UIColor redColor];
         //cell.pricelabel.font=[UIFont systemFontOfSize:13];
          cell.indexSum.text=[NSString stringWithFormat:@"%ld", (long)indexPath.row+1];
@@ -393,8 +407,7 @@ static NSString*cellID=@"cell";
     
 #pragma mark 最新是有时间的，，cell就这里不一样，但是现在没见给数据，，所以就用同一个的了。会不会导致数据重用问题？？？？？？？？  有时间，，，醉了。。先试试看先吧。
         
-        
-        
+    cell.goods_Name.font=[UIFont systemFontOfSize:12];
 #pragma mark 最新这里还有个发布时间没有处理
     //cell.orderCnt.text=[NSString stringWithFormat:@"%f",Model.cnt];
     cell.pricelabel.text=[NSString stringWithFormat:@"$%.2f",Model.group.price/100];
@@ -436,20 +449,38 @@ static NSString*cellID=@"cell";
 #pragma mark 请求的时候就第一个请求就好了。。然后点击在请求，其他的滑动什么的在刷新吧，，先这样
     
        UICollectionView*collection=[_collectionArray objectAtIndex:1];
+    
+    
+#pragma mark bug 就是每次点击就会重新请求，这个药保证一次，，，那就用刚刚那个_oneCount吧。。试试看  ，没改之前if (button.tag==111)  注意，一开始的时候就是0啊。。。
+    
     if (button.tag==111) {
 #pragma mark 注意这里加起来的会导致下边活动也刷了
        // _oneCount=1;
-        collection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            
+        
+        if (_oneCount<=1) {
+            collection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+                
 #pragma 不要写在外边
-            _oneCount=1;
-
-          [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
-        }];
-        
-        
-        
-        [collection.header beginRefreshing];
+                _oneCount=1;
+                
+                [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
+            }];
+            
+            
+            
+            [collection.header beginRefreshing];
+        }
+//        collection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//            
+//#pragma 不要写在外边
+//            _oneCount=1;
+//
+//          [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
+//        }];
+//        
+//        
+//        
+//        [collection.header beginRefreshing];
         //[_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
    
 
@@ -494,17 +525,29 @@ static NSString*cellID=@"cell";
     _pageCount=scrollView.contentOffset.x/_rankVC.frame.size.width;
  #pragma mark 要保证请求一次就可以了。。滚动的时候不请求，，下拉上啦在请求，，！！
     
-#pragma mark 滑动就请求一次就好
+#pragma mark 滑动就请求一次就好...怎么保证啊？？
     if (_pageCount==1) {
 //        _ScrollCount=1;
-        collection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
-             _ScrollCount=1;
-            [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
-        }];
+        if (_ScrollCount<=1) {
+            
+            collection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+                _ScrollCount=1;
+                [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
+            }];
+            
+            
+            
+            [collection.header beginRefreshing];
+        }
         
-        
-        
-        [collection.header beginRefreshing];
+//        collection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//             _ScrollCount=1;
+//            [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
+//        }];
+//        
+//        
+//        
+//        [collection.header beginRefreshing];
         //[_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
         
         
