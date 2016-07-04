@@ -518,7 +518,7 @@ static NSString*cellID=@"cell";
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     
-    
+        
     
       UICollectionView*collection=[_collectionArray objectAtIndex:1];
     
