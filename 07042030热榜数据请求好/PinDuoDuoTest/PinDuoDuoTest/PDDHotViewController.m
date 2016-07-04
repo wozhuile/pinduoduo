@@ -27,6 +27,9 @@ static NSString*cellID=@"cell";
 #import "NewGroup.h"
 
 
+#pragma mark 刷新
+#import <MJRefresh.h>
+
 
 @interface PDDHotViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,rankVIewDelegate,UIScrollViewDelegate,HotToolDelegate>
 
@@ -40,6 +43,8 @@ static NSString*cellID=@"cell";
     _buttonTagCount=0;
     _pageCount=0;
 
+    _everyCount=0;
+    _oneCount=0;
     
     //初始化数组
     _dataArray=[[NSMutableArray alloc]init];
@@ -49,8 +54,8 @@ static NSString*cellID=@"cell";
     _collectionArray=[[NSMutableArray alloc]init];
      _rankVC=[[rankVIew alloc]initWithFrame:self.view.frame];
     
-    
-    
+    _Every_NewArray=[[NSMutableArray alloc]init];
+    _New_NewArray=[[NSMutableArray alloc]init];
 #pragma mark 遵循代理，把按钮传出来
     _rankVC.delegate=self;
     
@@ -65,9 +70,36 @@ static NSString*cellID=@"cell";
     
     _hot.delegate=self;
     
-    [_hot CreateEveryOneBuyRequest:@"http://apiv2.yangkeduo.com/v2/ranklist?page=1&size=50"];
+ 
+#pragma mark 为什么没有效果？？对象释放了？  还没有创建麼？就保留最后一个，我需要去for循环保留集合哪里取出来？
+//    _dataConllection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+//        _everyCount=1;
+//        
+//        [_hot CreateEveryOneBuyRequest:@"http://apiv2.yangkeduo.com/v2/ranklist?page=1&size=50"];
+//        
+////         [_hot CreateEveryOneBuyRequest:[NSString stringWithFormat: @"http://apiv2.yangkeduo.com/v2/ranklist?page=%ld&size=50",(long)_everyCount]];
+//    } ];
+//    
+//    [_dataConllection.header beginRefreshing];
+//
+//    
+//    _dataConllection.footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+//        _everyCount++;
+//        
+//        [_hot CreateEveryOneBuyRequest:[NSString stringWithFormat: @"http://apiv2.yangkeduo.com/v2/ranklist?page=%ld&size=50",(long)_everyCount]];
+//    }];
+//    
+//    [_dataConllection.footer endRefreshing];
+// 
+    
+    
+  //  [_hot CreateEveryOneBuyRequest:@"http://apiv2.yangkeduo.com/v2/ranklist?page=1&size=50"];
 
-     [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
+    
+    
+    
+    
+    //[_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
     
 }
 
@@ -77,7 +109,33 @@ static NSString*cellID=@"cell";
 {
     
     _EveryOneBuyArray=dataArray;
-    _requestCount=count;
+   // _requestCount=count;
+    
+    
+    
+#pragma mark 追加数据直接用之前的数组可以麼？试试看
+    /*-[__NSArrayI addObjectsFromArray:]: unrecognized selector sent to instance 0x7f968597b640
+     2016-07-04 20:59:11.866 PinDuoDuoTest[5269:147492] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[__NSArrayI addObjectsFromArray:]: unrecognized selector sent to instance 0x7f968597b640'
+*///直接追加后果 NSInvalidArgumentException说是参数异常  创建数组试试吧  ,是不是第一次就加了两次？？
+   // [_EveryOneBuyArray addObjectsFromArray:_EveryOneBuyArray];
+    
+    
+    if (_everyCount==1) {
+        [_Every_NewArray setArray:_EveryOneBuyArray];
+         [_dataConllection.header endRefreshing];
+        
+    }
+    
+    else
+    {
+    [_Every_NewArray addObjectsFromArray:_EveryOneBuyArray];
+        [_dataConllection.footer endRefreshing];
+        
+
+    }
+   // [_dataConllection.header endRefreshing];
+    //[_dataConllection.footer endRefreshing];
+    
     
 #pragma mark 记得刷新表，。。。否则没用   两个都刷新？？？
  
@@ -95,15 +153,38 @@ static NSString*cellID=@"cell";
 #pragma mark  最新
 -(void)sendNewBuy:(HotTool *)hotTool dataArray:(NSMutableArray *)dataArray
 {
-    _NewBuyArray=dataArray;
+       _NewBuyArray=dataArray;
+    
+    
+#pragma mark 追加数组
+    //[_NewBuyArray addObjectsFromArray:_NewBuyArray];
+    
+    
+    if (_oneCount==1||_ScrollCount==1) {
+        
+        
+        [_New_NewArray setArray:_NewBuyArray];//??dataArray
+        [_dataConllection.header endRefreshing];
+
+    }
+    
+    else
+    {
+    
+    [_New_NewArray addObjectsFromArray:_NewBuyArray];
+        [_dataConllection.footer endRefreshing];
+    }
+    //[_dataConllection.header endRefreshing];
+    
+    
     
 #pragma mark 记得刷新表，。。。否则没用
-    [_dataConllection reloadData ];
+    //[_dataConllection reloadData ];
     
-    //UICollectionView*collection=[_collectionArray objectAtIndex:1];
+    UICollectionView*collection=[_collectionArray objectAtIndex:1];
     
     
-    //[collection reloadData ];
+    [collection reloadData ];
 
     
 }
@@ -169,6 +250,34 @@ static NSString*cellID=@"cell";
 //    _dataConllection.backgroundColor=[UIColor yellowColor];
 //    }
     
+#pragma mark 创建对象，保留不了第一个，，来这里试试看  实现了！！！，但是请求没有结束啊。。怎么回事？？？
+    
+    if (sender==0) {
+        _dataConllection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            _everyCount=1;
+            
+            [_hot CreateEveryOneBuyRequest:@"http://apiv2.yangkeduo.com/v2/ranklist?page=1&size=50"];
+            
+            //         [_hot CreateEveryOneBuyRequest:[NSString stringWithFormat: @"http://apiv2.yangkeduo.com/v2/ranklist?page=%ld&size=50",(long)_everyCount]];
+        } ];
+        
+        [_dataConllection.header beginRefreshing];
+        
+        
+        _dataConllection.footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            _everyCount++;
+            
+            [_hot CreateEveryOneBuyRequest:[NSString stringWithFormat: @"http://apiv2.yangkeduo.com/v2/ranklist?page=%ld&size=50",(long)_everyCount]];
+        }];
+        
+        [_dataConllection.footer endRefreshing];
+        
+
+    }
+    
+    
+    
+    
     _dataConllection.delegate=self;
     _dataConllection.dataSource=self;
     
@@ -195,11 +304,11 @@ static NSString*cellID=@"cell";
         
 #pragma mark 一开始就进来返回0个cell了。。应该在加条件，可以去请求哪里传个条件过来，比如requestcount＝88；然后就是先设置固定值,,两个数据源在同一个控制器真心难处理 啊,还不如分开写两个了。。或者写两个继承这个的子类，，
       
-        return _EveryOneBuyArray.count;
+        return _Every_NewArray.count;
     }
     else
     {
-    return _NewBuyArray.count;
+    return _New_NewArray.count;
     }
     //return 50;
 }
@@ -220,9 +329,11 @@ static NSString*cellID=@"cell";
         [cell.showDataImage sd_setImageWithURL:[NSURL URLWithString:model.hdThumbUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
         cell.goods_Name.text=model.goodsName;
         cell.orderCnt.text=[NSString stringWithFormat:@"%f",model.cnt];
+        
+        cell.orderCnt.font=[UIFont systemFontOfSize:14];
         cell.pricelabel.text=[NSString stringWithFormat:@"$%.2f",model.group.price/100];
         cell.pricelabel.textColor=[UIColor redColor];
-        
+        //cell.pricelabel.font=[UIFont systemFontOfSize:13];
          cell.indexSum.text=[NSString stringWithFormat:@"%ld", (long)indexPath.row+1];
         
         //cell.backgroundColor=[UIColor purpleColor];
@@ -280,10 +391,44 @@ static NSString*cellID=@"cell";
 #pragma mark 请求的时候就第一个请求就好了。。然后点击在请求，其他的滑动什么的在刷新吧，，先这样
     
     if (button.tag==111) {
+#pragma mark 注意这里加起来的会导致下边活动也刷了
+       // _oneCount=1;
+        _dataConllection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            
+#pragma 不要写在外边
+            _oneCount=1;
+
+          [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
+        }];
         
-        [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
+        
+        
+        [_dataConllection.header beginRefreshing];
+        //[_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
+   
+
+        
+        _dataConllection.footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            _oneCount++;
+            
+            [_hot CreateNewBuyRequest:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v3/newlist?page=%ld&size=50",(long)_oneCount++]];
+        }];
+        
+        [_dataConllection.footer endRefreshing];
+
+        
     }
     
+    
+    
+    
+    
+    
+    
+    
+//    if (button.tag==110) {
+//         [_hot CreateEveryOneBuyRequest:@"http://apiv2.yangkeduo.com/v2/ranklist?page=1&size=50"];
+//    }
     
 #pragma mark 记得剪掉110
     _buttonTagCount=button.tag-110;
@@ -306,11 +451,33 @@ static NSString*cellID=@"cell";
     
 #pragma mark 滑动就请求一次就好
     if (_pageCount==1) {
+//        _ScrollCount=1;
+        _dataConllection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+             _ScrollCount=1;
+            [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
+        }];
         
-        [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
+        
+        
+        [_dataConllection.header beginRefreshing];
+        //[_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
+        
+        
+        _dataConllection.footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+            _ScrollCount++;
+            
+            [_hot CreateNewBuyRequest:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v3/newlist?page=%ld&size=50",(long)_ScrollCount++]];
+        }];
+        
+        [_dataConllection.footer endRefreshing];
+
+    
+    
     }
     
-    
+//    if (_pageCount==0) {
+//         [_hot CreateEveryOneBuyRequest:@"http://apiv2.yangkeduo.com/v2/ranklist?page=1&size=50"];
+//    }
     
     
     

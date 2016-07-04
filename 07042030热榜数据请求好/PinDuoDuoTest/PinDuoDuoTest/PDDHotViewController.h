@@ -50,5 +50,10 @@
 #pragma mark 存放集合视图对象，for循环创建哪怕是属性，也会保留最后一个，，也是前边遇到的很多的tag问题，试试看吧
 @property(nonatomic,strong)NSMutableArray*collectionArray;
 
-
+#pragma mark 创建刷新数组
+@property(nonatomic,strong)NSMutableArray*Every_NewArray;
+@property(nonatomic,strong)NSMutableArray*New_NewArray;
+@property(nonatomic,assign)NSInteger everyCount;
+@property(nonatomic,assign)NSInteger oneCount;
+@property(nonatomic,assign)NSInteger ScrollCount;
 @end
