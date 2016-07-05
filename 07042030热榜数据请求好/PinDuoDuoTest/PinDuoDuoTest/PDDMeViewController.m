@@ -26,6 +26,9 @@
         _personCentertableView.dataSource=self;
         _personCentertableView.backgroundColor=[UIColor greenColor];
         
+        
+#pragma mark 加区头高度的时候，那个小灰色的分割线没出来，
+        
     }
     
     return _personCentertableView;

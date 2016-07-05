@@ -105,6 +105,12 @@
     
     //NSLog(@"%@",sender);//输出按钮对象
     NSLog(@"sender===%ld",(long)sender.tag);//输出按钮对象对应的tag。
+    
+    
+#pragma mark 因为点击10个按钮会跳转到下一个界面，需要导航，所以这里要传值出去到控制器里边处理，现在用代理传值出去
+    
+    
+    
 }
 
 @end
