@@ -561,11 +561,11 @@ static NSString*cellID=@"cell";
         [UIView animateWithDuration:0.25 animations:^{
             
             
-#pragma mark 在这里加 _pageCount=1;，点击最新不会重新刷新了，，但是点击大家都在买，，小滑条又bug了。。
+#pragma mark 在这里加 _pageCount=1;，点击最新不会重新刷新了，，但是点击大家都在买，，小滑条又bug了。。..还是别加这个，一加这个就连刷新都没有办法了。。我宁愿不要小滑条效果了。。。。
 
             
             
-            _pageCount=1;
+           // _pageCount=1;
             slideView.center=CGPointMake(1*_rankVC.frame.size.width*2/5+125, 38);
         }];
     }
