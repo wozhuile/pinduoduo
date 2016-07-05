@@ -19,6 +19,10 @@
 		04DE6EE81D274C8E00FF3AC1 /* RankGoodsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE6EE11D274C8E00FF3AC1 /* RankGoodsList.m */; };
 		04DE6EE91D274C8E00FF3AC1 /* RankGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE6EE31D274C8E00FF3AC1 /* RankGroup.m */; };
 		04DE6EEA1D274C8E00FF3AC1 /* RankPromotionList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE6EE51D274C8E00FF3AC1 /* RankPromotionList.m */; };
+		04DF698F1D2BFC4800DF3D6A /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DF698E1D2BFC4800DF3D6A /* UIColor+Hex.m */; };
+		04DF69971D2BFE3800DF3D6A /* PURCHARSDataModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DF69941D2BFE3800DF3D6A /* PURCHARSDataModle.m */; };
+		04DF69981D2BFE3800DF3D6A /* PURCHARSGoods.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DF69961D2BFE3800DF3D6A /* PURCHARSGoods.m */; };
+		04DF699B1D2C01DE00DF3D6A /* puchaseModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DF699A1D2C01DE00DF3D6A /* puchaseModle.m */; };
 		04E1B5F31D24FE7A0013515A /* HotCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E1B5F11D24FE7A0013515A /* HotCollectionViewCell.m */; };
 		04E1B5F41D24FE7A0013515A /* HotCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E1B5F21D24FE7A0013515A /* HotCollectionViewCell.xib */; };
 		04E221921D22211F0042B3C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E221911D22211F0042B3C7 /* main.m */; };
@@ -93,6 +97,15 @@
 		04DE6EE31D274C8E00FF3AC1 /* RankGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankGroup.m; sourceTree = "<group>"; };
 		04DE6EE41D274C8E00FF3AC1 /* RankPromotionList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankPromotionList.h; sourceTree = "<group>"; };
 		04DE6EE51D274C8E00FF3AC1 /* RankPromotionList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankPromotionList.m; sourceTree = "<group>"; };
+		04DF698D1D2BFC4800DF3D6A /* UIColor+Hex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Hex.h"; sourceTree = "<group>"; };
+		04DF698E1D2BFC4800DF3D6A /* UIColor+Hex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Hex.m"; sourceTree = "<group>"; };
+		04DF69921D2BFE3800DF3D6A /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
+		04DF69931D2BFE3800DF3D6A /* PURCHARSDataModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PURCHARSDataModle.h; sourceTree = "<group>"; };
+		04DF69941D2BFE3800DF3D6A /* PURCHARSDataModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PURCHARSDataModle.m; sourceTree = "<group>"; };
+		04DF69951D2BFE3800DF3D6A /* PURCHARSGoods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PURCHARSGoods.h; sourceTree = "<group>"; };
+		04DF69961D2BFE3800DF3D6A /* PURCHARSGoods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PURCHARSGoods.m; sourceTree = "<group>"; };
+		04DF69991D2C01DE00DF3D6A /* puchaseModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = puchaseModle.h; sourceTree = "<group>"; };
+		04DF699A1D2C01DE00DF3D6A /* puchaseModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = puchaseModle.m; sourceTree = "<group>"; };
 		04E1B5F01D24FE790013515A /* HotCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCollectionViewCell.h; sourceTree = "<group>"; };
 		04E1B5F11D24FE7A0013515A /* HotCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCollectionViewCell.m; sourceTree = "<group>"; };
 		04E1B5F21D24FE7A0013515A /* HotCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HotCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -242,6 +255,37 @@
 			path = "海淘专区";
 			sourceTree = "<group>";
 		};
+		04DF698C1D2BFC2F00DF3D6A /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				04DF698D1D2BFC4800DF3D6A /* UIColor+Hex.h */,
+				04DF698E1D2BFC4800DF3D6A /* UIColor+Hex.m */,
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
+		04DF69901D2BFE2B00DF3D6A /* 秒杀 */ = {
+			isa = PBXGroup;
+			children = (
+				04DF69911D2BFE3800DF3D6A /* 秒杀 */,
+				04DF69991D2C01DE00DF3D6A /* puchaseModle.h */,
+				04DF699A1D2C01DE00DF3D6A /* puchaseModle.m */,
+			);
+			name = "秒杀";
+			sourceTree = "<group>";
+		};
+		04DF69911D2BFE3800DF3D6A /* 秒杀 */ = {
+			isa = PBXGroup;
+			children = (
+				04DF69921D2BFE3800DF3D6A /* DataModels.h */,
+				04DF69931D2BFE3800DF3D6A /* PURCHARSDataModle.h */,
+				04DF69941D2BFE3800DF3D6A /* PURCHARSDataModle.m */,
+				04DF69951D2BFE3800DF3D6A /* PURCHARSGoods.h */,
+				04DF69961D2BFE3800DF3D6A /* PURCHARSGoods.m */,
+			);
+			path = "秒杀";
+			sourceTree = "<group>";
+		};
 		04E1B5DD1D24A2F90013515A /* controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +329,7 @@
 		04E2218F1D22211F0042B3C7 /* PinDuoDuoTest */ = {
 			isa = PBXGroup;
 			children = (
+				04DF698C1D2BFC2F00DF3D6A /* utils */,
 				04E377601D28C2D300467A06 /* other */,
 				04E221C31D2221E40042B3C7 /* 入口 */,
 				04E221BD1D2221C30042B3C7 /* 个人 */,
@@ -383,6 +428,7 @@
 		04E221C51D2222A10042B3C7 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				04DF69901D2BFE2B00DF3D6A /* 秒杀 */,
 				04ED69481D23549200098325 /* 第一界面确认下边的资源 */,
 				04E221D41D226E800042B3C7 /* 第一个滚动资源 */,
 				04E221D11D2269A00042B3C7 /* NetWorkRequestModel.h */,
@@ -747,6 +793,7 @@
 				04DAD4651D2BE9C70027D466 /* purChaseCollectionViewCell.m in Sources */,
 				04ED69591D23549200098325 /* PDDHomeRecommendSubjects.m in Sources */,
 				04E221C11D2221D50042B3C7 /* PDDMeViewController.m in Sources */,
+				04DF69971D2BFE3800DF3D6A /* PURCHARSDataModle.m in Sources */,
 				04E2596C1D2A1493006F488B /* TopScrollTableViewCell.m in Sources */,
 				04ED695A1D23549200098325 /* PDDHomeSuperBrand.m in Sources */,
 				04DE6EE61D274C8E00FF3AC1 /* RankBaseModle.m in Sources */,
@@ -760,6 +807,7 @@
 				04E221AF1D22218A0042B3C7 /* PDDHotViewController.m in Sources */,
 				04ED695B1D23549200098325 /* PDDMobileAppGroups.m in Sources */,
 				04ED69581D23549200098325 /* PDDHomeData.m in Sources */,
+				04DF69981D2BFE3800DF3D6A /* PURCHARSGoods.m in Sources */,
 				04E2219E1D22211F0042B3C7 /* PinDuoDuoTest.xcdatamodeld in Sources */,
 				04E221CE1D2250600042B3C7 /* MainView.m in Sources */,
 				044042321D275F360015D3E6 /* country_listTableViewCell.m in Sources */,
@@ -767,9 +815,11 @@
 				04E3774E1D28BA5800467A06 /* EveryOneBuyModle.m in Sources */,
 				04ED69561D23549200098325 /* PDDGoodsList.m in Sources */,
 				04E3775B1D28BA5E00467A06 /* NewGroup.m in Sources */,
+				04DF699B1D2C01DE00DF3D6A /* puchaseModle.m in Sources */,
 				04E259721D2A15F9006F488B /* textFieldTableViewCell.m in Sources */,
 				04E221921D22211F0042B3C7 /* main.m in Sources */,
 				04E221B51D2221A60042B3C7 /* PDDRankViewController.m in Sources */,
+				04DF698F1D2BFC4800DF3D6A /* UIColor+Hex.m in Sources */,
 				04E3774F1D28BA5800467A06 /* EveryOneGoodsList.m in Sources */,
 				04ED69641D2389FB00098325 /* home_super_brandTableViewCell.m in Sources */,
 			);

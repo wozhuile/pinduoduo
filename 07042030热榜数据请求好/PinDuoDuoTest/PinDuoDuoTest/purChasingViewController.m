@@ -8,11 +8,18 @@
 
 #import "purChasingViewController.h"
 #import "purChaseCollectionViewCell.h"
-
+#import "puchaseModle.h"
 static NSString*cellID=@"cell";
+#import <UIImageView+WebCache.h>
 
 
-@interface purChasingViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
+#import <MJRefresh.h>
+
+#import "PURCHARSGoods.h"
+
+
+
+@interface purChasingViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,puchaseModleDelegate>
 
 @end
 
@@ -24,9 +31,22 @@ static NSString*cellID=@"cell";
     [super viewDidLoad];
      self.title=@"每日秒杀";
     
+    
+    
+    _dataArray=[[NSMutableArray alloc]init];
+    
 #pragma mark 设置左边的按钮，就看不到那个拼多多商场文字，，但是返回的时候有点小bug，就是还会看到一些些拼多多文字。。
     UIBarButtonItem*item=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"back"] style:UIBarButtonItemStyleDone target:self action:@selector(backButon)];
     self.navigationItem.leftBarButtonItem=item;
+    
+    //purChaseCollectionViewCell*purChase=[[purChaseCollectionViewCell alloc]init];
+
+    //创建对象，准备接受数据
+   puchaseModle*modle=[[puchaseModle alloc]init];
+    modle.delegate=self;
+    
+    //TODO请求数据
+    [modle purchaseDataRequest:@"http://apiv2.yangkeduo.com/spike_list?page=1&size=50"];
     
     
     [self CreateCollectionVIew];
@@ -35,17 +55,36 @@ static NSString*cellID=@"cell";
     
 }
 
+//实现请求方法
+-(void)successToGetPurChaseData:(puchaseModle *)netWorkRequestModel array:(NSMutableArray *)array
+{
+    
+   
+    _dataArray=array;
+    
+    //刷新
+    [_dataConllection reloadData];
+    
+    
+}
+-(void)failToGetPurChaseData:(puchaseModle *)netWorkRequestModel error:(NSError *)error
+
+{
+    NSLog(@"purchase=%@",error);
+}
+
+
 -(void)backButon
 {
     [self.navigationController popViewControllerAnimated:YES];
-    NSLog(@"---");
+    //NSLog(@"---");
 }
 #pragma mark 操作返回按钮的文字
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    [self.navigationItem.backBarButtonItem setTitle:@""];
+   // [self.navigationItem.backBarButtonItem setTitle:@""];
     
     
     
@@ -138,8 +177,13 @@ static NSString*cellID=@"cell";
         cell=[[purChaseCollectionViewCell alloc]init];
     }
     
+    PURCHARSGoods*goods=[_dataArray objectAtIndex:indexPath.row];
+    
+    [cell.thumb_url sd_setImageWithURL:[NSURL URLWithString:goods.thumbUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
     
     
+    
+    cell.backgroundColor=[UIColor redColor];
     
     return cell;
     

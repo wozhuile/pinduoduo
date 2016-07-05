@@ -13,6 +13,6 @@
 #pragma mark collectionView
 @property(nonatomic,strong)UICollectionView*dataConllection;
 
-
+@property(nonatomic,strong)NSMutableArray*dataArray;
 
 @end

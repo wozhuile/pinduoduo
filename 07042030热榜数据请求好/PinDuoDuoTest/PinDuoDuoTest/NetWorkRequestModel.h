@@ -21,6 +21,12 @@
 -(void)sucessToGetData:(NetWorkRequestModel*)netWorkRequestModel modelData:(PDDHomeData*)modelData;
 -(void)failToGetData:(NetWorkRequestModel*)etWorkRequestModel error:(NSError*)error;
 
+//
+////秒杀
+//-(void)successToGetPurChaseData:(NetWorkRequestModel*)netWorkRequestModel array:(NSMutableArray*)array;
+//
+//-(void)failToGetPurChaseData:(NetWorkRequestModel*)netWorkRequestModel error:(NSError*)error;
+//
 @end
 
 
