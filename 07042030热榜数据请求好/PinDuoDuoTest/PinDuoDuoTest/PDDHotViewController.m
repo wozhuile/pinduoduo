@@ -96,19 +96,10 @@ static NSString*cellID=@"cell";
         
         [_hot CreateEveryOneBuyRequest:[NSString stringWithFormat: @"http://apiv2.yangkeduo.com/v2/ranklist?page=%ld&size=50",(long)_everyCount]];
     }];
-    
-    [conll.footer endRefreshing];
+    //一开始不要手动刷新
+   // [conll.footer endRefreshing];
  
-  
-  
-//  [_hot CreateEveryOneBuyRequest:@"http://apiv2.yangkeduo.com/v2/ranklist?page=1&size=50"];
 
-  
-  
-  
-  
-  //[_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
-    
 }
 
 
@@ -153,18 +144,19 @@ static NSString*cellID=@"cell";
     
     if (_everyCount==1) {
         [_Every_NewArray setArray:_EveryOneBuyArray];
-        [collection.header endRefreshing];
+        //[collection.header endRefreshing];
         
     }
     
     else
     {
         [_Every_NewArray addObjectsFromArray:_EveryOneBuyArray];
-        [collection.footer endRefreshing];
+       // [collection.footer endRefreshing];
         
     }
-    
-    
+    //放到这里试试
+    [collection.header endRefreshing];
+    [collection.footer endRefreshing];
     
     [collection reloadData ];
      
@@ -213,7 +205,7 @@ static NSString*cellID=@"cell";
         
         
         [_New_NewArray setArray:_NewBuyArray];//??dataArray
-        [collection.header endRefreshing];
+        //[collection.header endRefreshing];
         
     }
     
@@ -221,8 +213,11 @@ static NSString*cellID=@"cell";
     {
         
         [_New_NewArray addObjectsFromArray:_NewBuyArray];
-        [collection.footer endRefreshing];
+        //[collection.footer endRefreshing];
     }
+    [collection.header endRefreshing];
+    
+    [collection.footer endRefreshing];
 
     
     
@@ -446,6 +441,12 @@ static NSString*cellID=@"cell";
 -(void)sendButton:(rankVIew *)rankView button:(UIButton *)button
 {
     
+    
+#pragma mark 记得剪掉110
+    _buttonTagCount=button.tag-110;
+    _choiceScroll.contentOffset=CGPointMake((button.tag-110)*CGRectGetWidth(_choiceScroll.frame), 0);//是实现点击滑动了，，但是呢，，，集合视图不见了。
+
+    
 #pragma mark 请求的时候就第一个请求就好了。。然后点击在请求，其他的滑动什么的在刷新吧，，先这样
     
        UICollectionView*collection=[_collectionArray objectAtIndex:1];
@@ -459,21 +460,31 @@ static NSString*cellID=@"cell";
     
     if (button.tag==111) {
 #pragma mark 注意这里加起来的会导致下边活动也刷了
-       // _oneCount=1;
+     
+//        _pageCount=1;
         
 //TODO:不需要过去请求的时候返回一个数据来做判断，用下边pagecount来做判断，保证点击按钮就请求一次
         if (_pageCount==1) {
+            
+            
             return;
         }
         
         
         
         
-        if (_oneCount<=1) {
+        //if (_oneCount<=1) {
             collection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
                 
 #pragma 不要写在外边
                 _oneCount=1;
+                
+                
+                _pageCount=1;
+                
+                
+                
+                
                 
                 [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
             }];
@@ -481,21 +492,7 @@ static NSString*cellID=@"cell";
             
             
             [collection.header beginRefreshing];
-        }
-//        collection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
-//            
-//#pragma 不要写在外边
-//            _oneCount=1;
-//
-//          [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
-//        }];
-//        
-//        
-//        
-//        [collection.header beginRefreshing];
-        //[_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
-   
-
+       // }
         
         collection.footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             _oneCount++;
@@ -503,7 +500,7 @@ static NSString*cellID=@"cell";
             [_hot CreateNewBuyRequest:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v3/newlist?page=%ld&size=50",(long)_oneCount++]];
         }];
         
-        [collection.footer endRefreshing];
+        //[collection.footer endRefreshing];
 
         
     }
@@ -511,100 +508,120 @@ static NSString*cellID=@"cell";
     
     
     
-#pragma mark 记得剪掉110
-    _buttonTagCount=button.tag-110;
-    
-    
-    
-//    if (button.tag==110) {
-//         [_hot CreateEveryOneBuyRequest:@"http://apiv2.yangkeduo.com/v2/ranklist?page=1&size=50"];
-//    }
-    
-
-    
-
-    _choiceScroll.contentOffset=CGPointMake((button.tag-110)*CGRectGetWidth(_choiceScroll.frame), 0);//是实现点击滑动了，，但是呢，，，集合视图不见了。
-    [_choiceScroll setContentOffset:CGPointMake((button.tag-110)*CGRectGetWidth(_choiceScroll.frame), 0) animated:YES];
+//#pragma mark 记得剪掉110
+//    _buttonTagCount=button.tag-110;
+//       _choiceScroll.contentOffset=CGPointMake((button.tag-110)*CGRectGetWidth(_choiceScroll.frame), 0);//是实现点击滑动了，，但是呢，，，集合视图不见了。
+    //[_choiceScroll setContentOffset:CGPointMake((button.tag-110)*CGRectGetWidth(_choiceScroll.frame), 0) animated:YES];
 }
 
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     
-   // if (scrollView == _choiceScroll) {
+    
+    
+    
+    
+    UICollectionView*collection=[_collectionArray objectAtIndex:1];
+    
+#pragma mark 暂时显示了滚动的时候滑条效果正确，但是有个bug，如果点击还是有问题，，不是点击，，是下拉的时候有问题
+//    if (collection) {
+//        
+//        
+//        _pageCount=1;
+//      
+//    }
+    
+    _pageCount=scrollView.contentOffset.x/_rankVC.frame.size.width;
+
+    
+    
+    UIButton*button=[_rankVC viewWithTag:_pageCount+110];
+    
+    NSLog(@"%ld",(long)button.tag);
+    
+    button.frame=CGRectMake(_pageCount*_rankVC.frame.size.width/2, 0, _rankVC.frame.size.width/2, 37 );
+    
+    UIView*slideView=[_rankVC viewWithTag:99];
+    
+    
+   
+    
+    
+    [UIView animateWithDuration:0.25 animations:^{
         
-        UICollectionView*collection=[_collectionArray objectAtIndex:1];
-        
-        _pageCount=scrollView.contentOffset.x/_rankVC.frame.size.width;
-        //TODO: 要保证请求一次就可以了。。滚动的时候不请求，，下拉上啦在请求，，！！
-        
-#pragma mark 滑动就请求一次就好...怎么保证啊？？  请求的时候返回一个数据来做判断？？
-        
-        
-        if (_pageCount==1) {
-            //        _ScrollCount=1;
+        slideView.center=CGPointMake(_pageCount*_rankVC.frame.size.width*2/5+125, 38);
+    }];
+    
+#pragma mark  13:580705暂时加这个解决了最新下拉就会小滑条过去大家都在买的bug，但是还有个bug，就是下拉刷新的时候就是会回到开头
+
+    if ([_collectionArray objectAtIndex:1]) {
+        [UIView animateWithDuration:0.25 animations:^{
             
+            slideView.center=CGPointMake(1*_rankVC.frame.size.width*2/5+125, 38);
+        }];
+    }
+    
+    
+    
+    
+    
+    
+        if (_pageCount==1) {
             
             
 #pragma mark 这里也用按钮点击tag来做判断就好，不需要在去请求的时候返回数据了
             if (_oneCount==1) {
+                
+                
                 return;
             }
             
             
             
-            //if (_ScrollCount<=1) {
-                
                 collection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
                     _ScrollCount=1;
+                    
+                    _pageCount=1;
                     [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
                 }];
                 
-                
+           
                 
                 [collection.header beginRefreshing];
-            //}
+          
             
-            //        collection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            //             _ScrollCount=1;
-            //            [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
-            //        }];
-            //
-            //
-            //
-            //        [collection.header beginRefreshing];
-            //[_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
-            
-            
-            collection.footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+                collection.footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
                 _ScrollCount++;
                 
                 [_hot CreateNewBuyRequest:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v3/newlist?page=%ld&size=50",(long)_ScrollCount++]];
             }];
             
-            [collection.footer endRefreshing];
             
             
             
-       // }
-        
-        //    if (_pageCount==0) {
-        //         [_hot CreateEveryOneBuyRequest:@"http://apiv2.yangkeduo.com/v2/ranklist?page=1&size=50"];
-        //    }
-        
-        
-        
-        UIButton*button=[_rankVC viewWithTag:_pageCount+110];
-        
-        NSLog(@"%ld",(long)button.tag);
-        
-        button.frame=CGRectMake(_pageCount*_rankVC.frame.size.width/2, 0, _rankVC.frame.size.width/2, 37 );
-        
-        UIView*slideView=[_rankVC viewWithTag:99];
-        
-        [UIView animateWithDuration:0.25 animations:^{
             
-            slideView.center=CGPointMake(_pageCount*_rankVC.frame.size.width*2/5+125, 38);
-        }];
+            
+            
+            
+            
+            
+            
+#pragma mark 一开始就不需要刷新
+            
+        
+        
+//        UIButton*button=[_rankVC viewWithTag:_pageCount+110];
+//        
+//        NSLog(@"%ld",(long)button.tag);
+//        
+//        button.frame=CGRectMake(_pageCount*_rankVC.frame.size.width/2, 0, _rankVC.frame.size.width/2, 37 );
+//        
+//        UIView*slideView=[_rankVC viewWithTag:99];
+//        
+//        [UIView animateWithDuration:0.25 animations:^{
+//            
+//            slideView.center=CGPointMake(_pageCount*_rankVC.frame.size.width*2/5+125, 38);
+//        }];
         
     }
     
