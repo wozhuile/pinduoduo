@@ -49,7 +49,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+      countSum=1;
  
     _goods_listArray=[[NSMutableArray alloc]init];
     _home_recommend_subjectsArray=[[NSMutableArray alloc]init];
@@ -199,16 +199,23 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         
         [_home_recommend_subjectsArray enumerateObjectsUsingBlock:^(PDDHomeRecommendSubjects*  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             [_goods_listArray insertObject:obj atIndex:obj.position+1];//加1试试
+            
+            
         }];
         
       
         [_totalarray setArray:_goods_listArray];
+        [_buttomDataTableView.header endRefreshing];
+        
+#pragma mark 不知道为什么加这个就可以防止有时候多次进来返回相同数据
+       return;
         
         
     }else{
         
         //加载更多
         [_totalarray   addObjectsFromArray:modelData.goodsList];
+         [_buttomDataTableView.footer endRefreshing];
     }
 
     
@@ -430,12 +437,12 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    NSLog(@"------是滚动试图----");
+   // NSLog(@"------是滚动试图----");
 
-    NSLog(@"%f",scrollView.contentOffset.y);
+   // NSLog(@"%f",scrollView.contentOffset.y);
     
     
-    CGFloat height=scrollView.contentOffset.y;
+     CGFloat height=scrollView.contentOffset.y;
     
     
 #pragma mark 最好不要移除，，就是显示和隐藏就好  ,hidden属性就可以了的
