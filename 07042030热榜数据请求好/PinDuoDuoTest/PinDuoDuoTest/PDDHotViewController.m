@@ -466,9 +466,12 @@ static NSString*cellID=@"cell";
 //TODO:不需要过去请求的时候返回一个数据来做判断，用下边pagecount来做判断，保证点击按钮就请求一次
         if (_pageCount==1) {
             
-            
+             //_pageCount=1;
             return;
         }
+        
+        
+        
         
         
         
@@ -480,7 +483,7 @@ static NSString*cellID=@"cell";
                 _oneCount=1;
                 
                 
-                _pageCount=1;
+                //_pageCount=1;
                 
                 
                 
@@ -557,6 +560,12 @@ static NSString*cellID=@"cell";
     if ([_collectionArray objectAtIndex:1]) {
         [UIView animateWithDuration:0.25 animations:^{
             
+            
+#pragma mark 在这里加 _pageCount=1;，点击最新不会重新刷新了，，但是点击大家都在买，，小滑条又bug了。。
+
+            
+            
+            _pageCount=1;
             slideView.center=CGPointMake(1*_rankVC.frame.size.width*2/5+125, 38);
         }];
     }

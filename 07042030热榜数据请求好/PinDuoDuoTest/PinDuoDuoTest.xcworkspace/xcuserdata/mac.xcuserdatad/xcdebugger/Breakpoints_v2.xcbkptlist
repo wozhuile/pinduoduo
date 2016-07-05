@@ -180,11 +180,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/PDDHotViewController.m"
-            timestampString = "489391072.599792"
+            timestampString = "489391901.386782"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "574"
-            endingLineNumber = "574"
+            startingLineNumber = "584"
+            endingLineNumber = "584"
             landmarkName = "-scrollViewDidEndDecelerating:"
             landmarkType = "5">
          </BreakpointContent>
@@ -196,11 +196,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/PDDHotViewController.m"
-            timestampString = "489391072.599792"
+            timestampString = "489391901.386782"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "566"
-            endingLineNumber = "566"
+            startingLineNumber = "576"
+            endingLineNumber = "576"
             landmarkName = "-scrollViewDidEndDecelerating:"
             landmarkType = "5">
          </BreakpointContent>
@@ -212,11 +212,107 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/PDDHotViewController.m"
-            timestampString = "489391072.599792"
+            timestampString = "489391901.386782"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "571"
-            endingLineNumber = "571"
+            startingLineNumber = "581"
+            endingLineNumber = "581"
+            landmarkName = "-scrollViewDidEndDecelerating:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[PDDHotViewController scrollViewDidEndDecelerating:]"
+                  moduleName = "PinDuoDuoTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/pinduoduoGit/07042030%E7%83%AD%E6%A6%9C%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E5%A5%BD/PinDuoDuoTest/PinDuoDuoTest/PDDHotViewController.m"
+                  timestampString = "489391901.52222"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "585"
+                  endingLineNumber = "585"
+                  offsetFromSymbolStart = "1472">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__53-[PDDHotViewController scrollViewDidEndDecelerating:]_block_invoke211"
+                  moduleName = "PinDuoDuoTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/pinduoduoGit/07042030%E7%83%AD%E6%A6%9C%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E5%A5%BD/PinDuoDuoTest/PinDuoDuoTest/PDDHotViewController.m"
+                  timestampString = "489391901.522528"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "585"
+                  endingLineNumber = "585"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PinDuoDuoTest/PDDHotViewController.m"
+            timestampString = "489391901.386782"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "596"
+            endingLineNumber = "596"
+            landmarkName = "-scrollViewDidEndDecelerating:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[PDDHotViewController scrollViewDidEndDecelerating:]"
+                  moduleName = "PinDuoDuoTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/pinduoduoGit/07042030%E7%83%AD%E6%A6%9C%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E5%A5%BD/PinDuoDuoTest/PinDuoDuoTest/PDDHotViewController.m"
+                  timestampString = "489391901.54886"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "597"
+                  endingLineNumber = "597"
+                  offsetFromSymbolStart = "1756">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__53-[PDDHotViewController scrollViewDidEndDecelerating:]_block_invoke215"
+                  moduleName = "PinDuoDuoTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/pinduoduoGit/07042030%E7%83%AD%E6%A6%9C%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E5%A5%BD/PinDuoDuoTest/PinDuoDuoTest/PDDHotViewController.m"
+                  timestampString = "489391901.549122"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "597"
+                  endingLineNumber = "597"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PinDuoDuoTest/PDDHotViewController.m"
+            timestampString = "489391865.351216"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "537"
+            endingLineNumber = "537"
             landmarkName = "-scrollViewDidEndDecelerating:"
             landmarkType = "5">
          </BreakpointContent>
@@ -228,11 +324,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/PDDHotViewController.m"
-            timestampString = "489391072.599792"
+            timestampString = "489391865.351216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "586"
-            endingLineNumber = "586"
+            startingLineNumber = "528"
+            endingLineNumber = "528"
             landmarkName = "-scrollViewDidEndDecelerating:"
             landmarkType = "5">
          </BreakpointContent>
@@ -244,11 +340,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/PDDHotViewController.m"
-            timestampString = "489383917.800329"
+            timestampString = "489391865.351216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "534"
-            endingLineNumber = "534"
+            startingLineNumber = "555"
+            endingLineNumber = "555"
             landmarkName = "-scrollViewDidEndDecelerating:"
             landmarkType = "5">
          </BreakpointContent>
@@ -260,7 +356,55 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/PDDHotViewController.m"
-            timestampString = "489383917.800329"
+            timestampString = "489391865.351216"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "547"
+            endingLineNumber = "547"
+            landmarkName = "-scrollViewDidEndDecelerating:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PinDuoDuoTest/PDDHotViewController.m"
+            timestampString = "489391901.386782"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "589"
+            endingLineNumber = "589"
+            landmarkName = "-scrollViewDidEndDecelerating:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PinDuoDuoTest/PDDHotViewController.m"
+            timestampString = "489391901.386782"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "592"
+            endingLineNumber = "592"
+            landmarkName = "-scrollViewDidEndDecelerating:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PinDuoDuoTest/PDDHotViewController.m"
+            timestampString = "489391865.351216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "525"
@@ -276,12 +420,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/PDDHotViewController.m"
-            timestampString = "489391072.599792"
+            timestampString = "489391312.743994"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "552"
-            endingLineNumber = "552"
-            landmarkName = "-scrollViewDidEndDecelerating:"
+            startingLineNumber = "461"
+            endingLineNumber = "461"
+            landmarkName = "-sendButton:button:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -292,58 +436,42 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/PDDHotViewController.m"
-            timestampString = "489383917.800329"
+            timestampString = "489391865.351216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "544"
-            endingLineNumber = "544"
-            landmarkName = "-scrollViewDidEndDecelerating:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PinDuoDuoTest/PDDHotViewController.m"
-            timestampString = "489391072.599792"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "579"
-            endingLineNumber = "579"
-            landmarkName = "-scrollViewDidEndDecelerating:"
+            startingLineNumber = "480"
+            endingLineNumber = "480"
+            landmarkName = "-sendButton:button:"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[PDDHotViewController scrollViewDidEndDecelerating:]"
+                  symbolName = "-[PDDHotViewController sendButton:button:]"
                   moduleName = "PinDuoDuoTest"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/pinduoduoGit/07042030%E7%83%AD%E6%A6%9C%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E5%A5%BD/PinDuoDuoTest/PinDuoDuoTest/PDDHotViewController.m"
-                  timestampString = "489391183.331631"
+                  timestampString = "489391901.557541"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "579"
-                  endingLineNumber = "579"
-                  offsetFromSymbolStart = "1472">
+                  startingLineNumber = "480"
+                  endingLineNumber = "480"
+                  offsetFromSymbolStart = "543">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__53-[PDDHotViewController scrollViewDidEndDecelerating:]_block_invoke211"
+                  symbolName = "__42-[PDDHotViewController sendButton:button:]_block_invoke"
                   moduleName = "PinDuoDuoTest"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/pinduoduoGit/07042030%E7%83%AD%E6%A6%9C%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E5%A5%BD/PinDuoDuoTest/PinDuoDuoTest/PDDHotViewController.m"
-                  timestampString = "489391183.331837"
+                  timestampString = "489391901.557727"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "579"
-                  endingLineNumber = "579"
+                  startingLineNumber = "480"
+                  endingLineNumber = "480"
                   offsetFromSymbolStart = "19">
                </Location>
             </Locations>
@@ -356,12 +484,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/PDDHotViewController.m"
-            timestampString = "489391072.599792"
+            timestampString = "489391865.351216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "582"
-            endingLineNumber = "582"
-            landmarkName = "-scrollViewDidEndDecelerating:"
+            startingLineNumber = "483"
+            endingLineNumber = "483"
+            landmarkName = "-sendButton:button:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -372,12 +500,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/PDDHotViewController.m"
-            timestampString = "489383917.800329"
+            timestampString = "489391865.351216"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "522"
-            endingLineNumber = "522"
-            landmarkName = "-scrollViewDidEndDecelerating:"
+            startingLineNumber = "486"
+            endingLineNumber = "486"
+            landmarkName = "-sendButton:button:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PinDuoDuoTest/PDDHotViewController.m"
+            timestampString = "489391865.351216"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "492"
+            endingLineNumber = "492"
+            landmarkName = "-sendButton:button:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PinDuoDuoTest/PDDHotViewController.m"
+            timestampString = "489391709.366415"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "467"
+            endingLineNumber = "467"
+            landmarkName = "-sendButton:button:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PinDuoDuoTest/PDDHotViewController.m"
+            timestampString = "489391712.958486"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "469"
+            endingLineNumber = "469"
+            landmarkName = "-sendButton:button:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
