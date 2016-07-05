@@ -39,9 +39,11 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 #import "MiddlescrollTableViewCell.h"
 #import "textFieldTableViewCell.h"
 
+#import "purChasingViewController.h"
 
 
-@interface ViewController ()<NetWorkRequestModelDelegate,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate>
+
+@interface ViewController ()<NetWorkRequestModelDelegate,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,MiddlescrollTableViewCellDelegate>
 
 @end
 
@@ -51,6 +53,10 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     [super viewDidLoad];
       countSum=1;
  
+    //声明代理
+    self.milldeScroll.delegate=self;
+    
+    
     _goods_listArray=[[NSMutableArray alloc]init];
     _home_recommend_subjectsArray=[[NSMutableArray alloc]init];
     _home_super_brandArray=[[NSMutableArray alloc]init];
@@ -322,11 +328,14 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         
         static NSString*cellID=@"MidleCell";
         MiddlescrollTableViewCell*cell=[tableView dequeueReusableCellWithIdentifier:cellID];
+        
+       // cell.delegate=self;
+        
         if (cell==nil) {
             cell=[[MiddlescrollTableViewCell alloc]init];
             cell.selectionStyle=UITableViewCellSelectionStyleNone;
         }
-        
+           cell.delegate=self;
          //cell.backgroundColor=[UIColor purpleColor];
         
          return cell;
@@ -492,5 +501,21 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
 }
 
+#pragma mark 第二区10个按钮实现方法   注意tag对不对
+-(void)sendButton:(MiddlescrollTableViewCell *)cell button:(UIButton *)button
+{
+    NSLog(@"%ld",(long)button.tag);
+    
+    if (button.tag==0) {
+        purChasingViewController*purchasing=[[purChasingViewController alloc]init];
+        
+        //[purchasing.navigationController.navigationBar.backItem setHidesBackButton:YES];
+        //这个可以隐藏，但是连按钮都没有了
+        //[purchasing.navigationItem setHidesBackButton:YES];
+        //[purchasing.navigationItem.backBarButtonItem setTitle:@""];
+        [self.navigationController pushViewController:purchasing animated:YES];//注意动画效果要不要
+        
+    }
+}
 
 @end

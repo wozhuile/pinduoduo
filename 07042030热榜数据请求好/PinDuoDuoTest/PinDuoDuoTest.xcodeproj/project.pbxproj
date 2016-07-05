@@ -11,6 +11,8 @@
 		044042321D275F360015D3E6 /* country_listTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044042311D275F360015D3E6 /* country_listTableViewCell.m */; };
 		044042351D275F590015D3E6 /* goods_listRankTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044042341D275F590015D3E6 /* goods_listRankTableViewCell.m */; };
 		04DAD4601D2BD55E0027D466 /* purChasingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DAD45F1D2BD55E0027D466 /* purChasingViewController.m */; };
+		04DAD4651D2BE9C70027D466 /* purChaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DAD4631D2BE9C70027D466 /* purChaseCollectionViewCell.m */; };
+		04DAD4661D2BE9C70027D466 /* purChaseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DAD4641D2BE9C70027D466 /* purChaseCollectionViewCell.xib */; };
 		04DE6ED91D274BC100FF3AC1 /* rankTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE6ED81D274BC100FF3AC1 /* rankTool.m */; };
 		04DE6EE61D274C8E00FF3AC1 /* RankBaseModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE6EDD1D274C8E00FF3AC1 /* RankBaseModle.m */; };
 		04DE6EE71D274C8E00FF3AC1 /* RankCountryList.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DE6EDF1D274C8E00FF3AC1 /* RankCountryList.m */; };
@@ -75,6 +77,9 @@
 		044042341D275F590015D3E6 /* goods_listRankTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = goods_listRankTableViewCell.m; sourceTree = "<group>"; };
 		04DAD45E1D2BD55E0027D466 /* purChasingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = purChasingViewController.h; sourceTree = "<group>"; };
 		04DAD45F1D2BD55E0027D466 /* purChasingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = purChasingViewController.m; sourceTree = "<group>"; };
+		04DAD4621D2BE9C70027D466 /* purChaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = purChaseCollectionViewCell.h; sourceTree = "<group>"; };
+		04DAD4631D2BE9C70027D466 /* purChaseCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = purChaseCollectionViewCell.m; sourceTree = "<group>"; };
+		04DAD4641D2BE9C70027D466 /* purChaseCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = purChaseCollectionViewCell.xib; sourceTree = "<group>"; };
 		04DE6ED71D274BC100FF3AC1 /* rankTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rankTool.h; sourceTree = "<group>"; };
 		04DE6ED81D274BC100FF3AC1 /* rankTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rankTool.m; sourceTree = "<group>"; };
 		04DE6EDB1D274C8E00FF3AC1 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
@@ -207,6 +212,16 @@
 				04DAD45F1D2BD55E0027D466 /* purChasingViewController.m */,
 			);
 			name = "秒杀";
+			sourceTree = "<group>";
+		};
+		04DAD4611D2BE92F0027D466 /* 秒杀cell */ = {
+			isa = PBXGroup;
+			children = (
+				04DAD4621D2BE9C70027D466 /* purChaseCollectionViewCell.h */,
+				04DAD4631D2BE9C70027D466 /* purChaseCollectionViewCell.m */,
+				04DAD4641D2BE9C70027D466 /* purChaseCollectionViewCell.xib */,
+			);
+			name = "秒杀cell";
 			sourceTree = "<group>";
 		};
 		04DE6EDA1D274C8E00FF3AC1 /* 海淘专区 */ = {
@@ -354,6 +369,7 @@
 		04E221C41D2222980042B3C7 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				04DAD4611D2BE92F0027D466 /* 秒杀cell */,
 				04E259691D2A1461006F488B /* 第三区cell */,
 				04E259681D2A1459006F488B /* 第二区cell */,
 				04E259671D2A144C006F488B /* 第一区cell */,
@@ -653,6 +669,7 @@
 				04E1B5F41D24FE7A0013515A /* HotCollectionViewCell.xib in Resources */,
 				04E221C21D2221D50042B3C7 /* PDDMeViewController.xib in Resources */,
 				04E32B291D26A75C00A96D34 /* 520.gif in Resources */,
+				04DAD4661D2BE9C70027D466 /* purChaseCollectionViewCell.xib in Resources */,
 				04E221B01D22218A0042B3C7 /* PDDHotViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -727,6 +744,7 @@
 				04DE6EEA1D274C8E00FF3AC1 /* RankPromotionList.m in Sources */,
 				04ED69571D23549200098325 /* PDDGroup.m in Sources */,
 				04E3775A1D28BA5E00467A06 /* NewGoodsList.m in Sources */,
+				04DAD4651D2BE9C70027D466 /* purChaseCollectionViewCell.m in Sources */,
 				04ED69591D23549200098325 /* PDDHomeRecommendSubjects.m in Sources */,
 				04E221C11D2221D50042B3C7 /* PDDMeViewController.m in Sources */,
 				04E2596C1D2A1493006F488B /* TopScrollTableViewCell.m in Sources */,

@@ -68,7 +68,10 @@
         
         UIButton*button=[[UIButton alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5, btnWidth, btnWidth)];
         [button setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"spike_%d",i+1]] forState:UIControlStateNormal];
-        button.tag=i+10;
+        button.tag=i;
+        
+        
+        
         [button addTarget:self action:@selector(ShowBtn:) forControlEvents:UIControlEventTouchUpInside];
         //button.backgroundColor=[UIColor redColor];
         
@@ -108,7 +111,9 @@
     
     
 #pragma mark 因为点击10个按钮会跳转到下一个界面，需要导航，所以这里要传值出去到控制器里边处理，现在用代理传值出去
-    
+    if ([_delegate respondsToSelector:@selector(sendButton:button:)]) {
+        [_delegate sendButton:self button:sender];
+    }
     
     
 }

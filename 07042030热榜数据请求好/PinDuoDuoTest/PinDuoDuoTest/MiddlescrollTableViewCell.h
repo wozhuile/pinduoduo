@@ -8,7 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class MiddlescrollTableViewCell;
+@protocol MiddlescrollTableViewCellDelegate <NSObject>
+
+#pragma mark 创建代理，把按钮传出去
+-(void)sendButton:(MiddlescrollTableViewCell*)cell button:(UIButton*)button;
+
+
+@end
+
 @interface MiddlescrollTableViewCell : UITableViewCell
+
+@property(nonatomic,assign)id<MiddlescrollTableViewCellDelegate>delegate;
 
 
 #pragma mark 中间滚动加按钮图片
