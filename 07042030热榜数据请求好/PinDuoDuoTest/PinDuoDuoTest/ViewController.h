@@ -71,5 +71,9 @@
 @property(nonatomic,strong)NSMutableArray*topScrollArray;
 
 
+#pragma mark 回到顶部按钮
+@property(nonatomic,strong)UIButton*scrollToTopButton;
+
+@property(nonatomic,assign)BOOL isShowButton;
 @end
 

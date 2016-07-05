@@ -120,6 +120,8 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     [self.view addSubview:_buttomDataTableView];
     
  
+#pragma mark 不允许反弹，都下拉不了了。
+    //_buttomDataTableView.bounces=NO;
     
 }
 
@@ -428,15 +430,56 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    if ([scrollView isKindOfClass:[UITableView class]]) {
-        //NSLog(@"------是列表---");
-        //_buttomDataTableView.scrollEnabled=NO;
+    NSLog(@"------是滚动试图----");
+
+    NSLog(@"%f",scrollView.contentOffset.y);
+    
+    
+    CGFloat height=scrollView.contentOffset.y;
+    
+    
+#pragma mark 最好不要移除，，就是显示和隐藏就好  ,hidden属性就可以了的
+    
+    
+    //大概一下试试  系统效果差不多就是这个位置
+    if (height>300) {
+        
+        //_isShowButton=NO;
+        _scrollToTopButton.hidden=NO;
+       if (_scrollToTopButton==nil&&_isShowButton==NO) {
+            _scrollToTopButton=[[UIButton alloc]initWithFrame:CGRectMake(350, 600, 40, 40)];
+            _scrollToTopButton.backgroundColor=[UIColor redColor];
+            [_scrollToTopButton setTitle:@"顶部" forState:0];
+            [_scrollToTopButton addTarget:self action:@selector(topButton) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:_scrollToTopButton];
+            
+            
+        }
+        
+        
+        
     }
-    else {
-        //NSLog(@"------是滚动试图----");
+    
+    else
+    { _buttomDataTableView.bounces=YES;
+        
+        //_isShowButton=YES;
+        _scrollToTopButton.hidden=YES;
+        //[_scrollToTopButton removeFromSuperview];
     }
+    
+
 }
 
+-(void)topButton
+{
+    //_buttomDataTableView.scrollEnabled=YES;
+    //_buttomDataTableView.scrollsToTop=YES;
+    _buttomDataTableView.bounces=NO;
+    [_buttomDataTableView setContentOffset:CGPointMake(0, -120)];//不知道为什么要120来对冲掉，，还有需要设置不反弹在这里，创建的时候不能设置，否则下拉都没有拉..其实在这里也是没有了的，要不还是在上边坐标哪里判断？在开始的时候反弹开启，，没多大效果
+    
+    
+}
 
 
 @end
