@@ -78,9 +78,9 @@ static  NSString*home_super_brandCell=@"home_super_brand";
  
     
     
-    [_netModel topScrollViewImage:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/subjects"]];
+    //[_netModel topScrollViewImage:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/subjects"]];
     
-    [_netModel buttomDataRequest:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"]];
+        //[_netModel buttomDataRequest:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v2/goods?page=1&size=50"]];
     
     
     
@@ -152,7 +152,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
             
       }];
     
-    [_buttomDataTableView.footer beginRefreshing];
+    //[_buttomDataTableView.footer beginRefreshing];
     
     
 }
@@ -205,17 +205,19 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         
       
         [_totalarray setArray:_goods_listArray];
-        [_buttomDataTableView.header endRefreshing];
-        
-#pragma mark 不知道为什么加这个就可以防止有时候多次进来返回相同数据
-       return;
-        
+        NSLog(@"获得首页数据");
+//        [_buttomDataTableView.header endRefreshing];
+//        
+//#pragma mark 不知道为什么加这个就可以防止有时候多次进来返回相同数据
+      //return;
+//        
         
     }else{
         
+        NSLog(@"获得分页数据");
         //加载更多
         [_totalarray   addObjectsFromArray:modelData.goodsList];
-         [_buttomDataTableView.footer endRefreshing];
+        // [_buttomDataTableView.footer endRefreshing];
     }
 
     
@@ -482,8 +484,10 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 {
     //_buttomDataTableView.scrollEnabled=YES;
     //_buttomDataTableView.scrollsToTop=YES;
-    _buttomDataTableView.bounces=NO;
-    [_buttomDataTableView setContentOffset:CGPointMake(0, -120)];//不知道为什么要120来对冲掉，，还有需要设置不反弹在这里，创建的时候不能设置，否则下拉都没有拉..其实在这里也是没有了的，要不还是在上边坐标哪里判断？在开始的时候反弹开启，，没多大效果
+    //_buttomDataTableView.bounces=NO;
+    
+    [_buttomDataTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+//    [_buttomDataTableView setContentOffset:CGPointMake(0, -120)];//不知道为什么要120来对冲掉，，还有需要设置不反弹在这里，创建的时候不能设置，否则下拉都没有拉..其实在这里也是没有了的，要不还是在上边坐标哪里判断？在开始的时候反弹开启，，没多大效果
     
     
 }

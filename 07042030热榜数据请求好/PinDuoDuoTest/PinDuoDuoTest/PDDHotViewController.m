@@ -453,9 +453,21 @@ static NSString*cellID=@"cell";
     
 #pragma mark bug 就是每次点击就会重新请求，这个药保证一次，，，那就用刚刚那个_oneCount吧。。试试看  ，没改之前if (button.tag==111)  注意，一开始的时候就是0啊。。。
     
+    
+    
+    
+    
     if (button.tag==111) {
 #pragma mark 注意这里加起来的会导致下边活动也刷了
        // _oneCount=1;
+        
+//TODO:不需要过去请求的时候返回一个数据来做判断，用下边pagecount来做判断，保证点击按钮就请求一次
+        if (_pageCount==1) {
+            return;
+        }
+        
+        
+        
         
         if (_oneCount<=1) {
             collection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
@@ -499,7 +511,8 @@ static NSString*cellID=@"cell";
     
     
     
-    
+#pragma mark 记得剪掉110
+    _buttonTagCount=button.tag-110;
     
     
     
@@ -507,8 +520,7 @@ static NSString*cellID=@"cell";
 //         [_hot CreateEveryOneBuyRequest:@"http://apiv2.yangkeduo.com/v2/ranklist?page=1&size=50"];
 //    }
     
-#pragma mark 记得剪掉110
-    _buttonTagCount=button.tag-110;
+
     
 
     _choiceScroll.contentOffset=CGPointMake((button.tag-110)*CGRectGetWidth(_choiceScroll.frame), 0);//是实现点击滑动了，，但是呢，，，集合视图不见了。
@@ -518,71 +530,84 @@ static NSString*cellID=@"cell";
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     
+   // if (scrollView == _choiceScroll) {
         
-    
-      UICollectionView*collection=[_collectionArray objectAtIndex:1];
-    
-    _pageCount=scrollView.contentOffset.x/_rankVC.frame.size.width;
- #pragma mark 要保证请求一次就可以了。。滚动的时候不请求，，下拉上啦在请求，，！！
-    
+        UICollectionView*collection=[_collectionArray objectAtIndex:1];
+        
+        _pageCount=scrollView.contentOffset.x/_rankVC.frame.size.width;
+        //TODO: 要保证请求一次就可以了。。滚动的时候不请求，，下拉上啦在请求，，！！
+        
 #pragma mark 滑动就请求一次就好...怎么保证啊？？  请求的时候返回一个数据来做判断？？
-    
-    
-    if (_pageCount==1) {
-//        _ScrollCount=1;
-        if (_ScrollCount<=1) {
+        
+        
+        if (_pageCount==1) {
+            //        _ScrollCount=1;
             
-            collection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
-                _ScrollCount=1;
-                [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
+            
+            
+#pragma mark 这里也用按钮点击tag来做判断就好，不需要在去请求的时候返回数据了
+            if (_oneCount==1) {
+                return;
+            }
+            
+            
+            
+            //if (_ScrollCount<=1) {
+                
+                collection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+                    _ScrollCount=1;
+                    [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
+                }];
+                
+                
+                
+                [collection.header beginRefreshing];
+            //}
+            
+            //        collection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
+            //             _ScrollCount=1;
+            //            [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
+            //        }];
+            //
+            //
+            //
+            //        [collection.header beginRefreshing];
+            //[_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
+            
+            
+            collection.footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+                _ScrollCount++;
+                
+                [_hot CreateNewBuyRequest:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v3/newlist?page=%ld&size=50",(long)_ScrollCount++]];
             }];
             
+            [collection.footer endRefreshing];
             
             
-            [collection.header beginRefreshing];
-        }
-        
-//        collection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
-//             _ScrollCount=1;
-//            [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
-//        }];
-//        
-//        
-//        
-//        [collection.header beginRefreshing];
-        //[_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
-        
-        
-        collection.footer=[MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
-            _ScrollCount++;
             
-            [_hot CreateNewBuyRequest:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v3/newlist?page=%ld&size=50",(long)_ScrollCount++]];
+       // }
+        
+        //    if (_pageCount==0) {
+        //         [_hot CreateEveryOneBuyRequest:@"http://apiv2.yangkeduo.com/v2/ranklist?page=1&size=50"];
+        //    }
+        
+        
+        
+        UIButton*button=[_rankVC viewWithTag:_pageCount+110];
+        
+        NSLog(@"%ld",(long)button.tag);
+        
+        button.frame=CGRectMake(_pageCount*_rankVC.frame.size.width/2, 0, _rankVC.frame.size.width/2, 37 );
+        
+        UIView*slideView=[_rankVC viewWithTag:99];
+        
+        [UIView animateWithDuration:0.25 animations:^{
+            
+            slideView.center=CGPointMake(_pageCount*_rankVC.frame.size.width*2/5+125, 38);
         }];
         
-        [collection.footer endRefreshing];
-
-    
-    
     }
     
-//    if (_pageCount==0) {
-//         [_hot CreateEveryOneBuyRequest:@"http://apiv2.yangkeduo.com/v2/ranklist?page=1&size=50"];
-//    }
-    
-    
-    
-    UIButton*button=[_rankVC viewWithTag:_pageCount+110];
-    
-    NSLog(@"%ld",(long)button.tag);
-  
-    button.frame=CGRectMake(_pageCount*_rankVC.frame.size.width/2, 0, _rankVC.frame.size.width/2, 37 );
-
-    UIView*slideView=[_rankVC viewWithTag:99];
-    
-    [UIView animateWithDuration:0.25 animations:^{
-
-    slideView.center=CGPointMake(_pageCount*_rankVC.frame.size.width*2/5+125, 38);
-    }];
 }
 
 

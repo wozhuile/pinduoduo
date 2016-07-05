@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/ViewController.m"
-            timestampString = "489377424.566206"
+            timestampString = "489377828.9954"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "351"
-            endingLineNumber = "351"
+            startingLineNumber = "354"
+            endingLineNumber = "354"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/ViewController.m"
-            timestampString = "489377424.566206"
+            timestampString = "489377828.9954"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "406"
-            endingLineNumber = "406"
+            startingLineNumber = "409"
+            endingLineNumber = "409"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
             <Locations>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/ViewController.m"
-            timestampString = "489377424.566206"
+            timestampString = "489377828.9954"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "397"
-            endingLineNumber = "397"
+            startingLineNumber = "400"
+            endingLineNumber = "400"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/ViewController.m"
-            timestampString = "489377424.566206"
+            timestampString = "489377828.9954"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "379"
-            endingLineNumber = "379"
+            startingLineNumber = "382"
+            endingLineNumber = "382"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/ViewController.m"
-            timestampString = "489377424.566206"
+            timestampString = "489377828.9954"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
             <Locations>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/ViewController.m"
-            timestampString = "489377424.566206"
+            timestampString = "489377828.9954"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "346"
-            endingLineNumber = "346"
+            startingLineNumber = "349"
+            endingLineNumber = "349"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -203,6 +203,38 @@
             endingLineNumber = "135"
             landmarkName = "-refresh"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController refresh]"
+                  moduleName = "PinDuoDuoTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/pinduoduoGit/07042030%E7%83%AD%E6%A6%9C%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E5%A5%BD/PinDuoDuoTest/PinDuoDuoTest/ViewController.m"
+                  timestampString = "489378759.626766"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__25-[ViewController refresh]_block_invoke"
+                  moduleName = "PinDuoDuoTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac/Desktop/pinduoduoGit/07042030%E7%83%AD%E6%A6%9C%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E5%A5%BD/PinDuoDuoTest/PinDuoDuoTest/ViewController.m"
+                  timestampString = "489378759.627028"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "135"
+                  endingLineNumber = "135"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -228,7 +260,7 @@
                   moduleName = "PinDuoDuoTest"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/pinduoduoGit/07042030%E7%83%AD%E6%A6%9C%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E5%A5%BD/PinDuoDuoTest/PinDuoDuoTest/ViewController.m"
-                  timestampString = "489376940.953444"
+                  timestampString = "489378759.642498"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "145"
@@ -239,11 +271,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__25-[ViewController refresh]_block_invoke67"
+                  symbolName = "__25-[ViewController refresh]_block_invoke64"
                   moduleName = "PinDuoDuoTest"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/pinduoduoGit/07042030%E7%83%AD%E6%A6%9C%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E5%A5%BD/PinDuoDuoTest/PinDuoDuoTest/ViewController.m"
-                  timestampString = "489376940.953849"
+                  timestampString = "489378759.642684"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "145"
@@ -272,11 +304,11 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__25-[ViewController refresh]_block_invoke67"
+                  symbolName = "__25-[ViewController refresh]_block_invoke64"
                   moduleName = "PinDuoDuoTest"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/pinduoduoGit/07042030%E7%83%AD%E6%A6%9C%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E5%A5%BD/PinDuoDuoTest/PinDuoDuoTest/ViewController.m"
-                  timestampString = "489376940.962311"
+                  timestampString = "489378759.643791"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "153"
@@ -291,7 +323,7 @@
                   moduleName = "PinDuoDuoTest"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/pinduoduoGit/07042030%E7%83%AD%E6%A6%9C%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E5%A5%BD/PinDuoDuoTest/PinDuoDuoTest/ViewController.m"
-                  timestampString = "489376940.962503"
+                  timestampString = "489378759.643957"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -306,7 +338,7 @@
                   moduleName = "PinDuoDuoTest"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mac/Desktop/pinduoduoGit/07042030%E7%83%AD%E6%A6%9C%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E5%A5%BD/PinDuoDuoTest/PinDuoDuoTest/ViewController.m"
-                  timestampString = "489376940.962651"
+                  timestampString = "489378759.644368"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -339,11 +371,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/ViewController.m"
-            timestampString = "489377424.566206"
+            timestampString = "489377828.9954"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
+            startingLineNumber = "219"
+            endingLineNumber = "219"
             landmarkName = "-sucessToGetData:modelData:"
             landmarkType = "5">
          </BreakpointContent>
@@ -355,7 +387,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/ViewController.m"
-            timestampString = "489376848.0882"
+            timestampString = "489377828.9954"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "207"
@@ -403,12 +435,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/ViewController.m"
-            timestampString = "489377424.566206"
+            timestampString = "489377828.9954"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
+            startingLineNumber = "232"
+            endingLineNumber = "232"
             landmarkName = "-sucessToGetData:modelData:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PinDuoDuoTest/PDDHotViewController.m"
+            timestampString = "489378792.237926"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "449"
+            endingLineNumber = "449"
+            landmarkName = "-sendButton:button:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PinDuoDuoTest/PDDHotViewController.m"
+            timestampString = "489379358.353045"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "531"
+            endingLineNumber = "531"
+            landmarkName = "-scrollViewDidEndDecelerating:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
