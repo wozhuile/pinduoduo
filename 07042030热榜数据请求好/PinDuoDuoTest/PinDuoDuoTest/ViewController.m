@@ -466,8 +466,26 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         _scrollToTopButton.hidden=NO;
        if (_scrollToTopButton==nil&&_isShowButton==NO) {
             _scrollToTopButton=[[UIButton alloc]initWithFrame:CGRectMake(350, 600, 40, 40)];
-            _scrollToTopButton.backgroundColor=[UIColor redColor];
-            [_scrollToTopButton setTitle:@"顶部" forState:0];
+           // _scrollToTopButton.backgroundColor=[UIColor whiteColor];
+           //[_scrollToTopButton setTitle:@"顶部" forState:0];
+           //[_scrollToTopButton setTintColor:[UIColor blackColor]];
+           //切
+           _scrollToTopButton.layer.cornerRadius=20;
+           _scrollToTopButton.layer.masksToBounds=YES;
+           
+           [_scrollToTopButton setBackgroundImage: [UIImage imageNamed:@"go_top"] forState:0];
+           [_scrollToTopButton setTitle:@"顶部" forState:0];
+           [_scrollToTopButton setTitleColor:[UIColor blackColor] forState:0];
+          // [_scrollToTopButton setTintColor:[UIColor blackColor]];//
+           //[_scrollToTopButton settit];//这里不能设置大小，下边的才可以
+           
+           
+           
+           _scrollToTopButton.titleLabel.font=[UIFont systemFontOfSize:13];
+           
+           
+           
+           
             [_scrollToTopButton addTarget:self action:@selector(topButton) forControlEvents:UIControlEventTouchUpInside];
             [self.view addSubview:_scrollToTopButton];
             
