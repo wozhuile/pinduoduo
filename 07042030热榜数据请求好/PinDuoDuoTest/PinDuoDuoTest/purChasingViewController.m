@@ -200,32 +200,55 @@ static NSString*cellID=@"cell";
     [cell.thumb_url sd_setImageWithURL:[NSURL URLWithString:goods.thumbUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
 
     
-    cell.market_price.text=[NSString stringWithFormat:@"%.f",(float)goods.marketPrice/100];
+    cell.market_price.text=[NSString stringWithFormat:@"¥%.1f",(float)goods.marketPrice/100];
     cell.market_price.tintColor=[UIColor colorWithHexString:@"#81898c"];
+    cell.market_price.font=[UIFont systemFontOfSize:13];
     
-    cell.price.text=[NSString  stringWithFormat:@"%.f",(float)goods.price/100];
+    cell.price.text=[NSString  stringWithFormat:@"¥%.1f",(float)goods.price/100];
+    cell.price.textColor=[UIColor colorWithHexString:@"#f34a48"];
     
     
+
   
     
-    cell.goods_name.text=goods.goodsName;
+   // cell.goods_name.text=goods.goodsName;
+    //cell.goods_name.textColor=[UIColor colorWithHexString:@"#000606"];
+    //cell.goods_name.font=[UIFont systemFontOfSize:13];
+  #pragma mark 先进行字符串分割
+    NSString*nameString=goods.goodsName;
+    //带活动的    这个【要输出了粘贴复制，否则键盘的出不来
+    NSString*cutString=@"【活动";
+    if (cutString.length>0) {
+        NSArray*shopping=[nameString componentsSeparatedByString:cutString];
+        cell.goods_name.text=[shopping firstObject];
+    }
+    //带秒杀的
+    NSString*miaoSha=@"【秒杀";
+    if (miaoSha.length>0) {
+        NSArray*shopping=[nameString componentsSeparatedByString:miaoSha];
+        cell.goods_name.text=[shopping firstObject];
+        
+    }
+    
     cell.goods_name.textColor=[UIColor colorWithHexString:@"#000606"];
+    cell.goods_name.font=[UIFont systemFontOfSize:14];
     
-    
-    
-    
+#pragma mark 后边模式处理，超出部分不显示点点。。。
+    cell.goods_name.lineBreakMode=NSLineBreakByCharWrapping;
     
     
     if (goods.isOnsale==0) {
         cell.quantity.text=[NSString stringWithFormat:@"%d件",(int)goods.quantity];
+        cell.quantity.font=[UIFont systemFontOfSize:13];
+        
         cell.is_onsale.text=@"即将开始";
         cell.is_onsale.backgroundColor=[UIColor colorWithHexString:@"#fece21"];
         cell.is_onsale.textColor=[UIColor whiteColor];
-        
+        cell.is_onsale.font=[UIFont systemFontOfSize:13];
         
         cell.titleForTime.text=@"开始时间";
         cell.titleForTime.textColor=[UIColor colorWithHexString:@"#81898c"];
-        
+        cell.titleForTime.font=[UIFont systemFontOfSize:13];
        
     }
     
@@ -235,13 +258,16 @@ static NSString*cellID=@"cell";
         
         
         cell.quantity.text=[NSString stringWithFormat:@"%d件",(int)goods.quantity];
+        cell.quantity.font=[UIFont systemFontOfSize:13];
+        
         cell.is_onsale.text=@"马上抢";
         cell.is_onsale.backgroundColor=[UIColor colorWithHexString:@"#f34a48"];
         cell.is_onsale.textColor=[UIColor whiteColor];
-        
+        cell.is_onsale.font=[UIFont systemFontOfSize:13];
         
         cell.titleForTime.text=@"剩余数量";
         cell.titleForTime.textColor=[UIColor colorWithHexString:@"#81898c"];
+        cell.titleForTime.font=[UIFont systemFontOfSize:13];
     }
     
     
