@@ -43,7 +43,7 @@ static NSString*goodCell=@"goods_list";
 #pragma mark 刷新
 #import <MJRefresh.h>
 
-
+#import "UIColor+Hex.h"
 
 @interface PDDRankViewController ()<UITableViewDataSource,UITableViewDelegate,rankToolDelegate>
 
@@ -76,7 +76,7 @@ static NSString*goodCell=@"goods_list";
 {
     [super viewWillAppear:animated];
     self.navigationItem.title=@"海淘专区";
-    self.navigationController.navigationBar.barTintColor=[UIColor colorWithRed:225/256.0 green:225/256.0 blue:225/256.0 alpha:1.0];
+    self.navigationController.navigationBar.barTintColor=[UIColor colorWithHexString:@"#ffffff"];
     
 }
 

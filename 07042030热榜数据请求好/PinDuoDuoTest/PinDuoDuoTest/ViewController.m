@@ -40,7 +40,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
 #import "textFieldTableViewCell.h"
 
 #import "purChasingViewController.h"
-
+#import "UIColor+Hex.h"
 
 
 @interface ViewController ()<NetWorkRequestModelDelegate,UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,MiddlescrollTableViewCellDelegate>
@@ -187,7 +187,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     [super viewWillAppear:animated];
 
     self.navigationItem.title=@"拼多多商城";
-    self.navigationController.navigationBar.barTintColor=[UIColor colorWithRed:225/256.0 green:225/256.0 blue:225/256.0 alpha:1.0];
+    self.navigationController.navigationBar.barTintColor=[UIColor colorWithHexString:@"#ffffff"];
     
 }
 

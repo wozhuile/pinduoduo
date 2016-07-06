@@ -13,6 +13,8 @@
 #import "PDDSearchViewController.h"
 #import "PDDMeViewController.h"
 
+#import "UIColor+Hex.h"
+
 @interface AppDelegate ()
 
 @end
@@ -100,7 +102,11 @@
     //rootBarController.tabBar.tintColor=[UIColor redColor];
     // rootBarController.tabBar.barTintColor=[UIColor whiteColor];
     
-    rootBarController.tabBar.barTintColor=[UIColor colorWithRed:225/256.0 green:225/256.0 blue:225/256.0 alpha:1.0];;
+    
+    
+    rootBarController.tabBar.barTintColor=[UIColor colorWithHexString:@"#ffffff"];
+    
+    //rootBarController.tabBar.barTintColor=[UIColor colorWithRed:225/256.0 green:225/256.0 blue:225/256.0 alpha:1.0];;
     // rootBarController.tabBar.alpha=0.5;
     
     //rootBarController.viewControllers=@[HomeVC,HotVC,RankVC,SearchVC,MeVC];

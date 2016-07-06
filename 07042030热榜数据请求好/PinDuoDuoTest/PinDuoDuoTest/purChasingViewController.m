@@ -16,7 +16,7 @@ static NSString*cellID=@"cell";
 #import <MJRefresh.h>
 
 #import "PURCHARSGoods.h"
-
+#import "UIColor+Hex.h"
 
 
 @interface purChasingViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,puchaseModleDelegate>
@@ -46,8 +46,8 @@ static NSString*cellID=@"cell";
    _modle=[[puchaseModle alloc]init];
     _modle.delegate=self;
     
-//    //TODO请求数据
-//    [modle purchaseDataRequest:@"http://apiv2.yangkeduo.com/spike_list?page=1&size=50"];
+    //TODO:请求数据
+    [_modle purchaseDataRequest:@"http://apiv2.yangkeduo.com/spike_list?page=1&size=50"];
     
     
     //[self CreateCollectionVIew];
@@ -86,8 +86,8 @@ static NSString*cellID=@"cell";
     [super viewWillAppear:animated];
     
     
-    //TODO请求数据
-    [_modle purchaseDataRequest:@"http://apiv2.yangkeduo.com/spike_list?page=1&size=50"];
+//    //TODO:请求数据
+//    [_modle purchaseDataRequest:@"http://apiv2.yangkeduo.com/spike_list?page=1&size=50"];
     
     
    // [self.navigationItem.backBarButtonItem setTitle:@""];
@@ -144,7 +144,7 @@ static NSString*cellID=@"cell";
     
     _dataConllection=[[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame)) collectionViewLayout:flowlayout];
     
-    _dataConllection.backgroundColor=[UIColor greenColor];
+    _dataConllection.backgroundColor=[UIColor whiteColor];
 
     
     
@@ -200,11 +200,54 @@ static NSString*cellID=@"cell";
     [cell.thumb_url sd_setImageWithURL:[NSURL URLWithString:goods.thumbUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
 
     
+    cell.market_price.text=[NSString stringWithFormat:@"%.f",(float)goods.marketPrice/100];
+    cell.market_price.tintColor=[UIColor colorWithHexString:@"#81898c"];
     
-    cell.price.text=[NSString  stringWithFormat:@"%ld",(long)indexPath.row ];
+    cell.price.text=[NSString  stringWithFormat:@"%.f",(float)goods.price/100];
     
     
-    cell.backgroundColor=[UIColor redColor];
+  
+    
+    cell.goods_name.text=goods.goodsName;
+    cell.goods_name.textColor=[UIColor colorWithHexString:@"#000606"];
+    
+    
+    
+    
+    
+    
+    if (goods.isOnsale==0) {
+        cell.quantity.text=[NSString stringWithFormat:@"%d件",(int)goods.quantity];
+        cell.is_onsale.text=@"即将开始";
+        cell.is_onsale.backgroundColor=[UIColor colorWithHexString:@"#fece21"];
+        cell.is_onsale.textColor=[UIColor whiteColor];
+        
+        
+        cell.titleForTime.text=@"开始时间";
+        cell.titleForTime.textColor=[UIColor colorWithHexString:@"#81898c"];
+        
+       
+    }
+    
+    if (goods.isOnsale==1) {
+        
+        
+        
+        
+        cell.quantity.text=[NSString stringWithFormat:@"%d件",(int)goods.quantity];
+        cell.is_onsale.text=@"马上抢";
+        cell.is_onsale.backgroundColor=[UIColor colorWithHexString:@"#f34a48"];
+        cell.is_onsale.textColor=[UIColor whiteColor];
+        
+        
+        cell.titleForTime.text=@"剩余数量";
+        cell.titleForTime.textColor=[UIColor colorWithHexString:@"#81898c"];
+    }
+    
+    
+    
+    //用颜色类别赋值了。。不忍了
+    cell.backgroundColor=[UIColor colorWithHexString:@"#e7f7ff"];
     
     return cell;
     

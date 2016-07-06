@@ -31,6 +31,8 @@ static NSString*cellID=@"cell";
 #import <MJRefresh.h>
 
 
+#import "UIColor+Hex.h"
+
 @interface PDDHotViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,rankVIewDelegate,UIScrollViewDelegate,HotToolDelegate>
 
 @end
@@ -431,7 +433,7 @@ static NSString*cellID=@"cell";
     
 
     self.navigationItem.title=@"排行榜";
-    self.navigationController.navigationBar.barTintColor=[UIColor colorWithRed:225/256.0 green:225/256.0 blue:225/256.0 alpha:1.0];
+    self.navigationController.navigationBar.barTintColor=[UIColor colorWithHexString:@"#ffffff"];
 }
 
 

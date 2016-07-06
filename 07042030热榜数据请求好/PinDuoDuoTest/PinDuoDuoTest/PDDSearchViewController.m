@@ -7,7 +7,7 @@
 //
 
 #import "PDDSearchViewController.h"
-
+#import "UIColor+Hex.h"
 @interface PDDSearchViewController ()
 
 @end
@@ -27,7 +27,7 @@
 #pragma mark 背景颜色和条颜色区别！
     // self.navigationController.navigationBar.backgroundColor=[UIColor grayColor];
     self.navigationItem.title=@"搜索";
-    self.navigationController.navigationBar.barTintColor=[UIColor colorWithRed:225/256.0 green:225/256.0 blue:225/256.0 alpha:1.0];
+    self.navigationController.navigationBar.barTintColor=[UIColor colorWithHexString:@"#ffffff"];
 }
 
 
