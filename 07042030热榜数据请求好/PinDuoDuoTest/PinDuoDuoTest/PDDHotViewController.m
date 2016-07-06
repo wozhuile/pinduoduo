@@ -484,8 +484,8 @@ static NSString*cellID=@"cell";
 #pragma 不要写在外边
                 _oneCount=1;
                 
-                
-                //_pageCount=1;
+#pragma mark 防止第二次点击进来
+                _pageCount=1;
                 
                 
                 
@@ -559,18 +559,21 @@ static NSString*cellID=@"cell";
     
 #pragma mark  13:580705暂时加这个解决了最新下拉就会小滑条过去大家都在买的bug，但是还有个bug，就是下拉刷新的时候就是会回到开头
 
-    if ([_collectionArray objectAtIndex:1]) {
-        [UIView animateWithDuration:0.25 animations:^{
+    //if ([_collectionArray objectAtIndex:1]) {
+       // [UIView animateWithDuration:0.25 animations:^{
             
             
 #pragma mark 在这里加 _pageCount=1;，点击最新不会重新刷新了，，但是点击大家都在买，，小滑条又bug了。。..还是别加这个，一加这个就连刷新都没有办法了。。我宁愿不要小滑条效果了。。。。
 
-            
-            
+    
+    
+    
+#pragma mark 目前暂时可以了，不要加这个动画了
+    
            // _pageCount=1;
-            slideView.center=CGPointMake(1*_rankVC.frame.size.width*2/5+125, 38);
-        }];
-    }
+            //slideView.center=CGPointMake(1*_rankVC.frame.size.width*2/5+125, 38);
+       // }];
+    //}
     
     
     

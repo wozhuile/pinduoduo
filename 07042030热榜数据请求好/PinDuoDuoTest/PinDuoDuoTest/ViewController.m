@@ -536,4 +536,10 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     }
 }
 
+
+
+-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
 @end
