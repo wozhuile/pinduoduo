@@ -549,13 +549,29 @@ static NSString*cellID=@"cell";
     UIView*slideView=[_rankVC viewWithTag:99];
     
     
-   
+#pragma mark 处理好最后一个滚动bug。。之前向上滚动，都会调用滚动方法，，怎么处理都不行，，现在我就用y滚动来做判断，，
+    //左边向上滚动的处理
+    if (scrollView.contentOffset.y>0&&_oneCount==1) {
+        _pageCount=1;
+    }
+    //右边向上的处理
+    if (scrollView.contentOffset.y>0&&_pageCount==0) {
+        _pageCount=0;
+    }
     
     
     [UIView animateWithDuration:0.25 animations:^{
         
         slideView.center=CGPointMake(_pageCount*_rankVC.frame.size.width*2/5+125, 38);
     }];
+  
+    
+    //if (scrollView.contentOffset.x==self.view.frame.size.width) {
+       // slideView.center=CGPointMake(1*_rankVC.frame.size.width*2/5+125, 38);
+    //}
+    
+    
+    
     
 #pragma mark  13:580705暂时加这个解决了最新下拉就会小滑条过去大家都在买的bug，但是还有个bug，就是下拉刷新的时候就是会回到开头
 
@@ -594,6 +610,12 @@ static NSString*cellID=@"cell";
             
                 collection.header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
                     _ScrollCount=1;
+                    
+                    
+                    
+                    _oneCount=1;
+                    
+                    
                     
                     _pageCount=1;
                     [_hot CreateNewBuyRequest:@"http://apiv2.yangkeduo.com/v3/newlist?page=1&size=50"];
