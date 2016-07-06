@@ -211,7 +211,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         
       
         [_totalarray setArray:_goods_listArray];
-        NSLog(@"获得首页数据");
+            //NSLog(@"获得首页数据");
 //        [_buttomDataTableView.header endRefreshing];
 //        
 //#pragma mark 不知道为什么加这个就可以防止有时候多次进来返回相同数据
@@ -220,7 +220,7 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         
     }else{
         
-        NSLog(@"获得分页数据");
+       // NSLog(@"获得分页数据");
         //加载更多
         [_totalarray   addObjectsFromArray:modelData.goodsList];
         // [_buttomDataTableView.footer endRefreshing];

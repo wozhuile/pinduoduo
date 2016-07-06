@@ -19,7 +19,7 @@
     
     [manager GET:urlStr parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
         
-        // NSLog(@"底部==%@",responseObject);
+        //NSLog(@"底部==%@",responseObject);
         
         
 #pragma mark  模型，打算直接传出去，一会看看有没有数据，可以在控制器里边的viewwillappear里边处理试试，其实最好传数组过去，这里就把需要的都得到出来在存储到数组，传过去在取出来也可以

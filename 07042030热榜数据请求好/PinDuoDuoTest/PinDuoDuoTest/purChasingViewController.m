@@ -40,16 +40,17 @@ static NSString*cellID=@"cell";
     self.navigationItem.leftBarButtonItem=item;
     
     //purChaseCollectionViewCell*purChase=[[purChaseCollectionViewCell alloc]init];
+    [self CreateCollectionVIew];
 
     //创建对象，准备接受数据
-   puchaseModle*modle=[[puchaseModle alloc]init];
-    modle.delegate=self;
+   _modle=[[puchaseModle alloc]init];
+    _modle.delegate=self;
     
-    //TODO请求数据
-    [modle purchaseDataRequest:@"http://apiv2.yangkeduo.com/spike_list?page=1&size=50"];
+//    //TODO请求数据
+//    [modle purchaseDataRequest:@"http://apiv2.yangkeduo.com/spike_list?page=1&size=50"];
     
     
-    [self CreateCollectionVIew];
+    //[self CreateCollectionVIew];
     
     
     
@@ -84,6 +85,11 @@ static NSString*cellID=@"cell";
 {
     [super viewWillAppear:animated];
     
+    
+    //TODO请求数据
+    [_modle purchaseDataRequest:@"http://apiv2.yangkeduo.com/spike_list?page=1&size=50"];
+    
+    
    // [self.navigationItem.backBarButtonItem setTitle:@""];
     
     
@@ -115,6 +121,15 @@ static NSString*cellID=@"cell";
      如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作！*/
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    //[_modle purchaseDataRequest:@"http://apiv2.yangkeduo.com/spike_list?page=1&size=50"];
+
+    
+    
+}
 
 -(void)CreateCollectionVIew
 {
@@ -152,7 +167,10 @@ static NSString*cellID=@"cell";
 #pragma mark collection  datasource and delegate
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 50;
+    
+#pragma mark  return 50; 之前为了先看看是不是创建成功cell，就写来一个固定的值，50来实验，但是在进行网络请求的时候，没有进行修改，每次运行都说数组是空的，如果不在cell哪里用数组布局的话，代码会回去在此请求获得请求数据（block回调），那就不会崩溃，，如果这里用_dataArray.count 也就是用到了数组，调用了数组，就会直接进行请求获得数据了。就不会崩溃
+    //return 50;
+    return _dataArray.count;
 }
 
 -(UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -173,14 +191,17 @@ static NSString*cellID=@"cell";
     
     purChaseCollectionViewCell*cell=[collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
     
-    if (cell==nil) {
-        cell=[[purChaseCollectionViewCell alloc]init];
-    }
+   // if (cell==nil) {
+     //   cell=[[purChaseCollectionViewCell alloc]init];
+    //}
     
     PURCHARSGoods*goods=[_dataArray objectAtIndex:indexPath.row];
     
     [cell.thumb_url sd_setImageWithURL:[NSURL URLWithString:goods.thumbUrl] placeholderImage:[UIImage imageNamed:@"default_mall_logo"]];
+
     
+    
+    cell.price.text=[NSString  stringWithFormat:@"%ld",(long)indexPath.row ];
     
     
     cell.backgroundColor=[UIColor redColor];
