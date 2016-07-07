@@ -704,12 +704,16 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     //试试看
     detailsViewController*detailVC=[[detailsViewController alloc]init];
     
-   // self.tabBarController.hidesBottomBarWhenPushed=YES;
+#pragma mark 现在可以实现跳转隐藏了，之前  ，着两个办法都是加人家本身控制器，隐藏的就是它自己最下边的，，，，能有用麼？？虽然现在实现了，，但是也要注意，如果还需要从下边导航push到第三个界面还需要tabbar，那就要小心不出来的了。
+    //self.tabBarController.hidesBottomBarWhenPushed=YES;
+    //detailVC.tabBarController.hidesBottomBarWhenPushed=YES;
+   
+    
+    detailVC.hidesBottomBarWhenPushed=YES;
+    
+    
     
     [self.navigationController pushViewController:detailVC animated:YES];
-
-    self.tabBarController.hidesBottomBarWhenPushed=YES;
-    
 
     
     
