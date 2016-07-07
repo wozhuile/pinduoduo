@@ -145,7 +145,7 @@ static NSString*goodCell=@"goods_list";
     
     MJRefreshNormalHeader*header=[MJRefreshNormalHeader headerWithRefreshingBlock:^{
         
-        //_count=1;
+        _count=1;
         
         //[ranlTL sendRequestForGetData:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v2/haitaov2?page=%ld&size=50",(long)_count]];
         [ranlTL sendRequestForGetData:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/v2/haitaov2?page=1&size=50"]];
@@ -155,6 +155,8 @@ static NSString*goodCell=@"goods_list";
        // return ;
         //[_rankTableView reloadData];
     }];
+    
+    
     
     
     _rankTableView.header=header;
@@ -223,6 +225,7 @@ static NSString*goodCell=@"goods_list";
     
     
     if (_count==1) {
+        
         [_totalarray setArray:goods_listArray];
 
          //[_rankTableView.header endRefreshing];

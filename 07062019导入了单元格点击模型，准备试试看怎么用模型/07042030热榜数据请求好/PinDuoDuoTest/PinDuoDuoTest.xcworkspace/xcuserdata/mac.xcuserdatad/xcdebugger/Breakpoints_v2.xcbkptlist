@@ -83,13 +83,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PinDuoDuoTest/ViewController.m"
-            timestampString = "489587994.137162"
+            filePath = "PinDuoDuoTest/detailModel.m"
+            timestampString = "489592232.294817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "698"
-            endingLineNumber = "698"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "-detailRequestData:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -99,29 +99,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PinDuoDuoTest/ViewController.m"
-            timestampString = "489587994.137162"
+            filePath = "PinDuoDuoTest/detailModel.m"
+            timestampString = "489592232.294817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "697"
-            endingLineNumber = "697"
-            landmarkName = "-tableView:didSelectRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PinDuoDuoTest/detailsViewController.m"
-            timestampString = "489587278.111057"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "-detailRequestData:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -132,12 +116,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/detailsViewController.m"
-            timestampString = "489587994.137162"
+            timestampString = "489592159.242083"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "-sendGoods_listIndex:indexPath:"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "-sendUrl"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -148,28 +132,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PinDuoDuoTest/detailsViewController.m"
-            timestampString = "489587643.55909"
+            timestampString = "489592159.242083"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
-            landmarkName = "-createtableView"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PinDuoDuoTest/detailsViewController.m"
-            timestampString = "489587986.611814"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "-createtableView"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "-sendUrl"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

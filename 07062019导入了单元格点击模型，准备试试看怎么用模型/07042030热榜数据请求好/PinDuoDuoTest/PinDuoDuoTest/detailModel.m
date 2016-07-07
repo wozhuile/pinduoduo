@@ -10,6 +10,8 @@
 #import "AFNetworking.h"
 @implementation detailModel
 
+
+
 -(void)detailRequestData:(NSString*)urlStr
 {
     

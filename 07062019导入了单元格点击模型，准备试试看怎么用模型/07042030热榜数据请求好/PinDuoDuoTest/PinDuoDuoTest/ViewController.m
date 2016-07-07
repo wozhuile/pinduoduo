@@ -687,6 +687,12 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         
 #pragma mark 不知道为什么，这里属性传值就可以，，但是下边的代理传值就没用效果，这个本来就是这么简单，那就是代理传值是从后边往前传的，之所以我们在请求的时候看起来就是前往后传，那其实不是前往后，而是里边的block回调，其实本来我们就先有视图了，在里边菜请求，，也就是视图就是前，请求是后，再说block也会回调。。。。一定是后往前传值的
         
+        
+        
+#warning  练习block传值,这个是哪个要东西，哪个创建block和回调block，，然后有东西的那个累实现，，代理不是这样，代理是谁有东西谁在后边谁创建，实现是需要方做，，代理和block相反的，，但是block不管前后。。只管谁有东西谁要东西,.,,好像也是一样的
+        
+        
+        
         detailVC.dataIndex=goods.goodsId;
         
 #pragma mark 上边处理好了。。这里也得到goodsID了。。可以过去请求啦。。

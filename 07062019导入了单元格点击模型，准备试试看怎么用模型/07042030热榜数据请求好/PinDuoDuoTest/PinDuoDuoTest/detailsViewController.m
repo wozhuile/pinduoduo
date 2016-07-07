@@ -7,6 +7,8 @@
 //
 
 #import "detailsViewController.h"
+#import "detailModel.h"
+
 
 @interface detailsViewController ()<UITableViewDataSource,UITableViewDelegate,ViewControllerDataDelegate>
 
@@ -24,14 +26,16 @@
     self.navigationItem.leftBarButtonItem=item;
 #warning 注意跳转过来后的效果，，下边的标签栏应该隐藏的，然后再下边创建一个view来做下边的东西。。self.tabBarController.hidesBottomBarWhenPushed
     
+    //[self sendUrl];
+    
     
     [self createtableView];
     
     
 #pragma mark 遵循首页代理，，实现代理方法
-    _viewDelegate.dataDelegate=self;
+   // _viewDelegate.dataDelegate=self;
     
-    
+    //[self sendUrl];
     
 }
 
@@ -45,11 +49,16 @@
     _detailTableView.backgroundColor=[UIColor greenColor];
     [self.view addSubview:_detailTableView];
     
+#pragma mark  不知道为什么下边对象在没有创建这里的时候一直是空了。跳转斗这样麼？？这前的都不是跳转的，声明属性都可以了。。现在这里还需要创建对象才可以有对象，，，不过好像也是啊
     
-     _viewDelegate.dataDelegate=self;
+    
+    _detail=[[detailModel alloc]init];
+    // _viewDelegate.dataDelegate=self;
     
     
-    NSLog(@"%ld",(long)self.dataIndex);
+    //NSLog(@"%ld",(long)self.dataIndex);
+    
+     [self sendUrl];
     
 }
 
@@ -57,6 +66,26 @@
 -(void)sendGoods_listIndex:(ViewController *)viewcontroller indexPath:(NSInteger)indexPath
 {
     NSLog(@"商品indexPath＝＝＝＝%ld",(long)indexPath);
+}
+
+//-(void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    
+//    [self sendUrl];
+//
+//}
+#pragma mark 属性传值过来，进行对应请求吧
+-(void)sendUrl
+{
+    
+    NSLog(@"%ld",(long)self.dataIndex);
+#pragma mark 刚刚属性哪里用成weak来修饰了。对象就是空。释放了
+    [_detail detailRequestData:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/goods/%ld",(long)self.dataIndex]];
+    
+    NSLog(@"%@",[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/goods/%ld",(long)self.dataIndex]);
+    
+    
 }
 
 
@@ -167,14 +196,14 @@
 
 
 
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    //self.tabBarController.hidesBottomBarWhenPushed=YES;
-    //self.tabBarController.tabBar.hidden=YES;
-    
-    }
+//
+//-(void)viewWillAppear:(BOOL)animated
+//{
+//    [super viewWillAppear:animated];
+//    //self.tabBarController.hidesBottomBarWhenPushed=YES;
+//    //self.tabBarController.tabBar.hidden=YES;
+//    
+//    }
 
 
 

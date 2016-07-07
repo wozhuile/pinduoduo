@@ -21,6 +21,8 @@
 #pragma mark 请求／获取数据／代理传出去
 -(void)sendRequestForGetData:(NSString*)uilString
 {
+    
+    
     AFHTTPSessionManager*manager=[AFHTTPSessionManager manager];
 
     [manager GET:uilString parameters:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
