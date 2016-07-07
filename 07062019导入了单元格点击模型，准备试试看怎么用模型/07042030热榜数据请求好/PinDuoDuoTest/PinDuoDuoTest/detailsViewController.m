@@ -10,7 +10,7 @@
 #import "detailModel.h"
 
 
-@interface detailsViewController ()<UITableViewDataSource,UITableViewDelegate,ViewControllerDataDelegate>
+@interface detailsViewController ()<UITableViewDataSource,UITableViewDelegate,ViewControllerDataDelegate,detailModelDelegate>
 
 @end
 
@@ -53,6 +53,9 @@
     
     
     _detail=[[detailModel alloc]init];
+    _detail.delegate=self;
+    
+    
     // _viewDelegate.dataDelegate=self;
     
     
@@ -83,11 +86,31 @@
 #pragma mark 刚刚属性哪里用成weak来修饰了。对象就是空。释放了
     [_detail detailRequestData:[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/goods/%ld",(long)self.dataIndex]];
     
-    NSLog(@"%@",[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/goods/%ld",(long)self.dataIndex]);
-    
+   // NSLog(@"%@",[NSString stringWithFormat:@"http://apiv2.yangkeduo.com/goods/%ld",(long)self.dataIndex]);
+#pragma mark上边创建对象可以请求后，就可以代理传值过来了
     
 }
 
+#pragma mark 得到数据了。声明代理，实现方法，创建数组接受，刷新表
+
+-(void)suceessToSendDetailData:(detailModel *)detailModle homeDetail:(HomeDetailsModle *)homeDetail
+{
+    //输出看看先
+    NSLog(@"%@",homeDetail);
+    
+    //数据特别难处理
+    
+    
+    
+    
+    
+    
+    
+}
+-(void)failToSendDatailData:(detailModel *)detailModel error:(NSError *)error
+{
+    NSLog(@"详情error%@",error);
+}
 
 
 
