@@ -10,6 +10,10 @@
 		0440422F1D275F200015D3E6 /* promotion_listTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0440422E1D275F200015D3E6 /* promotion_listTableViewCell.m */; };
 		044042321D275F360015D3E6 /* country_listTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044042311D275F360015D3E6 /* country_listTableViewCell.m */; };
 		044042351D275F590015D3E6 /* goods_listRankTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 044042341D275F590015D3E6 /* goods_listRankTableViewCell.m */; };
+		04D70A8A1D2D2E04000148D3 /* HomeDetailsModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D70A831D2D2E04000148D3 /* HomeDetailsModle.m */; };
+		04D70A8B1D2D2E04000148D3 /* HomeGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D70A851D2D2E04000148D3 /* HomeGallery.m */; };
+		04D70A8C1D2D2E04000148D3 /* HomeGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D70A871D2D2E04000148D3 /* HomeGroup.m */; };
+		04D70A8D1D2D2E04000148D3 /* HomeSku.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D70A891D2D2E04000148D3 /* HomeSku.m */; };
 		04DAD4601D2BD55E0027D466 /* purChasingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DAD45F1D2BD55E0027D466 /* purChasingViewController.m */; };
 		04DAD4651D2BE9C70027D466 /* purChaseCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DAD4631D2BE9C70027D466 /* purChaseCollectionViewCell.m */; };
 		04DAD4661D2BE9C70027D466 /* purChaseCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04DAD4641D2BE9C70027D466 /* purChaseCollectionViewCell.xib */; };
@@ -79,6 +83,15 @@
 		044042311D275F360015D3E6 /* country_listTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = country_listTableViewCell.m; sourceTree = "<group>"; };
 		044042331D275F590015D3E6 /* goods_listRankTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = goods_listRankTableViewCell.h; sourceTree = "<group>"; };
 		044042341D275F590015D3E6 /* goods_listRankTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = goods_listRankTableViewCell.m; sourceTree = "<group>"; };
+		04D70A811D2D2E04000148D3 /* DataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModels.h; sourceTree = "<group>"; };
+		04D70A821D2D2E04000148D3 /* HomeDetailsModle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDetailsModle.h; sourceTree = "<group>"; };
+		04D70A831D2D2E04000148D3 /* HomeDetailsModle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDetailsModle.m; sourceTree = "<group>"; };
+		04D70A841D2D2E04000148D3 /* HomeGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeGallery.h; sourceTree = "<group>"; };
+		04D70A851D2D2E04000148D3 /* HomeGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeGallery.m; sourceTree = "<group>"; };
+		04D70A861D2D2E04000148D3 /* HomeGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeGroup.h; sourceTree = "<group>"; };
+		04D70A871D2D2E04000148D3 /* HomeGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeGroup.m; sourceTree = "<group>"; };
+		04D70A881D2D2E04000148D3 /* HomeSku.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeSku.h; sourceTree = "<group>"; };
+		04D70A891D2D2E04000148D3 /* HomeSku.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeSku.m; sourceTree = "<group>"; };
 		04DAD45E1D2BD55E0027D466 /* purChasingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = purChasingViewController.h; sourceTree = "<group>"; };
 		04DAD45F1D2BD55E0027D466 /* purChasingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = purChasingViewController.m; sourceTree = "<group>"; };
 		04DAD4621D2BE9C70027D466 /* purChaseCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = purChaseCollectionViewCell.h; sourceTree = "<group>"; };
@@ -216,6 +229,38 @@
 				044042341D275F590015D3E6 /* goods_listRankTableViewCell.m */,
 			);
 			name = view;
+			sourceTree = "<group>";
+		};
+		04D70A7E1D2D2DDB000148D3 /* 点击单元格 */ = {
+			isa = PBXGroup;
+			children = (
+				04D70A7F1D2D2DEF000148D3 /* 点击数据 */,
+			);
+			name = "点击单元格";
+			sourceTree = "<group>";
+		};
+		04D70A7F1D2D2DEF000148D3 /* 点击数据 */ = {
+			isa = PBXGroup;
+			children = (
+				04D70A801D2D2E04000148D3 /* 首页单元格点击数据 */,
+			);
+			name = "点击数据";
+			sourceTree = "<group>";
+		};
+		04D70A801D2D2E04000148D3 /* 首页单元格点击数据 */ = {
+			isa = PBXGroup;
+			children = (
+				04D70A811D2D2E04000148D3 /* DataModels.h */,
+				04D70A821D2D2E04000148D3 /* HomeDetailsModle.h */,
+				04D70A831D2D2E04000148D3 /* HomeDetailsModle.m */,
+				04D70A841D2D2E04000148D3 /* HomeGallery.h */,
+				04D70A851D2D2E04000148D3 /* HomeGallery.m */,
+				04D70A861D2D2E04000148D3 /* HomeGroup.h */,
+				04D70A871D2D2E04000148D3 /* HomeGroup.m */,
+				04D70A881D2D2E04000148D3 /* HomeSku.h */,
+				04D70A891D2D2E04000148D3 /* HomeSku.m */,
+			);
+			path = "首页单元格点击数据";
 			sourceTree = "<group>";
 		};
 		04DAD45D1D2BD48D0027D466 /* 秒杀 */ = {
@@ -428,6 +473,7 @@
 		04E221C51D2222A10042B3C7 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				04D70A7E1D2D2DDB000148D3 /* 点击单元格 */,
 				04DF69901D2BFE2B00DF3D6A /* 秒杀 */,
 				04ED69481D23549200098325 /* 第一界面确认下边的资源 */,
 				04E221D41D226E800042B3C7 /* 第一个滚动资源 */,
@@ -788,9 +834,12 @@
 				04E221BB1D2221BD0042B3C7 /* PDDSearchViewController.m in Sources */,
 				04ED695F1D2389E400098325 /* goods_listTableViewCell.m in Sources */,
 				04DE6EEA1D274C8E00FF3AC1 /* RankPromotionList.m in Sources */,
+				04D70A8A1D2D2E04000148D3 /* HomeDetailsModle.m in Sources */,
 				04ED69571D23549200098325 /* PDDGroup.m in Sources */,
 				04E3775A1D28BA5E00467A06 /* NewGoodsList.m in Sources */,
+				04D70A8B1D2D2E04000148D3 /* HomeGallery.m in Sources */,
 				04DAD4651D2BE9C70027D466 /* purChaseCollectionViewCell.m in Sources */,
+				04D70A8C1D2D2E04000148D3 /* HomeGroup.m in Sources */,
 				04ED69591D23549200098325 /* PDDHomeRecommendSubjects.m in Sources */,
 				04E221C11D2221D50042B3C7 /* PDDMeViewController.m in Sources */,
 				04DF69971D2BFE3800DF3D6A /* PURCHARSDataModle.m in Sources */,
@@ -804,6 +853,7 @@
 				04EBDC6C1D24170A00E7EFA7 /* rankVIew.m in Sources */,
 				04E221981D22211F0042B3C7 /* ViewController.m in Sources */,
 				0440422F1D275F200015D3E6 /* promotion_listTableViewCell.m in Sources */,
+				04D70A8D1D2D2E04000148D3 /* HomeSku.m in Sources */,
 				04E221AF1D22218A0042B3C7 /* PDDHotViewController.m in Sources */,
 				04ED695B1D23549200098325 /* PDDMobileAppGroups.m in Sources */,
 				04ED69581D23549200098325 /* PDDHomeData.m in Sources */,

@@ -1,0 +1,264 @@
+//
+//  home_recommend_subjectsTableViewCell.m
+//  PinDuoDuoTest
+//
+//  Created by mac on 16/6/29.
+//  Copyright © 2016年 mac. All rights reserved.
+//
+
+#import "home_recommend_subjectsTableViewCell.h"
+
+@implementation home_recommend_subjectsTableViewCell
+
+
+
+#pragma mark 先创建滚动然后布置成功再说吧
+-(instancetype)initWithFrame:(CGRect)frame
+{
+    
+    self=[super initWithFrame:frame];
+    if (self) {
+        
+    /*
+        //UIScrollView*scroll=[[UIScrollView alloc]initWithFrame:CGRectMake(5, 10, self.frame.size.width, 150)];
+      
+        NSInteger tap=22;//22还可以，。，26和30都不太好
+        NSInteger btnWidth=(self.frame.size.width*2-11*9)/10+8;//加大一些，不会感觉空空的
+        
+        UIScrollView*_MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(5, 25, self.frame.size.width, 150)];
+        // _MiddleScrollView.backgroundColor=[UIColor greenColor];
+        _MiddleScrollView.contentSize=CGSizeMake(self.frame.size.width*2+btnWidth*2+50, 100);
+        _MiddleScrollView.bounces=NO;
+        _MiddleScrollView.showsVerticalScrollIndicator=NO;
+        
+#pragma mark 暂时先留着
+        _MiddleScrollView.showsHorizontalScrollIndicator=NO;
+        
+        
+#pragma mark 不需要分页，否则一滑动就到边界了都
+        //_MiddleScrollView.pagingEnabled=YES;
+        
+#pragma mark  放错了。／／／
+       // [self addSubview:_MiddleScrollView];
+        [self.contentView addSubview:_MiddleScrollView];
+        
+        
+#pragma mark  考虑！效果里边虽然可以底部创建了滚动，然后再滚动上创建按钮点击也是可以了，但是每个图片按钮点击，都不仅仅这样，有些上边有new或者hot上边，有些么有，我们如果就做个死效果可以判断着做！，但是如果下次不同了呢？服务器给不同上边了呢？那我们在回来改代码？最好不是这样，服务器应该给我们返回参数，那些是标记new或者hot的，那些没有，这样我们可以根据这些服务器给的参数来进行显示不显示，应该都创建了标记，就看显示不显示！  还有要注意封装的，比如上边的顶部滚动有5个图片，要是下次有6个呢？所以我们这个类药高度封装，那些赋值尽可能在最外边就可以了，，这里也是，，new的可能是🆕添加的，就可能下次还需要添加，那要按钮还是集合视图（不用表，表一般上下还好，。左右的就麻烦）
+        
+        // NSInteger tap=22;//22还可以，。，26和30都不太好
+        // NSInteger btnWidth=(self.frame.size.width*2-11*9)/10+8;//加大一些，不会感觉空空的
+#pragma mark 先做个效果先吧，后边有时间完善！
+        for (int i=0 ; i<10; i++) {
+            
+            UIImageView*imag=[[UIImageView alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5, btnWidth, btnWidth)];
+            //[button setBackgroundImage:[UIImage imageNamed:[NSString stringWithFormat:@"spike_%d",i+1]] forState:UIControlStateNormal];
+            
+            
+            imag.tag=i+60;
+            
+            
+            
+            //[button addTarget:self action:@selector(ShowBtn:) forControlEvents:UIControlEventTouchUpInside];
+            imag.backgroundColor=[UIColor redColor];
+            
+            
+#pragma mark 处理按钮下边文字，用内间距：http://www.jianshu.com/p/0facdc527d8d
+            //[button setTitle:[_middleTitleArray objectAtIndex:i] forState:UIControlStateNormal];
+            
+            // button.imageView.backgroundColor=[UIColor redColor];
+            // button.titleLabel.backgroundColor=[UIColor orangeColor];
+            
+            //button.contentEdgeInsets=UIEdgeInsetsMake(10, 0, -15, 0);//慢慢调节下
+            //button.titleEdgeInsets=UIEdgeInsetsMake(80, 0, 10, 0);
+            
+#pragma mark 设置下文字大小;
+            //imag.titleLabel.font=[UIFont systemFontOfSize:12];//12左右就差不多
+            //不设置字体颜色就是白色的
+            //[button setTitleColor:[UIColor blackColor] forState:0];
+            
+            [_MiddleScrollView addSubview:imag];
+            
+            
+            UILabel*labe=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5+btnWidth, btnWidth, btnWidth)];
+            
+            labe.backgroundColor=[UIColor greenColor];
+            labe.tag=i+60;
+            labe.numberOfLines=0;
+            labe.font=[UIFont systemFontOfSize:13];
+            labe.textColor=[UIColor blackColor];
+            [_MiddleScrollView addSubview:labe];
+        }
+*/
+        
+        
+//        NSInteger tap=22;//22还可以，。，26和30都不太好
+//        NSInteger btnWidth=(self.contentView.frame.size.width*2-11*9)/10+15;//加大一些，不会感觉空空的
+//        
+//        UIScrollView*_MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 45, self.contentView.frame.size.width, 200)];
+//        _MiddleScrollView.backgroundColor=[UIColor greenColor];
+//        _MiddleScrollView.contentSize=CGSizeMake(self.contentView.frame.size.width*2.5+btnWidth, 100);
+//        _MiddleScrollView.bounces=NO;
+//        _MiddleScrollView.showsVerticalScrollIndicator=NO;
+//        
+//        _MiddleScrollView.showsHorizontalScrollIndicator=NO;
+//        
+//        
+//        [self.contentView addSubview:_MiddleScrollView];
+//        
+//        
+//        // UIImageView*imagShow=nil;
+//        for (int i=0 ; i<10; i++) {
+//            
+//            NSLog(@"1111111===%lu",(unsigned long)i);
+//            
+//            
+//            UIImageView*imagShow=[[UIImageView alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 5, btnWidth+8, btnWidth)];
+//            imagShow.tag=i+30;
+//            imagShow.backgroundColor=[UIColor redColor];
+//            [_MiddleScrollView addSubview:imagShow];
+//            UILabel*labe=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, btnWidth, btnWidth+8, btnWidth)];
+//            labe.backgroundColor=[UIColor orangeColor];
+//            labe.tag=i+60;
+//            labe.numberOfLines=0;
+//            labe.font=[UIFont systemFontOfSize:12];
+//            labe.textColor=[UIColor blackColor];
+//            [_MiddleScrollView addSubview:labe];
+//            
+//            
+//            UILabel*pricelabel=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, CGRectGetMaxY(labe.frame), btnWidth, 20)];
+//            labe.backgroundColor=[UIColor purpleColor];
+//            pricelabel.tag=i+75;
+//            pricelabel.font=[UIFont systemFontOfSize:14];
+//            pricelabel.textColor=[UIColor redColor];
+//            [_MiddleScrollView addSubview:pricelabel];
+//            
+//        }
+//        
+//        
+   
+        
+        
+    }
+    
+    return self;
+    
+    
+}
+
+#pragma mark 还有个知识点，那就是手写自定义单元格，需要写在用重用标记符的方法而不是上边initwithframe。。
+-(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self=[super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    
+    if (self) {
+        
+        
+        UILabel*subLabel=[[UILabel alloc]initWithFrame:CGRectMake(25, 10, 200, 35)];
+        //subLabel.textColor=[UIColor blackColor];
+        subLabel.tag=22;
+        subLabel.font=[UIFont systemFontOfSize:16];
+        //subLabel.backgroundColor=[UIColor redColor];
+        [self.contentView addSubview:subLabel];
+        
+        
+        UILabel*MoreLabel=[[UILabel alloc]initWithFrame:CGRectMake(300, 10, 80, 35)];
+        MoreLabel.textColor=[UIColor blackColor];
+        //MoreLabel.tag=23;
+        MoreLabel.text=@"查看更多";
+        MoreLabel.textAlignment=NSTextAlignmentRight;
+        MoreLabel.font=[UIFont systemFontOfSize:14];
+        //MoreLabel.backgroundColor=[UIColor orangeColor];
+        [self.contentView addSubview:MoreLabel];
+        
+        UIImageView*img=[[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(MoreLabel.frame), 20, 15, 15)];
+        //img.tag=24;
+        img.image=[UIImage imageNamed:@"common_icon_arrow"];
+        //img.backgroundColor=[UIColor purpleColor];
+        [self.contentView addSubview:img];
+        
+#pragma mark 用这个会有问题：self.contentView.frame
+        NSInteger tap=22;//22还可以，。，26和30都不太好
+        NSInteger btnWidth=(430*2-11*9)/10+15;//加大一些，不会感觉空空的
+        
+       // NSLog(@"CGRectGetWidth(self.frame)===%f===%f",CGRectGetWidth(self.frame),self.frame.size.width);//不知道为什么就是320
+              
+              
+#pragma mark 不知道为什么。宽度如果用CGRectGetWidth(self.frame)或者self.frame.size.width都会得不到多少距离。。宽度不到边上。。。上边输出发现，，这两个值是320，，她妈的不会是拖拽还是版本问题吧？？
+        UIScrollView*_MiddleScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 45,430, 220)];//先手动加个430左右吧
+       // _MiddleScrollView.backgroundColor=[UIColor greenColor];
+        _MiddleScrollView.contentSize=CGSizeMake(430*2.5+btnWidth, 200);
+        _MiddleScrollView.bounces=NO;
+        _MiddleScrollView.showsVerticalScrollIndicator=NO;
+        
+        _MiddleScrollView.showsHorizontalScrollIndicator=NO;
+        
+        
+        [self.contentView addSubview:_MiddleScrollView];
+        
+        
+        // UIImageView*imagShow=nil;
+        for (int i=0 ; i<10; i++) {
+            
+          //  NSLog(@"1111111===%lu",(unsigned long)i);
+            
+            
+            UIImageView*imagShow=[[UIImageView alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, 0, btnWidth+10, btnWidth+15)];
+            imagShow.tag=i+30;
+            imagShow.backgroundColor=[UIColor redColor];
+            [_MiddleScrollView addSubview:imagShow];
+            UILabel*labe=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, btnWidth+10, btnWidth+8, btnWidth)];
+            //labe.backgroundColor=[UIColor orangeColor];
+            labe.tag=i+60;
+            labe.numberOfLines=0;
+            labe.font=[UIFont systemFontOfSize:12];
+            labe.textColor=[UIColor blackColor];
+            [_MiddleScrollView addSubview:labe];
+            
+            
+            UILabel*pricelabel=[[UILabel alloc]initWithFrame:CGRectMake(tap+(tap+btnWidth)*i, CGRectGetMaxY(labe.frame)-5, btnWidth, 20)];
+            //labe.backgroundColor=[UIColor purpleColor];
+            pricelabel.tag=i+75;
+            pricelabel.font=[UIFont systemFontOfSize:14];
+            pricelabel.textColor=[UIColor redColor];
+            [_MiddleScrollView addSubview:pricelabel];
+            
+            
+#pragma mark 要想实现点击单元格就跳转，就需要在滚动上加个手势
+            UITapGestureRecognizer*tap=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapBtn:)];
+            
+            [_MiddleScrollView addGestureRecognizer:tap];
+            
+            
+        }
+        
+        
+    }
+    return self;
+}
+#pragma mark 要继承，，需要传值出去进行点击跳转，，需要导航和控制器
+-(void)tapBtn:(UITapGestureRecognizer*)tapGesture
+{
+    //输出看看可以成功麼.
+    //NSLog(@"tapGesture");
+#pragma mark 居然可以不在每一个按钮上创建都可以点击，，没处都可以
+    if ([_delegate respondsToSelector:@selector(sendGesture:gesture:)]) {
+        [_delegate sendGesture:self gesture:tapGesture];
+    }
+    
+    
+}
+
+
+
+
+- (void)awakeFromNib {
+    // Initialization code
+}
+
+- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
+    [super setSelected:selected animated:animated];
+
+    // Configure the view for the selected state
+}
+
+@end
