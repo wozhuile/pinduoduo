@@ -542,7 +542,7 @@ static NSString*cellID=@"cell";
     _pageCount=scrollView.contentOffset.x/_rankVC.frame.size.width;
 
 #pragma mark 输出坐标试试，，
-    NSLog(@"%f  ===%f",_rankVC.frame.size.width,scrollView.contentOffset.x);
+   // NSLog(@"%f  ===%f",_rankVC.frame.size.width,scrollView.contentOffset.x);
     
     
     UIButton*button=[_rankVC viewWithTag:_pageCount+110];

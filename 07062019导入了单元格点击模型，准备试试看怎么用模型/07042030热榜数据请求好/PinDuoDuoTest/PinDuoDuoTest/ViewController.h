@@ -9,6 +9,17 @@
 #import <UIKit/UIKit.h>
 
 
+@class ViewController;
+@protocol ViewControllerDataDelegate <NSObject>
+
+-(void)sendGoods_listIndex:(ViewController*)viewcontroller indexPath:(NSInteger)indexPath;
+
+@end
+
+
+
+
+
 
 #pragma mark   顶部图片传过来，要接受，需要全局变量，也要保证不被提前释放  ,声明成属性
 #import "MainView.h"
@@ -79,7 +90,8 @@
 #pragma mark 第二区的10个按钮类
 @property(nonatomic,strong)MiddlescrollTableViewCell*milldeScroll;
 
-
-
+#pragma mark 代理传值点击单元格索引过去详情界面，，进行相应请求
+@property(weak,nonatomic)id<ViewControllerDataDelegate>dataDelegate;
+//@property (nonatomic, readonly) id<UIViewControllerPreviewingDelegate> delegate NS_AVAILABLE_IOS(9_0);  和系统的代理名字重合了。。。试试看吧
 @end
 

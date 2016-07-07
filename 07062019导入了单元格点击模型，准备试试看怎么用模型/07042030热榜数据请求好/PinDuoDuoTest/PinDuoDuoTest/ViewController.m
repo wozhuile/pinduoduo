@@ -565,12 +565,15 @@ static  NSString*home_super_brandCell=@"home_super_brand";
     
     
 #pragma mark 先输出看看效果，点击对不对先
-    NSLog(@"indexPath.section===%ld  indexPath.row ===%ld",(long)indexPath.section,(long)indexPath.row);
+    //NSLog(@"indexPath.section===%ld  indexPath.row ===%ld",(long)indexPath.section,(long)indexPath.row);
     
     
     //上边可以看出来点击了。。现在做第一步跳转！！
     
-    //detailsViewController*detailVC=[[detailsViewController alloc]init];
+    
+    
+    
+   detailsViewController*detailVC=[[detailsViewController alloc]init];
     
     //[self.navigationController pushViewController:detailVC animated:YES];
     
@@ -682,16 +685,24 @@ static  NSString*home_super_brandCell=@"home_super_brand";
         PDDGoodsList*goods=obj;
         NSLog(@"PDDGoodsList===%d",(int)goods.goodsId);
         
+#pragma mark 不知道为什么，这里属性传值就可以，，但是下边的代理传值就没用效果
+        
+        detailVC.dataIndex=goods.goodsId;
+        
 #pragma mark 上边处理好了。。这里也得到goodsID了。。可以过去请求啦。。
         
         
+#pragma mark 创建代理，，让点击跳转的时候，代理传值数据过去...
         
+        if ([_dataDelegate respondsToSelector:@selector(sendGoods_listIndex:indexPath:)]) {
+            [_dataDelegate sendGoods_listIndex:self indexPath:goods.goodsId];
+        }
         
-        
+         //[self.navigationController pushViewController:detailVC animated:YES];
     }
     
-    
-    
+    //要想知道传值成功没有，就需要跳转
+     [self.navigationController pushViewController:detailVC animated:YES];
     
     
     
